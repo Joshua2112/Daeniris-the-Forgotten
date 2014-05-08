@@ -6,10 +6,14 @@
 
 package byui.CIT260.DaenirisTheForgotten.Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Joshua
  */
-interface Serializable {
+public class Enemy extends Actor implements Serializable{
+    
+    
     
 }

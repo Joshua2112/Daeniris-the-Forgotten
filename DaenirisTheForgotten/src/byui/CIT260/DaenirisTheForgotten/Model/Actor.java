@@ -6,6 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
