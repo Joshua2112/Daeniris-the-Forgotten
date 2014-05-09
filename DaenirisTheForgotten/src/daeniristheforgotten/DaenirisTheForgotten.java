@@ -29,8 +29,8 @@ public class DaenirisTheForgotten {
        goblin.setHealthPoints(10);
        goblin.setMagicPoints(0);
        
-       //String goblinInfo = goblin.toString();
-       //System.out.println(goblin.getAttack());
+       String goblinInfo = goblin.toString();
+       System.out.println(goblinInfo);
        
        World gameWorld = new World();
   
