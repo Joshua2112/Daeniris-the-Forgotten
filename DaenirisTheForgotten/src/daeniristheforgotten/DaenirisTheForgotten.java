@@ -34,6 +34,21 @@ public class DaenirisTheForgotten {
        
        String goblinInfo = goblin.toString();
        System.out.println(goblinInfo);
+       
+       PlayerCharacter Chad = new PlayerCharacter();
+       
+       Chad.setName("Chad");
+       Chad.setJob("Warrior");
+       Chad.setAttack(4);
+       Chad.setDefense(4);
+       Chad.setHealthPoints(50);
+       Chad.setMagicPoints(0);
+       Chad.setMagicAttack(0);
+       Chad.setMagicDefense(1);
+       Chad.setGender("male");
+       
+       String PCInfo = Chad.toString();
+       System.out.println(PCInfo);
 
        //Create gameworld instance
        World gameWorld = new World();
@@ -55,20 +70,7 @@ public class DaenirisTheForgotten {
        }
 
        
-       PlayerCharacter Chad = new PlayerCharacter();
-       
-       Chad.setName("Chad");
-       Chad.setJob("Warrior");
-       Chad.setAttack(4);
-       Chad.setDefense(4);
-       Chad.setHealthPoints(50);
-       Chad.setMagicPoints(0);
-       Chad.setMagicAttack(0);
-       Chad.setMagicDefense(1);
-       Chad.setGender("male");
-       
-       String PCInfo = Chad.toString();
-       System.out.println(PCInfo);
+
        
     }
     

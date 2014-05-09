@@ -13,8 +13,7 @@ import java.util.Objects;
  *
  * @author Joshua
  */
-public class PlayerCharacter extends Actor implements Serializable{
-
+public class PlayerCharacter extends Actor{
     
     private String job;
     private String gender;

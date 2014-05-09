@@ -7,13 +7,67 @@
 package byui.CIT260.DaenirisTheForgotten.Model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author Joshua
  */
-public class Enemy extends Actor implements Serializable{
+public class Enemy extends Actor{
+
+    public Enemy() {
+    }
     
-    
-    
+     private Double experienceValue;
+     private String itemsDropped;
+
+
+    public Double getExperienceValue() {
+        return experienceValue;
+    }
+
+    public void setExperienceValue(Double experienceValue) {
+        this.experienceValue = experienceValue;
+    }
+
+    public String getItemsDropped() {
+        return itemsDropped;
+    }
+
+    public void setItemsDropped(String itemsDropped) {
+        this.itemsDropped = itemsDropped;
+    }
+
+    @Override
+    public String toString() {
+        return "Enemy{" + "experienceValue=" + experienceValue + ", itemsDropped=" + itemsDropped + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.experienceValue);
+        hash = 37 * hash + Objects.hashCode(this.itemsDropped);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Enemy other = (Enemy) obj;
+        if (!Objects.equals(this.experienceValue, other.experienceValue)) {
+            return false;
+        }
+        if (!Objects.equals(this.itemsDropped, other.itemsDropped)) {
+            return false;
+        }
+        return true;
+    }
+     
+     
 }

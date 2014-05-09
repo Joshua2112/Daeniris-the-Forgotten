@@ -6,32 +6,22 @@
 
 package byui.CIT260.DaenirisTheForgotten.Model;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Joshua
  */
-public class Gear implements Serializable{
+public class Gear extends Inventory{
     
-    private String name;
     private String specialEffects;
     private Double attackBonus;
     private Double defenseBonus;
     private Double magicAttackBonus;
     private Double magicDefenseBonus;
-    private String description;
+    private String gearType;
 
     public Gear() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getSpecialEffects() {
@@ -74,29 +64,28 @@ public class Gear implements Serializable{
         this.magicDefenseBonus = magicDefenseBonus;
     }
 
-    public String getDescription() {
-        return description;
+    public String getGearType() {
+        return gearType;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setGearType(String gearType) {
+        this.gearType = gearType;
     }
 
     @Override
     public String toString() {
-        return "Gear{" + "name=" + name + ", specialEffects=" + specialEffects + ", attackBonus=" + attackBonus + ", defenseBonus=" + defenseBonus + ", magicAttackBonus=" + magicAttackBonus + ", magicDefenseBonus=" + magicDefenseBonus + ", description=" + description + '}';
+        return "Gear{" + "specialEffects=" + specialEffects + ", attackBonus=" + attackBonus + ", defenseBonus=" + defenseBonus + ", magicAttackBonus=" + magicAttackBonus + ", magicDefenseBonus=" + magicDefenseBonus + ", gearType=" + gearType + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.specialEffects);
-        hash = 53 * hash + Objects.hashCode(this.attackBonus);
-        hash = 53 * hash + Objects.hashCode(this.defenseBonus);
-        hash = 53 * hash + Objects.hashCode(this.magicAttackBonus);
-        hash = 53 * hash + Objects.hashCode(this.magicDefenseBonus);
-        hash = 53 * hash + Objects.hashCode(this.description);
+        int hash = 3;
+        hash = 19 * hash + Objects.hashCode(this.specialEffects);
+        hash = 19 * hash + Objects.hashCode(this.attackBonus);
+        hash = 19 * hash + Objects.hashCode(this.defenseBonus);
+        hash = 19 * hash + Objects.hashCode(this.magicAttackBonus);
+        hash = 19 * hash + Objects.hashCode(this.magicDefenseBonus);
+        hash = 19 * hash + Objects.hashCode(this.gearType);
         return hash;
     }
 
@@ -109,9 +98,6 @@ public class Gear implements Serializable{
             return false;
         }
         final Gear other = (Gear) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
         if (!Objects.equals(this.specialEffects, other.specialEffects)) {
             return false;
         }
@@ -127,12 +113,11 @@ public class Gear implements Serializable{
         if (!Objects.equals(this.magicDefenseBonus, other.magicDefenseBonus)) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
+        if (!Objects.equals(this.gearType, other.gearType)) {
             return false;
         }
         return true;
     }
-    
-    
+
     
 }

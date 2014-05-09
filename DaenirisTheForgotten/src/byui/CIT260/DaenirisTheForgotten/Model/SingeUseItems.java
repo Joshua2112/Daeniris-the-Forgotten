@@ -13,10 +13,9 @@ import java.util.Objects;
  *
  * @author Joshua
  */
-public class SingeUseItems implements Serializable{
+public class SingeUseItems extends Inventory{
     
     private String effects;
-    private String name;
     private String quantity;
 
     public SingeUseItems() {
@@ -30,13 +29,6 @@ public class SingeUseItems implements Serializable{
         this.effects = effects;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getQuantity() {
         return quantity;
@@ -48,14 +40,13 @@ public class SingeUseItems implements Serializable{
 
     @Override
     public String toString() {
-        return "SingeUseItems{" + "effects=" + effects + ", name=" + name + ", quantity=" + quantity + '}';
+        return "SingeUseItems{" + "effects=" + effects + ", quantity=" + quantity + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 23 * hash + Objects.hashCode(this.effects);
-        hash = 23 * hash + Objects.hashCode(this.name);
         hash = 23 * hash + Objects.hashCode(this.quantity);
         return hash;
     }
@@ -70,9 +61,6 @@ public class SingeUseItems implements Serializable{
         }
         final SingeUseItems other = (SingeUseItems) obj;
         if (!Objects.equals(this.effects, other.effects)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         if (!Objects.equals(this.quantity, other.quantity)) {
