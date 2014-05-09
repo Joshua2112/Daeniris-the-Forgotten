@@ -10,18 +10,20 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
+
 /**
  *
  * @author Nathan
  */
 public class World implements Serializable{
     
-    public int[][] map;
+    public Location[][] map = new Location[10][10];
     private int xLoc;
     private int yLoc;
     
     public World()
     {
+        /*
         map = new int[][]
         {
             { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -36,6 +38,17 @@ public class World implements Serializable{
             { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
             
         };
+        */
+        
+
+       
+       for(int i = 0; i < 10; i++)
+       {
+           for(int j = 0; j < 10; j++)
+           {
+               map[i][j] = new Location();
+           }
+       }        
         
         xLoc = 0;
         yLoc = 0;

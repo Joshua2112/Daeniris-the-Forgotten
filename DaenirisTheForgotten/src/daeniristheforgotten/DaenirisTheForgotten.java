@@ -8,6 +8,7 @@ package daeniristheforgotten;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 
@@ -37,15 +38,20 @@ public class DaenirisTheForgotten {
        //Create gameworld instance
        World gameWorld = new World();
   
+       System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
+       
        for(int i = 0; i < 10; i++)
        {
            for(int j = 0; j < 10; j++)
            {
-               System.out.print(gameWorld.map[i][j]);
+               System.out.print("| ");
+               System.out.print(gameWorld.map[i][j].getSymbol());
                System.out.print(' ');
            }
            
+           System.out.print("|");
            System.out.println();
+           System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
        }
 
        
