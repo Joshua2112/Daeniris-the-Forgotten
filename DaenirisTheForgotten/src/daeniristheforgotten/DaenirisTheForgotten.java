@@ -8,6 +8,8 @@ package daeniristheforgotten;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
+import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 
 /**
  *
@@ -19,7 +21,7 @@ public class DaenirisTheForgotten {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Actor goblin = new Actor();
+       Enemy goblin = new Enemy();
        
        goblin.setName("Uzulok");
        goblin.setAttack(2);
@@ -31,7 +33,8 @@ public class DaenirisTheForgotten {
        
        String goblinInfo = goblin.toString();
        System.out.println(goblinInfo);
-       
+
+       //Create gameworld instance
        World gameWorld = new World();
   
        for(int i = 0; i < 10; i++)
@@ -44,6 +47,23 @@ public class DaenirisTheForgotten {
            
            System.out.println();
        }
+
+       
+       PlayerCharacter Chad = new PlayerCharacter();
+       
+       Chad.setName("Chad");
+       Chad.setJob("Warrior");
+       Chad.setAttack(4);
+       Chad.setDefense(4);
+       Chad.setHealthPoints(50);
+       Chad.setMagicPoints(0);
+       Chad.setMagicAttack(0);
+       Chad.setMagicDefense(1);
+       Chad.setGender("male");
+       
+       String PCInfo = Chad.toString();
+       System.out.println(PCInfo);
+       
     }
     
 }
