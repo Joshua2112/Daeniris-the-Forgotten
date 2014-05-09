@@ -7,6 +7,7 @@
 package daeniristheforgotten;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
 
 /**
  *
@@ -28,8 +29,21 @@ public class DaenirisTheForgotten {
        goblin.setHealthPoints(10);
        goblin.setMagicPoints(0);
        
-       String goblinInfo = goblin.toString();
-       System.out.println(goblinInfo);
+       //String goblinInfo = goblin.toString();
+       //System.out.println(goblin.getAttack());
+       
+       World gameWorld = new World();
+  
+       for(int i = 0; i < 10; i++)
+       {
+           for(int j = 0; j < 10; j++)
+           {
+               System.out.print(gameWorld.map[i][j]);
+               System.out.print(' ');
+           }
+           
+           System.out.println();
+       }
     }
     
 }
