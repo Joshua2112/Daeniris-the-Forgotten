@@ -14,10 +14,11 @@ import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 
 
 public class DaenirisTheForgotten 
-    
-    //Create Enemey Instance-------------------------------------------
-
-    public static void main(String[] args) {
+{  
+    public static void main(String[] args) 
+    {
+       //Create Enemey Instance-------------------------------------------
+        
        Enemy goblin = new Enemy();
        
        goblin.setName("Uzulok");
