@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************************
+ * Dungeon Class (Sub-Class of Location)
+ * Author: Nathan Wittmann
+ * Creates a special location for a dungeon on the map. 
+ *********************************************************************/
 
 package byui.CIT260.DaenirisTheForgotten.Model;
 import java.io.Serializable;

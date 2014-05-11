@@ -1,7 +1,7 @@
 /*********************************************************************
  * Shop Sub-Class  (Child of the Location Class)
  * Author: Nathan Wittmann
- * Class that contains data for items that are located in the shop.
+ * Class that contains a special Shop location on the map. 
  *********************************************************************/
 
 package byui.CIT260.DaenirisTheForgotten.Model;

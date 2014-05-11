@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+/*********************************************************************
+ * RawMaterial Class (Child of Inventory)
+ * Author: Nathan Wittmann
+ * Data that pertains to resources gathered. 
+ *********************************************************************/
 package byui.CIT260.DaenirisTheForgotten.Model;
 import java.io.Serializable;
 import java.util.Objects;
