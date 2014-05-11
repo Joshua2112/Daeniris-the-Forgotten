@@ -62,7 +62,6 @@ public class DaenirisTheForgotten
            for(int j = 0; j < 10; j++)
            {
                System.out.print("| ");
-               //System.out.print(gameWorld.map[i][j].getSymbol());
                System.out.print(mapArray[i][j].getSymbol());
                System.out.print(' ');
            }
