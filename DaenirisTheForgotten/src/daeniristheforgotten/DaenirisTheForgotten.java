@@ -28,6 +28,8 @@ public class DaenirisTheForgotten
        goblin.setMagicDefense(0);
        goblin.setHealthPoints(10);
        goblin.setMagicPoints(0);
+       goblin.setExperienceValue(20);
+       goblin.setItemsDropped("Health Potion");
        
        String goblinInfo = goblin.toString();
        System.out.println(goblinInfo);

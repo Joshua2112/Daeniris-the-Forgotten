@@ -18,15 +18,15 @@ public class Enemy extends Actor{
     public Enemy() {
     }
     
-     private Double experienceValue;
+     private double experienceValue;
      private String itemsDropped;
 
 
-    public Double getExperienceValue() {
+    public double getExperienceValue() {
         return experienceValue;
     }
 
-    public void setExperienceValue(Double experienceValue) {
+    public void setExperienceValue(double experienceValue) {
         this.experienceValue = experienceValue;
     }
 
