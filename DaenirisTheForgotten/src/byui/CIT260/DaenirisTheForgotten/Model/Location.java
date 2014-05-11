@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************************
+ * Location Sub Class  (Child of the World Class)
+ * Author: Nathan Wittmann
+ * Creates various locations that are located on the world map.
+ *********************************************************************/
 
 package byui.CIT260.DaenirisTheForgotten.Model;
 
@@ -11,55 +11,64 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Random;
 
-/**
- *
- * @author Nathan
- */
-public class Location implements Serializable 
+public abstract class Location implements Serializable 
 {
     private String name;
     private char   symbol;
+    private String description;
 
-    public Location()
-    {
-        Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(5);
-        
-        if (randomInt == 1)
-        {
-            name = "Tree";
-            symbol = 'T';
-        }
-        else if (randomInt == 2)
-        {
-            name = "Rock";
-            symbol = 'R';
-        }
-        else
-        {
-            name = "Nothing";
-            symbol = 'o';
-        }
-        
-    }
-    
-    public String getName() 
-    {
+    //Constructor
+    public Location(){}
+
+    //Getters
+    public String getName() {
         return name;
     }
 
-    public void setName(String name) 
-    {
-        this.name = name;
-    }
-    
-        public char getSymbol() 
-    {
+    public char getSymbol() {
         return symbol;
     }
+    
+    //Setters
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void setName(char symbol) 
-    {
+    public void setSymbol(char symbol) {
         this.symbol = symbol;
     }
+
+    //Other Functions
+    @Override
+    public String toString() {
+        return "Location{" + "name=" + name + ", symbol=" + symbol + '}';
+    }    
+    
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + this.symbol;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Location other = (Location) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (this.symbol != other.symbol) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

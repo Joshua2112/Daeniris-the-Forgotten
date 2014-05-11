@@ -36,12 +36,22 @@ public class PlayerCharacter extends Actor{
     public void setGender(String gender) {
         this.gender = gender;
     }
-
-    @Override
+    
+        @Override
     public String toString() {
-        return "PlayerCharacter{" + "job=" + job + ", gender=" + gender + '}';
+        String newline = System.getProperty("line.separator");
+        return "Character (Player):"                         + newline
+                + "name= "         + this.getName()          + newline
+                + "gender= "       + gender                  + newline
+                + "job= "          + job                     + newline
+                + "attack= "       + this.getAttack()        + newline
+                + "defense= "      + this.getDefense()       + newline
+                + "magicAttack= "  + this.getMagicAttack()   + newline
+                + "magicDefense= " + this.getMagicDefense()  + newline
+                + "healthPoints= " + this.getHealthPoints()  + newline
+                + "magicPoints= "  + this.getMagicPoints()   + newline;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 3;

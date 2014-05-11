@@ -40,9 +40,21 @@ public class Enemy extends Actor{
 
     @Override
     public String toString() {
-        return "Enemy{" + "experienceValue=" + experienceValue + ", itemsDropped=" + itemsDropped + '}';
+        String newline = System.getProperty("line.separator");
+        return "Character (Enemy):"                            + newline
+                + "name= "            + this.getName()         + newline
+                + "attack= "          + this.getAttack()       + newline
+                + "defense= "         + this.getDefense()      + newline
+                + "magicAttack= "     + this.getMagicAttack()  + newline
+                + "magicDefense= "    + this.getMagicDefense() + newline
+                + "healthPoints= "    + this.getHealthPoints() + newline
+                + "magicPoints= "     + this.getMagicPoints()  + newline
+                + "experienceValue= " + experienceValue        + newline
+                + "itemsDropped= "    + itemsDropped           + newline;
     }
-
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 5;

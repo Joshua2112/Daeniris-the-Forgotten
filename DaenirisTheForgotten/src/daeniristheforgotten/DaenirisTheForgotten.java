@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************************
+ * Daeniris The Forgotten (Role Playing Game)
+ * Author: Joshua & Nathan Wittmann
+ * Game Main
+ *********************************************************************/
 
 package daeniristheforgotten;
 
@@ -12,15 +12,11 @@ import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 
-/**
- *
- * @author Joshua
- */
-public class DaenirisTheForgotten {
 
-    /**
-     * @param args the command line arguments
-     */
+public class DaenirisTheForgotten 
+    
+    //Create Enemey Instance-------------------------------------------
+
     public static void main(String[] args) {
        Enemy goblin = new Enemy();
        
@@ -34,6 +30,8 @@ public class DaenirisTheForgotten {
        
        String goblinInfo = goblin.toString();
        System.out.println(goblinInfo);
+       
+       //Create Player Instance----------------------------------------
        
        PlayerCharacter Chad = new PlayerCharacter();
        
@@ -50,28 +48,27 @@ public class DaenirisTheForgotten {
        String PCInfo = Chad.toString();
        System.out.println(PCInfo);
 
-       //Create gameworld instance
+       //Create gameworld instance -------------------------------------
+       
        World gameWorld = new World();
-  
+       
+       System.out.println("Game World Map");
        System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
        
        for(int i = 0; i < 10; i++)
        {
+           Location[][] mapArray = gameWorld.getMap();
            for(int j = 0; j < 10; j++)
            {
                System.out.print("| ");
-               System.out.print(gameWorld.map[i][j].getSymbol());
+               //System.out.print(gameWorld.map[i][j].getSymbol());
+               System.out.print(mapArray[i][j].getSymbol());
                System.out.print(' ');
            }
            
            System.out.print("|");
            System.out.println();
            System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
-       }
-
-       
-
-       
-    }
-    
+       }  
+    }    
 }
