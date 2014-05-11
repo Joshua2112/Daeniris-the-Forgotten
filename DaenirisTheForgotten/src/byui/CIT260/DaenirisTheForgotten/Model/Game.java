@@ -1,3 +1,5 @@
+package byui.CIT260.DaenirisTheForgotten.Model;
+
 /*********************************************************************
  * Game Class
  * Author: Nathan Wittmann
