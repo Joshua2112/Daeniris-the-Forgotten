@@ -17,13 +17,18 @@ public class BattleControlTest {
     
     public BattleControlTest() {
     }
-
-    /**
-     * Test of attackDamageCalc method, of class BattleControl.
-     */
+    
     @Test
+    
+
     public void testAttackDamageCalc() {
-        System.out.println("attackDamageCalc");
+        System.out.println("Calcualte Attack Damage");
+        
+    /**************************************************************************
+     * Test #1
+     **************************************************************************/
+        
+        System.out.println("\t TEST #1 Valid");
         int totalAttack = 20;
         int enemyDefense = 10;
         boolean hit = true;
@@ -32,8 +37,86 @@ public class BattleControlTest {
         int expResult = 20;
         int result = instance.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
+
+    /**************************************************************************
+     * Test #2
+     **************************************************************************/
+
+        System.out.println("\t TEST #2 Valid");
+        totalAttack = 20;
+        enemyDefense = 10;
+        hit = true;
+        critical = false;
+        expResult = 10;
+        result = instance.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
+        assertEquals(expResult, result);
+
+        
+    /**************************************************************************
+     * Test #3
+     **************************************************************************/
+
+        System.out.println("\t TEST #3 Lower Range");
+        totalAttack = 20;
+        enemyDefense = 10;
+        hit = false;
+        critical = false;
+        expResult = 0;
+        result = instance.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
+        assertEquals(expResult, result);
+        
+    /**************************************************************************
+     * Test #4
+     **************************************************************************/
+
+        System.out.println("\t TEST #4 Lower Range");
+        totalAttack = 20;
+        enemyDefense = 10;
+        hit = false;
+        critical = true;
+        expResult = 0;
+        result = instance.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
+        assertEquals(expResult, result);
+        
+    /**************************************************************************
+     * Test #5
+     **************************************************************************/
+
+        System.out.println("\t TEST #5 Invalid");
+        totalAttack = -3;
+        enemyDefense = 10;
+        hit = true;
+        critical = true;
+        expResult = -1;
+        result = instance.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
+        assertEquals(expResult, result);        
+    
+    /**************************************************************************
+     * Test #6
+     **************************************************************************/
+
+        System.out.println("\t TEST #6 Upper Range");
+        totalAttack = 20;
+        enemyDefense = -3;
+        hit = true;
+        critical = true;
+        expResult = 46;
+        result = instance.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
+        assertEquals(expResult, result);
+
+    /**************************************************************************
+     * Test #7
+     **************************************************************************/
+
+        System.out.println("\t TEST #7 Valid");
+        totalAttack = 20;
+        enemyDefense = 30;
+        hit = true;
+        critical = true;
+        expResult = 0;
+        result = instance.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
+        assertEquals(expResult, result);    
+    
+    }        
 }
