@@ -24,6 +24,9 @@ public class ShoppingTest {
     @Test
     public void testPurchaseItem() {
         System.out.println("purchaseItem");
+        /*test 1 */
+        
+        System.out.println("/ttest 1");
         boolean itemAvailable = true;
         int result;
         int playerGold = 30;
@@ -33,7 +36,40 @@ public class ShoppingTest {
         int expResult = 1;
         result = instance.purchaseItem(itemAvailable, playerGold, itemCost, quantityOfItem);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        
+        
+        
+        System.out.println("/ttest 2");
+        itemAvailable = false;
+        playerGold = 30;
+        itemCost = 20;
+        quantityOfItem = 0;
+        expResult = -1;
+        result = instance.purchaseItem(itemAvailable, playerGold, itemCost, quantityOfItem);
+        assertEquals(expResult, result);
+        
+        System.out.println("/ttest 3");
+        itemAvailable = true;
+        playerGold = 10;
+        itemCost = 20;
+        quantityOfItem = 0;
+        expResult = -1;
+        result = instance.purchaseItem(itemAvailable, playerGold, itemCost, quantityOfItem);
+        assertEquals(expResult, result);
+        
+        System.out.println("/ttest 4");
+        itemAvailable = true;
+        playerGold = 30;
+        itemCost = 0;
+        quantityOfItem = 0;
+        expResult = 1;
+        result = instance.purchaseItem(itemAvailable, playerGold, itemCost, quantityOfItem);
+        assertEquals(expResult, result);
+        
+        
+
+        
+
         
     }
     
