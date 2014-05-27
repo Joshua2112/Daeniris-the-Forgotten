@@ -11,7 +11,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.World;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
-
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 
 public class DaenirisTheForgotten 
 {  
@@ -50,6 +50,18 @@ public class DaenirisTheForgotten
        
        String PCInfo = Chad.toString();
        System.out.println(PCInfo);
+       
+       //Create Player Instance----------------------------------------
+       
+       Spells gameSpells = new Spells();
+       
+       gameSpells.setSpellName("weaken I");
+       gameSpells.setAttackDamage(0);
+       gameSpells.setMagicCost(10);
+       gameSpells.setSpecialEffects(0.15);
+       
+       String spellInfo = gameSpells.toString();
+       System.out.println(spellInfo);
 
        //Create gameworld instance -------------------------------------
        

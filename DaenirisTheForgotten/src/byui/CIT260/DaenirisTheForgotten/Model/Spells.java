@@ -15,12 +15,22 @@ import java.util.Objects;
  */
 public class Spells implements Serializable{
     
+    private String spellName;
     private String target;
-    private Double attackDamage;
-    private Double magicCost;
-    private String specialEffects;
+    private int attackDamage;
+    private int magicCost;
+    private double specialEffects;
 
     public Spells() {
+        
+    }
+
+    public String getSpellName() {
+        return spellName;
+    }
+
+    public void setSpellName(String spellName) {
+        this.spellName = spellName;
     }
 
     public String getTarget() {
@@ -31,42 +41,49 @@ public class Spells implements Serializable{
         this.target = target;
     }
 
-    public Double getAttackDamage() {
+    public int getAttackDamage() {
         return attackDamage;
     }
 
-    public void setAttackDamage(Double attackDamage) {
+    public void setAttackDamage(int attackDamage) {
         this.attackDamage = attackDamage;
     }
 
-    public Double getMagicCost() {
+    public int getMagicCost() {
         return magicCost;
     }
 
-    public void setMagicCost(Double magicCost) {
+    public void setMagicCost(int magicCost) {
         this.magicCost = magicCost;
     }
 
-    public String getSpecialEffects() {
+    public double getSpecialEffects() {
         return specialEffects;
     }
 
-    public void setSpecialEffects(String specialEffects) {
+    public void setSpecialEffects(double specialEffects) {
         this.specialEffects = specialEffects;
     }
 
     @Override
     public String toString() {
-        return "Spells{" + "target=" + target + ", attackDamage=" + attackDamage + ", magicCost=" + magicCost + ", specialEffects=" + specialEffects + '}';
+        String newline = System.getProperty("line.separator");
+        return "Spell:"                            + newline
+                + "spellName= "            + this.getSpellName()      + newline
+                + "target= "               + this.getTarget()         + newline
+                + "attackDamage= "         + this.getAttackDamage()   + newline
+                + "magicCost= "            + this.getMagicCost()      + newline
+                + "specialEffects= "       + this.getSpecialEffects() + newline;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.target);
-        hash = 97 * hash + Objects.hashCode(this.attackDamage);
-        hash = 97 * hash + Objects.hashCode(this.magicCost);
-        hash = 97 * hash + Objects.hashCode(this.specialEffects);
+        int hash = 5;
+        hash = 61 * hash + Objects.hashCode(this.spellName);
+        hash = 61 * hash + Objects.hashCode(this.target);
+        hash = 61 * hash + Objects.hashCode(this.attackDamage);
+        hash = 61 * hash + Objects.hashCode(this.magicCost);
+        hash = 61 * hash + Objects.hashCode(this.specialEffects);
         return hash;
     }
 
@@ -79,6 +96,9 @@ public class Spells implements Serializable{
             return false;
         }
         final Spells other = (Spells) obj;
+        if (!Objects.equals(this.spellName, other.spellName)) {
+            return false;
+        }
         if (!Objects.equals(this.target, other.target)) {
             return false;
         }
@@ -93,6 +113,11 @@ public class Spells implements Serializable{
         }
         return true;
     }
+
+
+    
+    
+
     
     
             
