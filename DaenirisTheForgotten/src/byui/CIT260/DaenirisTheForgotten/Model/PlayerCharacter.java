@@ -17,6 +17,7 @@ public class PlayerCharacter extends Actor{
     
     private String job;
     private String gender;
+    private int playerGold;
 
     public PlayerCharacter() {
     }
