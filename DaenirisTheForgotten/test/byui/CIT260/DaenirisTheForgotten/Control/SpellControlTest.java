@@ -24,14 +24,13 @@ public class SpellControlTest {
     @Test
     public void testWeakenSpell() {
         System.out.println("weakenSpell");
-        double specialEffect = 0.0;
-        int enemyDefense = 0;
+        double specialEffect = 0.5;
+        int enemyDefense = 8;
         SpellControl instance = new SpellControl();
-        int expResult = 0;
+        int expResult = 4;
         int result = instance.weakenSpell(specialEffect, enemyDefense);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
 }
