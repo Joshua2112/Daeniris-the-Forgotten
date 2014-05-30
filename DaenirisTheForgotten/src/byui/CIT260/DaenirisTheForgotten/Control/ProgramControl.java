@@ -14,7 +14,9 @@ public class ProgramControl {
 
     public static Player createPlayer(String playersName) {
         System.out.println("createPlayer function was called");
-        return null;
+        Player player = new Player();
+        player.setName(playersName);
+        return player;
     }
     
     public class Player{
