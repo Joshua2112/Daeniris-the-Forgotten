@@ -7,7 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
-import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl.Player;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import java.util.Scanner;
 
 /**
@@ -23,47 +23,42 @@ public class ProgramStart{
             
         this.displayBanner();
             
-            String playersName = this.getPlayersName();
-            if (playersName == null)
+            String playerCharactersName = this.getPlayerCharactersName();
+            if (playerCharactersName == null)
                 return;
             
-            Player player = ProgramControl.createPlayer(playersName);
+            PlayerCharacter playerCharacter = ProgramControl.createPlayerCharacter(playerCharactersName);
             
-            this.displayWelcomeMessage(player);
+            this.displayWelcomeMessage(playerCharacter);
             
             MainMenuView mainMenuView = new MainMenuView();
             mainMenuView.displayMenu();
             
             }
 
-    public void displayWelcomeMessage(Player player) {
-        System.out.println("Welcome to the game" + player.getName());
-        
-    }
     
-
         public void displayBanner(){
         
         System.out.println("this is the display message");
     }
     
-    public String getPlayersName(){
+    public String getPlayerCharactersName(){
         boolean valid = false;
-        String playersName = null;
+        String playerCharactersName = null;
         Scanner keyboard = new Scanner(System.in);
         
         while(!valid){
             
             System.out.println("Please enter player name");
             
-            playersName = keyboard.nextLine();
-            playersName = playersName.trim();
+            playerCharactersName = keyboard.nextLine();
+            playerCharactersName = playerCharactersName.trim();
             
-            if (playersName.toUpperCase().equals("Q")){
+            if (playerCharactersName.toUpperCase().equals("Q")){
                 return null;
             }
             
-            if (playersName.length() < 2){
+            if (playerCharactersName.length() < 2){
                 System.out.println("Invalid name - the name must be greater than one character in length");
                 
             }           
@@ -71,8 +66,13 @@ public class ProgramStart{
                 valid = true;
             }
         }
-        return playersName;
+        return playerCharactersName;
     }   
+    
+        public void displayWelcomeMessage(PlayerCharacter playerCharacter) {
+        System.out.println("Welcome to the game" + playerCharacter.getName());
+        
+    }
     
     
 }
