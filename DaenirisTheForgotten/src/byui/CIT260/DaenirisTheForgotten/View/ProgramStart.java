@@ -70,7 +70,7 @@ public class ProgramStart{
     }   
     
         public void displayWelcomeMessage(PlayerCharacter playerCharacter) {
-        System.out.println("Welcome to the game" + playerCharacter.getName());
+        System.out.println("Welcome to the game " + playerCharacter.getName());
         
     }
     

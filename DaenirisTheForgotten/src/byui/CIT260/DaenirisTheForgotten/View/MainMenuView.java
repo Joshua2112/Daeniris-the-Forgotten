@@ -14,9 +14,9 @@ public class MainMenuView {
     
         public void displayMenu(){
         
-        System.out.println("/n/tEnter /'s/' to start new game"
-                + "         /n/tEnter /'l/' to load previously saved game"
-                + "         /n/tEnter /'q/' to quit to the desktop");
+        System.out.println("\n\tEnter \'s\' to start new game"
+                + "         \n\tEnter \'l\' to load previously saved game"
+                + "         \n\tEnter \'q\' to quit to the desktop");
     }
     
 }
