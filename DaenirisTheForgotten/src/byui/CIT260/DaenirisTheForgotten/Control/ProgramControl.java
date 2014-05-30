@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
  *
@@ -21,6 +22,9 @@ public class ProgramControl {
         System.out.println("createPlayerCharacter function was called");
         PlayerCharacter playerCharacter = new PlayerCharacter();
         playerCharacter.setName(playerCharactersName);
+        
+        DaenirisTheForgotten.setPlayerCharacter(playerCharacter);
+        
         return playerCharacter;
     }
     
