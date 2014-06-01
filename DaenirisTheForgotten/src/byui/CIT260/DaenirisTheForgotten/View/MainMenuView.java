@@ -6,17 +6,22 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import daeniristheforgotten.DaenirisTheForgotten;
+import java.util.Scanner;
+
 /**
  *
  * @author Joshua
  */
 public class MainMenuView {
     
-        private final String MENU ="\n\tEnter \'s\' to start new game"
-                                  +"\n\tEnter \'l\' to load previously saved game"
+        private final String MENU ="\n\tEnter \'n\' to start new game"
+                                  +"\n\tEnter \'h\' for the help menu"
+                                  +"\n\tEnter \'s\' to save current game"
+                                  +"\n\tEnter \'l\' to load previously saved game"                                  
                                   +"\n\tEnter \'q\' to quit to the desktop";
-    
-        
+                  
     public void displayMenu(){
 
         char selection = ' ';
@@ -29,16 +34,58 @@ public class MainMenuView {
 
             this.doAction(selection);
 
-        }while (selection != 'E');
+        }while (selection != 'e');
+    }               
 
-}    
-
-    private String getInput() {
-        System.out.println("getInput function called");
-            return null;
-    }
-
-    private void doAction(char selection) {
-        System.out.println("doAction function called");
+    public String getInput() {
+        
+        boolean valid = false;
+        String input = null;
+        Scanner keyboard = new Scanner(System.in);
+        
+        while(!valid){
+            
+            System.out.println("Please choose option");
+            
+            input = keyboard.nextLine();
+            input = input.trim();
+            
+            if (input.toUpperCase().equals("e")){
+                return null;
+            }
+                           
+            else{
+                valid = true;
+            }
+        }
+        return input;
+        }
+    
+    public void doAction(char choice){
+        
+         switch (choice){
+            case 'n':
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.displayMenu();
+                break;
+            case 'h':
+                HelpMenuView helpMenu = new HelpMenuView();
+                helpMenu.displayMenu();
+                break;
+            case 's':
+                ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
+                break;
+            case 'l':
+                ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
+                break;
+            case 'q':
+                return;
+            default:
+                System.out.println("Invalid selection, try again");
+                break;
+        }
+               
     }
 }
+
+

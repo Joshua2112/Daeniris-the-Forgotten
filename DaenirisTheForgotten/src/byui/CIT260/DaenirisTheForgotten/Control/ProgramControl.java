@@ -6,6 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.Control;
 
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
 
@@ -14,6 +15,14 @@ import daeniristheforgotten.DaenirisTheForgotten;
  * @author Joshua
  */
 public class ProgramControl {
+
+    public static void saveGame(Game currentGame) {
+        System.out.println("Save game function called");
+    }
+
+    public static void loadGame(Game currentGame) {
+        System.out.println("Load game function called");
+    }
     
     public class Player{       
     }
@@ -26,8 +35,5 @@ public class ProgramControl {
         DaenirisTheForgotten.setPlayerCharacter(playerCharacter);
         
         return playerCharacter;
-    }
-    
-    
-    
+    }            
 }

@@ -16,7 +16,9 @@ import java.util.Scanner;
  */
 public class ProgramStart{
     
-
+    public void displayWelcomeMessage(PlayerCharacter playerCharacter) {
+            System.out.println("Welcome to the game " + playerCharacter.getName());        
+            }
     
               
     public void startProgram(){
@@ -33,9 +35,7 @@ public class ProgramStart{
             
             MainMenuView mainMenuView = new MainMenuView();
             mainMenuView.displayMenu();
-            
-            }
-
+    }            
     
         public void displayBanner(){
         
@@ -43,13 +43,14 @@ public class ProgramStart{
     }
     
     public String getPlayerCharactersName(){
+        
         boolean valid = false;
         String playerCharactersName = null;
         Scanner keyboard = new Scanner(System.in);
         
         while(!valid){
             
-            System.out.println("Please enter player name");
+            System.out.println("Please enter character's name");
             
             playerCharactersName = keyboard.nextLine();
             playerCharactersName = playerCharactersName.trim();
@@ -59,22 +60,13 @@ public class ProgramStart{
             }
             
             if (playerCharactersName.length() < 2){
-                System.out.println("Invalid name - the name must be greater than one character in length");
-                
-            }           
+                System.out.println("Invalid name, must be greater than 2 characters in length");
+            }
+                           
             else{
                 valid = true;
             }
         }
         return playerCharactersName;
-    }   
-    
-        public void displayWelcomeMessage(PlayerCharacter playerCharacter) {
-        System.out.println("Welcome to the game " + playerCharacter.getName());
-        
-    }
-    
-    
-}
-
-
+        }                 
+}                        
