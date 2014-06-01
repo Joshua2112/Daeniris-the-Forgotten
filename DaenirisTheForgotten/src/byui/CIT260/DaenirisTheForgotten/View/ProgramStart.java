@@ -39,7 +39,17 @@ public class ProgramStart{
     
         public void displayBanner(){
         
-        System.out.println("this is the display message");
+        System.out.println("\n*************************************"
+                          +"\n* Welcome to Daeniris the Forgotten *"
+                          +"\n*                                   *"
+                          +"\n* This will be the start of a great *"
+                          +"\n* adventure.  Your hero will become *"
+                          +"\n* a champion of the people.  You    *"
+                          +"\n* will need to use your smarts to   *"
+                          +"\n* save the people, and the people   *"
+                          +"\n* will ever be gratefull.           *"
+                          +"\n*                                   *"
+                          +"\n*         Good luck to you          *");
     }
     
     public String getPlayerCharactersName(){
@@ -50,7 +60,7 @@ public class ProgramStart{
         
         while(!valid){
             
-            System.out.println("Please enter character's name");
+            System.out.println("\nPlease enter character's name");
             
             playerCharactersName = keyboard.nextLine();
             playerCharactersName = playerCharactersName.trim();
