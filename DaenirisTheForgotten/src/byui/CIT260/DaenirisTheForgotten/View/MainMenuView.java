@@ -34,7 +34,7 @@ public class MainMenuView {
 
             this.doAction(selection);
 
-        }while (selection != 'e');
+        }while (selection != 'q');
     }               
 
     public String getInput() {
@@ -50,7 +50,7 @@ public class MainMenuView {
             input = keyboard.nextLine();
             input = input.trim();
             
-            if (input.toUpperCase().equals("e")){
+            if (input.toUpperCase().equals("Q")){
                 return null;
             }
                            
