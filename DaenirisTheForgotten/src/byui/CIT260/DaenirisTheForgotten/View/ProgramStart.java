@@ -7,7 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
-import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl.Player;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import java.util.Scanner;
 
 /**
@@ -16,65 +16,67 @@ import java.util.Scanner;
  */
 public class ProgramStart{
     
-
+    public void displayWelcomeMessage(PlayerCharacter playerCharacter) {
+            System.out.println("Welcome to the game " + playerCharacter.getName());        
+            }
     
               
     public void startProgram(){
             
         this.displayBanner();
             
-            String playersName = this.getPlayersName();
-            if (playersName == null)
+            String playerCharactersName = this.getPlayerCharactersName();
+            if (playerCharactersName == null)
                 return;
             
-            Player player = ProgramControl.createPlayer(playersName);
+            PlayerCharacter playerCharacter = ProgramControl.createPlayerCharacter(playerCharactersName);
             
-            this.displayWelcomeMessage(player);
+            this.displayWelcomeMessage(playerCharacter);
             
             MainMenuView mainMenuView = new MainMenuView();
             mainMenuView.displayMenu();
-            
-            }
-
-    public void displayWelcomeMessage(Player player) {
-        System.out.println("Welcome to the game" + player.getName());
-        
-    }
+    }            
     
-
         public void displayBanner(){
         
-        System.out.println("this is the display message");
+        System.out.println("\n*************************************"
+                          +"\n* Welcome to Daeniris the Forgotten *"
+                          +"\n*                                   *"
+                          +"\n* This will be the start of a great *"
+                          +"\n* adventure.  Your hero will become *"
+                          +"\n* a champion of the people.  You    *"
+                          +"\n* will need to use your smarts to   *"
+                          +"\n* save the people, and the people   *"
+                          +"\n* will ever be gratefull.           *"
+                          +"\n*                                   *"
+                          +"\n*         Good luck to you          *");
     }
     
-    public String getPlayersName(){
+    public String getPlayerCharactersName(){
+        
         boolean valid = false;
-        String playersName = null;
+        String playerCharactersName = null;
         Scanner keyboard = new Scanner(System.in);
         
         while(!valid){
             
-            System.out.println("Please enter player name");
+            System.out.println("\nPlease enter character's name");
             
-            playersName = keyboard.nextLine();
-            playersName = playersName.trim();
+            playerCharactersName = keyboard.nextLine();
+            playerCharactersName = playerCharactersName.trim();
             
-            if (playersName.toUpperCase().equals("Q")){
+            if (playerCharactersName.toUpperCase().equals("Q")){
                 return null;
             }
             
-            if (playersName.length() < 2){
-                System.out.println("Invalid name - the name must be greater than one character in length");
-                
-            }           
+            if (playerCharactersName.length() < 2){
+                System.out.println("Invalid name, must be greater than 2 characters in length");
+            }
+                           
             else{
                 valid = true;
             }
         }
-        return playersName;
-    }   
-    
-    
-}
-
-
+        return playerCharactersName;
+        }                 
+}                        

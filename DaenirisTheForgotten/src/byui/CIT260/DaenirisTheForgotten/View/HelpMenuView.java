@@ -14,13 +14,13 @@ import java.util.Scanner;
  *
  * @author Joshua
  */
-public class MainMenuView {
-    
-        private final String MENU ="\n\tEnter \'n\' to start new game"
-                                  +"\n\tEnter \'h\' for the help menu"
-                                  +"\n\tEnter \'s\' to save current game"
-                                  +"\n\tEnter \'l\' to load previously saved game"                                  
-                                  +"\n\tEnter \'q\' to quit to the desktop";
+class HelpMenuView {
+
+    private final String MENU ="\n\tg - goal of Daeniris the Forgotten"
+                              +"\n\tp - how to play" 
+                              +"\n\ti - general information"
+                              +"\n\th - hints about the game"                                 
+                              +"\n\tq - exit the help menu";
                   
     public void displayMenu(){
 
@@ -64,19 +64,17 @@ public class MainMenuView {
     public void doAction(char choice){
         
          switch (choice){
-            case 'n':
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.displayMenu();
+            case 'g':
+                System.out.println("You will create a hero and go on a quest with them to protect the innocent people of the land from an ancient evil.");
+                break;
+            case 'p':
+                System.out.println("Instruction on how to play");
+                break;
+            case 'i':
+                System.out.println("General information about the game");
                 break;
             case 'h':
-                HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu();
-                break;
-            case 's':
-                ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
-                break;
-            case 'l':
-                ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
+                System.out.println("Hints about the game and deeper gameplay mechanics");
                 break;
             case 'q':
                 return;
@@ -86,6 +84,5 @@ public class MainMenuView {
         }
                
     }
+    
 }
-
-

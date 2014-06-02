@@ -6,21 +6,34 @@
 
 package byui.CIT260.DaenirisTheForgotten.Control;
 
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
+
 /**
  *
  * @author Joshua
  */
 public class ProgramControl {
 
-    public static Player createPlayer(String playersName) {
-        System.out.println("createPlayer function was called");
-        Player player = new Player();
-        player.setName(playersName);
-        return player;
+    public static void saveGame(Game currentGame) {
+        System.out.println("Save game function called");
+    }
+
+    public static void loadGame(Game currentGame) {
+        System.out.println("Load game function called");
     }
     
-    public class Player{
+    public class Player{       
+    }
+
+    public static PlayerCharacter createPlayerCharacter(String playerCharactersName) {
+        System.out.println("createPlayerCharacter function was called");
+        PlayerCharacter playerCharacter = new PlayerCharacter();
+        playerCharacter.setName(playerCharactersName);
         
-    }
-    
+        DaenirisTheForgotten.setPlayerCharacter(playerCharacter);
+        
+        return playerCharacter;
+    }            
 }
