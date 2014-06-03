@@ -1,0 +1,85 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package byui.CIT260.DaenirisTheForgotten.View;
+
+import byui.CIT260.DaenirisTheForgotten.Control.PlayerCharacterGenderControl;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Joshua
+ */
+public class EnterGenderView {
+    
+    Scanner keyboard = new Scanner(System.in);
+    
+        private final String enterGender ="\n\tPlease choose a gender for your hero"
+                                         +"\n\tMale or Female"
+                                         +"\n\t\'quit\' to exit";
+        
+        public void displayMenu(){
+
+            String selection = null;
+            do {
+            
+            System.out.println(enterGender);
+
+            String input = this.getInput();
+            selection = input;
+            selection = selection.toUpperCase();
+
+            this.doAction(selection);
+
+            }while (!selection.equals("QUIT"));
+        }               
+
+        public String getInput() {
+        
+            boolean valid = false;
+            String input = null;
+        
+            while(!valid){
+            
+                System.out.println("Please choose option");
+            
+                input = keyboard.nextLine();
+                input = input.trim();
+            
+                if (input.toUpperCase().equals("QUIT")){
+                    return null;
+                }
+                           
+                else{
+                    valid = true;
+                }
+            }
+            return input;
+        }
+    
+    public void doAction(String choice){
+        
+        switch (choice){
+            case "MALE":
+                PlayerCharacterGenderControl pcGender = new PlayerCharacterGenderControl();
+                pcGender.setPlayerCharacterGender();
+                break;
+            case "FEMALE":
+                HelpMenuView helpMenu = new HelpMenuView();
+                helpMenu.displayMenu();
+                break;
+            case "QUIT":
+                return;
+            default:
+                System.out.println("Invalid selection, try again");
+                break;
+        }
+               
+    }
+    
+}
+    
+

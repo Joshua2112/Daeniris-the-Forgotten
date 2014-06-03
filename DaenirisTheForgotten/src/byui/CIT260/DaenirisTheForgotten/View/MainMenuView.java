@@ -65,8 +65,8 @@ public class MainMenuView {
         
          switch (choice){
             case 'n':
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.displayMenu();
+                CharacterCreationView newCharacter = new CharacterCreationView();
+                newCharacter.newCharacterCreation();
                 break;
             case 'h':
                 HelpMenuView helpMenu = new HelpMenuView();
