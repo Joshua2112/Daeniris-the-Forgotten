@@ -6,30 +6,32 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.PCJobControl;
 import byui.CIT260.DaenirisTheForgotten.Control.PlayerCharacterGenderControl;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import java.util.Scanner;
 
 /**
  *
  * @author Joshua
  */
-public class EnterGenderView {
+class EnterJobView {
     
+    String job = null;
     Scanner keyboard = new Scanner(System.in);
     
-        private final String enterGender ="\n\tPlease choose a gender for your hero"
-                                         +"\n\tMale or Female"
+        private final String enterClass  ="\n\tPlease choose a class for your hero"
+                                         +"\n\tWarrior, Mage, or Cleric"
                                          +"\n\t\'quit\' to exit";
         
-        public void displayMenu(){
-
-            String selection;
-            
-            do {
-            
-            System.out.println(enterGender);
-
-            String input = this.getInput();
+    public void displayMenu() {
+        
+        String selection;
+       
+        do{
+        System.out.println(enterClass);
+        
+        String input = this.getInput();
             selection = input;
 
             this.doAction(selection);
@@ -50,15 +52,14 @@ public class EnterGenderView {
                 input = keyboard.nextLine();
                 input = input.trim();
                 input = input.toUpperCase();
-                
-                if(input.toUpperCase().equals("QUIT")){
+            
+                if (input.equals("QUIT")){
                     return null;
                 }
                            
-                else {valid = true;
-                
+                else{
+                    valid = true;
                 }
-                
             }
             return input;
         }
@@ -66,23 +67,25 @@ public class EnterGenderView {
     public void doAction(String choice){
         
         switch (choice){
-            case "MALE":
-                PlayerCharacterGenderControl pcMale = new PlayerCharacterGenderControl();
-                pcMale.setPlayerCharacterGender();
+            case "WARRIOR":
+                PCJobControl pcWarrior = new PCJobControl();
+                pcWarrior.setJob();
                 break;
-            case "FEMALE":
-                PlayerCharacterGenderControl pcFemale = new PlayerCharacterGenderControl();
-                pcFemale.setPlayerCharacterGender();
+            case "MAGE":
+                PCJobControl pcMage = new PCJobControl();
+                pcMage.setJob();
                 break;
+            case "Cleric":
+                PCJobControl pcCleric = new PCJobControl();
+                pcCleric.setJob();               
             case "QUIT":
-                return;
+                break;
             default:
                 System.out.println("Invalid selection, try again");
                 break;
         }
                
     }
-    
 }
     
 

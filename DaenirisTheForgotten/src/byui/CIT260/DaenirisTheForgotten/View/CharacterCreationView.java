@@ -21,7 +21,10 @@ public class CharacterCreationView {
         EnterGenderView enterGender = new EnterGenderView();
         enterGender.displayMenu();
         
-        EnterClassView enterClass = new EnterClassView();
-        enterClass.displayMenu();
+        EnterJobView enterJob = new EnterJobView();
+        enterJob.displayMenu();
+        
+        DistributeBonusesView DB = new DistributeBonusesView();
+        DB.displayMenu();
     }
 }
