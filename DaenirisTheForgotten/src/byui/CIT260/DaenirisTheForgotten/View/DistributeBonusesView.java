@@ -6,6 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.PCStatsControl;
 import byui.CIT260.DaenirisTheForgotten.Control.PlayerCharacterGenderControl;
 import java.util.Scanner;
 
@@ -59,7 +60,7 @@ class DistributeBonusesView {
                 input = keyboard.nextLine();
                 input = input.trim();                
                 
-                if(input.toUpperCase().equals("QUIT")){
+                if(input.toUpperCase().equals("Q")){
                     return null;
                 }
                            
@@ -75,15 +76,36 @@ class DistributeBonusesView {
         
         switch (choice){
             case 'a':
-                PlayerCharacterGenderControl pcMale = new PlayerCharacterGenderControl();
-                pcMale.setPlayerCharacterGender();
+                PCStatsControl attack1 = new PCStatsControl();
+                attack1.attackUp();
+                points -= 1;
                 break;
             case 'd':
-                PlayerCharacterGenderControl pcFemale = new PlayerCharacterGenderControl();
-                pcFemale.setPlayerCharacterGender();
+                PCStatsControl defense1 = new PCStatsControl();
+                defense1.defenseUp();
+                points -= 1;
                 break;
             case 'm':
-            case 'q':
+                PCStatsControl mAttack1 = new PCStatsControl();
+                mAttack1.mAttackUp();
+                points -= 1;
+                break;
+            case 'f':
+                PCStatsControl mDefense1 = new PCStatsControl();
+                mDefense1.mDefenseUp();
+                points -= 1;
+                break;
+            case 'h':
+                PCStatsControl HP5 = new PCStatsControl();
+                HP5.HPUp();
+                points -= 1;
+                break;
+            case 'p':
+                PCStatsControl MP5 = new PCStatsControl();
+                MP5.MPUp();
+                points -= 1;
+                break;
+            case 'q':                
                 return;
             default:
                 System.out.println("Invalid selection, try again");
