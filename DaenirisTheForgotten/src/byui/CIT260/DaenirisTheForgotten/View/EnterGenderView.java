@@ -23,7 +23,8 @@ public class EnterGenderView {
         
         public void displayMenu(){
 
-            String selection = null;
+            String selection;
+            
             do {
             
             System.out.println(enterGender);
@@ -36,6 +37,7 @@ public class EnterGenderView {
 
             }while (!selection.equals("QUIT"));
         }               
+        
 
         public String getInput() {
         
@@ -64,12 +66,12 @@ public class EnterGenderView {
         
         switch (choice){
             case "MALE":
-                PlayerCharacterGenderControl pcGender = new PlayerCharacterGenderControl();
-                pcGender.setPlayerCharacterGender();
+                PlayerCharacterGenderControl pcMale = new PlayerCharacterGenderControl();
+                pcMale.setPlayerCharacterGender();
                 break;
             case "FEMALE":
-                HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu();
+                PlayerCharacterGenderControl pcFemale = new PlayerCharacterGenderControl();
+                pcFemale.setPlayerCharacterGender();
                 break;
             case "QUIT":
                 return;
