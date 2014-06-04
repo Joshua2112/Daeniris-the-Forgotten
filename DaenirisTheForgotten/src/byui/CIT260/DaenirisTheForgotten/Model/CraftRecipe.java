@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Nathan
  */
-public class Craft implements Serializable 
+public class CraftRecipe implements Serializable 
 {
     private String craftName;
     private String resource1;
@@ -21,7 +21,7 @@ public class Craft implements Serializable
     private String resource3;
     private int resource3Amount;
     
-    public Craft() {}
+    public CraftRecipe() {}
 
     public String getCraftName() {
         return craftName;
@@ -105,7 +105,7 @@ public class Craft implements Serializable
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Craft other = (Craft) obj;
+        final CraftRecipe other = (CraftRecipe) obj;
         if (!Objects.equals(this.craftName, other.craftName)) {
             return false;
         }
