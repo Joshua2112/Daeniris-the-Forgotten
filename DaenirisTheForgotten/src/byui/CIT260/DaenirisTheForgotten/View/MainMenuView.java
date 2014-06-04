@@ -51,7 +51,7 @@ public class MainMenuView extends MenuView{
             case 'q':
                 return;
             default:
-                System.out.println("Invalid selection, try again");
+                System.out.println("\n\tInvalid selection, try again");
                 break;
             }
                

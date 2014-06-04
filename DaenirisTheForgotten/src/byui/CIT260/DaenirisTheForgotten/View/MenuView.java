@@ -32,7 +32,7 @@ public class MenuView {
         
         while(!valid){
             
-            System.out.println("Please choose option");
+            System.out.println("\n\tPlease choose option");
             
             input = keyboard.nextLine();
             input = input.trim();

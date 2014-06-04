@@ -55,7 +55,7 @@ class DistributeBonusesView {
         
             while(!valid){
             
-                System.out.println("\tPlease choose option");
+                System.out.println("\n\tPlease choose option");
             
                 input = keyboard.nextLine();
                 input = input.trim();                
@@ -108,7 +108,7 @@ class DistributeBonusesView {
             case 'q':                
                 return;
             default:
-                System.out.println("Invalid selection, try again");
+                System.out.println("\n\tInvalid selection, try again");
                 break;
         }
                
