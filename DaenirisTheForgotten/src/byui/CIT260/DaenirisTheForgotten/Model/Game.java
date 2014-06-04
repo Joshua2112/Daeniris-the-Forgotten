@@ -9,6 +9,11 @@ package byui.CIT260.DaenirisTheForgotten.Model;
 public class Game 
 {
     private float gameTime;
+    private Inventory[] inventory;
+    private Actor[] actor;
+    private World world;
+    private CraftRecipe[] craftRecipe;
+    
 
     public Game() {}
 
