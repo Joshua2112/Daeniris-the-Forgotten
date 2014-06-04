@@ -43,6 +43,6 @@ public class DaenirisTheForgotten {
         DaenirisTheForgotten.playerCharacter = playerCharacter;
     }
     
-    
+
 }
 

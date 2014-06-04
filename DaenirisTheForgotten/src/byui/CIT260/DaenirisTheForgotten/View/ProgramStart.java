@@ -8,6 +8,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
 import java.util.Scanner;
 
 /**
@@ -25,6 +26,7 @@ public class ProgramStart{
             
         this.displayBanner();
             
+            
             String playerCharactersName = this.getPlayerCharactersName();
             if (playerCharactersName == null)
                 return;
@@ -34,7 +36,7 @@ public class ProgramStart{
             this.displayWelcomeMessage(playerCharacter);
             
             MainMenuView mainMenuView = new MainMenuView();
-            mainMenuView.displayMenu();
+            mainMenuView.displayMenu(mainMenuView.getMainMenu());
     }            
     
         public void displayBanner(){

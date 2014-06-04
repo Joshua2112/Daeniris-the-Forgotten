@@ -1,17 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************************
+ * AdventureView Menu
+ * Author: Joshua & Nathan Wittmann
+ * Menu that is displayed when you are moving through the world.
+ *********************************************************************/
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-/**
- *
- * @author Joshua
- */
-class GameMenuView extends MenuView {
+import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
+import byui.CIT260.DaenirisTheForgotten.View.ProgramStart;
 
+
+
+public class AdventureView extends MenuView{
+    
+    
+    
     private final String adventureMenu =    "\n\tEnter \'i\' interact"
                                   +"\n\tEnter \'m\' adventure menu"
                                   +"\n\tEnter \'l\' look at map"
@@ -20,29 +23,34 @@ class GameMenuView extends MenuView {
                                   +"\n\tEnter \'w\' travel west"
                                   +"\n\tEnter \'e\' travel east";
 
-
+    public String getAdventureMenu() {
+        return adventureMenu;
+    }
     
     @Override
     public void doAction(char choice){
         
          switch (choice){
+            case 'i':
+                System.out.println("Interact");
+                break;
             case 'm':
-                System.out.println("display magic spells");
+                System.out.println("access Game Menu");
                 break;
-            case 't':
-                System.out.println("item menu stub");
+            case 'l':
+                System.out.println("Access Map");
                 break;
-            case 'g':
-                System.out.println("gear menu stub");
-                break;
-            case 'c':
-                System.out.println("craft menu stub");
+            case 'n':
+                //MoveControl.move(gameWorld, 0, 1);
                 break;
             case 's':
-                System.out.println("Save Game Stub");
+                System.out.println("Travel South");
+                break;
+            case 'w':
+                System.out.println("Travel West");
                 break;
             case 'e':
-                System.out.println("Go back to Adventure Menu");
+                System.out.println("Travel East");
                 break;
             case 'q':
                 return;
@@ -52,5 +60,7 @@ class GameMenuView extends MenuView {
         }
                
     }
+    
+    
     
 }

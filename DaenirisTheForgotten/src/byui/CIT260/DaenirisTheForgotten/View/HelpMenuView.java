@@ -14,53 +14,21 @@ import java.util.Scanner;
  *
  * @author Joshua
  */
-class HelpMenuView {
+class HelpMenuView extends MenuView{
 
-    private final String MENU ="\n\tg - goal of Daeniris the Forgotten"
+    private final String helpMenu ="\n\tg - goal of Daeniris the Forgotten"
                               +"\n\tp - how to play" 
                               +"\n\ti - general information"
                               +"\n\th - hints about the game"                                 
                               +"\n\tq - exit the help menu";
+
+    public String getHelpMenu() {
+        return helpMenu;
+    }
                   
-    public void displayMenu(){
 
-        char selection = ' ';
-        do {
-            
-            System.out.println(MENU);
-
-            String input = this.getInput();
-            selection = input.charAt(0);
-
-            this.doAction(selection);
-
-        }while (selection != 'q');
-    }               
-
-    public String getInput() {
-        
-        boolean valid = false;
-        String input = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
-            System.out.println("Please choose option");
-            
-            input = keyboard.nextLine();
-            input = input.trim();
-            
-            if (input.toUpperCase().equals("Q")){
-                return null;
-            }
-                           
-            else{
-                valid = true;
-            }
-        }
-        return input;
-        }
     
+    @Override
     public void doAction(char choice){
         
          switch (choice){

@@ -14,63 +14,29 @@ import java.util.Scanner;
  *
  * @author Joshua
  */
-public class MainMenuView {
+public class MainMenuView extends MenuView{
     
-        private final String MENU ="\n\tEnter \'n\' to start new game"
+        private final String mainMenu ="\n\tEnter \'n\' to start new game"
                                   +"\n\tEnter \'h\' for the help menu"
                                   +"\n\tEnter \'s\' to save current game"
                                   +"\n\tEnter \'l\' to load previously saved game"                                  
                                   +"\n\tEnter \'q\' to quit to the desktop";
-                  
-    public void displayMenu(){
 
-        char selection = ' ';
-        do {
-            
-            System.out.println(MENU);
-
-            String input = this.getInput();
-            selection = input.charAt(0);
-
-            this.doAction(selection);
-
-        }while (selection != 'q');
-    }               
-
-    public String getInput() {
-        
-        boolean valid = false;
-        String input = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
-            System.out.println("Please choose option");
-            
-            input = keyboard.nextLine();
-            input = input.trim();
-            
-            if (input.toUpperCase().equals("Q")){
-                return null;
-            }
-                           
-            else{
-                valid = true;
-            }
+        public String getMainMenu() {
+            return mainMenu;
         }
-        return input;
-        }
-    
-    public void doAction(char choice){
+
+        @Override
+        public void doAction(char choice){
         
          switch (choice){
             case 'n':
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.displayMenu();
+                NewGameMenuView newGameMenu = new NewGameMenuView();
+                newGameMenu.displayMenu();
                 break;
             case 'h':
                 HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu();
+                helpMenu.displayMenu(helpMenu.getHelpMenu());
                 break;
             case 's':
                 ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
@@ -78,14 +44,18 @@ public class MainMenuView {
             case 'l':
                 ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
                 break;
+            case 't':
+                AdventureView adventureView = new AdventureView();
+                adventureView.displayMenu(adventureView.getAdventureMenu());
+                break;
             case 'q':
                 return;
             default:
                 System.out.println("Invalid selection, try again");
                 break;
-        }
+            }
                
-    }
+        }
 }
 
 

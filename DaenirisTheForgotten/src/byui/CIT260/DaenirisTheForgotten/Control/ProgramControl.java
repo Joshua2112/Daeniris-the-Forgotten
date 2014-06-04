@@ -8,6 +8,7 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
@@ -35,5 +36,10 @@ public class ProgramControl {
         DaenirisTheForgotten.setPlayerCharacter(playerCharacter);
         
         return playerCharacter;
-    }            
+    }
+    
+    public static World createWorld(){
+        World gameWorld = new World();
+        return gameWorld;
+    }
 }
