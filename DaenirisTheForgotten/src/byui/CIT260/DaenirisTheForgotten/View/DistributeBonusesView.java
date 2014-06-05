@@ -7,7 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.PCStatsControl;
-import byui.CIT260.DaenirisTheForgotten.Control.PlayerCharacterGenderControl;
+import byui.CIT260.DaenirisTheForgotten.Control.PCGenderControl;
 import java.util.Scanner;
 
 /**

@@ -10,7 +10,7 @@ package byui.CIT260.DaenirisTheForgotten.Control;
  *
  * @author Joshua
  */
-public class PlayerCharacterGenderControl {
+public class PCGenderControl {
 
     public void setPlayerCharacterGender() {
         System.out.println("Gender set stub function called");
