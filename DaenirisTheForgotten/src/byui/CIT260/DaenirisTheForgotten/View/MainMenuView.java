@@ -30,25 +30,25 @@ public class MainMenuView extends MenuView{
         public void doAction(char choice){
         
          switch (choice){
-            case 'n':
+            case 'N':
                 CharacterCreationView newCharacter = new CharacterCreationView();
                 newCharacter.newCharacterCreation();
                 break;
-            case 'h':
+            case 'H':
                 HelpMenuView helpMenu = new HelpMenuView();
                 helpMenu.displayMenu(helpMenu.getHelpMenu());
                 break;
-            case 's':
+            case 'S':
                 ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
                 break;
-            case 'l':
+            case 'L':
                 ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
                 break;
-            case 't':
+            case 'T':
                 AdventureView adventureView = new AdventureView();
                 adventureView.displayMenu(adventureView.getAdventureMenu());
                 break;
-            case 'q':
+            case 'Q':
                 return;
             default:
                 System.out.println("Invalid selection, try again");

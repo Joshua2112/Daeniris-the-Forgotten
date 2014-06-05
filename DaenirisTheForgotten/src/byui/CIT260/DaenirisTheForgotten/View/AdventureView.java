@@ -31,28 +31,28 @@ public class AdventureView extends MenuView{
     public void doAction(char choice){
         
          switch (choice){
-            case 'i':
+            case 'I':
                 System.out.println("Interact");
                 break;
-            case 'm':
+            case 'M':
                 System.out.println("access Game Menu");
                 break;
-            case 'l':
+            case 'L':
                 System.out.println("Access Map");
                 break;
-            case 'n':
-                //MoveControl.move(gameWorld, 0, 1);
+            case 'N':
+                System.out.println("Travel North");
                 break;
-            case 's':
+            case 'S':
                 System.out.println("Travel South");
                 break;
-            case 'w':
+            case 'W':
                 System.out.println("Travel West");
                 break;
-            case 'e':
+            case 'E':
                 System.out.println("Travel East");
                 break;
-            case 'q':
+            case 'Q':
                 return;
             default:
                 System.out.println("Invalid selection, try again");
