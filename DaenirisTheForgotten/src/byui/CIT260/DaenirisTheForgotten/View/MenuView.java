@@ -38,7 +38,7 @@ public class MenuView {
             input = input.trim();
             
             if (input.toUpperCase().equals("Q")){
-                return null;
+                return input;
             }
                            
             else{

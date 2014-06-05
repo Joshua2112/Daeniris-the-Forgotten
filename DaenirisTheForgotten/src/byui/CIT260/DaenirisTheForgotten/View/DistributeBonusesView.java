@@ -14,13 +14,13 @@ import java.util.Scanner;
  *
  * @author Joshua
  */
-class DistributeBonusesView {
+public class DistributeBonusesView {
+    
+            public int points = 5;
     
     Scanner keyboard = new Scanner(System.in);
-    
-    int points = 5;
-    
-        private final String DistributeBonuses ="\n\tPlease distribute your bonuses"
+        
+        private final String DISTRIBUTEBONUSES ="\n\tPlease distribute your bonuses"
                                                +"\n\tEnter a letter to distribute one point"
                                                +"\n\t\'a\' for attack"
                                                +"\n\t\'d\' for defense"
@@ -28,8 +28,8 @@ class DistributeBonusesView {
                                                +"\n\t\'f\' for magic defense"
                                                +"\n\t\'h\' for health points one point buys five health points"
                                                +"\n\t\'p\' for magic points  one point buys five magic points"
-                                               +"\n\tYou have " + points + " points remaining"
-                                               +"\n\t\'quit\' to exit";
+                                               +"\n\tYou start with 5 points"
+                                               +"\n\t\'n\' to continue";
 
     public void displayMenu() {
         
@@ -37,7 +37,7 @@ class DistributeBonusesView {
             
             do {
             
-            System.out.println(DistributeBonuses);
+            System.out.println(DISTRIBUTEBONUSES);
 
             String input = this.getInput();
             selection = input.charAt(0);
@@ -55,13 +55,13 @@ class DistributeBonusesView {
         
             while(!valid){
             
-                System.out.println("\n\tPlease choose option");
+                System.out.println("\tPlease choose option");
             
                 input = keyboard.nextLine();
                 input = input.trim();                
                 
                 if(input.toUpperCase().equals("Q")){
-                    return null;
+                    return input;
                 }
                            
                 else {valid = true;
@@ -73,12 +73,12 @@ class DistributeBonusesView {
         }
     
     public void doAction(char choice){
-        
+                
         switch (choice){
             case 'a':
                 PCStatsControl attack1 = new PCStatsControl();
                 attack1.attackUp();
-                points -= 1;
+                points = points - 1;
                 break;
             case 'd':
                 PCStatsControl defense1 = new PCStatsControl();
@@ -105,7 +105,7 @@ class DistributeBonusesView {
                 MP5.MPUp();
                 points -= 1;
                 break;
-            case 'q':                
+            case 'n':                
                 return;
             default:
                 System.out.println("\n\tInvalid selection, try again");

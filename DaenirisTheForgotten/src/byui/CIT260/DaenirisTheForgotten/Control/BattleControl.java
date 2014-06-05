@@ -13,6 +13,34 @@ package byui.CIT260.DaenirisTheForgotten.Control;
  */
 public class BattleControl {
     
+    public boolean hit(int attack, int defense){
+        
+        boolean hit;
+        
+        int connect = (int) (Math.random() * (100 - 1) + 1 + attack - defense);
+        if (connect > 50){
+            hit = true;
+        }
+        else{
+            hit = false;
+        }
+        return hit;
+    }
+    
+    public boolean critical(){
+        
+        boolean critical;
+        
+        int crit = (int) (Math.random() * (100 - 1) + 1);
+        if (crit > 50){
+            critical = true;
+        }
+        else{
+            critical = false;
+        }
+        return critical;
+    }
+    
     public int attackDamageCalc(int totalAttack, int enemyDefense, boolean hit, boolean critical){
         
         int damage;

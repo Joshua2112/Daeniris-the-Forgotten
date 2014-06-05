@@ -17,9 +17,9 @@ public class EnterGenderView {
     
     Scanner keyboard = new Scanner(System.in);
     
-        private final String enterGender ="\n\tPlease choose a gender for your hero"
+        private final String ENTERGENDER ="\n\tPlease choose a gender for your hero"
                                          +"\n\tMale or Female"
-                                         +"\n\t\'quit\' to exit";
+                                         +"\n\t\'next\' to continue";
         
         public void displayMenu(){
 
@@ -27,14 +27,15 @@ public class EnterGenderView {
             
             do {
             
-            System.out.println(enterGender);
+            System.out.println(ENTERGENDER);
 
             String input = this.getInput();
             selection = input;
 
             this.doAction(selection);
 
-            }while (!selection.equals("QUIT"));
+            }while (!selection.equals("NEXT"));
+            
         }               
         
 
@@ -51,7 +52,7 @@ public class EnterGenderView {
                 input = input.trim();
                 input = input.toUpperCase();
                 
-                if(input.toUpperCase().equals("QUIT")){
+                if(input.toUpperCase().equals("NEXT")){
                     return input;
                 }
                            
@@ -74,7 +75,7 @@ public class EnterGenderView {
                 PlayerCharacterGenderControl pcFemale = new PlayerCharacterGenderControl();
                 pcFemale.setPlayerCharacterGender();
                 break;
-            case "QUIT":
+            case "NEXT":
                 return;
             default:
                 System.out.println("\n\tInvalid selection, try again");

@@ -13,27 +13,26 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 public class PCStatsControl {
 
     public void attackUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("attack increased by 1 stub");
     }
 
     public void defenseUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("defense increased by 1 stub");
     }
 
     public void mAttackUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Magic attack increased by 1 stub");
     }
 
     public void mDefenseUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Magic defense increased by 1 stub");
     }
 
     public void HPUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        System.out.println("Health points increased by 5 stub");}
 
     public void MPUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Magic points increased by 5 stub");
     }
     
 }
