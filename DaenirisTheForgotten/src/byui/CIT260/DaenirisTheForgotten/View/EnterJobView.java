@@ -21,8 +21,7 @@ class EnterJobView {
     Scanner keyboard = new Scanner(System.in);
     
         private final String ENTERCLASS  ="\n\tPlease choose a class for your hero"
-                                         +"\n\tWarrior, Mage, or Cleric"
-                                         +"\n\t\'next\' to continue";
+                                         +"\n\tWarrior, Mage, or Cleric";
         
     public void displayMenu() {
         
@@ -35,6 +34,16 @@ class EnterJobView {
             selection = input;
 
             this.doAction(selection);
+            
+            if (selection.equals("WARRIOR")){
+                return;
+            }
+            if (selection.equals("MAGE")){
+                return;
+            }
+            if (selection.equals("CLERIC")){
+                return;
+            }
 
             }while (!selection.equals("NEXT"));
         }               

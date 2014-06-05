@@ -18,8 +18,7 @@ public class EnterGenderView {
     Scanner keyboard = new Scanner(System.in);
     
         private final String ENTERGENDER ="\n\tPlease choose a gender for your hero"
-                                         +"\n\tMale or Female"
-                                         +"\n\t\'next\' to continue";
+                                         +"\n\tMale or Female";
         
         public void displayMenu(){
 
@@ -33,6 +32,13 @@ public class EnterGenderView {
             selection = input;
 
             this.doAction(selection);
+            
+            if (selection.equals("MALE")){
+                return;
+            }
+            else if (selection.equals("FEMALE")){
+                return;
+            }
 
             }while (!selection.equals("NEXT"));
             
