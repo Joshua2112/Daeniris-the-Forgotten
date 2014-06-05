@@ -52,7 +52,7 @@ public class EnterGenderView {
                 input = input.toUpperCase();
                 
                 if(input.toUpperCase().equals("QUIT")){
-                    return null;
+                    return input;
                 }
                            
                 else {valid = true;
