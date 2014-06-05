@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 
 /**
  *
@@ -16,7 +17,15 @@ public class GameControl {
     public static Game game;
 
     public static void createInventory() {
-        System.out.println("create Inventory stub called");
+        Inventory[] playerInventory =
+                    new Inventory[Constants.NUMMBER_OF_INVENTORY_ITEMS];
+        
+        Inventory potion = new Inventory();
+        potion.setDescription("A healing item");
+        potion.setEffects("heals 20 hit points");
+        playerInventory[0] = potion;
+        
+        
                 }
 
     public static void createActor() {

@@ -6,9 +6,6 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
-import daeniristheforgotten.DaenirisTheForgotten;
-import java.util.Scanner;
 
 /**
  *
