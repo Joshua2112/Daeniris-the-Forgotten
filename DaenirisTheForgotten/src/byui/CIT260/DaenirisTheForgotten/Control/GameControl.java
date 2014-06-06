@@ -22,7 +22,6 @@ public class GameControl {
         
         Inventory potion = new Inventory();
         potion.setDescription("A healing item");
-        potion.setEffects("heals 20 hit points");
         playerInventory[0] = potion;
         
         
