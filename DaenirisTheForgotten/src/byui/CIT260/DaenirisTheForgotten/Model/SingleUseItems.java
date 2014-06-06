@@ -6,19 +6,18 @@
 
 package byui.CIT260.DaenirisTheForgotten.Model;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Joshua
  */
-public class SingeUseItems extends Inventory{
+public class SingleUseItems extends Inventory{
     
     private String effects;
     
 
-    public SingeUseItems() {
+    public SingleUseItems() {
     }
 
     public String getEffects() {
@@ -50,7 +49,7 @@ public class SingeUseItems extends Inventory{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SingeUseItems other = (SingeUseItems) obj;
+        final SingleUseItems other = (SingleUseItems) obj;
         if (!Objects.equals(this.effects, other.effects)) {
             return false;
         }
