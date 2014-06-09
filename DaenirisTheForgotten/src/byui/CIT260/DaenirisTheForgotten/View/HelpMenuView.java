@@ -33,21 +33,21 @@ class HelpMenuView extends MenuView{
         
          switch (choice){
             case 'g':
-                System.out.println("You will create a hero and go on a quest with them to protect the innocent people of the land from an ancient evil.");
+                System.out.println("\n\tYou will create a hero and go on a quest with them \n\tto protect the innocent people of the land from an ancient evil.");
                 break;
             case 'p':
-                System.out.println("Instruction on how to play");
+                System.out.println("\n\tInstruction on how to play");
                 break;
             case 'i':
-                System.out.println("General information about the game");
+                System.out.println("\n\tGeneral information about the game");
                 break;
             case 'h':
-                System.out.println("Hints about the game and deeper gameplay mechanics");
+                System.out.println("\n\tHints about the game and deeper gameplay mechanics");
                 break;
             case 'q':
                 return;
             default:
-                System.out.println("Invalid selection, try again");
+                System.out.println("\n\tInvalid selection, try again");
                 break;
         }
                

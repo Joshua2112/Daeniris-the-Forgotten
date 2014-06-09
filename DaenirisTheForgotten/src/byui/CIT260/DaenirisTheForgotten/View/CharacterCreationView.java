@@ -26,5 +26,9 @@ public class CharacterCreationView {
         
         DistributeBonusesView DB = new DistributeBonusesView();
         DB.displayMenu();
+        
+        System.out.println("Is this okay? y/n");
+        
+        }
     }
-}
+

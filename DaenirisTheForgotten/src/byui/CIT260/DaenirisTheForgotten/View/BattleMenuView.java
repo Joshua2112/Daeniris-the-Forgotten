@@ -6,49 +6,52 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
-import java.util.Scanner;
 
 /**
  *
  * @author Joshua
  */
-public class MainMenuView extends MenuView{
+public class BattleMenuView extends MenuView{
     
-        private final String mainMenu ="\n\tEnter \'n\' to start new game"
-                                  +"\n\tEnter \'h\' for the help menu"
-                                  +"\n\tEnter \'s\' to save current game"
-                                  +"\n\tEnter \'l\' to load previously saved game"                                  
-                                  +"\n\tEnter \'q\' to quit to the desktop";
+    private final String BATTLEMENU ="\n\ta - attack"
+                                  +"\n\tm - magic"
+                                  +"\n\td - defend"
+                                  +"\n\tu - use item"
+                                  +"\n\te - evaluate enemy"
+                                  +"\n\tr - run";
 
-        public String getMainMenu() {
-            return mainMenu;
+        public String getBATTLEMENU() {
+            return BATTLEMENU;
         }
 
         @Override
         public void doAction(char choice){
         
          switch (choice){
-            case 'N':
-                CharacterCreationView newCharacter = new CharacterCreationView();
-                newCharacter.newCharacterCreation();
+            case 'a':
+                //BattleControl.hit(PlayerCharacter.attack, PlayerCharacter.defense);
+                //BattleControl.critical();
+                //BattleControl.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
                 break;
-            case 'H':
+            case 'm':
                 HelpMenuView helpMenu = new HelpMenuView();
                 helpMenu.displayMenu(helpMenu.getHelpMenu());
                 break;
-            case 'S':
+            case 'd':
                 ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
                 break;
-            case 'L':
+            case 'u':
                 ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
                 break;
-            case 'T':
+            case 'e':
                 AdventureView adventureView = new AdventureView();
                 adventureView.displayMenu(adventureView.getAdventureMenu());
                 break;
-            case 'Q':
+            case 'r':
                 return;
             default:
                 System.out.println("\n\tInvalid selection, try again");
@@ -56,6 +59,5 @@ public class MainMenuView extends MenuView{
             }
                
         }
+    
 }
-
-

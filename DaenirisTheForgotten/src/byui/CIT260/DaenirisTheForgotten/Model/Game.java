@@ -1,5 +1,7 @@
 package byui.CIT260.DaenirisTheForgotten.Model;
 
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+
 /*********************************************************************
  * Game Class
  * Author: Nathan Wittmann
@@ -13,6 +15,49 @@ public class Game
     private Actor[] actor;
     private World world;
     private CraftRecipe[] craftRecipe;
+
+    public Inventory[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public CraftRecipe[] getCraftRecipe() {
+        return craftRecipe;
+    }
+
+    public void setCraftRecipe(CraftRecipe[] craftRecipe) {
+        this.craftRecipe = craftRecipe;
+    }
+    
+    public static void startNewGame(){
+        
+        GameControl.game = new Game();
+        
+        GameControl.createInventory();
+        GameControl.createActor();
+        GameControl.createWorld();
+        GameControl.createCraftRecipe();
+    }
+    
     
 
     public Game() {}

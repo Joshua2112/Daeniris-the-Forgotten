@@ -4,15 +4,12 @@
  * and open the template in the editor.
  */
 
-package byui.CIT260.DaenirisTheForgotten.Control;
+package byui.CIT260.DaenirisTheForgotten.View;
 
 /**
  *
- * @author Nathan
+ * @author Joshua
  */
-public class Constants {
-    
-    //
-    public final static int NUMBER_OF_INVENTORY_ITEMS =100;
+public class SpellMenuView {
     
 }

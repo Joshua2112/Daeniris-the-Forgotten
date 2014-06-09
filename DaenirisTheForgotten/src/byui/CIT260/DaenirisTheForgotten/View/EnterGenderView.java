@@ -17,9 +17,8 @@ public class EnterGenderView {
     
     Scanner keyboard = new Scanner(System.in);
     
-        private final String enterGender ="\n\tPlease choose a gender for your hero"
-                                         +"\n\tMale or Female"
-                                         +"\n\t\'quit\' to exit";
+        private final String ENTERGENDER ="\n\tPlease choose a gender for your hero"
+                                         +"\n\tMale or Female";
         
         public void displayMenu(){
 
@@ -27,14 +26,22 @@ public class EnterGenderView {
             
             do {
             
-            System.out.println(enterGender);
+            System.out.println(ENTERGENDER);
 
             String input = this.getInput();
             selection = input;
 
             this.doAction(selection);
+            
+            if (selection.equals("MALE")){
+                return;
+            }
+            else if (selection.equals("FEMALE")){
+                return;
+            }
 
-            }while (!selection.equals("QUIT"));
+            }while (!selection.equals("NEXT"));
+            
         }               
         
 
@@ -45,14 +52,14 @@ public class EnterGenderView {
         
             while(!valid){
             
-                System.out.println("\tPlease choose option");
+                System.out.println("\n\tPlease choose option");
             
                 input = keyboard.nextLine();
                 input = input.trim();
                 input = input.toUpperCase();
                 
-                if(input.toUpperCase().equals("QUIT")){
-                    return null;
+                if(input.toUpperCase().equals("NEXT")){
+                    return input;
                 }
                            
                 else {valid = true;
@@ -74,10 +81,10 @@ public class EnterGenderView {
                 PlayerCharacterGenderControl pcFemale = new PlayerCharacterGenderControl();
                 pcFemale.setPlayerCharacterGender();
                 break;
-            case "QUIT":
+            case "NEXT":
                 return;
             default:
-                System.out.println("Invalid selection, try again");
+                System.out.println("\n\tInvalid selection, try again");
                 break;
         }
                

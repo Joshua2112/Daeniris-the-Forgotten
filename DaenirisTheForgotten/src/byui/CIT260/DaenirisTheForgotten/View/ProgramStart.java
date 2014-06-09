@@ -62,7 +62,7 @@ public class ProgramStart{
         
         while(!valid){
             
-            System.out.println("\nPlease enter character's name");
+            System.out.println("\n\tPlease enter character's name");
             
             playerCharactersName = keyboard.nextLine();
             playerCharactersName = playerCharactersName.trim();
@@ -72,7 +72,7 @@ public class ProgramStart{
             }
             
             if (playerCharactersName.length() < 2){
-                System.out.println("Invalid name, must be greater than 2 characters in length");
+                System.out.println("\n\tInvalid name, must be greater than 2 characters in length");
             }
                            
             else{

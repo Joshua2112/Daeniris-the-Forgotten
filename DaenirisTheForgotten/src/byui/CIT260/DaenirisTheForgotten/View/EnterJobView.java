@@ -20,23 +20,32 @@ class EnterJobView {
     String job = null;
     Scanner keyboard = new Scanner(System.in);
     
-        private final String enterClass  ="\n\tPlease choose a class for your hero"
-                                         +"\n\tWarrior, Mage, or Cleric"
-                                         +"\n\t\'quit\' to exit";
+        private final String ENTERCLASS  ="\n\tPlease choose a class for your hero"
+                                         +"\n\tWarrior, Mage, or Cleric";
         
     public void displayMenu() {
         
         String selection;
        
         do{
-        System.out.println(enterClass);
+        System.out.println(ENTERCLASS);
         
         String input = this.getInput();
             selection = input;
 
             this.doAction(selection);
+            
+            if (selection.equals("WARRIOR")){
+                return;
+            }
+            if (selection.equals("MAGE")){
+                return;
+            }
+            if (selection.equals("CLERIC")){
+                return;
+            }
 
-            }while (!selection.equals("QUIT"));
+            }while (!selection.equals("NEXT"));
         }               
         
 
@@ -47,14 +56,14 @@ class EnterJobView {
         
             while(!valid){
             
-                System.out.println("\tPlease choose option");
+                System.out.println("\n\tPlease choose option");
             
                 input = keyboard.nextLine();
                 input = input.trim();
                 input = input.toUpperCase();
             
-                if (input.equals("QUIT")){
-                    return null;
+                if (input.equals("NEXT")){
+                    return input;
                 }
                            
                 else{
@@ -78,10 +87,10 @@ class EnterJobView {
             case "Cleric":
                 PCJobControl pcCleric = new PCJobControl();
                 pcCleric.setJob();               
-            case "QUIT":
+            case "NEXT":
                 break;
             default:
-                System.out.println("Invalid selection, try again");
+                System.out.println("\n\tInvalid selection, try again");
                 break;
         }
                
