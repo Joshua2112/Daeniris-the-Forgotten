@@ -6,9 +6,12 @@
 
 package byui.CIT260.DaenirisTheForgotten.Control;
 
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
 
@@ -190,7 +193,42 @@ public class GameControl {
                 }
 
     public static void createActor() {
-        System.out.println("create Actor stub called");
+        Actor[][] actors = new Actor[Constants.NUMBER_OF_ACTOR_TYPES][Constants.NUMBER_OF_ENEMIES];
+        
+        PlayerCharacter newPlayerCharacter = new PlayerCharacter();
+        newPlayerCharacter.setAttack(0);
+        newPlayerCharacter.setDefense(0);
+        newPlayerCharacter.setGender(null);
+        newPlayerCharacter.setMagicAttack(0);
+        newPlayerCharacter.setMagicDefense(0);
+        newPlayerCharacter.setHealthPoints(50);
+        newPlayerCharacter.setMagicPoints(20);
+        actors [0][0] = newPlayerCharacter;
+        
+        Enemy goblin = new Enemy();
+        goblin.setName("Goblin");
+        goblin.setAttack(2);
+        goblin.setDefense(2);
+        goblin.setMagicAttack(0);
+        goblin.setMagicDefense(0);
+        goblin.setHealthPoints(10);
+        goblin.setMagicPoints(0);
+        goblin.setExperienceValue(20);
+        goblin.setItemsDropped("woodenShield, clothCloak");
+        actors [1][0] = goblin;
+        
+        Enemy jelly = new Enemy();
+        jelly.setName("Goblin");
+        jelly.setAttack(0);
+        jelly.setDefense(0);
+        jelly.setMagicAttack(2);
+        jelly.setMagicDefense(2);
+        jelly.setHealthPoints(15);
+        jelly.setMagicPoints(30);
+        jelly.setExperienceValue(30);
+        jelly.setItemsDropped("potion, clothCap");
+        actors [1][0] = jelly;
+        
     }
 
     public static void createWorld() {
