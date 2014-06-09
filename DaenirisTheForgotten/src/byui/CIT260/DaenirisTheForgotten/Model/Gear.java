@@ -15,10 +15,10 @@ import java.util.Objects;
 public class Gear extends Inventory{
     
     private String specialEffects;
-    private Double attackBonus;
-    private Double defenseBonus;
-    private Double magicAttackBonus;
-    private Double magicDefenseBonus;
+    private int attackBonus;
+    private int defenseBonus;
+    private int magicAttackBonus;
+    private int magicDefenseBonus;
     private String gearType;
 
     public Gear() {
@@ -32,35 +32,35 @@ public class Gear extends Inventory{
         this.specialEffects = specialEffects;
     }
 
-    public Double getAttackBonus() {
+    public int getAttackBonus() {
         return attackBonus;
     }
 
-    public void setAttackBonus(Double attackBonus) {
+    public void setAttackBonus(int attackBonus) {
         this.attackBonus = attackBonus;
     }
 
-    public Double getDefenseBonus() {
+    public int getDefenseBonus() {
         return defenseBonus;
     }
 
-    public void setDefenseBonus(Double defenseBonus) {
+    public void setDefenseBonus(int defenseBonus) {
         this.defenseBonus = defenseBonus;
     }
 
-    public Double getMagicAttackBonus() {
+    public int getMagicAttackBonus() {
         return magicAttackBonus;
     }
 
-    public void setMagicAttackBonus(Double magicAttackBonus) {
+    public void setMagicAttackBonus(int magicAttackBonus) {
         this.magicAttackBonus = magicAttackBonus;
     }
 
-    public Double getMagicDefenseBonus() {
+    public int getMagicDefenseBonus() {
         return magicDefenseBonus;
     }
 
-    public void setMagicDefenseBonus(Double magicDefenseBonus) {
+    public void setMagicDefenseBonus(int magicDefenseBonus) {
         this.magicDefenseBonus = magicDefenseBonus;
     }
 

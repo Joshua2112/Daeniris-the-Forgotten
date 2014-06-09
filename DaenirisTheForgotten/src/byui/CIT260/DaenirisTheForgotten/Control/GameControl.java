@@ -7,9 +7,10 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
-import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 
 /**
  *
@@ -46,7 +47,146 @@ public class GameControl {
         greaterPotion.setEffects("Restores 50 health points");
         playerInventory[0][3] = greaterPotion;
         
+        Gear ironSword = new Gear();
+        ironSword.setName("Iron Sword");
+        ironSword.setAttackBonus(2);
+        ironSword.setDefenseBonus(0);
+        ironSword.setMagicAttackBonus(0);
+        ironSword.setMagicDefenseBonus(0);
+        ironSword.setDescription("A plain old sword made of iron");
+        ironSword.setSpecialEffects("None");
+        ironSword.setQuantity(0);
+        playerInventory[1][0] = ironSword;
         
+        Gear leatherHelm = new Gear();
+        leatherHelm.setName("Leather Helmet");
+        leatherHelm.setAttackBonus(0);
+        leatherHelm.setDefenseBonus(2);
+        leatherHelm.setMagicAttackBonus(0);
+        leatherHelm.setMagicDefenseBonus(0);
+        leatherHelm.setDescription("A weak helmet made of leather");
+        leatherHelm.setSpecialEffects("None");
+        leatherHelm.setQuantity(0);
+        playerInventory[1][1] = leatherHelm;
+        
+        Gear oakStaff = new Gear();
+        oakStaff.setName("Oak Staff");
+        oakStaff.setAttackBonus(1);
+        oakStaff.setDefenseBonus(0);
+        oakStaff.setMagicAttackBonus(2);
+        oakStaff.setMagicDefenseBonus(0);
+        oakStaff.setDescription("An old magic staff made of Oak");
+        oakStaff.setSpecialEffects("None");
+        oakStaff.setQuantity(0);
+        playerInventory[1][2] = oakStaff;
+        
+        Gear ironBreastplate = new Gear();
+        ironBreastplate.setName("Iron Breastplate");
+        ironBreastplate.setAttackBonus(0);
+        ironBreastplate.setDefenseBonus(4);
+        ironBreastplate.setMagicAttackBonus(0);
+        ironBreastplate.setMagicDefenseBonus(0);
+        ironBreastplate.setDescription("An average breastplate made of iron");
+        ironBreastplate.setSpecialEffects("None");
+        ironBreastplate.setQuantity(0);
+        playerInventory[1][3] = ironBreastplate;
+        
+        Gear woodenShield = new Gear();
+        woodenShield.setName("Wooden Shield");
+        woodenShield.setAttackBonus(0);
+        woodenShield.setDefenseBonus(2);
+        woodenShield.setMagicAttackBonus(0);
+        woodenShield.setMagicDefenseBonus(0);
+        woodenShield.setDescription("A weak sheild made of wood");
+        woodenShield.setSpecialEffects("None");
+        woodenShield.setQuantity(0);
+        playerInventory[1][4] = woodenShield;
+        
+        Gear clothCloak = new Gear();
+        clothCloak.setName("Cloth Cloak");
+        clothCloak.setAttackBonus(0);
+        clothCloak.setDefenseBonus(1);
+        clothCloak.setMagicAttackBonus(1);
+        clothCloak.setMagicDefenseBonus(3);
+        clothCloak.setDescription("A simple cloak that is easy to move in");
+        clothCloak.setSpecialEffects("None");
+        clothCloak.setQuantity(0);
+        playerInventory[1][5] = clothCloak;
+        
+        Gear clothCap = new Gear();
+        clothCap.setName("Cloth Cap");
+        clothCap.setAttackBonus(0);
+        clothCap.setDefenseBonus(1);
+        clothCap.setMagicAttackBonus(0);
+        clothCap.setMagicDefenseBonus(2);
+        clothCap.setDescription("A simple cap for a spellcaster");
+        clothCap.setSpecialEffects("None");
+        clothCap.setQuantity(0);
+        playerInventory[1][6] = clothCap;
+        
+        Gear steelSword = new Gear();
+        steelSword.setName("Cloth Cap");
+        steelSword.setAttackBonus(5);
+        steelSword.setDefenseBonus(0);
+        steelSword.setMagicAttackBonus(0);
+        steelSword.setMagicDefenseBonus(0);
+        steelSword.setDescription("A sturdy sword made of steel");
+        steelSword.setSpecialEffects("None");
+        steelSword.setQuantity(0);
+        playerInventory[1][7] = steelSword;
+        
+        Gear fireStave = new Gear();
+        fireStave.setName("Fire Stave");
+        fireStave.setAttackBonus(2);
+        fireStave.setDefenseBonus(0);
+        fireStave.setMagicAttackBonus(5);
+        fireStave.setMagicDefenseBonus(0);
+        fireStave.setDescription("An elaborate staff, brimming with fire magic");
+        fireStave.setSpecialEffects("Increases damage of fire spells");
+        fireStave.setQuantity(0);
+        playerInventory[1][8] = fireStave;
+        
+        Gear chainMail = new Gear();
+        chainMail.setName("Chain Mail");
+        chainMail.setAttackBonus(0);
+        chainMail.setDefenseBonus(6);
+        chainMail.setMagicAttackBonus(0);
+        chainMail.setMagicDefenseBonus(1);
+        chainMail.setDescription("Chain mail made for a strong warrior");
+        chainMail.setSpecialEffects("none");
+        chainMail.setQuantity(0);
+        playerInventory[1][9] = chainMail;
+        
+        RawMaterial wood = new RawMaterial();
+        wood.setName("Wood");
+        wood.setDescription("Wood used to craft items");
+        wood.setQuantity(0);
+        playerInventory[2][0] = wood;
+        
+        RawMaterial ore = new RawMaterial();
+        ore.setName("Ore");
+        ore.setDescription("Ore used to craft items");
+        ore.setQuantity(0);
+        playerInventory[2][1] = ore;
+        
+        RawMaterial crystal = new RawMaterial();
+        crystal.setName("Crystal");
+        crystal.setDescription("Crystal used to craft items");
+        crystal.setQuantity(0);
+        playerInventory[2][2] = crystal;
+        
+        RawMaterial magicSand = new RawMaterial();
+        magicSand.setName("Magic Sand");
+        magicSand.setDescription("Magic sand used to craft items");
+        magicSand.setQuantity(0);
+        playerInventory[2][3] = magicSand;
+        
+        RawMaterial silver = new RawMaterial();
+        silver.setName("Silver");
+        silver.setDescription("Valuable metal used to craft items");
+        silver.setQuantity(0);
+        playerInventory[2][4] = silver;
+                
                 }
 
     public static void createActor() {
