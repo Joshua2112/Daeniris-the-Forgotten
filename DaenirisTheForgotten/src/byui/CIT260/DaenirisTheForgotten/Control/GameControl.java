@@ -48,14 +48,16 @@ public class GameControl {
         playerInventory[0][3] = greaterPotion;
         
         
-                }
+    }
 
     public static void createActor() {
         System.out.println("create Actor stub called");
     }
 
     public static void createWorld() {
-        System.out.println("create World stub called");
+        World gameWorld = new World();
+        
+        game.setWorld(gameWorld);
     }
 
     public static void createCraftRecipe() {
