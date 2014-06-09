@@ -6,13 +6,12 @@
 
 package byui.CIT260.DaenirisTheForgotten.Control;
 
-/**
- *
- * @author Nathan
- */
+
+
 public class Constants {
     
-    //
-    public final static int NUMBER_OF_INVENTORY_ITEMS =100;
+    public static final int NUMBER_OF_INVENTORIES = 3;
+    public static final int NUMMBER_OF_INVENTORY_ITEMS = 100;
+
     
 }

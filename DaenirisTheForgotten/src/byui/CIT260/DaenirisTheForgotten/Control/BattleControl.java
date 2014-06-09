@@ -13,7 +13,8 @@ package byui.CIT260.DaenirisTheForgotten.Control;
  */
 public class BattleControl {
     
-    public boolean hit(int attack, int defense){
+    public boolean hit(int attack, int defense){        
+
         
         boolean hit;
         
@@ -67,6 +68,22 @@ public class BattleControl {
         }
         return damage;
     }      
+
+    public void hit() {
+        System.out.println("hit stub called");
+    }
+
+    public void defend1() {
+        System.out.println("defend stub called");
+    }
+
+    public void examineEnemy() {
+        System.out.println("examine enemy stub called");
+    }
+
+    public void run1() {
+        System.out.println("run stub called");
+    }
 }
     
 

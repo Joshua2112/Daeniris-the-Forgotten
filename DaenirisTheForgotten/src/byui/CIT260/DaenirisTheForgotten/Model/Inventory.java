@@ -17,6 +17,7 @@ public class Inventory implements Serializable{
     
     private String name;
     private String description;
+    private String quantity;
 
     public Inventory() {
     }
@@ -36,10 +37,18 @@ public class Inventory implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 
     @Override
     public String toString() {
-        return "Inventory{" + "name=" + name + ", description=" + description + '}';
+        return "Inventory{" + "name=" + name + ", description=" + description + "quantity=" + quantity +'}';
     }
 
     @Override
@@ -47,6 +56,7 @@ public class Inventory implements Serializable{
         int hash = 5;
         hash = 37 * hash + Objects.hashCode(this.name);
         hash = 37 * hash + Objects.hashCode(this.description);
+        hash = 23 * hash + Objects.hashCode(this.quantity);
         return hash;
     }
 
@@ -63,6 +73,9 @@ public class Inventory implements Serializable{
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }       
+        if (!Objects.equals(this.quantity, other.quantity)) {
             return false;
         }
         return true;

@@ -39,6 +39,7 @@ public class MenuView {
             input = input.toUpperCase();
             
 
+
             if (input.equals("Q")){
 
                 return input;

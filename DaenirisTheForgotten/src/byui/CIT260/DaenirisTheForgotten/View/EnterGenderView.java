@@ -6,7 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import byui.CIT260.DaenirisTheForgotten.Control.PlayerCharacterGenderControl;
+import byui.CIT260.DaenirisTheForgotten.Control.PCGenderControl;
 import java.util.Scanner;
 
 /**
@@ -74,12 +74,12 @@ public class EnterGenderView {
         
         switch (choice){
             case "MALE":
-                PlayerCharacterGenderControl pcMale = new PlayerCharacterGenderControl();
-                pcMale.setPlayerCharacterGender();
+                PCGenderControl genderMale = new PCGenderControl();
+                genderMale.setPlayerCharacterGender();
                 break;
             case "FEMALE":
-                PlayerCharacterGenderControl pcFemale = new PlayerCharacterGenderControl();
-                pcFemale.setPlayerCharacterGender();
+                PCGenderControl genderFemale = new PCGenderControl();
+                genderFemale.setPlayerCharacterGender();
                 break;
             case "NEXT":
                 return;

@@ -7,8 +7,6 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.PCJobControl;
-import byui.CIT260.DaenirisTheForgotten.Control.PlayerCharacterGenderControl;
-import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import java.util.Scanner;
 
 /**

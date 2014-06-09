@@ -6,19 +6,18 @@
 
 package byui.CIT260.DaenirisTheForgotten.Model;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Joshua
  */
-public class SingeUseItems extends Inventory{
+public class SingleUseItems extends Inventory{
     
     private String effects;
-    private String quantity;
+    
 
-    public SingeUseItems() {
+    public SingleUseItems() {
     }
 
     public String getEffects() {
@@ -30,24 +29,15 @@ public class SingeUseItems extends Inventory{
     }
 
 
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
     @Override
     public String toString() {
-        return "SingeUseItems{" + "effects=" + effects + ", quantity=" + quantity + '}';
+        return "SingeUseItems{" + "effects=" + effects +  '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 23 * hash + Objects.hashCode(this.effects);
-        hash = 23 * hash + Objects.hashCode(this.quantity);
         return hash;
     }
 
@@ -59,13 +49,11 @@ public class SingeUseItems extends Inventory{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SingeUseItems other = (SingeUseItems) obj;
+        final SingleUseItems other = (SingleUseItems) obj;
         if (!Objects.equals(this.effects, other.effects)) {
             return false;
         }
-        if (!Objects.equals(this.quantity, other.quantity)) {
-            return false;
-        }
+        
         return true;
     }
     

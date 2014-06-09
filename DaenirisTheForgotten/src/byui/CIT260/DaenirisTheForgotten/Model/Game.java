@@ -15,6 +15,7 @@ public class Game
     private Actor[] actor;
     private World world;
     private CraftRecipe[] craftRecipe;
+    private Spells[] spells;
 
     public Inventory[] getInventory() {
         return inventory;
@@ -47,6 +48,15 @@ public class Game
     public void setCraftRecipe(CraftRecipe[] craftRecipe) {
         this.craftRecipe = craftRecipe;
     }
+
+    public Spells[] getSpells() {
+        return spells;
+    }
+
+    public void setSpells(Spells[] spells) {
+        this.spells = spells;
+    }
+    
     
     public static void startNewGame(){
         

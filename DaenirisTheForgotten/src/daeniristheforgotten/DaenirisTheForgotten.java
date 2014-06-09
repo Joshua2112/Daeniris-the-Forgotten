@@ -6,12 +6,8 @@
 
 package daeniristheforgotten;
 
-import byui.CIT260.DaenirisTheForgotten.Model.Actor;
-import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
-import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 
 import byui.CIT260.DaenirisTheForgotten.View.ProgramStart;
 

@@ -11,10 +11,6 @@ import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
 
-/**
- *
- * @author Joshua
- */
 public class BattleMenuView extends MenuView{
     
     private final String BATTLEMENU ="\n\ta - attack"
@@ -33,26 +29,29 @@ public class BattleMenuView extends MenuView{
         
          switch (choice){
             case 'a':
-                //BattleControl.hit(PlayerCharacter.attack, PlayerCharacter.defense);
-                //BattleControl.critical();
-                //BattleControl.attackDamageCalc(totalAttack, enemyDefense, hit, critical);
+                BattleControl attack = new BattleControl();
+                attack.hit();
                 break;
             case 'm':
-                HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu(helpMenu.getHelpMenu());
+                MagicMenuView magicSpell = new MagicMenuView();
+                magicSpell.displayMagicMenu();
                 break;
             case 'd':
-                ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
+                BattleControl defend = new BattleControl();
+                defend.defend1();
                 break;
             case 'u':
-                ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
+                UseItemMenuView useItem = new UseItemMenuView();
+                useItem.displayItemMenu();
                 break;
             case 'e':
-                AdventureView adventureView = new AdventureView();
-                adventureView.displayMenu(adventureView.getAdventureMenu());
+                BattleControl examine = new BattleControl();
+                examine.examineEnemy();
                 break;
             case 'r':
-                return;
+                BattleControl run = new BattleControl();
+                run.run1();
+
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;
