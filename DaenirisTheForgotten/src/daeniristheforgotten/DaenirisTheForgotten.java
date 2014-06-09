@@ -6,9 +6,9 @@
 
 package daeniristheforgotten;
 
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
-
 import byui.CIT260.DaenirisTheForgotten.View.ProgramStart;
 
 public class DaenirisTheForgotten {
@@ -18,9 +18,12 @@ public class DaenirisTheForgotten {
     
     public static void main(String[] args){
         
+        Game newGame = new Game();
+        newGame.startNewGame();
+        
         ProgramStart programStart = new ProgramStart();
-        programStart.startProgram();
-    }
+        programStart.startProgram();       
+        }
 
 
     public static Game getCurrentGame() {
