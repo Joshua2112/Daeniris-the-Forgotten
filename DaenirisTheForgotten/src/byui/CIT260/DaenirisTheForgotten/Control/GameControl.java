@@ -58,6 +58,7 @@ public class GameControl {
         ironSword.setMagicDefenseBonus(0);
         ironSword.setDescription("A plain old sword made of iron");
         ironSword.setSpecialEffects("None");
+        ironSword.setGearType("weapon");
         ironSword.setQuantity(0);
         playerInventory[1][0] = ironSword;
         
@@ -69,6 +70,7 @@ public class GameControl {
         leatherHelm.setMagicDefenseBonus(0);
         leatherHelm.setDescription("A weak helmet made of leather");
         leatherHelm.setSpecialEffects("None");
+        leatherHelm.setGearType("helmet");
         leatherHelm.setQuantity(0);
         playerInventory[1][1] = leatherHelm;
         
