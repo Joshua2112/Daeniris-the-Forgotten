@@ -19,7 +19,7 @@ import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 public class GameControl {
     public static Game game;
 
-    public static void createInventory() {
+    public static Inventory[][] createInventory() {
         Inventory[][] playerInventory =
                     new Inventory[Constants.NUMBER_OF_INVENTORIES][Constants.NUMMBER_OF_INVENTORY_ITEMS];
         
@@ -47,6 +47,7 @@ public class GameControl {
         greaterPotion.setEffects("Restores 50 health points");
         playerInventory[0][3] = greaterPotion;
         
+        return playerInventory;
         
     }
 
@@ -54,10 +55,10 @@ public class GameControl {
         System.out.println("create Actor stub called");
     }
 
-    public static void createWorld() {
+    public static World createWorld() {
         World gameWorld = new World();
         
-        game.setWorld(gameWorld);
+        return gameWorld;
     }
 
     public static void createCraftRecipe() {

@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
@@ -29,7 +30,7 @@ class HelpMenuView extends MenuView{
 
     
     @Override
-    public void doAction(char choice){
+    public void doAction(char choice, Game game){
         
          switch (choice){
             case 'g':

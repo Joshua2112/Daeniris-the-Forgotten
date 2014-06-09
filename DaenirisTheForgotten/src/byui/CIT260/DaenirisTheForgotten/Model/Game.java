@@ -11,17 +11,17 @@ import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 public class Game 
 {
     private float gameTime;
-    private Inventory[] inventory;
+    private Inventory[][] inventory;
     private Actor[] actor;
     private World world;
     private CraftRecipe[] craftRecipe;
     private Spells[] spells;
 
-    public Inventory[] getInventory() {
+    public Inventory[][] getInventory() {
         return inventory;
     }
 
-    public void setInventory(Inventory[] inventory) {
+    public void setInventory(Inventory[][] inventory) {
         this.inventory = inventory;
     }
 
@@ -56,18 +56,6 @@ public class Game
     public void setSpells(Spells[] spells) {
         this.spells = spells;
     }
-    
-    
-    public static void startNewGame(){
-        
-        GameControl.game = new Game();
-        
-        GameControl.createInventory();
-        GameControl.createActor();
-        GameControl.createWorld();
-        GameControl.createCraftRecipe();
-    }
-    
     
 
     public Game() {}

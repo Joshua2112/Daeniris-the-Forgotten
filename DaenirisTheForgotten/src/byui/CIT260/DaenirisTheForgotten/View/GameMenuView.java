@@ -6,6 +6,8 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+
 /**
  *
  * @author Joshua
@@ -23,7 +25,7 @@ class GameMenuView extends MenuView {
 
     
     @Override
-    public void doAction(char choice){
+    public void doAction(char choice, Game game){
         
          switch (choice){
             case 'm':

@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class MainMenuView extends MenuView{
         }
 
         @Override
-        public void doAction(char choice){
+        public void doAction(char choice, Game game){
         
          switch (choice){
             case 'N':
@@ -36,7 +37,7 @@ public class MainMenuView extends MenuView{
                 break;
             case 'H':
                 HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu(helpMenu.getHelpMenu());
+                helpMenu.displayMenu(helpMenu.getHelpMenu(), game);
                 break;
             case 'S':
                 ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
@@ -46,7 +47,7 @@ public class MainMenuView extends MenuView{
                 break;
             case 'T':
                 AdventureView adventureView = new AdventureView();
-                adventureView.displayMenu(adventureView.getAdventureMenu());
+                adventureView.displayMenu(adventureView.getAdventureMenu(), game);
                 break;
             case 'Q':
                 return;

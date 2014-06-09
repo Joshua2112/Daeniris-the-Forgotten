@@ -7,6 +7,8 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.View.ProgramStart;
 
 
@@ -28,7 +30,7 @@ public class AdventureView extends MenuView{
     }
     
     @Override
-    public void doAction(char choice){
+    public void doAction(char choice, Game game){
         
          switch (choice){
             case 'I':
@@ -38,7 +40,7 @@ public class AdventureView extends MenuView{
                 System.out.println("access Game Menu");
                 break;
             case 'L':
-                System.out.println("Access Map");
+                displayMap(game);
                 break;
             case 'N':
                 System.out.println("Travel North");
@@ -61,6 +63,24 @@ public class AdventureView extends MenuView{
                
     }
     
-    
-    
+    private void displayMap(Game game){
+               System.out.println("Game World Map");
+       System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
+       
+       for(int i = 0; i < 10; i++)
+       {
+           Location[][] mapArray = game.getWorld().getMap();
+           for(int j = 0; j < 10; j++)
+           {
+               System.out.print("| ");
+               System.out.print(mapArray[i][j].getSymbol());
+               System.out.print(' ');
+           }
+           
+           System.out.print("|");
+           System.out.println();
+           System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
+        }
+       
+    }
 }

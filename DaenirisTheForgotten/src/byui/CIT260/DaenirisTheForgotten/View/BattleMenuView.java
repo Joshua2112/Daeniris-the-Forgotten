@@ -8,6 +8,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
 
@@ -25,7 +26,7 @@ public class BattleMenuView extends MenuView{
         }
 
         @Override
-        public void doAction(char choice){
+        public void doAction(char choice, Game game){
         
          switch (choice){
             case 'a':
