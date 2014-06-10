@@ -16,12 +16,12 @@ import java.util.Objects;
 public class Actor implements Serializable{
     
     private String name;
-    private double attack;
-    private double defense;
-    private double magicAttack;
-    private double magicDefense;
-    private double healthPoints;
-    private double magicPoints;
+    private int attack;
+    private int defense;
+    private int magicAttack;
+    private int magicDefense;
+    private int healthPoints;
+    private int magicPoints;
 
     public Actor() {
     }
@@ -34,51 +34,51 @@ public class Actor implements Serializable{
         this.name = name;
     }
 
-    public double getAttack() {
+    public int getAttack() {
         return attack;
     }
 
-    public void setAttack(double attack) {
+    public void setAttack(int attack) {
         this.attack = attack;
     }
 
-    public double getDefense() {
+    public int getDefense() {
         return defense;
     }
 
-    public void setDefense(double defense) {
+    public void setDefense(int defense) {
         this.defense = defense;
     }
 
-    public double getMagicAttack() {
+    public int getMagicAttack() {
         return magicAttack;
     }
 
-    public void setMagicAttack(double magicAttack) {
+    public void setMagicAttack(int magicAttack) {
         this.magicAttack = magicAttack;
     }
 
-    public double getMagicDefense() {
+    public int getMagicDefense() {
         return magicDefense;
     }
 
-    public void setMagicDefense(double magicDefense) {
+    public void setMagicDefense(int magicDefense) {
         this.magicDefense = magicDefense;
     }
 
-    public double getHealthPoints() {
+    public int getHealthPoints() {
         return healthPoints;
     }
 
-    public void setHealthPoints(double healthPoints) {
+    public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
 
-    public double getMagicPoints() {
+    public int getMagicPoints() {
         return magicPoints;
     }
 
-    public void setMagicPoints(double magicPoints) {
+    public void setMagicPoints(int magicPoints) {
         this.magicPoints = magicPoints;
     }
 
