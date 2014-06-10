@@ -51,7 +51,6 @@ public class GameControl {
         greaterPotion.setEffects("Restores 50 health points");
         playerInventory[0][3] = greaterPotion;
         
-
         Gear ironSword = new Gear();
         ironSword.setName("Iron Sword");
         ironSword.setAttackBonus(2);
@@ -63,9 +62,7 @@ public class GameControl {
         ironSword.setGearType("weapon");
         ironSword.setQuantity(0);
         playerInventory[1][0] = ironSword;
-
     
-
         Gear leatherHelm = new Gear();
         leatherHelm.setName("Leather Helmet");
         leatherHelm.setAttackBonus(0);
