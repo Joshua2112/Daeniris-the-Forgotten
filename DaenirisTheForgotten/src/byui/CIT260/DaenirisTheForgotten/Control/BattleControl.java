@@ -14,6 +14,7 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 public class BattleControl {
     
     public boolean hit(int attack, int defense){        
+
         
         boolean hit;
         

@@ -9,6 +9,7 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
@@ -22,7 +23,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
 public class GameControl {
     public static Game game;
 
-    public static void createInventory() {
+    public static Inventory[][] createInventory() {
         Inventory[][] playerInventory =
                     new Inventory[Constants.NUMBER_OF_INVENTORIES][Constants.NUMMBER_OF_INVENTORY_ITEMS];
         
@@ -50,6 +51,7 @@ public class GameControl {
         greaterPotion.setEffects("Restores 50 health points");
         playerInventory[0][3] = greaterPotion;
         
+
         Gear ironSword = new Gear();
         ironSword.setName("Iron Sword");
         ironSword.setAttackBonus(2);
@@ -61,7 +63,9 @@ public class GameControl {
         ironSword.setGearType("weapon");
         ironSword.setQuantity(0);
         playerInventory[1][0] = ironSword;
-        
+
+    
+
         Gear leatherHelm = new Gear();
         leatherHelm.setName("Leather Helmet");
         leatherHelm.setAttackBonus(0);
@@ -191,10 +195,12 @@ public class GameControl {
         silver.setDescription("Valuable metal used to craft items");
         silver.setQuantity(0);
         playerInventory[2][4] = silver;
-                
+        
+              return playerInventory;  
                 }
 
-    public static void createActor() {
+
+    public static Actor[][] createActor() {
         Actor[][] actors = new Actor[Constants.NUMBER_OF_ACTOR_TYPES][Constants.NUMBER_OF_ENEMIES];
         
         PlayerCharacter newPlayerCharacter = new PlayerCharacter();
@@ -231,14 +237,19 @@ public class GameControl {
         jelly.setItemsDropped("potion, clothCap");
         actors [1][0] = jelly;
         
+        return actors;
+        
     }
 
-    public static void createWorld() {
-        System.out.println("create World stub called");
+    public static World createWorld() {
+        World gameWorld = new World();
+        
+        return gameWorld;
     }
 
     public static void createCraftRecipe() {
         System.out.println("create Craft Recipe stub called");
     }
     
+
 }

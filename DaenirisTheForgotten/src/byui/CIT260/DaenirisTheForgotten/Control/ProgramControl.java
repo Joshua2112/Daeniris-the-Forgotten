@@ -38,8 +38,4 @@ public class ProgramControl {
         return playerCharacter;
     }
     
-    public static World createWorld(){
-        World gameWorld = new World();
-        return gameWorld;
-    }
 }

@@ -18,11 +18,11 @@ public class DaenirisTheForgotten {
     
     public static void main(String[] args){
         
-        Game newGame = new Game();
-        newGame.startNewGame();
+        Game game = new Game();
+        
         
         ProgramStart programStart = new ProgramStart();
-        programStart.startProgram();       
+        programStart.startProgram(game);       
         }
 
 

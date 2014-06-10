@@ -7,11 +7,11 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
+import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
 
-/**
- *
- * @author Joshua
- */
 public class BattleMenuView extends MenuView{
     
     private final String BATTLEMENU ="\n\ta - attack"
@@ -26,7 +26,7 @@ public class BattleMenuView extends MenuView{
         }
 
         @Override
-        public void doAction(char choice){
+        public void doAction(char choice, Game game){
         
          switch (choice){
             case 'a':
@@ -52,6 +52,7 @@ public class BattleMenuView extends MenuView{
             case 'r':
                 BattleControl run = new BattleControl();
                 run.run1();
+
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;

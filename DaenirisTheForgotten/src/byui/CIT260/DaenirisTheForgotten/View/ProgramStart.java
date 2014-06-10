@@ -6,9 +6,11 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import java.util.Scanner;
 
 /**
@@ -22,7 +24,7 @@ public class ProgramStart{
             }
     
               
-    public void startProgram(){
+    public void startProgram(Game game){
             
         this.displayBanner();
             
@@ -35,8 +37,15 @@ public class ProgramStart{
             
             this.displayWelcomeMessage(playerCharacter);
             
+            game.setInventory(GameControl.createInventory());
+            game.setWorld(GameControl.createWorld());
+            GameControl.createInventory();
+            GameControl.createActor();
+            GameControl.createWorld();
+            GameControl.createCraftRecipe();
+            
             MainMenuView mainMenuView = new MainMenuView();
-            mainMenuView.displayMenu(mainMenuView.getMainMenu());
+            mainMenuView.displayMenu(mainMenuView.getMainMenu(), game);
     }            
     
         public void displayBanner(){

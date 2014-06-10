@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
@@ -19,7 +20,8 @@ public class MainMenuView extends MenuView{
         private final String mainMenu ="\n\tEnter \'n\' to start new game"
                                   +"\n\tEnter \'h\' for the help menu"
                                   +"\n\tEnter \'s\' to save current game"
-                                  +"\n\tEnter \'l\' to load previously saved game"                                  
+                                  +"\n\tEnter \'l\' to load previously saved game"
+                                  +"\n\tEnter \'t\' to temporarily access adventure menu"
                                   +"\n\tEnter \'q\' to quit to the desktop";
 
         public String getMainMenu() {
@@ -27,28 +29,27 @@ public class MainMenuView extends MenuView{
         }
 
         @Override
-        public void doAction(char choice){
-        
+        public void doAction(char choice, Game game){       
          switch (choice){
-            case 'n':
+            case 'N':
                 CharacterCreationView newCharacter = new CharacterCreationView();
                 newCharacter.newCharacterCreation();
                 break;
-            case 'h':
+            case 'H':
                 HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu(helpMenu.getHelpMenu());
+                helpMenu.displayMenu(helpMenu.getHelpMenu(), game);
                 break;
-            case 's':
+            case 'S':
                 ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
                 break;
-            case 'l':
+            case 'L':
                 ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
                 break;
-            case 't':
+            case 'T':
                 AdventureView adventureView = new AdventureView();
-                adventureView.displayMenu(adventureView.getAdventureMenu());
+                adventureView.displayMenu(adventureView.getAdventureMenu(), game);
                 break;
-            case 'q':
+            case 'Q':
                 return;
             default:
                 System.out.println("\n\tInvalid selection, try again");

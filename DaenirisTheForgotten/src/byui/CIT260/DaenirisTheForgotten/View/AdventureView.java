@@ -7,6 +7,8 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.View.ProgramStart;
 
 
@@ -28,31 +30,32 @@ public class AdventureView extends MenuView{
     }
     
     @Override
-    public void doAction(char choice){
+    public void doAction(char choice, Game game){
         
          switch (choice){
-            case 'i':
+            case 'I':
                 System.out.println("Interact");
                 break;
-            case 'm':
-                System.out.println("access Game Menu");
+            case 'M':
+                GameMenuView inGameMenu = new GameMenuView();
+                inGameMenu.displayMenu(inGameMenu.getInGameMenu(), game);
                 break;
-            case 'l':
-                System.out.println("Access Map");
+            case 'L':
+                displayMap(game);
                 break;
-            case 'n':
-                //MoveControl.move(gameWorld, 0, 1);
+            case 'N':
+                System.out.println("Travel North");
                 break;
-            case 's':
+            case 'S':
                 System.out.println("Travel South");
                 break;
-            case 'w':
+            case 'W':
                 System.out.println("Travel West");
                 break;
-            case 'e':
+            case 'E':
                 System.out.println("Travel East");
                 break;
-            case 'q':
+            case 'Q':
                 return;
             default:
                 System.out.println("Invalid selection, try again");
@@ -61,6 +64,24 @@ public class AdventureView extends MenuView{
                
     }
     
-    
-    
+    private void displayMap(Game game){
+               System.out.println("Game World Map");
+       System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
+       
+       for(int i = 0; i < 10; i++)
+       {
+           Location[][] mapArray = game.getWorld().getMap();
+           for(int j = 0; j < 10; j++)
+           {
+               System.out.print("| ");
+               System.out.print(mapArray[i][j].getSymbol());
+               System.out.print(' ');
+           }
+           
+           System.out.print("|");
+           System.out.println();
+           System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
+        }
+       
+    }
 }

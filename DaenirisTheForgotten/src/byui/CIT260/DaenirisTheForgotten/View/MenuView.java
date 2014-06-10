@@ -5,11 +5,12 @@
  *********************************************************************/
 
 package byui.CIT260.DaenirisTheForgotten.View;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import java.util.Scanner;
 
 
 public class MenuView {
-    public void displayMenu(String menu){
+    public void displayMenu(String menu, Game game){
 
         char selection = ' ';
         do {
@@ -19,9 +20,9 @@ public class MenuView {
             String input = this.getInput();
             selection = input.charAt(0);
 
-            this.doAction(selection);
+            this.doAction(selection, game);
 
-        }while (selection != 'q');
+        }while (selection != 'Q');
     }               
 
     public String getInput() {
@@ -36,8 +37,12 @@ public class MenuView {
             
             input = keyboard.nextLine();
             input = input.trim();
+            input = input.toUpperCase();
             
-            if (input.toUpperCase().equals("Q")){
+
+
+            if (input.equals("Q")){
+
                 return input;
             }
                            
@@ -48,7 +53,10 @@ public class MenuView {
         return input;
         }
     
-    public void doAction(char choice){
+    public void doAction(char choice, Game game){
         
     }
+    
+    public void display(Game game){}
+    
 }
