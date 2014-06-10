@@ -198,7 +198,7 @@ public class GameControl {
                 }
 
 
-    public static void createActor() {
+    public static Actor[][] createActor() {
         Actor[][] actors = new Actor[Constants.NUMBER_OF_ACTOR_TYPES][Constants.NUMBER_OF_ENEMIES];
         
         PlayerCharacter newPlayerCharacter = new PlayerCharacter();
@@ -234,6 +234,8 @@ public class GameControl {
         jelly.setExperienceValue(30);
         jelly.setItemsDropped("potion, clothCap");
         actors [1][0] = jelly;
+        
+        return actors;
         
     }
 

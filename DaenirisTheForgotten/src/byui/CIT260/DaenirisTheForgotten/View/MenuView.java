@@ -22,7 +22,7 @@ public class MenuView {
 
             this.doAction(selection, game);
 
-        }while (selection != 'q');
+        }while (selection != 'Q');
     }               
 
     public String getInput() {
@@ -56,4 +56,7 @@ public class MenuView {
     public void doAction(char choice, Game game){
         
     }
+    
+    public void display(Game game){}
+    
 }

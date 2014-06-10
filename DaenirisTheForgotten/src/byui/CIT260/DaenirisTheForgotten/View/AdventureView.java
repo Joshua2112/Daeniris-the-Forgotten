@@ -37,7 +37,8 @@ public class AdventureView extends MenuView{
                 System.out.println("Interact");
                 break;
             case 'M':
-                System.out.println("access Game Menu");
+                GameMenuView inGameMenu = new GameMenuView();
+                inGameMenu.displayMenu(inGameMenu.getInGameMenu(), game);
                 break;
             case 'L':
                 displayMap(game);
