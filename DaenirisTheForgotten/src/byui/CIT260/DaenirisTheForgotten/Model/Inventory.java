@@ -46,6 +46,8 @@ public class Inventory implements Serializable{
         this.quantity = quantity;
     }
 
+    
+    
     @Override
     public String toString() {
         return "Inventory{" + "name=" + name + ", description=" + description + "quantity=" + quantity +'}';

@@ -10,10 +10,13 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 
 public class Constants {
     
-    public static final int NUMBER_OF_INVENTORIES = 3;
-    public static final int NUMMBER_OF_INVENTORY_ITEMS = 100;
+    public static final int DEFAULT_INVENTORY_QUANTITY = 100;
     public static final int NUMBER_OF_ACTOR_TYPES = 2;
     public static final int NUMBER_OF_ENEMIES = 100;
 
+    //Inventory Display Constants
+    public static final int INV_COL_WIDTH = 25;
+    public static final int INV_ROW_COUNT = 5;
+    public static final int INV_COL_COUNT = 4;
     
 }

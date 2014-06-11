@@ -31,7 +31,7 @@ public class AdventureView extends MenuView{
     
     @Override
     public void doAction(char choice, Game game){
-        
+    
          switch (choice){
             case 'I':
                 System.out.println("Interact");

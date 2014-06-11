@@ -25,45 +25,56 @@ public class GameControl {
 
     public static Inventory[][] createInventory() {
         Inventory[][] playerInventory =
-                    new Inventory[Constants.NUMBER_OF_INVENTORIES][Constants.NUMMBER_OF_INVENTORY_ITEMS];
+                    new Inventory[Constants.INV_COL_COUNT][Constants.INV_COL_WIDTH];
+
+        SingleUseItems blank = new SingleUseItems();
+        blank.setName(null);
+        blank.setQuantity(0);
         
+        for(int i = 0; i < (Constants.INV_COL_COUNT); i ++){
+            for (int j = 0; j < (Constants.INV_COL_WIDTH); j++){
+                playerInventory[i][j] = blank;
+            }
+        }
+        
+        // Single Use Items
         SingleUseItems potion = new SingleUseItems();
         potion.setName("Potion");
         potion.setDescription("A healing item");
         potion.setEffects("Heals 20 health points");
+        potion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[0][0] = potion;
         
         SingleUseItems antidote = new SingleUseItems();
         antidote.setName("Antidote");
         antidote.setDescription("Heals poison");
         antidote.setEffects("Heals poison");
+        antidote.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[0][1] = antidote;
         
         SingleUseItems ether = new SingleUseItems();
         ether.setName("Ether");
         ether.setDescription("Resores magic");
         ether.setEffects("Restores 20 magic points");
+        ether.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[0][2] = ether;
         
         SingleUseItems greaterPotion = new SingleUseItems();
         greaterPotion.setName("Greater Potion");
         greaterPotion.setDescription("Restores more health");
         greaterPotion.setEffects("Restores 50 health points");
+        greaterPotion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[0][3] = greaterPotion;
         
+        SingleUseItems pheonixDown = new SingleUseItems();
+        pheonixDown.setName("Pheonix Down");
+        pheonixDown.setDescription("Revives");
+        pheonixDown.setEffects("Blah");
+        pheonixDown.setQuantity(0);
+        playerInventory[0][4] = pheonixDown;
 
-        Gear ironSword = new Gear();
-        ironSword.setName("Iron Sword");
-        ironSword.setAttackBonus(2);
-        ironSword.setDefenseBonus(0);
-        ironSword.setMagicAttackBonus(0);
-        ironSword.setMagicDefenseBonus(0);
-        ironSword.setDescription("A plain old sword made of iron");
-        ironSword.setSpecialEffects("None");
-        ironSword.setQuantity(0);
-        playerInventory[1][0] = ironSword;
 
-    
+        //Armor ----------------------------------------------------------
 
         Gear leatherHelm = new Gear();
         leatherHelm.setName("Leather Helmet");
@@ -73,19 +84,8 @@ public class GameControl {
         leatherHelm.setMagicDefenseBonus(0);
         leatherHelm.setDescription("A weak helmet made of leather");
         leatherHelm.setSpecialEffects("None");
-        leatherHelm.setQuantity(0);
-        playerInventory[1][1] = leatherHelm;
-        
-        Gear oakStaff = new Gear();
-        oakStaff.setName("Oak Staff");
-        oakStaff.setAttackBonus(1);
-        oakStaff.setDefenseBonus(0);
-        oakStaff.setMagicAttackBonus(2);
-        oakStaff.setMagicDefenseBonus(0);
-        oakStaff.setDescription("An old magic staff made of Oak");
-        oakStaff.setSpecialEffects("None");
-        oakStaff.setQuantity(0);
-        playerInventory[1][2] = oakStaff;
+        leatherHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][0] = leatherHelm;
         
         Gear ironBreastplate = new Gear();
         ironBreastplate.setName("Iron Breastplate");
@@ -95,8 +95,8 @@ public class GameControl {
         ironBreastplate.setMagicDefenseBonus(0);
         ironBreastplate.setDescription("An average breastplate made of iron");
         ironBreastplate.setSpecialEffects("None");
-        ironBreastplate.setQuantity(0);
-        playerInventory[1][3] = ironBreastplate;
+        ironBreastplate.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][1] = ironBreastplate;
         
         Gear woodenShield = new Gear();
         woodenShield.setName("Wooden Shield");
@@ -106,9 +106,9 @@ public class GameControl {
         woodenShield.setMagicDefenseBonus(0);
         woodenShield.setDescription("A weak sheild made of wood");
         woodenShield.setSpecialEffects("None");
-        woodenShield.setQuantity(0);
-        playerInventory[1][4] = woodenShield;
-        
+        woodenShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][2] = woodenShield;
+       
         Gear clothCloak = new Gear();
         clothCloak.setName("Cloth Cloak");
         clothCloak.setAttackBonus(0);
@@ -117,19 +117,22 @@ public class GameControl {
         clothCloak.setMagicDefenseBonus(3);
         clothCloak.setDescription("A simple cloak that is easy to move in");
         clothCloak.setSpecialEffects("None");
-        clothCloak.setQuantity(0);
-        playerInventory[1][5] = clothCloak;
+        clothCloak.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][3] = clothCloak;
         
-        Gear clothCap = new Gear();
-        clothCap.setName("Cloth Cap");
-        clothCap.setAttackBonus(0);
-        clothCap.setDefenseBonus(1);
-        clothCap.setMagicAttackBonus(0);
-        clothCap.setMagicDefenseBonus(2);
-        clothCap.setDescription("A simple cap for a spellcaster");
-        clothCap.setSpecialEffects("None");
-        clothCap.setQuantity(0);
-        playerInventory[1][6] = clothCap;
+
+        
+        //Weapons -----------------------------------------------------------
+        Gear oakStaff = new Gear();
+        oakStaff.setName("Oak Staff");
+        oakStaff.setAttackBonus(1);
+        oakStaff.setDefenseBonus(0);
+        oakStaff.setMagicAttackBonus(2);
+        oakStaff.setMagicDefenseBonus(0);
+        oakStaff.setDescription("An old magic staff made of Oak");
+        oakStaff.setSpecialEffects("None");
+        oakStaff.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[2][0] = oakStaff;
         
         Gear steelSword = new Gear();
         steelSword.setName("Cloth Cap");
@@ -139,8 +142,8 @@ public class GameControl {
         steelSword.setMagicDefenseBonus(0);
         steelSword.setDescription("A sturdy sword made of steel");
         steelSword.setSpecialEffects("None");
-        steelSword.setQuantity(0);
-        playerInventory[1][7] = steelSword;
+        steelSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[2][1] = steelSword;
         
         Gear fireStave = new Gear();
         fireStave.setName("Fire Stave");
@@ -150,52 +153,53 @@ public class GameControl {
         fireStave.setMagicDefenseBonus(0);
         fireStave.setDescription("An elaborate staff, brimming with fire magic");
         fireStave.setSpecialEffects("Increases damage of fire spells");
-        fireStave.setQuantity(0);
-        playerInventory[1][8] = fireStave;
+        fireStave.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[2][2] = fireStave;
         
-        Gear chainMail = new Gear();
-        chainMail.setName("Chain Mail");
-        chainMail.setAttackBonus(0);
-        chainMail.setDefenseBonus(6);
-        chainMail.setMagicAttackBonus(0);
-        chainMail.setMagicDefenseBonus(1);
-        chainMail.setDescription("Chain mail made for a strong warrior");
-        chainMail.setSpecialEffects("none");
-        chainMail.setQuantity(0);
-        playerInventory[1][9] = chainMail;
+        Gear ironSword = new Gear();
+        ironSword.setName("Iron Sword");
+        ironSword.setAttackBonus(2);
+        ironSword.setDefenseBonus(0);
+        ironSword.setMagicAttackBonus(0);
+        ironSword.setMagicDefenseBonus(0);
+        ironSword.setDescription("A plain old sword made of iron");
+        ironSword.setSpecialEffects("None");
+        ironSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[2][3] = ironSword;
         
+        //Raw Materials--------------------------------------------------------
         RawMaterial wood = new RawMaterial();
         wood.setName("Wood");
         wood.setDescription("Wood used to craft items");
-        wood.setQuantity(0);
-        playerInventory[2][0] = wood;
+        wood.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[3][0] = wood;
         
         RawMaterial ore = new RawMaterial();
         ore.setName("Ore");
         ore.setDescription("Ore used to craft items");
-        ore.setQuantity(0);
-        playerInventory[2][1] = ore;
+        ore.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[3][1] = ore;
         
         RawMaterial crystal = new RawMaterial();
         crystal.setName("Crystal");
         crystal.setDescription("Crystal used to craft items");
-        crystal.setQuantity(0);
-        playerInventory[2][2] = crystal;
+        crystal.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[3][2] = crystal;
         
         RawMaterial magicSand = new RawMaterial();
         magicSand.setName("Magic Sand");
         magicSand.setDescription("Magic sand used to craft items");
-        magicSand.setQuantity(0);
-        playerInventory[2][3] = magicSand;
+        magicSand.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[3][3] = magicSand;
         
         RawMaterial silver = new RawMaterial();
         silver.setName("Silver");
         silver.setDescription("Valuable metal used to craft items");
-        silver.setQuantity(0);
-        playerInventory[2][4] = silver;
+        silver.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[3][4] = silver;
         
               return playerInventory;  
-                }
+    }
 
 
     public static Actor[][] createActor() {
