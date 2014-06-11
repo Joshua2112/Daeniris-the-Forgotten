@@ -66,6 +66,7 @@ public class GameControl {
         greaterPotion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[0][3] = greaterPotion;
         
+
         SingleUseItems pheonixDown = new SingleUseItems();
         pheonixDown.setName("Pheonix Down");
         pheonixDown.setDescription("Revives");
@@ -86,7 +87,7 @@ public class GameControl {
         leatherHelm.setSpecialEffects("None");
         leatherHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[1][0] = leatherHelm;
-        
+       
         Gear ironBreastplate = new Gear();
         ironBreastplate.setName("Iron Breastplate");
         ironBreastplate.setAttackBonus(0);
