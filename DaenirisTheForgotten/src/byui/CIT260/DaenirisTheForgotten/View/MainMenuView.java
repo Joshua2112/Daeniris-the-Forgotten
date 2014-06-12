@@ -33,7 +33,7 @@ public class MainMenuView extends MenuView{
          switch (choice){
             case 'N':
                 CharacterCreationView newCharacter = new CharacterCreationView();
-                newCharacter.newCharacterCreation();
+                newCharacter.newCharacterCreation(game);
                 break;
             case 'H':
                 HelpMenuView helpMenu = new HelpMenuView();

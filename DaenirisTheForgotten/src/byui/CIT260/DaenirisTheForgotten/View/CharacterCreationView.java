@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class CharacterCreationView extends MenuView {
     
-        public void newCharacterCreation() {                 
+        public void newCharacterCreation(Game game) {                 
             
         EnterGenderView enterGender = new EnterGenderView();
         enterGender.displayMenu();
