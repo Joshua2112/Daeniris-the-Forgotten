@@ -9,6 +9,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 
 /**
  *
@@ -108,7 +109,7 @@ class GameMenuView extends MenuView {
 
     private void displayInventory(Game game) {
         
-        Inventory[][] inventory = game.getInventory();
+        
         
         TabularMenu inventoryTab = new TabularMenu();
         inventoryTab.setDisplayName("Inventory Display");
@@ -116,6 +117,7 @@ class GameMenuView extends MenuView {
         inventoryTab.setColumnWidth(Constants.INV_COL_WIDTH);
         inventoryTab.setRowCount(Constants.INV_ROW_COUNT);
         inventoryTab.setHideInventory(true);
+        inventoryTab.setType(Constants.INVENTORY);
         
         String[] header = new String[Constants.INV_COL_COUNT];
         header[0] = "Potions";
@@ -125,7 +127,7 @@ class GameMenuView extends MenuView {
         
         inventoryTab.setHeader(header);
         
-        
-        displayTabular(inventory, inventoryTab);
+        GameControl.sort(game.getInventory());
+        displayTabular(game, inventoryTab);
     }
 }

@@ -5,7 +5,10 @@
  *********************************************************************/
 
 package byui.CIT260.DaenirisTheForgotten.View;
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
+import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import java.util.Scanner;
 
@@ -59,41 +62,56 @@ public class MenuView {
         
     }
     
-    public void displayTabular(Inventory[][] listDisplay, TabularMenu inventoryTab){
+    public void displayTabular(Game game, TabularMenu tab){
         
-        
+        Inventory[][] inventory = game.getInventory();
+        Spells[][] spells = game.getSpells();
+        CraftRecipe[][] crafts = game.getCraftRecipe();
+     
         //Display menu title
-        System.out.println(inventoryTab.getDisplayName());
+        System.out.println(tab.getDisplayName());
         
         //Display Column Headers
-        for(int i = 0; i < inventoryTab.getColumnCount(); i++){
-            System.out.printf( "%-" + inventoryTab.getColumnWidth() + "s"
-                    , inventoryTab.getHeader()[i]);
+        for(int i = 0; i < tab.getColumnCount(); i++){
+            System.out.printf( "%-" + tab.getColumnWidth() + "s"
+                    , tab.getHeader()[i]);
         }
         System.out.print("\n");
         
         //Create header lines
         String line = "";
-        for (int i = 0; i < (inventoryTab.getColumnWidth() / 2); i++){
+        for (int i = 0; i < (tab.getColumnWidth() / 2); i++){
             line = line.concat("-");
         }
         //Display Column Headers Lines
-        for(int i = 0; i < inventoryTab.getColumnCount(); i++){
-            System.out.printf( "%-" + inventoryTab.getColumnWidth() + "s", line);
+        for(int i = 0; i < tab.getColumnCount(); i++){
+            System.out.printf( "%-" + tab.getColumnWidth() + "s", line);
         }
         System.out.print("\n");
         
         //Display the lists of inventory in their columns
-        for(int i = 0; i < inventoryTab.getRowCount(); i++){
-            for(int j = 0; j < inventoryTab.getColumnCount(); j++){
-                if (inventoryTab.isHideInventory() && listDisplay[j][i].getQuantity() == 0){
-                    System.out.printf( "%-" + inventoryTab.getColumnWidth() + "s"
-                            , "");
+        for(int i = 0; i < tab.getRowCount(); i++){
+            for(int j = 0; j < tab.getColumnCount(); j++){
+                if (tab.getType() == 1){
+                    if (tab.isHideInventory() && inventory[j][i].getQuantity() == 0){
+                        System.out.printf( "%-" + tab.getColumnWidth() + "s"
+                                , "");
+                    }
+                    else{
+                        System.out.printf( "%-" + tab.getColumnWidth() + "s"
+                                , inventory[j][i].getName() 
+                                  + "(" + inventory[j][i].getQuantity() + ")");
+                    }
                 }
-                else{
-                    System.out.printf( "%-" + inventoryTab.getColumnWidth() + "s"
-                            , listDisplay[j][i].getName() 
-                              + "(" + listDisplay[j][i].getQuantity() + ")");
+                else if(tab.getType() == 2){
+                    System.out.printf( "%-" + tab.getColumnWidth() + "s"
+                                , spells[j][i].getSpellName()
+                                  + "(" + spells[j][i].getMagicCost()+ ")");
+                }
+                else if(tab.getType() == 3){
+                    System.out.printf( "%-" + tab.getColumnWidth() + "s"
+                                , spells[j][i].getSpellName()
+                                  + "(" + inventory[j][i].getQuantity() + ")");
                 }
             }
             System.out.print("\n");

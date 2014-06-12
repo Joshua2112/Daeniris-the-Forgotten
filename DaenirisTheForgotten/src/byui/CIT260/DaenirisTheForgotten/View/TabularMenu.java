@@ -20,6 +20,7 @@ public class TabularMenu {
         private int columnWidth;
         private String[] header;
         private boolean hideInventory;
+        private int type;
 
         
     public TabularMenu(){};    
@@ -71,6 +72,13 @@ public class TabularMenu {
     public void setHideInventory(boolean hideInventory) {
         this.hideInventory = hideInventory;
     }
-        
-    
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+   
 }

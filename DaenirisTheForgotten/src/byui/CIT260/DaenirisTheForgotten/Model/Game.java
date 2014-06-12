@@ -14,8 +14,8 @@ public class Game
     private Inventory[][] inventory;
     private Actor[] actor;
     private World world;
-    private CraftRecipe[] craftRecipe;
-    private Spells[] spells;
+    private CraftRecipe[][] craftRecipe;
+    private Spells[][] spells;
 
     public Inventory[][] getInventory() {
         return inventory;
@@ -41,19 +41,19 @@ public class Game
         this.world = world;
     }
 
-    public CraftRecipe[] getCraftRecipe() {
+    public CraftRecipe[][] getCraftRecipe() {
         return craftRecipe;
     }
 
-    public void setCraftRecipe(CraftRecipe[] craftRecipe) {
+    public void setCraftRecipe(CraftRecipe[][] craftRecipe) {
         this.craftRecipe = craftRecipe;
     }
 
-    public Spells[] getSpells() {
+    public Spells[][] getSpells() {
         return spells;
     }
 
-    public void setSpells(Spells[] spells) {
+    public void setSpells(Spells[][] spells) {
         this.spells = spells;
     }
     

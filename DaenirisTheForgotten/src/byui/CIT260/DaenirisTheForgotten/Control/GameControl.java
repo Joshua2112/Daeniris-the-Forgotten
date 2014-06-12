@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
@@ -15,6 +16,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 
 /**
  *
@@ -28,7 +30,7 @@ public class GameControl {
                     new Inventory[Constants.INV_COL_COUNT][Constants.INV_COL_WIDTH];
 
         SingleUseItems blank = new SingleUseItems();
-        blank.setName(null);
+        blank.setName("");
         blank.setQuantity(0);
         
         for(int i = 0; i < (Constants.INV_COL_COUNT); i ++){
@@ -254,5 +256,20 @@ public class GameControl {
         System.out.println("create Craft Recipe stub called");
     }
     
-
+    public static void sort(Inventory[][] array){
+        System.out.println("Array Length" + array[0].length);
+        Inventory temp;
+        for (int k = 0; k < array.length; k++){
+            for (int i=0; i < array[k].length - 1; i++){
+                for(int j = i + 1; j<array[k].length; j++){
+                    if((array[k][i].getName().compareToIgnoreCase(array[k][j].getName())) > 0
+                        && array[k][j].getQuantity() > 0){
+                        temp = array[k][i];
+                        array[k][i] = array[k][j];
+                        array[k][j] = temp;
+                    }
+                }
+            }  
+        }
+    }
 }
