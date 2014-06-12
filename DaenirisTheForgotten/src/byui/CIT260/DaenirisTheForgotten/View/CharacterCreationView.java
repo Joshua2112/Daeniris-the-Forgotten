@@ -6,15 +6,19 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import java.util.Scanner;
+
 
 /**
  *
  * @author Joshua
  */
-public class CharacterCreationView {
+public class CharacterCreationView extends MenuView {
     
-        public void newCharacterCreation() {
-                 
+        public void newCharacterCreation() {                 
+            
         EnterGenderView enterGender = new EnterGenderView();
         enterGender.displayMenu();
         
@@ -24,8 +28,11 @@ public class CharacterCreationView {
         DistributeBonusesView DB = new DistributeBonusesView();
         DB.displayMenu();
         
-        System.out.println("Is this okay? y/n");
+        IsThisCharacterOkay itco = new IsThisCharacterOkay();
+        itco.characterInfo();
         
-        }
+        AdventureView adventureView = new AdventureView();
+        adventureView.displayMenu(adventureView.getAdventureMenu(), game);
     }
+}
 

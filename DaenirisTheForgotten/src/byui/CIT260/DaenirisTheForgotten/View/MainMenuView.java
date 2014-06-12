@@ -18,11 +18,11 @@ import java.util.Scanner;
 public class MainMenuView extends MenuView{
     
         private final String mainMenu ="\n\tEnter \'n\' to start new game"
-                                  +"\n\tEnter \'h\' for the help menu"
-                                  +"\n\tEnter \'s\' to save current game"
-                                  +"\n\tEnter \'l\' to load previously saved game"
-                                  +"\n\tEnter \'t\' to temporarily access adventure menu"
-                                  +"\n\tEnter \'q\' to quit to the desktop";
+                                    +"\n\tEnter \'h\' for the help menu"
+                                    +"\n\tEnter \'s\' to save current game"
+                                    +"\n\tEnter \'l\' to load previously saved game"
+                                    +"\n\tEnter \'t\' to temporarily access adventure menu"
+                                    +"\n\tEnter \'q\' to quit to the desktop";
 
         public String getMainMenu() {
             return mainMenu;
