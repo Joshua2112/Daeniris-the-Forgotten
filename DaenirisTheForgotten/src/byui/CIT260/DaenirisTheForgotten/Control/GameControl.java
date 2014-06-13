@@ -18,7 +18,6 @@ import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
-import byui.CIT260.DaenirisTheForgotten.View.CharacterCreationView;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
@@ -277,17 +276,17 @@ public class GameControl {
 
         System.out.println("Array Length" + array[0].length);
         Inventory temp;
-        for (int k = 0; k < array.length; k++){
-            for (int i=0; i < array[k].length - 1; i++){
-                for(int j = i + 1; j<array[k].length; j++){
-                    if((array[k][i].getName().compareToIgnoreCase(array[k][j].getName())) > 0
-                        && array[k][j].getQuantity() > 0){
-                        temp = array[k][i];
-                        array[k][i] = array[k][j];
-                        array[k][j] = temp;
+        for (Inventory[] array1 : array) {
+            for (int i = 0; i < array1.length - 1; i++) {
+                for (int j = i + 1; j < array1.length; j++) {
+                    if ((array1[i].getName().compareToIgnoreCase(array1[j].getName())) > 0 && array1[j].getQuantity() > 0) {
+                        temp = array1[i];
+                        array1[i] = array1[j];
+                        array1[j] = temp;
                     }
                 }
             }  
         }
     }
 }
+

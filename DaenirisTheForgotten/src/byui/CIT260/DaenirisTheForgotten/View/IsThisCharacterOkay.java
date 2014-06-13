@@ -6,6 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
@@ -81,7 +82,7 @@ class IsThisCharacterOkay {
          switch (choice){
             case 'N':
                 CharacterCreationView newCharacter = new CharacterCreationView();
-                //newCharacter.newCharacterCreation();
+                newCharacter.newCharacterCreation();
                 break;
             case 'Y':
                 return;

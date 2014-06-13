@@ -8,9 +8,10 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
-import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
 /**

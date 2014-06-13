@@ -21,7 +21,7 @@ import java.util.Scanner;
  */
 public class CharacterCreationView extends MenuView {
     
-        public void newCharacterCreation() {                 
+    public void newCharacterCreation() {                 
         
         // New pointer to the current game
         Game game = DaenirisTheForgotten.getCurrentGame();
