@@ -26,7 +26,7 @@ public class BattleMenuView extends MenuView{
         }
 
         @Override
-        public void doAction(char choice, Game game){
+        public void doAction(char choice){
         
          switch (choice){
             case 'a':

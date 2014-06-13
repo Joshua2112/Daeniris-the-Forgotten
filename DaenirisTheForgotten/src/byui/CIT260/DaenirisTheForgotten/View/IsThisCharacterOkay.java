@@ -81,7 +81,7 @@ class IsThisCharacterOkay {
          switch (choice){
             case 'N':
                 CharacterCreationView newCharacter = new CharacterCreationView();
-                newCharacter.newCharacterCreation();
+                //newCharacter.newCharacterCreation();
                 break;
             case 'Y':
                 return;

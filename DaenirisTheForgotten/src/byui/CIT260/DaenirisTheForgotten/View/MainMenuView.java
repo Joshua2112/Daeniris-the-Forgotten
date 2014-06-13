@@ -6,6 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import daeniristheforgotten.DaenirisTheForgotten;
@@ -29,15 +30,14 @@ public class MainMenuView extends MenuView{
         }
 
         @Override
-        public void doAction(char choice, Game game){       
+        public void doAction(char choice){       
          switch (choice){
             case 'N':
-                CharacterCreationView newCharacter = new CharacterCreationView();
-                newCharacter.newCharacterCreation();
+                this.StartNewGame(false);             
                 break;
             case 'H':
                 HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu(helpMenu.getHelpMenu(), game);
+                helpMenu.displayMenu(helpMenu.getHelpMenu());
                 break;
             case 'S':
                 ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
@@ -46,8 +46,9 @@ public class MainMenuView extends MenuView{
                 ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
                 break;
             case 'T':
+                this.StartNewGame(true);
                 AdventureView adventureView = new AdventureView();
-                adventureView.displayMenu(adventureView.getAdventureMenu(), game);
+                adventureView.displayMenu(adventureView.getAdventureMenu());
                 break;
             case 'Q':
                 return;
@@ -57,6 +58,16 @@ public class MainMenuView extends MenuView{
             }
                
         }
+
+    private void StartNewGame(Boolean test) {
+        
+        GameControl.CreateNewGame();
+        
+        if (!test){
+            CharacterCreationView newCharacter = new CharacterCreationView();
+            newCharacter.newCharacterCreation();
+            }
+    }
 }
 
 

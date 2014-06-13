@@ -10,13 +10,16 @@ import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.Model.World;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
+import byui.CIT260.DaenirisTheForgotten.View.CharacterCreationView;
+import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
  *
@@ -24,6 +27,20 @@ import byui.CIT260.DaenirisTheForgotten.Model.Spells;
  */
 public class GameControl {
     public static Game game;
+    
+    public static void CreateNewGame(){
+        //Create a new game instance
+        GameControl.game = new Game();
+        
+        //Set new game as current game
+        DaenirisTheForgotten.setCurrentGame(game);
+
+        //Create game data
+        game.setInventory(createInventory());
+        game.setWorld(createWorld());
+        game.setActor(createActor());
+        GameControl.createCraftRecipe();
+    }
 
     public static Inventory[][] createInventory() {
         Inventory[][] playerInventory =
@@ -257,6 +274,7 @@ public class GameControl {
     }
     
     public static void sort(Inventory[][] array){
+
         System.out.println("Array Length" + array[0].length);
         Inventory temp;
         for (int k = 0; k < array.length; k++){

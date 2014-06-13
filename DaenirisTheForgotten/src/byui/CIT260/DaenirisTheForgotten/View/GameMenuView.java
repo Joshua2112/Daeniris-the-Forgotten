@@ -10,6 +10,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
  *
@@ -29,14 +30,14 @@ class GameMenuView extends MenuView {
     }
     
     @Override
-    public void doAction(char choice, Game game){
+    public void doAction(char choice){
         
          switch (choice){
             case 'M':
                 System.out.println("display magic spells");
                 break;
             case 'I':
-                displayInventory(game);
+                displayInventory();
                 break;
             case 'G':
                 System.out.println("gear menu stub");
@@ -107,9 +108,9 @@ class GameMenuView extends MenuView {
     }
     */
 
-    private void displayInventory(Game game) {
+    private void displayInventory() {
         
-        
+        Game game = DaenirisTheForgotten.getCurrentGame();
         
         TabularMenu inventoryTab = new TabularMenu();
         inventoryTab.setDisplayName("Inventory Display");

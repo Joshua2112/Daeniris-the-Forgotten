@@ -12,7 +12,7 @@ public class Game
 {
     private float gameTime;
     private Inventory[][] inventory;
-    private Actor[] actor;
+    private Actor[][] actor;
     private World world;
     private CraftRecipe[][] craftRecipe;
     private Spells[][] spells;
@@ -25,11 +25,11 @@ public class Game
         this.inventory = inventory;
     }
 
-    public Actor[] getActor() {
+    public Actor[][] getActor() {
         return actor;
     }
 
-    public void setActor(Actor[] actor) {
+    public void setActor(Actor[][] actor) {
         this.actor = actor;
     }
 
