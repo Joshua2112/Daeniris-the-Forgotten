@@ -24,11 +24,11 @@ public class Game
         this.inventory = inventory;
     }
 
-    public Actor[] getActor() {
+    public Actor[][] getActor() {
         return actor;
     }
 
-    public void setActor(Actor[] actor) {
+    public void setActor(Actor[][] actor) {
         this.actor = actor;
     }
 

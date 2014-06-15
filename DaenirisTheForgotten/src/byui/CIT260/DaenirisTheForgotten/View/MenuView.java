@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class MenuView {
         
-    public void displayMenu(String menu, Game game){
+    public void displayMenu(String menu){
 
         char selection = ' ';
         do {
@@ -25,7 +25,7 @@ public class MenuView {
             String input = this.getInput();
             selection = input.charAt(0);
 
-            this.doAction(selection, game);
+            this.doAction(selection);
 
         }while (selection != 'Q');
     }               
@@ -58,7 +58,7 @@ public class MenuView {
         return input;
         }
     
-    public void doAction(char choice, Game game){
+    public void doAction(char choice){
         
     }
     

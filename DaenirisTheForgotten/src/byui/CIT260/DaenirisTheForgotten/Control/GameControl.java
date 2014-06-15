@@ -12,6 +12,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
@@ -25,6 +26,20 @@ import daeniristheforgotten.DaenirisTheForgotten;
  */
 public class GameControl {
     public static Game game;
+    
+    public static void CreateNewGame(){
+        //Create a new game instance
+        GameControl.game = new Game();
+        
+        //Set new game as current game
+        DaenirisTheForgotten.setCurrentGame(game);
+
+        //Create game data
+        game.setInventory(createInventory());
+        game.setWorld(createWorld());
+        game.setActor(createActor());
+        GameControl.createCraftRecipe();
+    }
 
     public static Inventory[][] createInventory() {
         Inventory[][] playerInventory =
@@ -258,16 +273,16 @@ public class GameControl {
     }
     
     public static void sort(Inventory[][] array){
+
         System.out.println("Array Length" + array[0].length);
         Inventory temp;
-        for (int k = 0; k < array.length; k++){
-            for (int i=0; i < array[k].length - 1; i++){
-                for(int j = i + 1; j<array[k].length; j++){
-                    if((array[k][i].getName().compareToIgnoreCase(array[k][j].getName())) > 0
-                        && array[k][j].getQuantity() > 0){
-                        temp = array[k][i];
-                        array[k][i] = array[k][j];
-                        array[k][j] = temp;
+        for (Inventory[] array1 : array) {
+            for (int i = 0; i < array1.length - 1; i++) {
+                for (int j = i + 1; j < array1.length; j++) {
+                    if ((array1[i].getName().compareToIgnoreCase(array1[j].getName())) > 0 && array1[j].getQuantity() > 0) {
+                        temp = array1[i];
+                        array1[i] = array1[j];
+                        array1[j] = temp;
                     }
                 }
             }  

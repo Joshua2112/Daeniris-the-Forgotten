@@ -6,8 +6,12 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
+//import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
 
@@ -17,8 +21,17 @@ import java.util.Scanner;
  */
 public class CharacterCreationView extends MenuView {
     
-        public void newCharacterCreation(Game game) {                 
-            
+    public void newCharacterCreation() {                 
+        
+        // New pointer to the current game
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        
+        //Create a pointer to the actor array
+        Actor[][] player = game.getActor();
+        
+        //Example of how to access the class.
+        //player[0][0].setName("Thor The Dumb");
+        
         EnterGenderView enterGender = new EnterGenderView();
         enterGender.displayMenu();
         
@@ -32,7 +45,7 @@ public class CharacterCreationView extends MenuView {
         itco.characterInfo();
         
         AdventureView adventureView = new AdventureView();
-        adventureView.displayMenu(adventureView.getAdventureMenu(), game);
+        adventureView.displayMenu(adventureView.getAdventureMenu());
     }
 }
 

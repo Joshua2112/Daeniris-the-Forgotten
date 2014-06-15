@@ -6,10 +6,9 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
-import byui.CIT260.DaenirisTheForgotten.View.ProgramStart;
+import daeniristheforgotten.DaenirisTheForgotten;
 
 
 
@@ -30,7 +29,7 @@ public class AdventureView extends MenuView{
     }
     
     @Override
-    public void doAction(char choice, Game game){
+    public void doAction(char choice){
     
          switch (choice){
             case 'I':
@@ -38,10 +37,10 @@ public class AdventureView extends MenuView{
                 break;
             case 'M':
                 GameMenuView inGameMenu = new GameMenuView();
-                inGameMenu.displayMenu(inGameMenu.getInGameMenu(), game);
+                inGameMenu.displayMenu(inGameMenu.getInGameMenu());
                 break;
             case 'L':
-                displayMap(game);
+                displayMap();
                 break;
             case 'B':
                 
@@ -66,13 +65,17 @@ public class AdventureView extends MenuView{
                
     }
     
-    private void displayMap(Game game){
-               System.out.println("Game World Map");
+    private void displayMap(){
+        
+       Game game = DaenirisTheForgotten.getCurrentGame();
+       
+       Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
+ 
+       System.out.println("Game World Map");
        System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
        
        for(int i = 0; i < 10; i++)
        {
-           Location[][] mapArray = game.getWorld().getMap();
            for(int j = 0; j < 10; j++)
            {
                System.out.print("| ");

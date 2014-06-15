@@ -25,7 +25,7 @@ public class ProgramStart{
             }
     
               
-    public void startProgram(Game game){
+    public void startProgram(){
             
         this.displayBanner();
             
@@ -38,15 +38,8 @@ public class ProgramStart{
             
             this.displayWelcomeMessage(playerCharacter);
             
-            game.setInventory(GameControl.createInventory());
-            game.setWorld(GameControl.createWorld());
-            GameControl.createInventory();
-            GameControl.createActor();
-            GameControl.createWorld();
-            GameControl.createCraftRecipe();
-            
             MainMenuView mainMenuView = new MainMenuView();
-            mainMenuView.displayMenu(mainMenuView.getMainMenu(), game);
+            mainMenuView.displayMenu(mainMenuView.getMainMenu());
     }            
     
         public void displayBanner(){
