@@ -6,10 +6,10 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 
 /**
  *
@@ -22,6 +22,7 @@ class GameMenuView extends MenuView {
                                   +"\n\tEnter \'i\' display items"
                                   +"\n\tEnter \'g\' display gear"                                  
                                   +"\n\tEnter \'c\' display crafts"
+                                  +"\n\tEnter \'b\' view bestiary"
                                   +"\n\tEnter \'q\' go back to adventure menu";
 
     public String getInGameMenu() {
@@ -43,6 +44,9 @@ class GameMenuView extends MenuView {
                 break;
             case 'C':
                 System.out.println("craft menu stub");
+                break;
+            case 'B':
+                this.displayActors();
                 break;
             case 'Q':
                 return;
@@ -130,4 +134,26 @@ class GameMenuView extends MenuView {
         GameControl.sort(game.getInventory());
         displayTabular(game, inventoryTab);
     }
+
+    private void displayActors() {
+        TabularMenu actorTab = new TabularMenu();
+        actorTab.setDisplayName("Actor Display");
+        actorTab.setColumnCount(Constants.INV_COL_COUNT);
+        actorTab.setColumnWidth(Constants.INV_COL_WIDTH);
+        actorTab.setRowCount(Constants.INV_ROW_COUNT);
+        actorTab.setHideInventory(true);
+        actorTab.setType(Constants.INVENTORY);
+        
+        String[] header = new String[Constants.INV_COL_COUNT];
+        header[0] = "Potions";
+        header[1] = "Armor";
+        header[2] = "Weapon";
+        header[3] = "Resources";
+        
+        actorTab.setHeader(header);
+        
+        GameControl.sort(game.getActor());
+        displayTabular(game, actorTab);
+    }
+}
 }

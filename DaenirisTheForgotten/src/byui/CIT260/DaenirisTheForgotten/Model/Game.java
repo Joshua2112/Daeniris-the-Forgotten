@@ -1,6 +1,5 @@
 package byui.CIT260.DaenirisTheForgotten.Model;
 
-import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 
 /*********************************************************************
  * Game Class
@@ -12,7 +11,7 @@ public class Game
 {
     private float gameTime;
     private Inventory[][] inventory;
-    private Actor[] actor;
+    private Actor[][] actor;
     private World world;
     private CraftRecipe[][] craftRecipe;
     private Spells[][] spells;

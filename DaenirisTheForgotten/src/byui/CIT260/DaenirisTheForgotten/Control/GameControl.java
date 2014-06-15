@@ -273,5 +273,22 @@ public class GameControl {
             }  
         }
     }
+    
+    public static void sort(Actor[][] array){
+        System.out.println("Array Length" + array[0].length);
+        Actor temp = null;
+        for (int i = 0; i < array.length; i++){
+            for (int j=0; j < array[i].length - 1; j++){
+                for(int k = j + 1; k<array[i].length; k++){
+                    if((array[i][j].getName().compareToIgnoreCase(array[i][k].getName()))> 0) {
+                        temp = array[i][j];
+                        array[i][j] = array[i][k];
+                        array[i][k] = temp;
+                    } 
+                }
+            }  
+        }
+    }
 }
+
 

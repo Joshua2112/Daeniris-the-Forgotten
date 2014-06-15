@@ -43,6 +43,8 @@ public class AdventureView extends MenuView{
             case 'L':
                 displayMap(game);
                 break;
+            case 'B':
+                
             case 'N':
                 System.out.println("Travel North");
                 break;
