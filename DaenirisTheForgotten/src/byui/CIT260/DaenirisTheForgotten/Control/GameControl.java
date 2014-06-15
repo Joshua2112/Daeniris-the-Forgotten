@@ -19,6 +19,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
+import static daeniristheforgotten.DaenirisTheForgotten.playerCharacter;
 
 /**
  *
@@ -225,6 +226,7 @@ public class GameControl {
         Actor[][] actors = new Actor[Constants.NUMBER_OF_ACTOR_TYPES][Constants.NUMBER_OF_ENEMIES];
         
         PlayerCharacter newPlayerCharacter = new PlayerCharacter();
+        newPlayerCharacter.setName(playerCharacter.getName());
         newPlayerCharacter.setAttack(0);
         newPlayerCharacter.setDefense(0);
         newPlayerCharacter.setGender(null);
@@ -290,15 +292,16 @@ public class GameControl {
     }
     
     public static void sort(Actor[][] array){
+        
         System.out.println("Array Length" + array[0].length);
-        Actor temp = null;
-        for (int i = 0; i < array.length; i++){
-            for (int j=0; j < array[i].length - 1; j++){
-                for(int k = j + 1; k<array[i].length; k++){
-                    if((array[i][j].getName().compareToIgnoreCase(array[i][k].getName()))> 0) {
-                        temp = array[i][j];
-                        array[i][j] = array[i][k];
-                        array[i][k] = temp;
+        Actor temp;
+        for (Actor[] array1 : array) {
+            for (int j=0; j < array1.length - 1; j++){
+                for(int k = j + 1; k<array1.length; k++){
+                    if((array1[j].getName().compareToIgnoreCase(array1[k].getName()))> 0) {
+                        temp = array1[j];
+                        array1[j] = array1[k];
+                        array1[k] = temp;
                     } 
                 }
             }  

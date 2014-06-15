@@ -23,6 +23,7 @@ public class Constants {
     public static final int INVENTORY = 1;
     public static final int MAGIC = 2;
     public static final int CRAFTS = 3;
+    public static final int ACTOR = 4;
     
     
 }
