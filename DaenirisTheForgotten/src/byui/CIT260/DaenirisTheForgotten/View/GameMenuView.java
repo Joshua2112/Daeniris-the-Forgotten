@@ -10,6 +10,7 @@ import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
  *
