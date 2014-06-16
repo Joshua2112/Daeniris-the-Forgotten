@@ -7,19 +7,15 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
-import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
-import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
-import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
-import static daeniristheforgotten.DaenirisTheForgotten.playerCharacter;
 
 /**
  *
@@ -225,16 +221,55 @@ public class GameControl {
     public static Actor[][] createActor() {
         Actor[][] actors = new Actor[Constants.NUMBER_OF_ACTOR_TYPES][Constants.NUMBER_OF_ENEMIES];
         
+        PlayerCharacter blank = new PlayerCharacter();
+        blank.setName("");
+        blank.setJob("");
+        blank.setAttack(0);
+        blank.setDefense(0);
+        blank.setGender("");
+        blank.setMagicAttack(0);
+        blank.setMagicDefense(0);
+        blank.setHealthPoints(0);
+        blank.setMagicPoints(0);
+        
+        Enemy blank1 = new Enemy();
+        blank1.setName("");
+        blank1.setAttack(2);
+        blank1.setDefense(2);
+        blank1.setMagicAttack(0);
+        blank1.setMagicDefense(0);
+        blank1.setHealthPoints(0);
+        blank1.setMagicPoints(0);
+        blank1.setExperienceValue(0);
+        blank1.setItemsDropped("none");
+        
+        for(int i = 0; i < (Constants.NUMBER_OF_ACTOR_TYPES); i ++){
+            for (int j = 0; j < (Constants.NUMBER_OF_ENEMIES); j++){
+                actors[i][j] = blank;
+        
         PlayerCharacter newPlayerCharacter = new PlayerCharacter();
-        newPlayerCharacter.setName(playerCharacter.getName());
+        newPlayerCharacter.setName("Joshua");
+        newPlayerCharacter.setJob("Warrior");
         newPlayerCharacter.setAttack(0);
         newPlayerCharacter.setDefense(0);
-        newPlayerCharacter.setGender(null);
+        newPlayerCharacter.setGender("Male");
         newPlayerCharacter.setMagicAttack(0);
         newPlayerCharacter.setMagicDefense(0);
         newPlayerCharacter.setHealthPoints(50);
         newPlayerCharacter.setMagicPoints(20);
         actors [0][0] = newPlayerCharacter;
+        
+        PlayerCharacter newPlayerCharacter1 = new PlayerCharacter();
+        newPlayerCharacter1.setName("Fred");
+        newPlayerCharacter1.setJob("Mage");
+        newPlayerCharacter1.setAttack(0);
+        newPlayerCharacter1.setDefense(0);
+        newPlayerCharacter1.setGender("Male");
+        newPlayerCharacter1.setMagicAttack(0);
+        newPlayerCharacter1.setMagicDefense(0);
+        newPlayerCharacter1.setHealthPoints(50);
+        newPlayerCharacter1.setMagicPoints(20);
+        actors [0][1] = newPlayerCharacter1;
         
         Enemy goblin = new Enemy();
         goblin.setName("Goblin");
@@ -260,9 +295,12 @@ public class GameControl {
         jelly.setItemsDropped("potion, clothCap");
         actors [1][0] = jelly;
         
-        return actors;
         
+        
+        }
     }
+    return actors;
+}
 
     public static World createWorld() {
         World gameWorld = new World();
@@ -296,12 +334,12 @@ public class GameControl {
         System.out.println("Array Length" + array[0].length);
         Actor temp;
         for (Actor[] array1 : array) {
-            for (int j=0; j < array1.length - 1; j++){
-                for(int k = j + 1; k<array1.length; k++){
-                    if((array1[j].getName().compareToIgnoreCase(array1[k].getName()))> 0) {
-                        temp = array1[j];
-                        array1[j] = array1[k];
-                        array1[k] = temp;
+            for (int i = 0; i < array1.length - 1; i++) {
+                for (int j = i + 1; j < array1.length; j++) {
+                    if((array1[i].getName().compareToIgnoreCase(array1[j].getName()))> 0) {
+                        temp = array1[i];
+                        array1[i] = array1[j];
+                        array1[j] = temp;
                     } 
                 }
             }  
