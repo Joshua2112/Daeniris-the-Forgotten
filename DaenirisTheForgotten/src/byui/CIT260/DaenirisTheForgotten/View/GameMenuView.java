@@ -137,23 +137,23 @@ class GameMenuView extends MenuView {
     }
 
     private void displayActors() {
+        
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        
         TabularMenu actorTab = new TabularMenu();
         actorTab.setDisplayName("Actor Display");
-        actorTab.setColumnCount(Constants.INV_COL_COUNT);
+        actorTab.setColumnCount(Constants.ACT_COL_COUNT);
         actorTab.setColumnWidth(Constants.INV_COL_WIDTH);
         actorTab.setRowCount(Constants.INV_ROW_COUNT);
-        actorTab.setHideInventory(true);
         actorTab.setType(Constants.ACTOR);
         
-        String[] header = new String[Constants.INV_COL_COUNT];
+        String[] header = new String[Constants.ACT_COL_COUNT];
         header[0] = "Player Character";
         header[1] = "Enemies";
-        header[2] = "0";
-        header[3] = "0";
         
         actorTab.setHeader(header);
         
-        GameControl.sort(game.getActor());
+        GameControl.sort1(game.getActor());
         displayTabular(game, actorTab);
     }
 }

@@ -222,7 +222,7 @@ public class GameControl {
         Actor[][] actors = new Actor[Constants.NUMBER_OF_ACTOR_TYPES][Constants.NUMBER_OF_ENEMIES];
         
         PlayerCharacter blank = new PlayerCharacter();
-        blank.setName("");
+        blank.setName("zz");
         blank.setJob("");
         blank.setAttack(0);
         blank.setDefense(0);
@@ -284,7 +284,7 @@ public class GameControl {
         actors [1][0] = goblin;
         
         Enemy jelly = new Enemy();
-        jelly.setName("Goblin");
+        jelly.setName("Jelly");
         jelly.setAttack(0);
         jelly.setDefense(0);
         jelly.setMagicAttack(2);
@@ -293,7 +293,7 @@ public class GameControl {
         jelly.setMagicPoints(30);
         jelly.setExperienceValue(30);
         jelly.setItemsDropped("potion, clothCap");
-        actors [1][0] = jelly;
+        actors [1][1] = jelly;
         
         
         
@@ -329,7 +329,7 @@ public class GameControl {
         }
     }
     
-    public static void sort(Actor[][] array){
+    public static void sort1(Actor[][] array){
         
         System.out.println("Array Length" + array[0].length);
         Actor temp;
@@ -343,7 +343,7 @@ public class GameControl {
                     } 
                 }
             }  
-        }
+       }
     }
 }
 

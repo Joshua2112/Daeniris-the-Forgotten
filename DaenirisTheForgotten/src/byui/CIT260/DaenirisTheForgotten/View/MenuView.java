@@ -6,10 +6,11 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
-import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.Model.Spells;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import java.util.Scanner;
 
 
@@ -67,6 +68,7 @@ public class MenuView {
         Inventory[][] inventory = game.getInventory();
         Spells[][] spells = game.getSpells();
         CraftRecipe[][] crafts = game.getCraftRecipe();
+        Actor[][] actors = game.getActor();
      
         //Display menu title
         System.out.println(tab.getDisplayName());
@@ -112,6 +114,10 @@ public class MenuView {
                     System.out.printf( "%-" + tab.getColumnWidth() + "s"
                                 , spells[j][i].getSpellName()
                                   + "(" + inventory[j][i].getQuantity() + ")");
+                }
+                else if(tab.getType() == 4){
+                    System.out.printf("%-" + tab.getColumnWidth() + "s"
+                                , actors[j][i].getName());
                 }
             }
             System.out.print("\n");
