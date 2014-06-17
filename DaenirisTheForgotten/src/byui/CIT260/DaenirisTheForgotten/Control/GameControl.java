@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
@@ -35,7 +36,7 @@ public class GameControl {
         game.setInventory(createInventory());
         game.setWorld(createWorld());
         game.setActor(createActor());
-        GameControl.createCraftRecipe();
+        game.setCraftRecipe(createCraftRecipe());
     }
 
     public static Inventory[][] createInventory() {
@@ -297,19 +298,52 @@ public class GameControl {
         
         
         
+            }
         }
+        return actors;
     }
-    return actors;
-}
-
+    
+    
     public static World createWorld() {
         World gameWorld = new World();
         
         return gameWorld;
     }
 
-    public static void createCraftRecipe() {
-        System.out.println("create Craft Recipe stub called");
+    public static CraftRecipe[][] createCraftRecipe(){
+        
+        CraftRecipe[][] craftRecipe = new CraftRecipe[Constants.CRAFT_COL_COUNT][Constants.CRAFT_ROW_COUNT];
+        
+        CraftRecipe blank = new CraftRecipe();
+        blank.setCraftName(" ");
+        
+        for(int i = 0; i < (Constants.CRAFT_COL_COUNT); i ++){
+            for (int j = 0; j < (Constants.CRAFT_ROW_COUNT); j++){
+                craftRecipe[i][j] = blank;
+            }
+        }
+        
+        CraftRecipe flamingSword = new CraftRecipe();
+        flamingSword.setCraftName("Flaming Sword");
+        craftRecipe[0][0] = flamingSword;
+        
+        CraftRecipe ironSword = new CraftRecipe();
+        ironSword.setCraftName("Iron Sword");
+        craftRecipe[0][1] = ironSword;
+        
+        CraftRecipe diamondSword = new CraftRecipe();
+        diamondSword.setCraftName("Diamond Sword");
+        craftRecipe[0][2] = diamondSword;
+        
+        CraftRecipe diamondBreastplate = new CraftRecipe();
+        diamondBreastplate.setCraftName("Diamond Breast Plate");
+        craftRecipe[1][0] = diamondBreastplate;
+        
+        CraftRecipe flamingShield = new CraftRecipe();
+        flamingShield.setCraftName("Flaming Shield");
+        craftRecipe[1][1] = flamingShield;
+        
+        return craftRecipe;   
     }
     
     public static void sort(Inventory[][] array){
@@ -319,7 +353,8 @@ public class GameControl {
         for (Inventory[] array1 : array) {
             for (int i = 0; i < array1.length - 1; i++) {
                 for (int j = i + 1; j < array1.length; j++) {
-                    if ((array1[i].getName().compareToIgnoreCase(array1[j].getName())) > 0 && array1[j].getQuantity() > 0) {
+                    if ((array1[i].getName().compareToIgnoreCase(array1[j].getName())) > 0 
+                            && array1[j].getQuantity() > 0) {
                         temp = array1[i];
                         array1[i] = array1[j];
                         array1[j] = temp;
@@ -344,6 +379,80 @@ public class GameControl {
                 }
             }  
        }
+    }
+    
+    public static void sortCrafts(CraftRecipe[][] array){
+        
+        System.out.println("Array Length" + array[0].length);
+        CraftRecipe temp;
+        for (CraftRecipe[] array1 : array) {
+            for (int i = 0; i < array1.length - 1; i++) {
+                for (int j = i + 1; j < array1.length; j++) {
+                    if((array1[i].getCraftName().compareToIgnoreCase(array1[j].getCraftName()))> 0) {
+                        temp = array1[i];
+                        array1[i] = array1[j];
+                        array1[j] = temp;
+                    } 
+                }
+            }  
+       }
+    }
+    
+    public static int stringSearch(CraftRecipe[][] array, String selection, int col){
+        int location = 0;
+        
+        for(int i = 0; i < array.length; i++){
+            if((array[col][i].getCraftName().compareToIgnoreCase(selection)== 0)){
+                location = i;
+            }
+        }
+        
+        
+        
+        
+        return location;
+    }
+    
+    public static String[] inventoryStringConvert(Inventory[][] array, int column){
+        
+        int count = 0;
+        
+        
+        for(Inventory[] array1 : array){
+            if (array != null){
+                count++;
+            }
+        }
+        
+        String[] newArray = new String[count];
+        
+        for(int i = 0; i < newArray.length; i++){
+            newArray[i] = array[column][i].getName();
+        }
+        
+        
+        return newArray;
+    }
+    
+    public static String[] craftStringConv(CraftRecipe[][] array, int column){
+        
+        int count = 0;
+        
+        
+        for(CraftRecipe[] array1 : array){
+            if (array != null){
+                count++;
+            }
+        }
+        
+        String[] newArray = new String[count];
+        
+        for(int i = 0; i < newArray.length; i++){
+            newArray[i] = array[column][i].getCraftName();
+        }
+        
+        
+        return newArray;
     }
 }
 

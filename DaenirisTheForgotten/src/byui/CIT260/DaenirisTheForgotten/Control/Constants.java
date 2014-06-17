@@ -18,6 +18,17 @@ public class Constants {
     public static final int INV_COL_WIDTH = 25;
     public static final int INV_ROW_COUNT = 5;
     public static final int INV_COL_COUNT = 4;
+    public static final int INV_POTION_COL = 0;
+    public static final int INV_WEAPON_COL = 1;
+    public static final int INV_ARMOR_COL = 2;
+    public static final int INV_RESOURCES_COL = 3;
+    
+    //Craft Recipe Constants
+    public static final int CRAFT_ROW_COUNT = 3;
+    public static final int CRAFT_COL_COUNT = 2;
+    public static final int CRAFT_COL_WIDTH = 25;
+    public static final int CRAFT_WEAPON_COL = 0;
+    public static final int CRAFT_ARMOR_COL = 0;
     
     //Types
     public static final int INVENTORY = 1;

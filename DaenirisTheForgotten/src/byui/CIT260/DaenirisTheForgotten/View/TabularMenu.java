@@ -19,6 +19,7 @@ public class TabularMenu {
         private int rowCount;
         private int columnWidth;
         private String[] header;
+        private String[] data;
         private boolean hideInventory;
         private int type;
 
@@ -80,5 +81,14 @@ public class TabularMenu {
     public void setType(int type) {
         this.type = type;
     }
+
+    public String[] getData() {
+        return data;
+    }
+
+    public void setData(String[] data) {
+        this.data = data;
+    }
    
+    
 }

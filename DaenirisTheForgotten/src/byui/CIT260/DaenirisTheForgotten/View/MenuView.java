@@ -11,6 +11,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
+import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
 
@@ -31,6 +32,28 @@ public class MenuView {
         }while (selection != 'Q');
     }               
 
+    public void displayPrompt(String menu){
+        
+        String selection = " ";
+        String quit = "Q";
+        
+        boolean exit = false;
+        do {
+            
+            System.out.println(menu);
+            
+            selection = this.getInput();
+
+            this.doAction(selection);
+
+            
+            if(selection.compareToIgnoreCase(quit) == 0){
+            exit = true;
+        }
+            
+        }while (!exit);
+    }    
+    
     public String getInput() {
         
         boolean valid = false;
@@ -59,11 +82,12 @@ public class MenuView {
         return input;
         }
     
-    public void doAction(char choice){
-        
-    }
+    public void doAction(char choice){}
+    public void doAction(String choice){}
     
-    public void displayTabular(Game game, TabularMenu tab){
+    public void displayTabular(TabularMenu tab){
+        
+        Game game = DaenirisTheForgotten.getCurrentGame();
         
         Inventory[][] inventory = game.getInventory();
         Spells[][] spells = game.getSpells();
@@ -112,8 +136,7 @@ public class MenuView {
                 }
                 else if(tab.getType() == 3){
                     System.out.printf( "%-" + tab.getColumnWidth() + "s"
-                                , spells[j][i].getSpellName()
-                                  + "(" + inventory[j][i].getQuantity() + ")");
+                                , crafts[j][i].getCraftName());
                 }
                 else if(tab.getType() == 4){
                     System.out.printf("%-" + tab.getColumnWidth() + "s"
