@@ -5,7 +5,6 @@
  *********************************************************************/
 
 package byui.CIT260.DaenirisTheForgotten.View;
-import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;

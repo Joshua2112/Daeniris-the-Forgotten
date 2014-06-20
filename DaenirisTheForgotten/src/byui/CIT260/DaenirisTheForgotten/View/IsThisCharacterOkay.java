@@ -6,11 +6,6 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
-import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
-import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
-import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
 /**

@@ -6,13 +6,9 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import byui.CIT260.DaenirisTheForgotten.Control.Constants;
-//import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import daeniristheforgotten.DaenirisTheForgotten;
-import java.util.Scanner;
 
 
 /**
@@ -27,7 +23,9 @@ public class CharacterCreationView extends View {
     
     
     
-    public void newCharacterCreation() {                 
+    public void newCharacterCreation() {  
+        
+        int points = 5;
         
         // New pointer to the current game
         Game game = DaenirisTheForgotten.getCurrentGame();
@@ -44,8 +42,12 @@ public class CharacterCreationView extends View {
         EnterJobView enterJob = new EnterJobView();
         enterJob.displayMenu();
         
-        DistributeBonusesView DB = new DistributeBonusesView();
-        DB.displayMenu();
+        do{DistributeBonusesView DB = new DistributeBonusesView();
+        DB.display();
+        points -= 1;
+        }
+        while(points > 0);
+        
         
         IsThisCharacterOkay itco = new IsThisCharacterOkay();
         itco.characterInfo();
