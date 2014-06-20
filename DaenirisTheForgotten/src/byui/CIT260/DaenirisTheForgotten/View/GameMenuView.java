@@ -16,40 +16,39 @@ import daeniristheforgotten.DaenirisTheForgotten;
  *
  * @author Joshua
  */
-class GameMenuView extends MenuView {
-    
-    private final String inGameMenu = "\n\tEnter \'i\' interact"
+class GameMenuView extends View {
+
+    public GameMenuView() {
+        super("\n\tEnter \'i\' interact"
                                   +"\n\tEnter \'m\' display magic"
                                   +"\n\tEnter \'i\' display items"
                                   +"\n\tEnter \'g\' display gear"                                  
                                   +"\n\tEnter \'c\' display crafts"
                                   +"\n\tEnter \'b\' view bestiary"
-                                  +"\n\tEnter \'q\' go back to adventure menu";
-
-    public String getInGameMenu() {
-        return inGameMenu;
+                                  +"\n\tEnter \'q\' go back to adventure menu");
     }
+
     
     @Override
-    public void doAction(char choice){
+    public void doAction(String choice){
         
          switch (choice){
-            case 'M':
+            case "M":
                 System.out.println("display magic spells");
                 break;
-            case 'I':
+            case "I":
                 displayInventory();
                 break;
-            case 'G':
+            case "G":
                 System.out.println("gear menu stub");
                 break;
-            case 'C':
+            case "C":
                 displayCrafts();
                 break;
-            case 'B':
+            case "B":
                 this.displayActors();
                 break;
-            case 'Q':
+            case "Q":
                 return;
             default:
                 System.out.println("Invalid selection, try again");
@@ -124,7 +123,7 @@ class GameMenuView extends MenuView {
         displayTabular(craftTab);
         
         CraftMenuView craftMenuView = new CraftMenuView();
-        craftMenuView.displayPrompt(craftMenuView.getCraftMenu());
+        craftMenuView.display();
     }
 }
 

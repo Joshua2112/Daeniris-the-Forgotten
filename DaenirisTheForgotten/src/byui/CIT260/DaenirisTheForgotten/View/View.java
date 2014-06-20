@@ -15,24 +15,27 @@ import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
 
-public class MenuView {
+public abstract class View implements ViewInterface{
+    
+    private String promptMessage;
+    
+    public View(String promptMessage){
+        this.promptMessage = promptMessage;
+    }
         
-    public void displayMenu(String menu){
+    public void display(){
 
-        char selection = ' ';
+        String value;
         do {
             
-            System.out.println(menu);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
+            System.out.println(this.promptMessage);
+            value = this.getInput();
+            this.doAction(value);
 
-            this.doAction(selection);
-
-        }while (selection != 'Q');
+        }while (!value.equals("Q"));
     }               
 
-    public void displayPrompt(String menu){
+    /*public void display(String menu){
         
         String selection = " ";
         String quit = "Q";
@@ -52,7 +55,7 @@ public class MenuView {
         }
             
         }while (!exit);
-    }    
+    }    */
     
     public String getInput() {
         
@@ -68,13 +71,9 @@ public class MenuView {
             input = input.trim();
             input = input.toUpperCase();
             
-
-
             if (input.equals("Q")){
-
                 return input;
-            }
-                           
+            }                           
             else{
                 valid = true;
             }

@@ -16,17 +16,17 @@ import daeniristheforgotten.DaenirisTheForgotten;
  *
  * @author Nathan
  */
-public class CraftMenuView extends MenuView{
+public class CraftMenuView extends View{
+
+    public CraftMenuView() {
+        super("Type name to select");
+    }
+    
+    
+    
     
     private final String craftMenu =    "";
 
-    public String getCraftMenu() {
-        return craftMenu;
-    }
-
-    public CraftMenuView() {
-        
-    }
         
     public void doAction(String str){
         

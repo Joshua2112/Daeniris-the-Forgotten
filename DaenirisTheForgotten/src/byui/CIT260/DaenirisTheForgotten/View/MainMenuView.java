@@ -16,41 +16,39 @@ import java.util.Scanner;
  *
  * @author Joshua
  */
-public class MainMenuView extends MenuView{
-    
-        private final String mainMenu ="\n\tEnter \'n\' to start new game"
+public class MainMenuView extends View{
+        public MainMenuView(){
+            super("\n\tEnter \'n\' to start new game"
                                     +"\n\tEnter \'h\' for the help menu"
                                     +"\n\tEnter \'s\' to save current game"
                                     +"\n\tEnter \'l\' to load previously saved game"
                                     +"\n\tEnter \'t\' to temporarily access adventure menu"
-                                    +"\n\tEnter \'q\' to quit to the desktop";
-
-        public String getMainMenu() {
-            return mainMenu;
+                                    +"\n\tEnter \'q\' to quit to the desktop");
         }
 
+
         @Override
-        public void doAction(char choice){       
+        public void doAction(String choice){       
          switch (choice){
-            case 'N':
+            case "N":
                 this.StartNewGame(false);             
                 break;
-            case 'H':
+            case "H":
                 HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu(helpMenu.getHelpMenu());
+                helpMenu.display();
                 break;
-            case 'S':
+            case "S":
                 ProgramControl.saveGame(DaenirisTheForgotten.getCurrentGame());
                 break;
-            case 'L':
+            case "L":
                 ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
                 break;
-            case 'T':
+            case "T":
                 this.StartNewGame(true);
                 AdventureView adventureView = new AdventureView();
-                adventureView.displayMenu(adventureView.getAdventureMenu());
+                adventureView.display();
                 break;
-            case 'Q':
+            case "Q":
                 return;
             default:
                 System.out.println("\n\tInvalid selection, try again");
@@ -68,6 +66,7 @@ public class MainMenuView extends MenuView{
             newCharacter.newCharacterCreation();
             }
     }
+
 }
 
 

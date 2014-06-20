@@ -19,7 +19,13 @@ import java.util.Scanner;
  *
  * @author Joshua
  */
-public class CharacterCreationView extends MenuView {
+public class CharacterCreationView extends View {
+
+    public CharacterCreationView() {
+        super("Create Character");
+    }
+    
+    
     
     public void newCharacterCreation() {                 
         
@@ -45,7 +51,7 @@ public class CharacterCreationView extends MenuView {
         itco.characterInfo();
         
         AdventureView adventureView = new AdventureView();
-        adventureView.displayMenu(adventureView.getAdventureMenu());
+        adventureView.display();
     }
 }
 

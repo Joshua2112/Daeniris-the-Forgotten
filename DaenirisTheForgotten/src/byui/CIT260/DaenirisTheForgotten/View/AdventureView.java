@@ -12,51 +12,49 @@ import daeniristheforgotten.DaenirisTheForgotten;
 
 
 
-public class AdventureView extends MenuView{
-    
-    
-    
-    private final String adventureMenu =    "\n\tEnter \'i\' interact"
+public class AdventureView extends View{
+
+    public AdventureView() {
+        super("\n\tEnter \'i\' interact"
                                   +"\n\tEnter \'m\' adventure menu"
                                   +"\n\tEnter \'l\' look at map"
                                   +"\n\tEnter \'n\' travel north"                                  
                                   +"\n\tEnter \'s\' travel south"
                                   +"\n\tEnter \'w\' travel west"
-                                  +"\n\tEnter \'e\' travel east";
-
-    public String getAdventureMenu() {
-        return adventureMenu;
+                                  +"\n\tEnter \'e\' travel east");
     }
     
+
+    
     @Override
-    public void doAction(char choice){
+    public void doAction(String choice){
     
          switch (choice){
-            case 'I':
+            case "I":
                 System.out.println("Interact");
                 break;
-            case 'M':
+            case "M":
                 GameMenuView inGameMenu = new GameMenuView();
-                inGameMenu.displayMenu(inGameMenu.getInGameMenu());
+                inGameMenu.display();
                 break;
-            case 'L':
+            case "L":
                 displayMap();
                 break;
-            case 'B':
+            case "B":
                 
-            case 'N':
+            case "N":
                 System.out.println("Travel North");
                 break;
-            case 'S':
+            case "S":
                 System.out.println("Travel South");
                 break;
-            case 'W':
+            case "W":
                 System.out.println("Travel West");
                 break;
-            case 'E':
+            case "E":
                 System.out.println("Travel East");
                 break;
-            case 'Q':
+            case "Q":
                 return;
             default:
                 System.out.println("Invalid selection, try again");
