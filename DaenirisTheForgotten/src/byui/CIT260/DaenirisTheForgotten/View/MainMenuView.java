@@ -8,9 +8,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
-import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import daeniristheforgotten.DaenirisTheForgotten;
-import java.util.Scanner;
 
 /**
  *
@@ -19,11 +17,11 @@ import java.util.Scanner;
 public class MainMenuView extends View{
         public MainMenuView(){
             super("\n\tEnter \'n\' to start new game"
-                                    +"\n\tEnter \'h\' for the help menu"
-                                    +"\n\tEnter \'s\' to save current game"
-                                    +"\n\tEnter \'l\' to load previously saved game"
-                                    +"\n\tEnter \'t\' to temporarily access adventure menu"
-                                    +"\n\tEnter \'q\' to quit to the desktop");
+            +"\n\tEnter \'h\' for the help menu"
+            +"\n\tEnter \'s\' to save current game"
+            +"\n\tEnter \'l\' to load previously saved game"
+            +"\n\tEnter \'t\' to temporarily access adventure menu"
+            +"\n\tEnter \'q\' to quit to the desktop");
         }
 
 
@@ -48,6 +46,9 @@ public class MainMenuView extends View{
                 AdventureView adventureView = new AdventureView();
                 adventureView.display();
                 break;
+            case "W":
+                MagicMenuView magicSpell = new MagicMenuView();
+                magicSpell.display();
             case "Q":
                 return;
             default:

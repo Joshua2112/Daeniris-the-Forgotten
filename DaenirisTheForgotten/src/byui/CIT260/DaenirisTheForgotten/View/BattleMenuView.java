@@ -7,20 +7,16 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
-import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
-import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
-import daeniristheforgotten.DaenirisTheForgotten;
 
 public class BattleMenuView extends View{
 
     public BattleMenuView() {
         super("\n\ta - attack"
-                                  +"\n\tm - magic"
-                                  +"\n\td - defend"
-                                  +"\n\tu - use item"
-                                  +"\n\te - evaluate enemy"
-                                  +"\n\tr - run");
+              +"\n\tm - magic"
+              +"\n\td - defend"
+              +"\n\tu - use item"
+              +"\n\te - evaluate enemy"
+              +"\n\tr - run");
     }
 
 
@@ -34,7 +30,7 @@ public class BattleMenuView extends View{
                 break;
             case "m":
                 MagicMenuView magicSpell = new MagicMenuView();
-                magicSpell.displayMagicMenu();
+                magicSpell.display();
                 break;
             case "d":
                 BattleControl defend = new BattleControl();
