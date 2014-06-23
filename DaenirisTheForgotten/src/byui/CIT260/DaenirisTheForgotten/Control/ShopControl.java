@@ -10,13 +10,13 @@ package byui.CIT260.DaenirisTheForgotten.Control;
  *
  * @author Joshua
  */
-public class Shopping {
+public class ShopControl {
     
-    public int purchaseItem(boolean itemAvailable, int playerGold, int itemCost, int quantityOfItem){
+    public int purchaseItem(boolean itemAvailable, int playerGold, int itemCost, int quantity){
         if (itemAvailable){
             if (playerGold > itemCost){
             playerGold -= itemCost;
-            quantityOfItem = quantityOfItem + 1;
+            quantity = quantity + 1;
             return 1; }           
             else{
             return -1;
@@ -25,5 +25,9 @@ public class Shopping {
     else{
     return -1;
         }
+    }
+
+    public void buyItem() {
+        System.out.println("Item Purchased Stub");
     }
 }

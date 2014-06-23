@@ -19,7 +19,7 @@ public class ShoppingTest {
     }
 
     /**
-     * Test of purchaseItem method, of class Shopping.
+     * Test of purchaseItem method, of class ShopControl.
      */
     @Test
     public void testPurchaseItem() {
@@ -32,7 +32,7 @@ public class ShoppingTest {
         int playerGold = 30;
         int itemCost = 20;
         int quantityOfItem = 0;
-        Shopping instance = new Shopping();
+        ShopControl instance = new ShopControl();
         int expResult = 1;
         result = instance.purchaseItem(itemAvailable, playerGold, itemCost, quantityOfItem);
         assertEquals(expResult, result);
