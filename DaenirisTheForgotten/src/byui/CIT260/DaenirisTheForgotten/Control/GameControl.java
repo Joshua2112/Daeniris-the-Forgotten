@@ -251,14 +251,6 @@ public class GameControl {
         
         PlayerCharacter newPlayerCharacter = new PlayerCharacter();
         newPlayerCharacter.setName("Joshua");
-        newPlayerCharacter.setJob("Warrior");
-        newPlayerCharacter.setAttack(0);
-        newPlayerCharacter.setDefense(0);
-        newPlayerCharacter.setGender("Male");
-        newPlayerCharacter.setMagicAttack(0);
-        newPlayerCharacter.setMagicDefense(0);
-        newPlayerCharacter.setHealthPoints(50);
-        newPlayerCharacter.setMagicPoints(20);
         actors [0][0] = newPlayerCharacter;
         
         PlayerCharacter newPlayerCharacter1 = new PlayerCharacter();

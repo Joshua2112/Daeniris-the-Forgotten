@@ -7,6 +7,11 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.PCJobControl;
+import byui.CIT260.DaenirisTheForgotten.Control.PCStatsControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
 /**
@@ -73,20 +78,20 @@ class EnterJobView {
     
     public void doAction(String choice){
         
+            Game game = DaenirisTheForgotten.getCurrentGame();
+            Actor[][] actor = game.getActor();
+    
+            PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
+        
         switch (choice){
             case "WARRIOR":
-                PCJobControl pcWarrior = new PCJobControl();
-                pcWarrior.setJob();
+                PCStatsControl.setJob(player, choice);
                 break;
             case "MAGE":
-                PCJobControl pcMage = new PCJobControl();
-                pcMage.setJob();
+                PCStatsControl.setJob(player, choice);
                 break;
             case "Cleric":
-                PCJobControl pcCleric = new PCJobControl();
-                pcCleric.setJob();               
-            case "NEXT":
-                break;
+                PCStatsControl.setJob(player, choice);               
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;

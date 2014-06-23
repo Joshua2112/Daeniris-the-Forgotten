@@ -7,6 +7,11 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.PCGenderControl;
+import byui.CIT260.DaenirisTheForgotten.Control.PCStatsControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
 /**
@@ -72,17 +77,18 @@ public class EnterGenderView {
     
     public void doAction(String choice){
         
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Actor[][] actor = game.getActor();
+    
+        PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
+        
         switch (choice){
             case "MALE":
-                PCGenderControl genderMale = new PCGenderControl();
-                genderMale.setPlayerCharacterGender();
+                PCStatsControl.setGender(player, choice);
                 break;
             case "FEMALE":
-                PCGenderControl genderFemale = new PCGenderControl();
-                genderFemale.setPlayerCharacterGender();
+                PCStatsControl.setGender(player, choice);
                 break;
-            case "NEXT":
-                return;
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;

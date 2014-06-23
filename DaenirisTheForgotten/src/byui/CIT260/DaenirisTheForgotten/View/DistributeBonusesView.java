@@ -9,6 +9,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
 import byui.CIT260.DaenirisTheForgotten.Control.PCStatsControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
@@ -26,39 +27,41 @@ public class DistributeBonusesView extends View{
             +"\n\t\'f\' for magic defense"
             +"\n\t\'h\' for health points one point buys five health points"
             +"\n\t\'p\' for magic points  one point buys five magic points"
-            +"\n\tYou start with 5 points"
+            +"\n\t\'r\' reset points"
+            +"\n\t\'p\' Quit. Exit points distribution"
             +"\n\t\'n\' to continue");
     }
     
+    @Override
     public void doAction(String choice){
         
         Game game = DaenirisTheForgotten.getCurrentGame();
-        Actor[][] player = game.getActor();
+        Actor[][] actor = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
         
-        
-        PCStatsControl statsControl = new PCStatsControl();
+        //PCStatsControl statsControl = new PCStatsControl();
         
         switch (choice){
-            case "A": 
-                statsControl.attackUp();
+            case "A":
+                PCStatsControl.attackUp(player);
                 break;
             case "D":
-                statsControl.defenseUp();
+                PCStatsControl.defenseUp(player);
                 break;
             case "M":
-                statsControl.mAttackUp();
+                PCStatsControl.mAttackUp();
                 break;
             case "F":
-                statsControl.mDefenseUp();
+                PCStatsControl.mDefenseUp();
                 break;
             case "H":
-                statsControl.HPUp();
+                PCStatsControl.HPUp();
                 break;
             case "P":
-                statsControl.MPUp();
+                PCStatsControl.MPUp();
                 break;
             case "R":
-                statsControl.MPUp();
+                PCStatsControl.resetPoints();
                 break;
             case "Q":
                 return;
@@ -67,7 +70,7 @@ public class DistributeBonusesView extends View{
                 break;
                 
             }
-        System.out.println(player[0][0].toString());
+        System.out.println(player.toString());
         
     }       
 }
