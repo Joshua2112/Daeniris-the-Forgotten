@@ -49,6 +49,9 @@ public class MainMenuView extends View{
             case "W":
                 MagicMenuView magicSpell = new MagicMenuView();
                 magicSpell.display();
+            case "R":
+                ShopMenuView shopping = new ShopMenuView();
+                shopping.display();
             case "Q":
                 return;
             default:
