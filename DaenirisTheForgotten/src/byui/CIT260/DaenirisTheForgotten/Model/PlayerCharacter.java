@@ -18,8 +18,10 @@ public class PlayerCharacter extends Actor{
     private String job;
     private String gender;
     private int playerGold;
+    private int levelPoints;
 
     public PlayerCharacter() {
+        levelPoints = 5;
     }
 
     public String getJob() {
@@ -37,8 +39,26 @@ public class PlayerCharacter extends Actor{
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public int getPlayerGold() {
+        return playerGold;
+    }
+
+    public void setPlayerGold(int playerGold) {
+        this.playerGold = playerGold;
+    }
+
+    public int getLevelPoints() {
+        return levelPoints;
+    }
+
+    public void setLevelPoints(int levelPoints) {
+        this.levelPoints = levelPoints;
+    }
     
-        @Override
+    
+    
+    @Override
     public String toString() {
         String newline = System.getProperty("line.separator");
         return "Character (Player):"                         + newline

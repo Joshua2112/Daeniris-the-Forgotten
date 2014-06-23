@@ -42,12 +42,8 @@ public class CharacterCreationView extends View {
         EnterJobView enterJob = new EnterJobView();
         enterJob.displayMenu();
         
-        do{DistributeBonusesView DB = new DistributeBonusesView();
+        DistributeBonusesView DB = new DistributeBonusesView();
         DB.display();
-        points -= 1;
-        }
-        while(points > 0);
-        
         
         IsThisCharacterOkay itco = new IsThisCharacterOkay();
         itco.characterInfo();

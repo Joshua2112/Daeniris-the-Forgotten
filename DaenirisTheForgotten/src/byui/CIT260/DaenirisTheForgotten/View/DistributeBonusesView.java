@@ -7,6 +7,9 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.PCStatsControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
  *
@@ -29,38 +32,41 @@ public class DistributeBonusesView extends View{
     
     public void doAction(String choice){
         
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Actor[][] player = game.getActor();
+        
+        PCStatsControl statsControl = new PCStatsControl();
+        
         switch (choice){
-            case "A":
-                PCStatsControl attack1 = new PCStatsControl();
-                attack1.attackUp();
-                return;
+            case "A": 
+                statsControl.attackUp();
+                break;
             case "D":
-                PCStatsControl defense1 = new PCStatsControl();
-                defense1.defenseUp();
-                return;
+                statsControl.defenseUp();
+                break;
             case "M":
-                PCStatsControl mAttack1 = new PCStatsControl();
-                mAttack1.mAttackUp();
-                return;
+                statsControl.mAttackUp();
+                break;
             case "F":
-                PCStatsControl mDefense1 = new PCStatsControl();
-                mDefense1.mDefenseUp();
-                return;
+                statsControl.mDefenseUp();
+                break;
             case "H":
-                PCStatsControl HP5 = new PCStatsControl();
-                HP5.HPUp();
-                return;
+                statsControl.HPUp();
+                break;
             case "P":
-                PCStatsControl MP5 = new PCStatsControl();
-                MP5.MPUp();
-                return;
-            case "N":                
+                statsControl.MPUp();
+                break;
+            case "R":
+                statsControl.MPUp();
+                break;
+            case "Q":
                 return;
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;
                 
-            }          
+            }
+        System.out.println(player[0][0].toString());
     }       
 }
 
