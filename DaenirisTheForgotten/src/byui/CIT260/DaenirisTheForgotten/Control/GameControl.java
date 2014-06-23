@@ -42,7 +42,7 @@ public class GameControl {
     public static Inventory[][] createInventory() {
         Inventory[][] playerInventory =
                     new Inventory[Constants.INV_COL_COUNT][Constants.INV_COL_WIDTH];
-
+        
         SingleUseItems blank = new SingleUseItems();
         blank.setName("");
         blank.setQuantity(0);
@@ -89,7 +89,6 @@ public class GameControl {
         pheonixDown.setEffects("Blah");
         pheonixDown.setQuantity(0);
         playerInventory[0][4] = pheonixDown;
-
 
         //Armor ----------------------------------------------------------
 
@@ -247,6 +246,8 @@ public class GameControl {
         for(int i = 0; i < (Constants.NUMBER_OF_ACTOR_TYPES); i ++){
             for (int j = 0; j < (Constants.NUMBER_OF_ENEMIES); j++){
                 actors[i][j] = blank;
+            }
+        }
         
         PlayerCharacter newPlayerCharacter = new PlayerCharacter();
         newPlayerCharacter.setName("Joshua");
@@ -298,8 +299,8 @@ public class GameControl {
         
         
         
-            }
-        }
+            
+        
         return actors;
     }
     

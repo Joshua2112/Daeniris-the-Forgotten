@@ -35,6 +35,7 @@ public class DistributeBonusesView extends View{
         Game game = DaenirisTheForgotten.getCurrentGame();
         Actor[][] player = game.getActor();
         
+        
         PCStatsControl statsControl = new PCStatsControl();
         
         switch (choice){
@@ -67,6 +68,7 @@ public class DistributeBonusesView extends View{
                 
             }
         System.out.println(player[0][0].toString());
+        
     }       
 }
 
