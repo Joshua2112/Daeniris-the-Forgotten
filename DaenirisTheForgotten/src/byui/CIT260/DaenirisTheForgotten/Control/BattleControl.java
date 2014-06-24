@@ -6,12 +6,40 @@
 
 package byui.CIT260.DaenirisTheForgotten.Control;
 
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
+
 
 /**
  *
  * @author Joshua
  */
 public class BattleControl {
+    
+    public void beginBattle(){
+        
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Actor[][] actor = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
+        Enemy enemy = ((Enemy) actor[1][0]);
+        
+        int totalAttack = player.getAttack();
+        int totalDefense = player.getDefense();
+        int currentHealth = player.getHealthPoints();
+        int currentMagic = player.getMagicPoints();
+        int totalMagicAttack = player.getMagicAttack();
+        int totalMagicDefense = player.getMagicDefense();
+        
+        int enemyAttack = enemy.getAttack();
+        int enemyDefense = enemy.getDefense();
+        int enemyHealth = enemy.getHealthPoints();
+        int enemyMagic = enemy.getMagicPoints();
+        int enemyMagicAttack = enemy.getMagicAttack();
+        int enemyMagicDefense = enemy.getMagicDefense();
+    }
     
     public boolean hit(int attack, int defense){        
 

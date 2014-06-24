@@ -9,13 +9,12 @@ package byui.CIT260.DaenirisTheForgotten.Model;
 import java.io.Serializable;
 import java.util.Random;
 
-public class Resource extends Location
-{
+public class Resource extends Location{
+    
     private int maxAmount;
 
     //Constructor
-    public Resource()
-    {
+    public Resource(){
 
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(5);
