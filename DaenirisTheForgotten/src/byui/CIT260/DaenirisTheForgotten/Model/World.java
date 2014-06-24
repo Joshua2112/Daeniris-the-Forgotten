@@ -17,6 +17,7 @@ public class World implements Serializable{
     private Location[][] map = new Location[10][10];
     private int xLoc;
     private int yLoc;
+    private boolean visable;
     
     public World()
     {
@@ -36,6 +37,7 @@ public class World implements Serializable{
        
         xLoc = 0;
         yLoc = 0;
+        visable = false;
     }
 
     //Getters
@@ -63,6 +65,16 @@ public class World implements Serializable{
     public void setyLoc(int yLoc) {
         this.yLoc = yLoc;
     }
+
+    public boolean isVisable() {
+        return visable;
+    }
+
+    public void setVisable(boolean visable) {
+        this.visable = visable;
+    }
+    
+    
     
     //Other Functions
     

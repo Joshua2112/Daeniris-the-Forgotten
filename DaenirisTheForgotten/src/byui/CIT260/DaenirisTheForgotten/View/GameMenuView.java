@@ -34,16 +34,16 @@ class GameMenuView extends View {
         
          switch (choice){
             case "M":
-                System.out.println("display magic spells");
+                this.displaySpells();
                 break;
             case "I":
-                displayInventory();
+                this.displayInventory();
                 break;
             case "G":
                 System.out.println("gear menu stub");
                 break;
             case "C":
-                displayCrafts();
+                this.displayCrafts();
                 break;
             case "B":
                 this.displayActors();
@@ -124,6 +124,30 @@ class GameMenuView extends View {
         
         CraftMenuView craftMenuView = new CraftMenuView();
         craftMenuView.display();
+    }
+    
+    private void displaySpells(){
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        
+        TabularMenu craftTab = new TabularMenu();
+        craftTab.setDisplayName("Craft Display");
+        craftTab.setColumnCount(Constants.SPELL_COL_COUNT);
+        craftTab.setColumnWidth(Constants.SPELL_COL_WIDTH);
+        craftTab.setRowCount(Constants.SPELL_ROW_COUNT);
+        craftTab.setType(Constants.SPELLS);
+        
+        String[] header = new String[Constants.SPELL_COL_COUNT];
+        header[0] = "Black Magic";
+        header[1] = "White Magic";
+        
+        craftTab.setHeader(header);
+        
+        //GameControl.stringConvert(game.getInventory(), Constants.INV_POTION_COL);
+        //GameControl.sortCrafts(game.getSpells());
+        displayTabular(craftTab);
+        
+        SpellMenuView spellMenuView = new SpellMenuView();
+        spellMenuView.display();
     }
 }
 

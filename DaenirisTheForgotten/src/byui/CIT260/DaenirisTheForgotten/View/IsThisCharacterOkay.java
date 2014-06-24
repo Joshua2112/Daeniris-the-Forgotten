@@ -6,7 +6,9 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import java.util.Scanner;
+
 
 /**
  *
@@ -17,26 +19,17 @@ class IsThisCharacterOkay {
     private final String IS_IT_OKAY;
 
     IsThisCharacterOkay() {
-        this.IS_IT_OKAY = "\n\tName " 
-                +  "\n\tGender " 
-                +   "\n\tJob " 
-                +   "\n\tHealth Points" 
-                +   "\n\tMagic Points" 
-                +   "\n\tAttack" 
-                +   "\n\tDefense" 
-                +   "\n\tMagic Attack"
-                +   "\n\tMagic Defense"
-                +   "\n"
-                +   "\n\tIs this okay y/n?";
+        this.IS_IT_OKAY = "\n\tIs this okay y/n?";
     }
 
-    public void characterInfo() {
+    public void characterInfo(PlayerCharacter player) {
 
                 
                 char selection = ' ';
         do {
             
             System.out.println(IS_IT_OKAY);
+            System.out.println(player.toString());
             
             String input = this.getInput();
             selection = input.charAt(0);

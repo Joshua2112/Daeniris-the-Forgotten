@@ -9,7 +9,9 @@ import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
@@ -22,11 +24,11 @@ public abstract class View implements ViewInterface{
         this.promptMessage = promptMessage;
     }
         
+    @Override
     public void display(){
-
+ 
         String value;
         do {
-            
             System.out.println(this.promptMessage);
             value = this.getInput();
             this.doAction(value);
@@ -139,6 +141,10 @@ public abstract class View implements ViewInterface{
                 else if(tab.getType() == 4){
                     System.out.printf("%-" + tab.getColumnWidth() + "s"
                                 , actors[j][i].getName());
+                }
+                else if(tab.getType() == 5){
+                    System.out.printf("%-" + tab.getColumnWidth() + "s"
+                                , spells[j][i].getSpellName());
                 }
             }
             System.out.print("\n");
