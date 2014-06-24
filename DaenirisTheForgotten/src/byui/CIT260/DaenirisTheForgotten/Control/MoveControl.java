@@ -31,8 +31,8 @@ public class MoveControl {
         
 
         
-        System.out.println("xloc: " + world.getxLoc());
-        System.out.println("yloc: " + world.getyLoc());
+        //System.out.println("xloc: " + world.getxLoc());
+        //System.out.println("yloc: " + world.getyLoc());
         
         int curX = world.getxLoc();
         int curY = world.getyLoc();

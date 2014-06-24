@@ -24,6 +24,7 @@ public class Resource extends Location
             this.setName("Forrest");
             this.setSymbol('t');
             this.setDiscovered(false);
+            this.setDescription("You are surrounded by large looming oak trees.");
             maxAmount = 4;
         }
         else if (randomInt == 2)
@@ -31,6 +32,7 @@ public class Resource extends Location
             this.setName("Mountains");
             this.setSymbol('^');
             this.setDiscovered(false);
+            this.setDescription("You are dwarfed by mountains.");
             maxAmount = 2;
         }
         else
@@ -38,6 +40,7 @@ public class Resource extends Location
             this.setName("Plains");
             this.setSymbol('_');
             this.setDiscovered(false);
+            this.setDescription("Grassy plains span before you.");
             maxAmount = 3;
         }
                 

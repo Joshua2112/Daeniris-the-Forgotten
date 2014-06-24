@@ -21,10 +21,10 @@ public class AdventureView extends View{
         super("\n\tEnter \'i\' interact"
                                   +"\n\tEnter \'m\' adventure menu"
                                   +"\n\tEnter \'l\' look at map"
-                                  +"\n\tEnter \'n\' travel north"                                  
+                                  +"\n\tEnter \'w\' travel north"                                  
                                   +"\n\tEnter \'s\' travel south"
-                                  +"\n\tEnter \'w\' travel west"
-                                  +"\n\tEnter \'e\' travel east");
+                                  +"\n\tEnter \'a\' travel west"
+                                  +"\n\tEnter \'d\' travel east");
     }
     
 
@@ -69,7 +69,8 @@ public class AdventureView extends View{
     }
     
     
-    private void displayMap(){
+    
+    public void displayMap(){
 
        Game game = DaenirisTheForgotten.getCurrentGame();
        World world = game.getWorld();
@@ -83,7 +84,6 @@ public class AdventureView extends View{
        {
            for(int j = 0; j < 10; j++)
            {               
-               
                if (i == world.getxLoc() && j == world.getyLoc()){
                    System.out.print("\033[0m| ");
                    System.out.print("\033[1;43m" + mapArray[i][j].getSymbol() + "\033[0m");
@@ -104,8 +104,9 @@ public class AdventureView extends View{
            
            System.out.print("|");
            System.out.println();
-           System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
+           System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");        
         }
-       
+        System.out.println(" ");
+        System.out.println(mapArray[world.getxLoc()][world.getyLoc()].getDescription());
     }
 }
