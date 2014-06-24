@@ -15,6 +15,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
 
@@ -24,6 +25,7 @@ import daeniristheforgotten.DaenirisTheForgotten;
  */
 public class GameControl {
     public static Game game;
+
     
     public static void CreateNewGame(){
         //Create a new game instance
@@ -37,6 +39,7 @@ public class GameControl {
         game.setWorld(createWorld());
         game.setActor(createActor());
         game.setCraftRecipe(createCraftRecipe());
+        game.setSpells(createSpells());
     }
 
     public static Inventory[][] createInventory() {
@@ -296,6 +299,50 @@ public class GameControl {
         return actors;
     }
     
+    private static Spells[][] createSpells() {
+        Spells[][] spells = new Spells[Constants.SPELL_COL_COUNT][Constants.SPELL_ROW_COUNT];
+        
+        Spells fire1 = new Spells();
+        fire1.setSpellName("Fire I");
+        fire1.setMagicCost(5);
+        fire1.setAttackDamage(15);
+        spells[0][0] = fire1;
+        
+        Spells ice1 = new Spells();
+        ice1.setSpellName("Ice I");
+        ice1.setMagicCost(5);
+        ice1.setAttackDamage(15);
+        spells[0][1] = ice1;
+        
+        Spells lighting1 = new Spells();
+        lighting1.setSpellName("Lighting I");
+        lighting1.setMagicCost(5);
+        lighting1.setAttackDamage(15);
+        spells[0][2] = lighting1;
+        
+        Spells heal1 = new Spells();
+        heal1.setSpellName("Heal I");
+        heal1.setMagicCost(5);
+        heal1.setAttackDamage(15);
+        spells[1][0] = heal1;
+        
+        Spells cure1 = new Spells();
+        cure1.setSpellName("Cure I");
+        cure1.setMagicCost(5);
+        cure1.setAttackDamage(15);
+        spells[1][1] = cure1;
+        
+        Spells heal2 = new Spells();
+        heal2.setSpellName("heal II");
+        heal2.setMagicCost(5);
+        heal2.setAttackDamage(25);
+        spells[1][2] = heal2;
+        
+        
+       
+        
+        return spells;
+    }
     
     public static World createWorld() {
         World gameWorld = new World();
@@ -399,10 +446,17 @@ public class GameControl {
                 location = i;
             }
         }
+        return location;
+    }
+    
+        public static int stringSearch(Spells[][] array, String selection, int col){
+        int location = 0;
         
-        
-        
-        
+        for(int i = 0; i < array.length; i++){
+            if((array[col][i].getSpellName().compareToIgnoreCase(selection)== 0)){
+                location = i;
+            }
+        }
         return location;
     }
     
@@ -447,6 +501,8 @@ public class GameControl {
         
         return newArray;
     }
+
+
 }
 
 

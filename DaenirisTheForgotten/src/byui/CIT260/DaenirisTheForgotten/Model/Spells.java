@@ -68,7 +68,7 @@ public class Spells implements Serializable{
     @Override
     public String toString() {
         String newline = System.getProperty("line.separator");
-        return "Spell:"                            + newline
+        return "Spell:"                                               + newline
                 + "spellName= "            + this.getSpellName()      + newline
                 + "target= "               + this.getTarget()         + newline
                 + "attackDamage= "         + this.getAttackDamage()   + newline

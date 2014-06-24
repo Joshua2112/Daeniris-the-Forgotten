@@ -10,6 +10,12 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 
 public class Constants {
     
+    public static final int MAP_MAX_X = 9;
+    public static final int MAP_MIN_X = 0;
+    public static final int MAP_MAX_Y = 9;
+    public static final int MAP_MIN_Y = 0;
+    
+    
     public static final int DEFAULT_INVENTORY_QUANTITY = 100;
     public static final int NUMBER_OF_ACTOR_TYPES = 2;
     public static final int NUMBER_OF_ENEMIES = 100;
@@ -30,11 +36,19 @@ public class Constants {
     public static final int CRAFT_WEAPON_COL = 0;
     public static final int CRAFT_ARMOR_COL = 0;
     
+    //Spell Display Constants
+    public static final int SPELL_ROW_COUNT = 3;
+    public static final int SPELL_COL_COUNT = 2;
+    public static final int SPELL_COL_WIDTH = 25;
+    public static final int SPELL_BLACK_COL = 0;
+    public static final int SPELL_WHITE_COL = 1;
+    
     //Types
     public static final int INVENTORY = 1;
     public static final int MAGIC = 2;
     public static final int CRAFTS = 3;
     public static final int ACTOR = 4;
+    public static final int SPELLS = 5;
     public static final int ACT_COL_COUNT = 2;
     
     //Actor Stats Display Constants

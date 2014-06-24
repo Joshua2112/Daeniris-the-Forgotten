@@ -81,7 +81,14 @@ public class CraftRecipe implements Serializable
 
     @Override
     public String toString() {
-        return "Craft{" + "craftName=" + craftName + ", resource1=" + resource1 + ", resource1Amount=" + resource1Amount + ", resource2=" + resource2 + ", resource2Amount=" + resource2Amount + ", resource3=" + resource3 + ", resource3Amount=" + resource3Amount + '}';
+        return "Crafts:"
+               + "craftName: "       + craftName + "\n"
+               + "resource1: "       + resource1 + "\n"
+               + "resource1Amount: " + resource1Amount + "\n"
+               + "resource2: "       + resource2 + "\n"
+               + "resource2Amount: " + resource2Amount + "\n"
+               + "resource3:"        + resource3 + "\n"
+               + "resource3Amount: " + resource3Amount;
     }
 
     @Override

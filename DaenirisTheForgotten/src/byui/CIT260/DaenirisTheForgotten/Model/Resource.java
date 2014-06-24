@@ -21,21 +21,24 @@ public class Resource extends Location
         int randomInt = randomGenerator.nextInt(5);
         if (randomInt == 1)
         {
-            this.setName("Tree");
-            this.setSymbol('T');
+            this.setName("Forrest");
+            this.setSymbol('t');
+            this.setDiscovered(false);
             maxAmount = 4;
         }
         else if (randomInt == 2)
         {
-            this.setName("Rock");
-            this.setSymbol('R');
+            this.setName("Mountains");
+            this.setSymbol('^');
+            this.setDiscovered(false);
             maxAmount = 2;
         }
         else
         {
-            this.setName("Nothing");
-            this.setSymbol('o');
-            maxAmount = 0;
+            this.setName("Plains");
+            this.setSymbol('_');
+            this.setDiscovered(false);
+            maxAmount = 3;
         }
                 
     }

@@ -21,11 +21,7 @@ public class CraftMenuView extends View{
     public CraftMenuView() {
         super("Type name to select");
     }
-    
-    
-    
-    
-    private final String craftMenu =    "";
+   
 
         
     public void doAction(String str){
@@ -41,12 +37,8 @@ public class CraftMenuView extends View{
             column = i;
         }
         
-        System.out.println(crafts[column][row].getCraftName());
-        System.out.println("Future Craft Info");
-        
-        
-    
-        
-               
+        //System.out.println(crafts[column][row].getCraftName());
+        System.out.println(crafts[column][row].toString());
+              
     }
 }

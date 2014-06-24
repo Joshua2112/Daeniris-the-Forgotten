@@ -8,6 +8,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 
@@ -25,28 +26,21 @@ public class CharacterCreationView extends View {
     
     public void newCharacterCreation() {  
         
-        int points = 5;
-        
-        // New pointer to the current game
         Game game = DaenirisTheForgotten.getCurrentGame();
-        
-        //Create a pointer to the actor array
-        Actor[][] player = game.getActor();
-        
-        //Example of how to access the class.
-        //player[0][0].setName("Thor The Dumb");
+        Actor[][] actor = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
         
         EnterGenderView enterGender = new EnterGenderView();
         enterGender.displayMenu();
         
         EnterJobView enterJob = new EnterJobView();
-        enterJob.displayMenu();
+        enterJob.display();
         
         DistributeBonusesView DB = new DistributeBonusesView();
         DB.display();
         
         IsThisCharacterOkay itco = new IsThisCharacterOkay();
-        itco.characterInfo();
+        itco.characterInfo(player);
         
         AdventureView adventureView = new AdventureView();
         adventureView.display();

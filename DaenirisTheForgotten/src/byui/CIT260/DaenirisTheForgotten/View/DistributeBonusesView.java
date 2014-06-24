@@ -28,8 +28,7 @@ public class DistributeBonusesView extends View{
             +"\n\t\'h\' for health points one point buys five health points"
             +"\n\t\'p\' for magic points  one point buys five magic points"
             +"\n\t\'r\' reset points"
-            +"\n\t\'p\' Quit. Exit points distribution"
-            +"\n\t\'n\' to continue");
+            +"\n\t\'q\' Quit. Exit points distribution");
     }
     
     @Override
@@ -38,7 +37,7 @@ public class DistributeBonusesView extends View{
         Game game = DaenirisTheForgotten.getCurrentGame();
         Actor[][] actor = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
-        
+       
         //PCStatsControl statsControl = new PCStatsControl();
         
         switch (choice){
@@ -49,19 +48,19 @@ public class DistributeBonusesView extends View{
                 PCStatsControl.defenseUp(player);
                 break;
             case "M":
-                PCStatsControl.mAttackUp();
+                PCStatsControl.mAttackUp(player);
                 break;
             case "F":
-                PCStatsControl.mDefenseUp();
+                PCStatsControl.mDefenseUp(player);
                 break;
             case "H":
-                PCStatsControl.HPUp();
+                PCStatsControl.HPUp(player);
                 break;
             case "P":
-                PCStatsControl.MPUp();
+                PCStatsControl.MPUp(player);
                 break;
             case "R":
-                PCStatsControl.resetPoints();
+                PCStatsControl.resetPoints(player);
                 break;
             case "Q":
                 return;
@@ -70,6 +69,10 @@ public class DistributeBonusesView extends View{
                 break;
                 
             }
+        
+        System.out.println("You have " + player.getLevelPoints() 
+                           + " left to distribute");        
+        
         System.out.println(player.toString());
         
     }       

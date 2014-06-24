@@ -6,9 +6,12 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
+
 
 
 
@@ -29,7 +32,7 @@ public class AdventureView extends View{
     @Override
     public void doAction(String choice){
     
-         switch (choice){
+        switch (choice){
             case "I":
                 System.out.println("Interact");
                 break;
@@ -40,19 +43,21 @@ public class AdventureView extends View{
             case "L":
                 displayMap();
                 break;
-            case "B":
-                
-            case "N":
-                System.out.println("Travel North");
+            case "W":
+                MoveControl.move(-1, 0);
+                displayMap();
                 break;
             case "S":
-                System.out.println("Travel South");
+                MoveControl.move(1, 0);
+                displayMap();
                 break;
-            case "W":
-                System.out.println("Travel West");
+            case "A":
+                MoveControl.move(0, -1);
+                displayMap();
                 break;
-            case "E":
-                System.out.println("Travel East");
+            case "D":
+                MoveControl.move(0, 1);
+                displayMap();
                 break;
             case "Q":
                 return;
@@ -63,22 +68,38 @@ public class AdventureView extends View{
                
     }
     
+    
     private void displayMap(){
-        
+
        Game game = DaenirisTheForgotten.getCurrentGame();
+       World world = game.getWorld();
        
        Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
- 
+       System.out.println("\033[1;43mHello World");
        System.out.println("Game World Map");
        System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
        
        for(int i = 0; i < 10; i++)
        {
            for(int j = 0; j < 10; j++)
-           {
-               System.out.print("| ");
-               System.out.print(mapArray[i][j].getSymbol());
-               System.out.print(' ');
+           {               
+               
+               if (i == world.getxLoc() && j == world.getyLoc()){
+                   System.out.print("\033[0m| ");
+                   System.out.print("\033[1;43m" + mapArray[i][j].getSymbol() + "\033[0m");
+                   System.out.print("\033[0m ");
+               }
+               else if (mapArray[i][j].isDiscovered()){
+                    System.out.print("\033[0m| ");
+                    System.out.print("\033[0m" + mapArray[i][j].getSymbol());
+                    System.out.print("\033[0m ");
+               }
+               else{
+                    System.out.print("\033[0m| ");
+                    System.out.print("\033[0m ");
+                    System.out.print("\033[0m ");
+               }
+
            }
            
            System.out.print("|");

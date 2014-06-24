@@ -26,7 +26,7 @@ class EnterJobView {
         private final String ENTERCLASS  ="\n\tPlease choose a class for your hero"
                                          +"\n\tWarrior, Mage, or Cleric";
         
-    public void displayMenu() {
+    public void display() {
         
         String selection;
        
@@ -90,7 +90,7 @@ class EnterJobView {
             case "MAGE":
                 PCStatsControl.setJob(player, choice);
                 break;
-            case "Cleric":
+            case "CLERIC":
                 PCStatsControl.setJob(player, choice);               
             default:
                 System.out.println("\n\tInvalid selection, try again");

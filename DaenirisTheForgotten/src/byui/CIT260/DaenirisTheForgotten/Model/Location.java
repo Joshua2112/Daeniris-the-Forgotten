@@ -16,6 +16,7 @@ public abstract class Location implements Serializable
     private String name;
     private char   symbol;
     private String description;
+    private boolean discovered;
 
     //Constructor
     public Location(){}
@@ -34,10 +35,28 @@ public abstract class Location implements Serializable
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isDiscovered() {
+        return discovered;
+    }
+
+    public void setDiscovered(boolean discovered) {
+        this.discovered = discovered;
+    }
+
     public void setSymbol(char symbol) {
         this.symbol = symbol;
     }
 
+    
+    
     //Other Functions
     @Override
     public String toString() {
