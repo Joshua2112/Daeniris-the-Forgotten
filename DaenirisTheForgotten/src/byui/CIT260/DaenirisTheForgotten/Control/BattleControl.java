@@ -21,41 +21,41 @@ import java.util.Random;
 public class BattleControl {   
         
         Game game = DaenirisTheForgotten.getCurrentGame();
-        //Actor[][] actor = game.getActor();
-        //PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
-        //Enemy enemy = ((Enemy) actor[1][0]);
+        Actor[][] actors = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
+        Enemy enemy = ((Enemy) actors[1][0]);
         
-        //int totalAttack = player.getAttack();
-        //int totalDefense = player.getDefense();
-       // int currentHealth = player.getHealthPoints();
-       // int currentMagic = player.getMagicPoints();
-       // int totalMagicAttack = player.getMagicAttack();
-       // int totalMagicDefense = player.getMagicDefense();
-       // int criticalHitBonus = 0;
+        int totalAttack = player.getAttack();
+        int totalDefense = player.getDefense();
+        int currentHealth = player.getHealthPoints();
+        int currentMagic = player.getMagicPoints();
+        int totalMagicAttack = player.getMagicAttack();
+        int totalMagicDefense = player.getMagicDefense();
+        int criticalHitBonus = 0;
         
-        int totalAttack = 10;
+        /*int totalAttack = 10;
         int totalDefense = 10;
         int currentHealth = 50;
         int currentMagic = 30;
         int totalMagicAttack = 5;
         int totalMagicDefense = 5;
-        int criticalHitBonus = 0;
+        int criticalHitBonus = 0;*/
         
-        //int enemyAttack = enemy.getAttack();
-        //int enemyDefense = enemy.getDefense();
-        //int enemyHealth = enemy.getHealthPoints();
-        //int enemyMagic = enemy.getMagicPoints();
-        //int enemyMagicAttack = enemy.getMagicAttack();
-        //int enemyMagicDefense = enemy.getMagicDefense();
-        //int enemyCritBonus = 0;
+        int enemyAttack = enemy.getAttack();
+        int enemyDefense = enemy.getDefense();
+        int enemyHealth = enemy.getHealthPoints();
+        int enemyMagic = enemy.getMagicPoints();
+        int enemyMagicAttack = enemy.getMagicAttack();
+        int enemyMagicDefense = enemy.getMagicDefense();
+        int enemyCritBonus = 0;
         
-        int enemyAttack = 5;
+        /*int enemyAttack = 5;
         int enemyDefense = 4;
         int enemyHealth = 20;
         int enemyMagic = 0;
         int enemyMagicAttack = 1;
         int enemyMagicDefense = 2;
-        int enemyCritBonus = 0;
+        int enemyCritBonus = 0;*/
         
         public void attackEnemy() {        
            
@@ -90,16 +90,16 @@ public class BattleControl {
             if (critical == true){
                 damage *= 2;
             }
-                
+        }   
             if (hit == true){
                 
                 enemyHealth -= damage;
-                System.out.println("You did " + damage + "damage to the enemy");
+                System.out.println("You did " + damage + " damage to the enemy");
             }
             else{
                     System.out.println("Your attack missed");                
             }
-        }
+        
     }
 
         
@@ -116,7 +116,7 @@ public class BattleControl {
             
             Random critRand = new Random();
             int crit = critRand.nextInt(100) + enemyCritBonus;
-                if (crit > 95){
+                if (crit > 94){
                 critical = true;
                 }
                 else{
@@ -136,16 +136,16 @@ public class BattleControl {
             if (critical == true){
                 damage *= 2;
             }   
-                
+        } 
             if (hit == true){
                 
                 currentHealth -= damage;
-                System.out.println("You took " + damage + "damage from the enemy");
+                System.out.println("You took " + damage + " damage from the enemy");
             }
             else{
                 System.out.println("Enemy attack missed");                
             }
-        }
+        
     }
 
     

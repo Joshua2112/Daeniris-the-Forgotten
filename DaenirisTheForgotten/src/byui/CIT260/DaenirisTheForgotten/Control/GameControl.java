@@ -254,6 +254,14 @@ public class GameControl {
         
         PlayerCharacter newPlayerCharacter = new PlayerCharacter();
         newPlayerCharacter.setName("Joshua");
+        newPlayerCharacter.setJob("Cleric");
+        newPlayerCharacter.setAttack(10);
+        newPlayerCharacter.setDefense(5);
+        newPlayerCharacter.setGender("Male");
+        newPlayerCharacter.setMagicAttack(4);
+        newPlayerCharacter.setMagicDefense(3);
+        newPlayerCharacter.setHealthPoints(50);
+        newPlayerCharacter.setMagicPoints(20);
         actors [0][0] = newPlayerCharacter;
         
         PlayerCharacter newPlayerCharacter1 = new PlayerCharacter();
@@ -270,11 +278,11 @@ public class GameControl {
         
         Enemy goblin = new Enemy();
         goblin.setName("Goblin");
-        goblin.setAttack(2);
-        goblin.setDefense(2);
+        goblin.setAttack(6);
+        goblin.setDefense(4);
         goblin.setMagicAttack(0);
         goblin.setMagicDefense(0);
-        goblin.setHealthPoints(10);
+        goblin.setHealthPoints(20);
         goblin.setMagicPoints(0);
         goblin.setExperienceValue(20);
         goblin.setItemsDropped("woodenShield, clothCloak");
