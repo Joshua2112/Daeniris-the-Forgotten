@@ -82,7 +82,7 @@ public abstract class View implements ViewInterface{
         return input;
         }
     
-    public void doAction(char choice){}
+    //public void doAction(char choice){}
     public void doAction(String choice){}
     
     public void displayTabular(TabularMenu tab){

@@ -25,6 +25,7 @@ public class BattleControl {
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         Enemy enemy = ((Enemy) actors[1][0]);
         
+        String playerName = player.getName();
         int totalAttack = player.getAttack();
         int totalDefense = player.getDefense();
         int currentHealth = player.getHealthPoints();
@@ -33,14 +34,7 @@ public class BattleControl {
         int totalMagicDefense = player.getMagicDefense();
         int criticalHitBonus = 0;
         
-        /*int totalAttack = 10;
-        int totalDefense = 10;
-        int currentHealth = 50;
-        int currentMagic = 30;
-        int totalMagicAttack = 5;
-        int totalMagicDefense = 5;
-        int criticalHitBonus = 0;*/
-        
+        String enemyName = enemy.getName();
         int enemyAttack = enemy.getAttack();
         int enemyDefense = enemy.getDefense();
         int enemyHealth = enemy.getHealthPoints();
@@ -48,14 +42,6 @@ public class BattleControl {
         int enemyMagicAttack = enemy.getMagicAttack();
         int enemyMagicDefense = enemy.getMagicDefense();
         int enemyCritBonus = 0;
-        
-        /*int enemyAttack = 5;
-        int enemyDefense = 4;
-        int enemyHealth = 20;
-        int enemyMagic = 0;
-        int enemyMagicAttack = 1;
-        int enemyMagicDefense = 2;
-        int enemyCritBonus = 0;*/
         
         public void attackEnemy() {        
            
@@ -182,7 +168,69 @@ public class BattleControl {
         System.out.println("run stub called");
     }
 
+    public int getTotalAttack() {
+        return totalAttack;
+    }
 
+    public int getTotalDefense() {
+        return totalDefense;
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public int getCurrentMagic() {
+        return currentMagic;
+    }
+
+    public int getTotalMagicAttack() {
+        return totalMagicAttack;
+    }
+
+    public int getTotalMagicDefense() {
+        return totalMagicDefense;
+    }
+
+    public int getCriticalHitBonus() {
+        return criticalHitBonus;
+    }
+
+    public String getEnemyName() {
+        return enemyName;
+    }
+
+    public int getEnemyAttack() {
+        return enemyAttack;
+    }
+
+    public int getEnemyDefense() {
+        return enemyDefense;
+    }
+
+    public int getEnemyHealth() {
+        return enemyHealth;
+    }
+
+    public int getEnemyMagic() {
+        return enemyMagic;
+    }
+
+    public int getEnemyMagicAttack() {
+        return enemyMagicAttack;
+    }
+
+    public int getEnemyMagicDefense() {
+        return enemyMagicDefense;
+    }
+
+    public int getEnemyCritBonus() {
+        return enemyCritBonus;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }   
 }
     
 
