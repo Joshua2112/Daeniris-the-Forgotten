@@ -22,31 +22,32 @@ public class BattleMenuView extends View{
 
         @Override
         public void doAction(String choice){
+            
+            BattleControl battle = new BattleControl();
         
          switch (choice){
-            case "a":
-                BattleControl attack = new BattleControl();
-                attack.hit();
+            case "A":               
+                battle.attackEnemy();
+                battle.enemyAttack();
                 break;
-            case "m":
+            case "M":
                 MagicMenuView magicSpell = new MagicMenuView();
                 magicSpell.display();
                 break;
-            case "d":
-                BattleControl defend = new BattleControl();
-                defend.defend1();
+            case "D":
+                battle.defend1();
+                battle.enemyAttack();
+                battle.defend2();
                 break;
-            case "u":
+            case "U":
                 UseItemMenuView useItem = new UseItemMenuView();
                 useItem.displayItemMenu();
                 break;
-            case "e":
-                BattleControl examine = new BattleControl();
-                examine.examineEnemy();
+            case "E":
+                battle.examineEnemy();
                 break;
-            case "r":
-                BattleControl run = new BattleControl();
-                run.run1();
+            case "R":
+                battle.run1();
 
             default:
                 System.out.println("\n\tInvalid selection, try again");

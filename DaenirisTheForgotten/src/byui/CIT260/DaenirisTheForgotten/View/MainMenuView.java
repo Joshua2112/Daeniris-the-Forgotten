@@ -52,6 +52,9 @@ public class MainMenuView extends View{
             case "R":
                 ShopMenuView shopping = new ShopMenuView();
                 shopping.display();
+            case "B":
+                BattleMenuView fight = new BattleMenuView();
+                fight.display();
             case "Q":
                 return;
             default:
