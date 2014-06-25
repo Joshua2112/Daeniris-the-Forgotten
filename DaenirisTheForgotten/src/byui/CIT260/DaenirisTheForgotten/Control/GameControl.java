@@ -291,56 +291,74 @@ public class GameControl {
         jelly.setExperienceValue(30);
         jelly.setItemsDropped("potion, clothCap");
         actors [1][1] = jelly;
-        
-        
-        
-            
-        
+
         return actors;
     }
     
+    
+    //SPELL creation --------------------------------------------------------
     private static Spells[][] createSpells() {
         Spells[][] spells = new Spells[Constants.SPELL_COL_COUNT][Constants.SPELL_ROW_COUNT];
         
         Spells fire1 = new Spells();
         fire1.setSpellName("Fire I");
+        fire1.setDescription("Inflicts fire damage to enemies");
+        fire1.setSpellType(Constants.SPELL_ATTACK);
+        fire1.setLearned(false);
         fire1.setMagicCost(5);
         fire1.setAttackDamage(15);
+        fire1.setSpecialEffects(15);
         spells[0][0] = fire1;
         
         Spells ice1 = new Spells();
         ice1.setSpellName("Ice I");
+        ice1.setDescription("Inflicts ice damage to enemies");
+        ice1.setSpellType(Constants.SPELL_ATTACK);
+        ice1.setLearned(false);
         ice1.setMagicCost(5);
         ice1.setAttackDamage(15);
+        ice1.setSpecialEffects(15);
         spells[0][1] = ice1;
         
         Spells lighting1 = new Spells();
         lighting1.setSpellName("Lighting I");
+        lighting1.setDescription("Inflicts lighting damage to enemies");
+        lighting1.setSpellType(Constants.SPELL_ATTACK);
+        lighting1.setLearned(false);
         lighting1.setMagicCost(5);
         lighting1.setAttackDamage(15);
+        lighting1.setSpecialEffects(15);
         spells[0][2] = lighting1;
         
         Spells heal1 = new Spells();
         heal1.setSpellName("Heal I");
+        heal1.setDescription("Heals minor damage to Health");
+        heal1.setSpellType(Constants.SPELL_HEALTH);
+        heal1.setLearned(false);
         heal1.setMagicCost(5);
-        heal1.setAttackDamage(15);
+        heal1.setAttackDamage(0);
+        heal1.setSpecialEffects(15);
         spells[1][0] = heal1;
         
         Spells cure1 = new Spells();
-        cure1.setSpellName("Cure I");
+        cure1.setSpellName("Defend");
+        cure1.setDescription("Increases Defense");
+        cure1.setSpellType(Constants.SPELL_ATTACK_DEFENSE);
         cure1.setMagicCost(5);
-        cure1.setAttackDamage(15);
+        cure1.setAttackDamage(0);
+        cure1.setSpecialEffects(15);
         spells[1][1] = cure1;
         
         Spells heal2 = new Spells();
         heal2.setSpellName("heal II");
+        heal2.setDescription("Heals heavy damage to health");
+        heal2.setSpellType(Constants.SPELL_HEALTH);
+        heal2.setLearned(false);
         heal2.setMagicCost(5);
-        heal2.setAttackDamage(25);
+        heal2.setAttackDamage(0);
+        heal2.setSpecialEffects(30);
         spells[1][2] = heal2;
-        
-        
-       
-        
+           
         return spells;
     }
     
@@ -404,7 +422,7 @@ public class GameControl {
         }
     }
     
-    public static void sort1(Actor[][] array){
+    public static void sort(Actor[][] array){
         
         System.out.println("Array Length" + array[0].length);
         Actor temp;
@@ -421,7 +439,7 @@ public class GameControl {
        }
     }
     
-    public static void sortCrafts(CraftRecipe[][] array){
+    public static void sort(CraftRecipe[][] array){
         
         System.out.println("Array Length" + array[0].length);
         CraftRecipe temp;

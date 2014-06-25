@@ -58,4 +58,9 @@ public class Constants {
     public static final int ACTOR_LABEL_COL = 0;
     public static final int ACTOR_VALUE_COL = 1;
     
+    //Spell Types
+    public static final int SPELL_ATTACK = 1;
+    public static final int SPELL_HEALTH = 2;
+    public static final int SPELL_MAGIC_DEFENSE = 3;
+    public static final int SPELL_ATTACK_DEFENSE = 4;
 }
