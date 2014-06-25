@@ -11,107 +11,178 @@ import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
+import java.util.Random;
 
 
 /**
  *
  * @author Joshua
  */
-public class BattleControl {
-    
-    public void beginBattle(){
+public class BattleControl {   
         
         Game game = DaenirisTheForgotten.getCurrentGame();
-        Actor[][] actor = game.getActor();
-        PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
-        Enemy enemy = ((Enemy) actor[1][0]);
+        //Actor[][] actor = game.getActor();
+        //PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
+        //Enemy enemy = ((Enemy) actor[1][0]);
         
-        int totalAttack = player.getAttack();
-        int totalDefense = player.getDefense();
-        int currentHealth = player.getHealthPoints();
-        int currentMagic = player.getMagicPoints();
-        int totalMagicAttack = player.getMagicAttack();
-        int totalMagicDefense = player.getMagicDefense();
+        //int totalAttack = player.getAttack();
+        //int totalDefense = player.getDefense();
+       // int currentHealth = player.getHealthPoints();
+       // int currentMagic = player.getMagicPoints();
+       // int totalMagicAttack = player.getMagicAttack();
+       // int totalMagicDefense = player.getMagicDefense();
+       // int criticalHitBonus = 0;
         
-        int enemyAttack = enemy.getAttack();
-        int enemyDefense = enemy.getDefense();
-        int enemyHealth = enemy.getHealthPoints();
-        int enemyMagic = enemy.getMagicPoints();
-        int enemyMagicAttack = enemy.getMagicAttack();
-        int enemyMagicDefense = enemy.getMagicDefense();
-    }
-    
-    public boolean hit(int attack, int defense){        
-
+        int totalAttack = 10;
+        int totalDefense = 10;
+        int currentHealth = 50;
+        int currentMagic = 30;
+        int totalMagicAttack = 5;
+        int totalMagicDefense = 5;
+        int criticalHitBonus = 0;
         
-        boolean hit;
+        //int enemyAttack = enemy.getAttack();
+        //int enemyDefense = enemy.getDefense();
+        //int enemyHealth = enemy.getHealthPoints();
+        //int enemyMagic = enemy.getMagicPoints();
+        //int enemyMagicAttack = enemy.getMagicAttack();
+        //int enemyMagicDefense = enemy.getMagicDefense();
+        //int enemyCritBonus = 0;
         
-        int connect = (int) (Math.random() * (100 - 1) + 1 + attack - defense);
-        if (connect > 50){
+        int enemyAttack = 5;
+        int enemyDefense = 4;
+        int enemyHealth = 20;
+        int enemyMagic = 0;
+        int enemyMagicAttack = 1;
+        int enemyMagicDefense = 2;
+        int enemyCritBonus = 0;
+        
+        public void attackEnemy() {        
+           
+        boolean hit = false;
+        boolean critical = false;
+        int damage = 0;
+        
+        Random number = new Random();
+        int connect = number.nextInt(30) + totalAttack - enemyDefense;
+        if (connect > 14){
             hit = true;
-        }
-        else{
-            hit = false;
-        }
-        return hit;
-    }
-    
-    public boolean critical(){
-        
-        boolean critical;
-        
-        int crit = (int) (Math.random() * (100 - 1) + 1);
-        if (crit > 50){
-            critical = true;
-        }
-        else{
-            critical = false;
-        }
-        return critical;
-    }
-    
-    public int attackDamageCalc(int totalAttack, int enemyDefense, boolean hit, boolean critical){
-        
-        int damage;
-        
-        if (totalAttack < 0){
-            return -1;
-                    }
-        if (hit == true){
-                    
+            
+            Random critRand = new Random();
+            int crit = critRand.nextInt(100) + criticalHitBonus;
+                if (crit > 90){
+                critical = true;
+                }
+                else{
+                critical = false;
+                }
+           
+            if (totalAttack < 0){
+                totalAttack = 0;           
+                }
+                   
             damage = totalAttack - enemyDefense;
             
-
             if (damage < 0){
-		damage = 0;
+                damage = 0;
             }
 	
             if (critical == true){
-		damage = damage * 2;
+                damage *= 2;
+            }
+                
+            if (hit == true){
+                
+                enemyHealth -= damage;
+                System.out.println("You did " + damage + "damage to the enemy");
+            }
+            else{
+                    System.out.println("Your attack missed");                
             }
         }
-    
-        else{
-        return 0;
-        }
-        return damage;
-    }      
-
-    public void hit() {
-        System.out.println("hit stub called");
     }
+
+        
+        public void enemyAttack() {        
+           
+        boolean hit = false;
+        boolean critical = false;
+        int damage = 0;
+        
+        Random number = new Random();
+        int connect = number.nextInt(30) + enemyAttack - totalDefense;
+        if (connect > 14){
+            hit = true;
+            
+            Random critRand = new Random();
+            int crit = critRand.nextInt(100) + enemyCritBonus;
+                if (crit > 95){
+                critical = true;
+                }
+                else{
+                critical = false;
+                }
+           
+            if (enemyAttack < 0){
+                enemyAttack = 0;           
+                }
+                   
+            damage = enemyAttack - totalDefense;
+            
+            if (damage < 0){
+                damage = 0;
+                }
+	
+            if (critical == true){
+                damage *= 2;
+            }   
+                
+            if (hit == true){
+                
+                currentHealth -= damage;
+                System.out.println("You took " + damage + "damage from the enemy");
+            }
+            else{
+                System.out.println("Enemy attack missed");                
+            }
+        }
+    }
+
+    
 
     public void defend1() {
-        System.out.println("defend stub called");
+        totalDefense += totalDefense * 0.25;
     }
+    
+    public void defend2(){
+        //totalDefense = player.getDefense();
+        
+        totalDefense = 10;
+}
 
     public void examineEnemy() {
-        System.out.println("examine enemy stub called");
+        /*System.out.println("\n\tName " + enemy.getName()
+                            +"\n\tHealth Points " + enemy.getHealthPoints()
+                            +"\n\tMagic Points " + enemy.getMagicPoints()
+                            +"\n\tAttack " + enemyAttack
+                            +"\n\tDefense " + enemyDefense
+                            +"\n\tMagic Attack " + enemyMagicAttack
+                            +"\n\tMagic Defense " + enemyMagicDefense);*/
+        
+        System.out.println("\n\tName " + "Goblin"
+                            +"\n\tHealth Points " + enemyHealth + "/20"
+                            +"\n\tMagic Points " + enemyMagic
+                            +"\n\tAttack " + enemyAttack
+                            +"\n\tDefense " + enemyDefense
+                            +"\n\tMagic Attack " + enemyMagicAttack
+                            +"\n\tMagic Defense " + enemyMagicDefense);
     }
 
     public void run1() {
         System.out.println("run stub called");
     }
+
+
 }
     
 
