@@ -20,6 +20,7 @@ public class Enemy extends Actor{
     
      private int experienceValue;
      private String itemsDropped;
+     private int goldValue;
 
 
     public int getExperienceValue() {
@@ -50,7 +51,8 @@ public class Enemy extends Actor{
                 + "healthPoints= "    + this.getHealthPoints() + newline
                 + "magicPoints= "     + this.getMagicPoints()  + newline
                 + "experienceValue= " + experienceValue        + newline
-                + "itemsDropped= "    + itemsDropped           + newline;
+                + "itemsDropped= "    + itemsDropped           + newline
+                + "goldValue= "       + goldValue              + newline;
     }
     
     
@@ -60,6 +62,7 @@ public class Enemy extends Actor{
         int hash = 5;
         hash = 37 * hash + Objects.hashCode(this.experienceValue);
         hash = 37 * hash + Objects.hashCode(this.itemsDropped);
+        hash = 37 * hash + Objects.hashCode(this.goldValue);
         return hash;
     }
 
@@ -80,6 +83,15 @@ public class Enemy extends Actor{
         }
         return true;
     }
+
+    public int getGoldValue() {
+        return goldValue;
+    }
+
+    public void setGoldValue(int goldValue) {
+        this.goldValue = goldValue;
+    }
+    
      
      
 }

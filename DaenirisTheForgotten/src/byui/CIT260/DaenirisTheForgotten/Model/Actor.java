@@ -21,7 +21,9 @@ public class Actor implements Serializable{
     private int magicAttack;
     private int magicDefense;
     private int healthPoints;
+    private int currentHealthPoints;
     private int magicPoints;
+    private int currentMagicPoints;
 
     public Actor() {
     }
@@ -82,21 +84,39 @@ public class Actor implements Serializable{
         this.magicPoints = magicPoints;
     }
 
+    public int getCurrentHealthPoints() {
+        return currentHealthPoints;
+    }
+
+    public void setCurrentHealthPoints(int currentHealthPoints) {
+        this.currentHealthPoints = currentHealthPoints;
+    }
+
+    public int getCurrentMagicPoints() {
+        return currentMagicPoints;
+    }
+
+    public void setCurrentMagicPoints(int currentMagicPoints) {
+        this.currentMagicPoints = currentMagicPoints;
+    }
+
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", attack=" + attack + ", defense=" + defense + ", magicAttack=" + magicAttack + ", magicDefense=" + magicDefense + ", healthPoints=" + healthPoints + ", magicPoints=" + magicPoints + '}';
+        return "Actor{" + "name=" + name + ", attack=" + attack + ", defense=" + defense + ", magicAttack=" + magicAttack + ", magicDefense=" + magicDefense + ", healthPoints=" + healthPoints + ", currentHealthPoints=" + currentHealthPoints + ", magicPoints=" + magicPoints + ", currentMagicPoints=" + currentMagicPoints + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.attack) ^ (Double.doubleToLongBits(this.attack) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.defense) ^ (Double.doubleToLongBits(this.defense) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.magicAttack) ^ (Double.doubleToLongBits(this.magicAttack) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.magicDefense) ^ (Double.doubleToLongBits(this.magicDefense) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.healthPoints) ^ (Double.doubleToLongBits(this.healthPoints) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.magicPoints) ^ (Double.doubleToLongBits(this.magicPoints) >>> 32));
+        hash = 43 * hash + Objects.hashCode(this.name);
+        hash = 43 * hash + this.attack;
+        hash = 43 * hash + this.defense;
+        hash = 43 * hash + this.magicAttack;
+        hash = 43 * hash + this.magicDefense;
+        hash = 43 * hash + this.healthPoints;
+        hash = 43 * hash + this.currentHealthPoints;
+        hash = 43 * hash + this.magicPoints;
+        hash = 43 * hash + this.currentMagicPoints;
         return hash;
     }
 
@@ -112,26 +132,34 @@ public class Actor implements Serializable{
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.attack) != Double.doubleToLongBits(other.attack)) {
+        if (this.attack != other.attack) {
             return false;
         }
-        if (Double.doubleToLongBits(this.defense) != Double.doubleToLongBits(other.defense)) {
+        if (this.defense != other.defense) {
             return false;
         }
-        if (Double.doubleToLongBits(this.magicAttack) != Double.doubleToLongBits(other.magicAttack)) {
+        if (this.magicAttack != other.magicAttack) {
             return false;
         }
-        if (Double.doubleToLongBits(this.magicDefense) != Double.doubleToLongBits(other.magicDefense)) {
+        if (this.magicDefense != other.magicDefense) {
             return false;
         }
-        if (Double.doubleToLongBits(this.healthPoints) != Double.doubleToLongBits(other.healthPoints)) {
+        if (this.healthPoints != other.healthPoints) {
             return false;
         }
-        if (Double.doubleToLongBits(this.magicPoints) != Double.doubleToLongBits(other.magicPoints)) {
+        if (this.currentHealthPoints != other.currentHealthPoints) {
+            return false;
+        }
+        if (this.magicPoints != other.magicPoints) {
+            return false;
+        }
+        if (this.currentMagicPoints != other.currentMagicPoints) {
             return false;
         }
         return true;
     }
+
+    
     
     
     

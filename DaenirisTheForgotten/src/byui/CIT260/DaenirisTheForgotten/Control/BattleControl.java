@@ -10,6 +10,8 @@ import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import byui.CIT260.DaenirisTheForgotten.View.AdventureView;
+import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
 
@@ -28,8 +30,10 @@ public class BattleControl {
         String playerName = player.getName();
         int totalAttack = player.getAttack();
         int totalDefense = player.getDefense();
+        int totalHealth = player.getHealthPoints();
         int currentHealth = player.getHealthPoints();
         int currentMagic = player.getMagicPoints();
+        int totalMagic = player.getMagicPoints();
         int totalMagicAttack = player.getMagicAttack();
         int totalMagicDefense = player.getMagicDefense();
         int criticalHitBonus = 0;
@@ -38,7 +42,9 @@ public class BattleControl {
         int enemyAttack = enemy.getAttack();
         int enemyDefense = enemy.getDefense();
         int enemyHealth = enemy.getHealthPoints();
+        int enemyCurrentHealth = enemy.getHealthPoints();
         int enemyMagic = enemy.getMagicPoints();
+        int enemyCurrentMagic = enemy.getMagicPoints();
         int enemyMagicAttack = enemy.getMagicAttack();
         int enemyMagicDefense = enemy.getMagicDefense();
         int enemyCritBonus = 0;
@@ -79,17 +85,31 @@ public class BattleControl {
         }   
             if (hit == true){
                 
-                enemyHealth -= damage;
+                enemyCurrentHealth -= damage;
                 System.out.println("You did " + damage + " damage to the enemy");
             }
             else{
                     System.out.println("Your attack missed");                
             }
+            
+            if(enemyCurrentHealth <= 0){
+                System.out.println("\n\tYou defeated the enemy!"
+                                    +"\n\tYou gained " + enemy.getGoldValue() + " gold"
+                                    +"\n\tand you gained " + enemy.getExperienceValue() + " experience points");
+                player.setPlayerGold(player.getPlayerGold() + enemy.getGoldValue());
+                player.setLevelPoints(player.getLevelPoints() + enemy.getExperienceValue());
+                AdventureView adventureView = new AdventureView();
+                adventureView.display();
+            }
         
     }
 
         
-        public void enemyAttack() {        
+        public void enemyAttack() {    
+            
+            if(enemyCurrentHealth <= 0){
+                return;
+            }
            
         boolean hit = false;
         boolean critical = false;
@@ -131,33 +151,30 @@ public class BattleControl {
             else{
                 System.out.println("Enemy attack missed");                
             }
-        
+        if(currentHealth <= 0){
+            GameOverView gameOver = new GameOverView();
+            gameOver.endGame();
+        }
     }
 
     
 
     public void defend1() {
-        totalDefense += totalDefense * 0.25;
+        System.out.println("Defense increased by " + totalDefense * 0.25 + (" points temporarily"));
+
+        totalDefense += totalDefense * 0.25;        
     }
     
     public void defend2(){
-        //totalDefense = player.getDefense();
         
-        totalDefense = 10;
+        totalDefense = player.getDefense();
 }
 
     public void examineEnemy() {
-        /*System.out.println("\n\tName " + enemy.getName()
-                            +"\n\tHealth Points " + enemy.getHealthPoints()
-                            +"\n\tMagic Points " + enemy.getMagicPoints()
-                            +"\n\tAttack " + enemyAttack
-                            +"\n\tDefense " + enemyDefense
-                            +"\n\tMagic Attack " + enemyMagicAttack
-                            +"\n\tMagic Defense " + enemyMagicDefense);*/
         
-        System.out.println("\n\tName " + "Goblin"
-                            +"\n\tHealth Points " + enemyHealth + "/20"
-                            +"\n\tMagic Points " + enemyMagic
+        System.out.println("\n\tName " + enemy.getName()
+                            +"\n\tHealth Points " + enemyCurrentHealth + "/" + enemyHealth
+                            +"\n\tMagic Points " + enemyCurrentMagic + "/" + enemyMagic
                             +"\n\tAttack " + enemyAttack
                             +"\n\tDefense " + enemyDefense
                             +"\n\tMagic Attack " + enemyMagicAttack
@@ -231,6 +248,103 @@ public class BattleControl {
     public String getPlayerName() {
         return playerName;
     }   
+
+    public int getTotalHealth() {
+        return totalHealth;
+    }
+
+    public void setTotalHealth(int totalHealth) {
+        this.totalHealth = totalHealth;
+    }
+
+    public int getTotalMagic() {
+        return totalMagic;
+    }
+
+    public void setTotalMagic(int totalMagic) {
+        this.totalMagic = totalMagic;
+    }
+
+    public int getEnemyCurrentHealth() {
+        return enemyCurrentHealth;
+    }
+
+    public void setEnemyCurrentHealth(int enemyCurrentHealth) {
+        this.enemyCurrentHealth = enemyCurrentHealth;
+    }
+
+    public int getEnemyCurrentMagic() {
+        return enemyCurrentMagic;
+    }
+
+    public void setEnemyCurrentMagic(int enemyCurrentMagic) {
+        this.enemyCurrentMagic = enemyCurrentMagic;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public void setTotalAttack(int totalAttack) {
+        this.totalAttack = totalAttack;
+    }
+
+    public void setTotalDefense(int totalDefense) {
+        this.totalDefense = totalDefense;
+    }
+
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
+    }
+
+    public void setCurrentMagic(int currentMagic) {
+        this.currentMagic = currentMagic;
+    }
+
+    public void setTotalMagicAttack(int totalMagicAttack) {
+        this.totalMagicAttack = totalMagicAttack;
+    }
+
+    public void setTotalMagicDefense(int totalMagicDefense) {
+        this.totalMagicDefense = totalMagicDefense;
+    }
+
+    public void setCriticalHitBonus(int criticalHitBonus) {
+        this.criticalHitBonus = criticalHitBonus;
+    }
+
+    public void setEnemyName(String enemyName) {
+        this.enemyName = enemyName;
+    }
+
+    public void setEnemyAttack(int enemyAttack) {
+        this.enemyAttack = enemyAttack;
+    }
+
+    public void setEnemyDefense(int enemyDefense) {
+        this.enemyDefense = enemyDefense;
+    }
+
+    public void setEnemyHealth(int enemyHealth) {
+        this.enemyHealth = enemyHealth;
+    }
+
+    public void setEnemyMagic(int enemyMagic) {
+        this.enemyMagic = enemyMagic;
+    }
+
+    public void setEnemyMagicAttack(int enemyMagicAttack) {
+        this.enemyMagicAttack = enemyMagicAttack;
+    }
+
+    public void setEnemyMagicDefense(int enemyMagicDefense) {
+        this.enemyMagicDefense = enemyMagicDefense;
+    }
+
+    public void setEnemyCritBonus(int enemyCritBonus) {
+        this.enemyCritBonus = enemyCritBonus;
+    }
+    
 }
     
 

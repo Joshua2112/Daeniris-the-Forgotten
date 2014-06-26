@@ -261,7 +261,11 @@ public class GameControl {
         newPlayerCharacter.setMagicAttack(4);
         newPlayerCharacter.setMagicDefense(3);
         newPlayerCharacter.setHealthPoints(50);
+        newPlayerCharacter.setCurrentHealthPoints(50);
         newPlayerCharacter.setMagicPoints(20);
+        newPlayerCharacter.setCurrentMagicPoints(20);
+        newPlayerCharacter.setPlayerGold(0);
+        newPlayerCharacter.setLevelPoints(0);
         actors [0][0] = newPlayerCharacter;
         
         PlayerCharacter newPlayerCharacter1 = new PlayerCharacter();
@@ -273,7 +277,10 @@ public class GameControl {
         newPlayerCharacter1.setMagicAttack(0);
         newPlayerCharacter1.setMagicDefense(0);
         newPlayerCharacter1.setHealthPoints(50);
+        newPlayerCharacter1.setCurrentHealthPoints(50);
         newPlayerCharacter1.setMagicPoints(20);
+        newPlayerCharacter1.setCurrentMagicPoints(20);
+        newPlayerCharacter1.setPlayerGold(0);
         actors [0][1] = newPlayerCharacter1;
         
         Enemy goblin = new Enemy();
@@ -283,8 +290,11 @@ public class GameControl {
         goblin.setMagicAttack(0);
         goblin.setMagicDefense(0);
         goblin.setHealthPoints(20);
+        goblin.setCurrentHealthPoints(20);
         goblin.setMagicPoints(0);
+        goblin.setCurrentMagicPoints(0);
         goblin.setExperienceValue(20);
+        goblin.setGoldValue(23);
         goblin.setItemsDropped("woodenShield, clothCloak");
         actors [1][0] = goblin;
         
@@ -295,14 +305,13 @@ public class GameControl {
         jelly.setMagicAttack(2);
         jelly.setMagicDefense(2);
         jelly.setHealthPoints(15);
+        jelly.setCurrentHealthPoints(15);
         jelly.setMagicPoints(30);
+        jelly.setCurrentMagicPoints(30);
         jelly.setExperienceValue(30);
-        jelly.setItemsDropped("potion, clothCap");
+        jelly.setGoldValue(27);
+        jelly.setItemsDropped("potion, Cloth Cap");
         actors [1][1] = jelly;
-        
-        
-        
-            
         
         return actors;
     }

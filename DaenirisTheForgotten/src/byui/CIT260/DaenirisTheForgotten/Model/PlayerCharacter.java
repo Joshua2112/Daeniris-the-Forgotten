@@ -70,7 +70,9 @@ public class PlayerCharacter extends Actor{
                 + "magicAttack= "  + this.getMagicAttack()   + newline
                 + "magicDefense= " + this.getMagicDefense()  + newline
                 + "healthPoints= " + this.getHealthPoints()  + newline
-                + "magicPoints= "  + this.getMagicPoints()   + newline;
+                + "magicPoints= "  + this.getMagicPoints()   + newline
+                + "playerGold"  + this.getPlayerGold()  + newline
+                + "levelPoints" + this.getLevelPoints() + newline;   
     }
     
     @Override
@@ -78,6 +80,8 @@ public class PlayerCharacter extends Actor{
         int hash = 3;
         hash = 67 * hash + Objects.hashCode(this.job);
         hash = 67 * hash + Objects.hashCode(this.gender);
+        hash = 67 * hash + Objects.hashCode(this.playerGold);
+        hash = 67 * hash + Objects.hashCode(this.levelPoints);
         return hash;
     }
 

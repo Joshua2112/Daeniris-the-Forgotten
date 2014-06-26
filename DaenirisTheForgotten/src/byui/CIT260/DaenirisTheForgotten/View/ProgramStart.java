@@ -26,13 +26,8 @@ public class ProgramStart{
         this.displayBanner();
             
             
-            String playerCharactersName = this.getPlayerCharactersName();
-            if (playerCharactersName == null)
-                return;
             
-            PlayerCharacter playerCharacter = ProgramControl.createPlayerCharacter(playerCharactersName);
-            
-            this.displayWelcomeMessage(playerCharacter);
+            //this.displayWelcomeMessage(playerCharacter);
             
             MainMenuView mainMenuView = new MainMenuView();
             mainMenuView.display();
