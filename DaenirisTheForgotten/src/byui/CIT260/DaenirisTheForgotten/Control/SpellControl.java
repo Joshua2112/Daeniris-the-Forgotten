@@ -11,9 +11,6 @@ import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 
 public class SpellControl {
 
-    public static void castSpell(Spells spells) {
-    System.out.println("cast spell stub");
-    }
        public int weakenSpell(double specialEffect, int enemyDefense ){
            
            int reducedDefense;
@@ -27,31 +24,21 @@ public class SpellControl {
            if (reducedDefense < 0){
                reducedDefense = 0;
            }
-           
            return reducedDefense;
        }
-
-    public void castFire() {
-        System.out.println("Fire spell cast stub");
-    }
-
-    public void castIce() {
-        System.out.println("Ice spell cast stub");
-    }
-
-    public void castWater() {
-        System.out.println("Water spell cast stub");
-    }
-
-    public void castAttackBoost() {
-        System.out.println("Attack Boost spell cast stub");
-    }
-
-    public void castDefenseBoost() {
-        System.out.println("Defense Boost spell cast stub");
-    }
-
-    public void castLightning() {
-        System.out.println("Lightning spell cast stub");
+       
+    public static void castSpell(Spells spell){
+        if (spell.getSpellType() == Constants.SPELL_ATTACK){
+            System.out.println("Cast Attack Spell");
+        }
+        else if (spell.getSpellType() == Constants.SPELL_HEALTH){
+            System.out.println("Cast Health Spell");
+        }
+        else if (spell.getSpellType() == Constants.SPELL_ATTACK_DEFENSE){
+            System.out.println("Cast Defense Attack Spell");
+        }
+        else if (spell.getSpellType() == Constants.SPELL_MAGIC_DEFENSE){
+            System.out.println("Cast Defense Magic Spell");
+        }
     }
 }
