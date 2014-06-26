@@ -6,9 +6,14 @@
 
 package byui.CIT260.DaenirisTheForgotten.Control;
 
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
+
 
 public class SpellControl {
 
+    public static void castSpell(Spells spells) {
+    System.out.println("cast spell stub");
+    }
        public int weakenSpell(double specialEffect, int enemyDefense ){
            
            int reducedDefense;

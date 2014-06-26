@@ -12,6 +12,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.View.AdventureView;
 import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
+import byui.CIT260.DaenirisTheForgotten.View.TabularMenu;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
 
@@ -344,7 +345,27 @@ public class BattleControl {
     public void setEnemyCritBonus(int enemyCritBonus) {
         this.enemyCritBonus = enemyCritBonus;
     }
-    
+    private TabularMenu createTabularMenu(){
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        
+        TabularMenu craftTab = new TabularMenu();
+        craftTab.setDisplayName("Spell Display");
+        craftTab.setColumnCount(Constants.SPELL_COL_COUNT);
+        craftTab.setColumnWidth(Constants.SPELL_COL_WIDTH);
+        craftTab.setRowCount(Constants.SPELL_ROW_COUNT);
+        craftTab.setType(Constants.SPELLS);
+        
+        String[] header = new String[Constants.SPELL_COL_COUNT];
+        header[0] = "Black Magic";
+        header[1] = "White Magic";
+        
+        craftTab.setHeader(header);
+        
+        //GameControl.stringConvert(game.getInventory(), Constants.INV_POTION_COL);
+        //GameControl.sortCrafts(game.getSpells());      
+        return craftTab;
+        
+    }
 }
     
 
