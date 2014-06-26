@@ -19,12 +19,12 @@ public class AdventureView extends View{
 
     public AdventureView() {
         super("\n\tEnter \'i\' interact"
-                                  +"\n\tEnter \'m\' adventure menu"
-                                  +"\n\tEnter \'l\' look at map"
-                                  +"\n\tEnter \'w\' travel north"                                  
-                                  +"\n\tEnter \'s\' travel south"
-                                  +"\n\tEnter \'a\' travel west"
-                                  +"\n\tEnter \'d\' travel east");
+             +"\n\tEnter \'m\' adventure menu"
+             +"\n\tEnter \'l\' look at map"
+             +"\n\tEnter \'w\' travel north"                                  
+             +"\n\tEnter \'s\' travel south"
+             +"\n\tEnter \'a\' travel west"
+             +"\n\tEnter \'d\' travel east");
     }
     
 
@@ -90,14 +90,14 @@ public class AdventureView extends View{
                    System.out.print("\033[0m ");
                }
                else if (mapArray[i][j].isDiscovered()){
-                    System.out.print("\033[0m| ");
-                    System.out.print("\033[0m" + mapArray[i][j].getSymbol());
-                    System.out.print("\033[0m ");
+                   System.out.print("\033[0m| ");
+                   System.out.print("\033[0m" + mapArray[i][j].getSymbol());
+                   System.out.print("\033[0m ");
                }
                else{
-                    System.out.print("\033[0m| ");
-                    System.out.print("\033[0m ");
-                    System.out.print("\033[0m ");
+                   System.out.print("\033[0m| ");
+                   System.out.print("\033[0m ");
+                   System.out.print("\033[0m ");
                }
 
            }

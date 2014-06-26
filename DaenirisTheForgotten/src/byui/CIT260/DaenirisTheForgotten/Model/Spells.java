@@ -16,10 +16,12 @@ import java.util.Objects;
 public class Spells implements Serializable{
     
     private String spellName;
-    private String target;
+    private String description;
+    private int spellType;
     private int attackDamage;
     private int magicCost;
-    private double specialEffects;
+    private int specialEffects;
+    private boolean learned;
 
     public Spells() {
         
@@ -33,12 +35,12 @@ public class Spells implements Serializable{
         this.spellName = spellName;
     }
 
-    public String getTarget() {
-        return target;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTarget(String target) {
-        this.target = target;
+    public void setDescription(String target) {
+        this.description = target;
     }
 
     public int getAttackDamage() {
@@ -61,26 +63,42 @@ public class Spells implements Serializable{
         return specialEffects;
     }
 
-    public void setSpecialEffects(double specialEffects) {
+    public void setSpecialEffects(int specialEffects) {
         this.specialEffects = specialEffects;
     }
 
+    public int getSpellType() {
+        return spellType;
+    }
+
+    public void setSpellType(int spellType) {
+        this.spellType = spellType;
+    }
+
+    public boolean isLearned() {
+        return learned;
+    }
+
+    public void setLearned(boolean learned) {
+        this.learned = learned;
+    }
+
+    
     @Override
     public String toString() {
         String newline = System.getProperty("line.separator");
-        return "Spell:"                                               + newline
-                + "spellName= "            + this.getSpellName()      + newline
-                + "target= "               + this.getTarget()         + newline
-                + "attackDamage= "         + this.getAttackDamage()   + newline
-                + "magicCost= "            + this.getMagicCost()      + newline
-                + "specialEffects= "       + this.getSpecialEffects() + newline;
+        return                                                   newline
+                + "Spell Name: "    + this.getSpellName()      + newline
+                + "Description: "   + this.getDescription()    + newline
+                + "magic Cost: "    + this.getMagicCost()      + newline
+                + "Effects Value: " + this.getSpecialEffects() + newline;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 61 * hash + Objects.hashCode(this.spellName);
-        hash = 61 * hash + Objects.hashCode(this.target);
+        hash = 61 * hash + Objects.hashCode(this.description);
         hash = 61 * hash + Objects.hashCode(this.attackDamage);
         hash = 61 * hash + Objects.hashCode(this.magicCost);
         hash = 61 * hash + Objects.hashCode(this.specialEffects);
@@ -99,7 +117,7 @@ public class Spells implements Serializable{
         if (!Objects.equals(this.spellName, other.spellName)) {
             return false;
         }
-        if (!Objects.equals(this.target, other.target)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (!Objects.equals(this.attackDamage, other.attackDamage)) {

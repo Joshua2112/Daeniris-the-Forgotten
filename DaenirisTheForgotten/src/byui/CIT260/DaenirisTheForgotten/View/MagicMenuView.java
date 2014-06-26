@@ -29,28 +29,28 @@ class MagicMenuView extends View{
         
          switch (choice){
             case "F":
-                SpellControl fire = new SpellControl();
-                fire.castFire();
+                //SpellControl fire = new SpellControl();
+                //fire.castFire();
                 break;
             case "I":
-                SpellControl ice = new SpellControl();
-                ice.castIce();
+                //SpellControl ice = new SpellControl();
+                //ice.castIce();
                 break;
             case "W":
-                SpellControl water = new SpellControl();
-                water.castWater();
+                //SpellControl water = new SpellControl();
+                //water.castWater();
                 break;
             case "A":
-                SpellControl attackBoost = new SpellControl();
-                attackBoost.castAttackBoost();
+                //SpellControl attackBoost = new SpellControl();
+                //attackBoost.castAttackBoost();
                 break;
             case "D":
-                SpellControl defenseBoost = new SpellControl();
-                defenseBoost.castDefenseBoost();
+                //SpellControl defenseBoost = new SpellControl();
+                //defenseBoost.castDefenseBoost();
                 break;
             case "L":
-                SpellControl lightning = new SpellControl();
-                lightning.castLightning();
+               // SpellControl lightning = new SpellControl();
+                //lightning.castLightning();
             case "Q":
                 return;
             default:

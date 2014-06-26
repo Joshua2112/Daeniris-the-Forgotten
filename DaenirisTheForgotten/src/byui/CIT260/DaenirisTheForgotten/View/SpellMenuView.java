@@ -8,6 +8,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+import byui.CIT260.DaenirisTheForgotten.Control.SpellControl;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
@@ -23,22 +24,64 @@ public class SpellMenuView extends View{
         super("Type name to select");
     }
     
+    @Override
     public void doAction(String str){
+             
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Spells[][] spells = game.getSpells();
+        
+        //displaySpells();
         
         int column = 0;
         int row = 0;
-        
-        Game game = DaenirisTheForgotten.getCurrentGame();
-        Spells[][] spells = game.getSpells();
         
         for (int i = 0; i < Constants.SPELL_COL_COUNT; i++){
             row = GameControl.stringSearch(spells, str, i);
             column = i;
         }
         
-        //System.out.println(spells[column][row].getSpellName());
         System.out.println(spells[column][row].toString());
-              
+        
+        if (spells[column][row].getSpellType() == Constants.SPELL_HEALTH){
+            displayCast(spells[column][row]);
+        }
+        else{
+            System.out.println("Can only cast in a battle.");
+        }
     }   
+
+    private void displayCast(Spells spells) {
+        
+        String value;
+        
+        System.out.println("Select 'C' to cast spell or Select 'Q' to quit."); 
+        
+        do{ 
+            value = getInput();
+            
+            if (value.equals("C")){
+                SpellControl.castSpell(spells);
+                return;
+            }
+            
+        } while(!value.equals("Q"));
+    }
     
+    
+    void display(TabularMenu magicTab){
+        String value;
+        do {
+            displayTabular(magicTab);
+            
+            System.out.println(" ");
+            System.out.println("Type name to select:");
+            
+            value = this.getInput();
+            this.doAction(value);
+
+        }while (!value.equals("Q"));
+        
+        
+        
+    }
 }

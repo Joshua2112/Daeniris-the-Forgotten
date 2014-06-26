@@ -34,7 +34,9 @@ class GameMenuView extends View {
         
          switch (choice){
             case "M":
-                this.displaySpells();
+                TabularMenu magicTabular = createMagicTabular();
+                SpellMenuView spellMenuView = new SpellMenuView();
+                spellMenuView.display(magicTabular);
                 break;
             case "I":
                 this.displayInventory();
@@ -78,7 +80,6 @@ class GameMenuView extends View {
         inventoryTab.setHeader(header);
         
         GameControl.sort(game.getInventory());
-        displayTabular(inventoryTab);
     }
 
     private void displayActors() {
@@ -98,7 +99,7 @@ class GameMenuView extends View {
         
         actorTab.setHeader(header);
         
-        GameControl.sort1(game.getActor());
+        GameControl.sort(game.getActor());
         displayTabular(actorTab);
     }
     
@@ -119,14 +120,14 @@ class GameMenuView extends View {
         craftTab.setHeader(header);
         
         //GameControl.stringConvert(game.getInventory(), Constants.INV_POTION_COL);
-        GameControl.sortCrafts(game.getCraftRecipe());
+        GameControl.sort(game.getCraftRecipe());
         displayTabular(craftTab);
         
         CraftMenuView craftMenuView = new CraftMenuView();
         craftMenuView.display();
     }
     
-    private void displaySpells(){
+    private TabularMenu createMagicTabular(){
         Game game = DaenirisTheForgotten.getCurrentGame();
         
         TabularMenu craftTab = new TabularMenu();
@@ -143,11 +144,9 @@ class GameMenuView extends View {
         craftTab.setHeader(header);
         
         //GameControl.stringConvert(game.getInventory(), Constants.INV_POTION_COL);
-        //GameControl.sortCrafts(game.getSpells());
-        displayTabular(craftTab);
+        //GameControl.sortCrafts(game.getSpells());      
+        return craftTab;
         
-        SpellMenuView spellMenuView = new SpellMenuView();
-        spellMenuView.display();
     }
 }
 

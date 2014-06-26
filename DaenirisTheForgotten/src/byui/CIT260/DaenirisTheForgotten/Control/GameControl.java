@@ -40,6 +40,8 @@ public class GameControl {
         game.setActor(createActor());
         game.setCraftRecipe(createCraftRecipe());
         game.setSpells(createSpells());
+        
+        Actor[][] actor = game.getActor();
     }
 
     public static Inventory[][] createInventory() {

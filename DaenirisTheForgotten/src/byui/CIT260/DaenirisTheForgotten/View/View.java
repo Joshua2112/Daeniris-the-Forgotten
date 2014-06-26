@@ -66,7 +66,7 @@ public abstract class View implements ViewInterface{
         
         while(!valid){
             
-            System.out.println("\n\tPlease choose option");
+            //System.out.println("\n\tPlease choose option");
             
             input = keyboard.nextLine();
             input = input.trim();
@@ -95,6 +95,7 @@ public abstract class View implements ViewInterface{
         Actor[][] actors = game.getActor();
      
         //Display menu title
+        System.out.println(" ");
         System.out.println(tab.getDisplayName());
         
         //Display Column Headers
