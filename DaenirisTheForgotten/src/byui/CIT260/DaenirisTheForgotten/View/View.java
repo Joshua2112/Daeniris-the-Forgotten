@@ -9,9 +9,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
-import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
-import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
@@ -82,7 +80,7 @@ public abstract class View implements ViewInterface{
         return input;
         }
     
-    public void doAction(char choice){}
+    //public void doAction(char choice){}
     public void doAction(String choice){}
     
     public void displayTabular(TabularMenu tab){

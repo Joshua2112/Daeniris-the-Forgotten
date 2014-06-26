@@ -229,24 +229,15 @@ public class GameControl {
         PlayerCharacter blank = new PlayerCharacter();
         blank.setName("zz");
         blank.setJob("");
-        blank.setAttack(0);
-        blank.setDefense(0);
+        blank.setAttack(3);
+        blank.setDefense(3);
         blank.setGender("");
-        blank.setMagicAttack(0);
-        blank.setMagicDefense(0);
-        blank.setHealthPoints(0);
-        blank.setMagicPoints(0);
-        
-        Enemy blank1 = new Enemy();
-        blank1.setName("");
-        blank1.setAttack(2);
-        blank1.setDefense(2);
-        blank1.setMagicAttack(0);
-        blank1.setMagicDefense(0);
-        blank1.setHealthPoints(0);
-        blank1.setMagicPoints(0);
-        blank1.setExperienceValue(0);
-        blank1.setItemsDropped("none");
+        blank.setMagicAttack(3);
+        blank.setMagicDefense(3);
+        blank.setHealthPoints(30);
+        blank.setCurrentHealthPoints(30);
+        blank.setMagicPoints(20);
+        blank.setCurrentMagicPoints(20);
         
         for(int i = 0; i < (Constants.NUMBER_OF_ACTOR_TYPES); i ++){
             for (int j = 0; j < (Constants.NUMBER_OF_ENEMIES); j++){
@@ -256,6 +247,18 @@ public class GameControl {
         
         PlayerCharacter newPlayerCharacter = new PlayerCharacter();
         newPlayerCharacter.setName("Joshua");
+        newPlayerCharacter.setJob("Cleric");
+        newPlayerCharacter.setAttack(10);
+        newPlayerCharacter.setDefense(5);
+        newPlayerCharacter.setGender("Male");
+        newPlayerCharacter.setMagicAttack(4);
+        newPlayerCharacter.setMagicDefense(3);
+        newPlayerCharacter.setHealthPoints(50);
+        newPlayerCharacter.setCurrentHealthPoints(50);
+        newPlayerCharacter.setMagicPoints(20);
+        newPlayerCharacter.setCurrentMagicPoints(20);
+        newPlayerCharacter.setPlayerGold(0);
+        newPlayerCharacter.setLevelPoints(0);
         actors [0][0] = newPlayerCharacter;
         
         PlayerCharacter newPlayerCharacter1 = new PlayerCharacter();
@@ -267,18 +270,24 @@ public class GameControl {
         newPlayerCharacter1.setMagicAttack(0);
         newPlayerCharacter1.setMagicDefense(0);
         newPlayerCharacter1.setHealthPoints(50);
+        newPlayerCharacter1.setCurrentHealthPoints(50);
         newPlayerCharacter1.setMagicPoints(20);
+        newPlayerCharacter1.setCurrentMagicPoints(20);
+        newPlayerCharacter1.setPlayerGold(0);
         actors [0][1] = newPlayerCharacter1;
         
         Enemy goblin = new Enemy();
         goblin.setName("Goblin");
-        goblin.setAttack(2);
-        goblin.setDefense(2);
+        goblin.setAttack(6);
+        goblin.setDefense(4);
         goblin.setMagicAttack(0);
         goblin.setMagicDefense(0);
-        goblin.setHealthPoints(10);
+        goblin.setHealthPoints(20);
+        goblin.setCurrentHealthPoints(20);
         goblin.setMagicPoints(0);
+        goblin.setCurrentMagicPoints(0);
         goblin.setExperienceValue(20);
+        goblin.setGoldValue(23);
         goblin.setItemsDropped("woodenShield, clothCloak");
         actors [1][0] = goblin;
         
@@ -289,9 +298,12 @@ public class GameControl {
         jelly.setMagicAttack(2);
         jelly.setMagicDefense(2);
         jelly.setHealthPoints(15);
+        jelly.setCurrentHealthPoints(15);
         jelly.setMagicPoints(30);
+        jelly.setCurrentMagicPoints(30);
         jelly.setExperienceValue(30);
-        jelly.setItemsDropped("potion, clothCap");
+        jelly.setGoldValue(27);
+        jelly.setItemsDropped("potion, Cloth Cap");
         actors [1][1] = jelly;
 
         return actors;

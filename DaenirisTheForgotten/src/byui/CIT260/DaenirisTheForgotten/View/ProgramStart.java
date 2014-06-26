@@ -26,13 +26,8 @@ public class ProgramStart{
         this.displayBanner();
             
             
-            String playerCharactersName = this.getPlayerCharactersName();
-            if (playerCharactersName == null)
-                return;
             
-            PlayerCharacter playerCharacter = ProgramControl.createPlayerCharacter(playerCharactersName);
-            
-            this.displayWelcomeMessage(playerCharacter);
+            //this.displayWelcomeMessage(playerCharacter);
             
             MainMenuView mainMenuView = new MainMenuView();
             mainMenuView.display();
@@ -53,31 +48,5 @@ public class ProgramStart{
                           +"\n*         Good luck to you          *");
     }
     
-    public String getPlayerCharactersName(){
-        
-        boolean valid = false;
-        String playerCharactersName = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
-            System.out.println("\n\tPlease enter character's name");
-            
-            playerCharactersName = keyboard.nextLine();
-            playerCharactersName = playerCharactersName.trim();
-            
-            if (playerCharactersName.toUpperCase().equals("Q")){
-                return null;
-            }
-            
-            if (playerCharactersName.length() < 2){
-                System.out.println("\n\tInvalid name, must be greater than 2 characters in length");
-            }
-                           
-            else{
-                valid = true;
-            }
-        }
-        return playerCharactersName;
-        }                 
+                     
 }                        

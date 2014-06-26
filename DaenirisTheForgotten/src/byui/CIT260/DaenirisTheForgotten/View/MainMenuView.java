@@ -53,6 +53,7 @@ public class MainMenuView extends View{
                 ShopMenuView shopping = new ShopMenuView();
                 shopping.display();
             case "B":
+                this.StartNewGame(true);
                 BattleMenuView fight = new BattleMenuView();
                 fight.display();
             case "Q":

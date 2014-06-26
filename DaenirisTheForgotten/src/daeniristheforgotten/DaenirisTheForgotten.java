@@ -13,7 +13,7 @@ import byui.CIT260.DaenirisTheForgotten.View.ProgramStart;
 public class DaenirisTheForgotten {
     
     public static Game currentGame;
-    public static PlayerCharacter playerCharacter = null;
+    public static PlayerCharacter playerCharacter;
     
     public static void main(String[] args){
         ProgramStart programStart = new ProgramStart();

@@ -7,8 +7,14 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import daeniristheforgotten.DaenirisTheForgotten;
 
 public class BattleMenuView extends View{
+    
+    Game game = DaenirisTheForgotten.getCurrentGame();
+    
+    BattleControl battle = new BattleControl();
 
     public BattleMenuView() {
         super("\n\ta - attack"
@@ -17,34 +23,47 @@ public class BattleMenuView extends View{
               +"\n\tu - use item"
               +"\n\te - evaluate enemy"
               +"\n\tr - run");
-    }
-
+              }
 
         @Override
         public void doAction(String choice){
-            
-            BattleControl battle = new BattleControl();
-        
+                   
          switch (choice){
             case "A":               
                 battle.attackEnemy();
                 battle.enemyAttack();
+                System.out.println("\n\tPlayer: " + battle.getPlayerName() + "\t\tEnemy: " + battle.getEnemyName()
+                                +"\n\tCurrent Health: " + battle.getCurrentHealth() + "/" + battle.getTotalHealth() + "\t\tEnemy Health: " + battle.getEnemyCurrentHealth() + "/" + battle.getEnemyHealth()
+                                +"\n\tCurrent Magic: "+ battle.getCurrentMagic() + "/" + battle.getTotalMagic() + "\t\tEnemy Magic: " + battle.getEnemyCurrentMagic() + "/" + battle.getEnemyMagic());
                 break;
             case "M":
                 MagicMenuView magicSpell = new MagicMenuView();
                 magicSpell.display();
+                System.out.println("\n\tPlayer: " + battle.getPlayerName() + "\t\tEnemy: " + battle.getEnemyName()
+                                +"\n\tCurrent Health: " + battle.getCurrentHealth() + "/" + battle.getTotalHealth() + "\t\tEnemy Health: " + battle.getEnemyCurrentHealth() + "/" + battle.getEnemyHealth()
+                                +"\n\tCurrent Magic: "+ battle.getCurrentMagic() + "/" + battle.getTotalMagic() + "\t\tEnemy Magic: " + battle.getEnemyCurrentMagic() + "/" + battle.getEnemyMagic());
                 break;
             case "D":
                 battle.defend1();
                 battle.enemyAttack();
                 battle.defend2();
+                System.out.println("\n\tPlayer: " + battle.getPlayerName() + "\t\tEnemy: " + battle.getEnemyName()
+                                +"\n\tCurrent Health: " + battle.getCurrentHealth() + "/" + battle.getTotalHealth() + "\t\tEnemy Health: " + battle.getEnemyCurrentHealth() + "/" + battle.getEnemyHealth()
+                                +"\n\tCurrent Magic: "+ battle.getCurrentMagic() + "/" + battle.getTotalMagic() + "\t\tEnemy Magic: " + battle.getEnemyCurrentMagic() + "/" + battle.getEnemyMagic());
                 break;
             case "U":
                 UseItemMenuView useItem = new UseItemMenuView();
                 useItem.displayItemMenu();
+                System.out.println("\n\tPlayer: " + battle.getPlayerName() + "\t\tEnemy: " + battle.getEnemyName()
+                                +"\n\tCurrent Health: " + battle.getCurrentHealth() + "/" + battle.getTotalHealth() + "\t\tEnemy Health: " + battle.getEnemyCurrentHealth() + "/" + battle.getEnemyHealth()
+                                +"\n\tCurrent Magic: "+ battle.getCurrentMagic() + "/" + battle.getTotalMagic() + "\t\tEnemy Magic: " + battle.getEnemyCurrentMagic() + "/" + battle.getEnemyMagic());
                 break;
             case "E":
                 battle.examineEnemy();
+                battle.enemyAttack();
+                System.out.println("\n\tPlayer: " + battle.getPlayerName() + "\t\tEnemy: " + battle.getEnemyName()
+                                +"\n\tCurrent Health: " + battle.getCurrentHealth() + "/" + battle.getTotalHealth() + "\t\tEnemy Health: " + battle.getEnemyCurrentHealth() + "/" + battle.getEnemyHealth()
+                                +"\n\tCurrent Magic: "+ battle.getCurrentMagic() + "/" + battle.getTotalMagic() + "\t\tEnemy Magic: " + battle.getEnemyCurrentMagic() + "/" + battle.getEnemyMagic());
                 break;
             case "R":
                 battle.run1();
