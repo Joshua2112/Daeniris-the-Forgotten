@@ -31,7 +31,7 @@ public class CharacterCreationView extends View {
         PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
         
         EnterCharacterName enterName = new EnterCharacterName();
-        enterName.EnterCharacterName();
+        enterName.EnterPlayerCharactersName();
         
         EnterGenderView enterGender = new EnterGenderView();
         enterGender.displayMenu();

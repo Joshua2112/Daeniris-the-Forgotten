@@ -59,6 +59,10 @@ public class AdventureView extends View{
                 MoveControl.move(0, 1);
                 displayMap();
                 break;
+            case "B":
+                BattleMenuView battle = new BattleMenuView();
+                battle.display();
+                break;
             case "Q":
                 return;
             default:

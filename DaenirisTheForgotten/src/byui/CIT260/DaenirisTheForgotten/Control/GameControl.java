@@ -227,24 +227,15 @@ public class GameControl {
         PlayerCharacter blank = new PlayerCharacter();
         blank.setName("zz");
         blank.setJob("");
-        blank.setAttack(0);
-        blank.setDefense(0);
+        blank.setAttack(3);
+        blank.setDefense(3);
         blank.setGender("");
-        blank.setMagicAttack(0);
-        blank.setMagicDefense(0);
-        blank.setHealthPoints(0);
-        blank.setMagicPoints(0);
-        
-        Enemy blank1 = new Enemy();
-        blank1.setName("");
-        blank1.setAttack(2);
-        blank1.setDefense(2);
-        blank1.setMagicAttack(0);
-        blank1.setMagicDefense(0);
-        blank1.setHealthPoints(0);
-        blank1.setMagicPoints(0);
-        blank1.setExperienceValue(0);
-        blank1.setItemsDropped("none");
+        blank.setMagicAttack(3);
+        blank.setMagicDefense(3);
+        blank.setHealthPoints(30);
+        blank.setCurrentHealthPoints(30);
+        blank.setMagicPoints(20);
+        blank.setCurrentMagicPoints(20);
         
         for(int i = 0; i < (Constants.NUMBER_OF_ACTOR_TYPES); i ++){
             for (int j = 0; j < (Constants.NUMBER_OF_ENEMIES); j++){

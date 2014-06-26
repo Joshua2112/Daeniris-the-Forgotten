@@ -28,8 +28,9 @@ class IsThisCharacterOkay {
                 char selection = ' ';
         do {
             
-            System.out.println(IS_IT_OKAY);
             System.out.println(player.toString());
+            System.out.println(IS_IT_OKAY);
+
             
             String input = this.getInput();
             selection = input.charAt(0);

@@ -6,55 +6,53 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
 
 /**
  *
  * @author Joshua
  */
-public class EnterCharacterName extends View{
-
-    public EnterCharacterName() {
-        super("Please enter the name of your character");
-    }
+public class EnterCharacterName {
     
-    @Override
-    public String getInput() {
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Actor[][] actors = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
+
+    public void EnterPlayerCharactersName() {
+        String playersName = this.getPlayerCharactersName();
+        player.setName(playersName);
+    }
+
+    public String getPlayerCharactersName(){
         
         boolean valid = false;
-        String input = null;
+        String playerCharactersName = null;
         Scanner keyboard = new Scanner(System.in);
         
         while(!valid){
             
-            System.out.println("\n\tPlease choose option");
+            System.out.println("\n\tPlease enter character's name");
             
-            input = keyboard.nextLine();
-            input = input.trim();
-            input = input.toUpperCase();
+            playerCharactersName = keyboard.nextLine();
+            playerCharactersName = playerCharactersName.trim();
             
-            if (input.equals("Q")){
-                return input;
-            }                           
+            if (playerCharactersName.toUpperCase().equals("Q")){
+                return null;
+            }
+            
+            if (playerCharactersName.length() < 2){
+                System.out.println("\n\tInvalid name, must be greater than 2 characters in length");
+            }
+                           
             else{
                 valid = true;
             }
         }
-        return input;
-        }
-    
-    @Override
-    public void doAction(String choice){
-        
-         switch (choice){
-            case "Q":
-                return;
-            default:
-                
-                break;
-        }
-    
-
-            
-    
+        return playerCharactersName;
+        }    
 }

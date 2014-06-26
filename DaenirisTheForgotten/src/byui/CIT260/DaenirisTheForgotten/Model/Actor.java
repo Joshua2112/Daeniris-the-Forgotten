@@ -102,7 +102,7 @@ public class Actor implements Serializable{
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", attack=" + attack + ", defense=" + defense + ", magicAttack=" + magicAttack + ", magicDefense=" + magicDefense + ", healthPoints=" + healthPoints + ", currentHealthPoints=" + currentHealthPoints + ", magicPoints=" + magicPoints + ", currentMagicPoints=" + currentMagicPoints + '}';
+        return "Actor{" + "name = " + name + ", attack = " + attack + ", defense = " + defense + ", magicAttack = " + magicAttack + ", magicDefense = " + magicDefense + ", healthPoints = " + healthPoints + ", currentHealthPoints = " + currentHealthPoints + ", magicPoints = " + magicPoints + ", currentMagicPoints = " + currentMagicPoints + '}';
     }
 
     @Override

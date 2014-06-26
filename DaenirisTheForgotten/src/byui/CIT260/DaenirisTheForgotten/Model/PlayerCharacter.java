@@ -62,17 +62,17 @@ public class PlayerCharacter extends Actor{
     public String toString() {
         String newline = System.getProperty("line.separator");
         return "Character (Player):"                         + newline
-                + "name= "         + this.getName()          + newline
-                + "gender= "       + gender                  + newline
-                + "job= "          + job                     + newline
-                + "attack= "       + this.getAttack()        + newline
-                + "defense= "      + this.getDefense()       + newline
-                + "magicAttack= "  + this.getMagicAttack()   + newline
-                + "magicDefense= " + this.getMagicDefense()  + newline
-                + "healthPoints= " + this.getHealthPoints()  + newline
-                + "magicPoints= "  + this.getMagicPoints()   + newline
-                + "playerGold"  + this.getPlayerGold()  + newline
-                + "levelPoints" + this.getLevelPoints() + newline;   
+                + "name = "         + this.getName()          + newline
+                + "gender = "       + gender                  + newline
+                + "job = "          + job                     + newline
+                + "attack = "       + this.getAttack()        + newline
+                + "defense = "      + this.getDefense()       + newline
+                + "magicAttack = "  + this.getMagicAttack()   + newline
+                + "magicDefense = " + this.getMagicDefense()  + newline
+                + "healthPoints = " + this.getHealthPoints()  + newline
+                + "magicPoints = "  + this.getMagicPoints()   + newline
+                + "playerGold = "  + this.getPlayerGold()  + newline
+                + "levelPoints = " + this.getLevelPoints() + newline;   
     }
     
     @Override
