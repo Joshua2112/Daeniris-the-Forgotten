@@ -66,22 +66,5 @@ public class SpellMenuView extends View{
             
         } while(!value.equals("Q"));
     }
-    
-    
-    void display(TabularMenu magicTab){
-        String value;
-        do {
-            displayTabular(magicTab);
-            
-            System.out.println(" ");
-            System.out.println("Type name to select:");
-            
-            value = this.getInput();
-            this.doAction(value);
-
-        }while (!value.equals("Q"));
-        
-        
-        
-    }
+   
 }

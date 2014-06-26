@@ -9,6 +9,7 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
+import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 
@@ -53,6 +54,6 @@ public class MoveControl {
         }
         
         
-
+       MoveChanceControl.MoveChance();
     }
 }

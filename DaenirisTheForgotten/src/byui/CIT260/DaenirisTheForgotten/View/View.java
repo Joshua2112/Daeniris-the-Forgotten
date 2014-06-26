@@ -32,7 +32,21 @@ public abstract class View implements ViewInterface{
             this.doAction(value);
 
         }while (!value.equals("Q"));
-    }               
+    }
+    
+    void display(TabularMenu tabularMenu){
+        String value;
+        do {
+            displayTabular(tabularMenu);
+            
+            System.out.println(" ");
+            System.out.println(this.promptMessage);
+            
+            value = this.getInput();
+            this.doAction(value);
+
+        }while (!value.equals("Q"));
+    }
 
     /*public void display(String menu){
         

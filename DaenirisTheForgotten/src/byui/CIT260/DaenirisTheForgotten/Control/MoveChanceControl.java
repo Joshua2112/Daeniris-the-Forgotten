@@ -17,8 +17,10 @@ import java.util.Random;
  * @author Joshua
  */
 public class MoveChanceControl implements Serializable{
+
+    public MoveChanceControl() {}
         
-    public MoveChanceControl(){
+    public static void MoveChance(){
     
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(100);
