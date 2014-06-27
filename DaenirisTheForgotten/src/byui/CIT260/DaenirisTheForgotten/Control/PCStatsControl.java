@@ -28,36 +28,33 @@ public class PCStatsControl {
         
         if (choice.compareToIgnoreCase("warrior")== 0){
         
-            player.setDefense(10);
             player.setJob("Warrior");
-            player.setAttack(0);
-            player.setDefense(0);
-            player.setMagicAttack(0);
-            player.setMagicDefense(0);
+            player.setAttack(3);
+            player.setDefense(3);
+            player.setMagicAttack(1);
+            player.setMagicDefense(2);
             player.setHealthPoints(50);
             player.setMagicPoints(20);
             player.setLevelPoints(5);
         }
         else if (choice.compareToIgnoreCase("mage")== 0){
         
-            player.setDefense(10);
             player.setJob("Mage");
-            player.setAttack(0);
-            player.setDefense(0);
-            player.setMagicAttack(0);
-            player.setMagicDefense(0);
+            player.setAttack(1);
+            player.setDefense(2);
+            player.setMagicAttack(3);
+            player.setMagicDefense(3);
             player.setHealthPoints(30);
             player.setMagicPoints(50);
             player.setLevelPoints(5);
         }
         else if (choice.compareToIgnoreCase("cleric")== 0){
         
-            player.setDefense(10);
             player.setJob("Cleric");
-            player.setAttack(0);
-            player.setDefense(0);
-            player.setMagicAttack(0);
-            player.setMagicDefense(0);
+            player.setAttack(3);
+            player.setDefense(2);
+            player.setMagicAttack(2);
+            player.setMagicDefense(2);
             player.setHealthPoints(40);
             player.setMagicPoints(30);
             player.setLevelPoints(5);
@@ -66,7 +63,7 @@ public class PCStatsControl {
     
     public static boolean pointsCheck(PlayerCharacter player){
         if (player.getLevelPoints() == 0){
-           System.out.println("You are out of points, reset to start over");
+           System.out.println("\n\tYou are out of points, reset to start over");
         }
         else
            return true;
@@ -80,7 +77,7 @@ public class PCStatsControl {
         
         player.setAttack(player.getAttack() + 1);
         player.setLevelPoints(player.getLevelPoints() - 1);
-        System.out.println("attack increased by 1 point");  
+        System.out.println("\n\tattack increased by 1 point");  
     }
 
     public static  void defenseUp(PlayerCharacter player) {
@@ -89,7 +86,7 @@ public class PCStatsControl {
         
         player.setDefense(player.getDefense() + 1);
         player.setLevelPoints(player.getLevelPoints() - 1);
-        System.out.println("defense increased by 1 point");        
+        System.out.println("\n\tdefense increased by 1 point");        
     }
 
     public static  void mAttackUp(PlayerCharacter player) {
@@ -98,7 +95,7 @@ public class PCStatsControl {
         
         player.setMagicAttack(player.getMagicAttack() + 1);
         player.setLevelPoints(player.getLevelPoints() - 1);
-        System.out.println("magic attack increased by 1 point");  
+        System.out.println("\n\tmagic attack increased by 1 point");  
     }
 
     public static  void mDefenseUp(PlayerCharacter player) {
@@ -106,7 +103,7 @@ public class PCStatsControl {
         
         player.setMagicDefense(player.getMagicDefense() + 1);
         player.setLevelPoints(player.getLevelPoints() - 1);
-        System.out.println("magic defense increased by 1 point");  
+        System.out.println("\n\tmagic defense increased by 1 point");  
     }
 
     public static  void HPUp(PlayerCharacter player) {
@@ -114,7 +111,7 @@ public class PCStatsControl {
         
         player.setHealthPoints(player.getHealthPoints() + 5);
         player.setLevelPoints(player.getLevelPoints() - 1);
-        System.out.println("health increased by 5 point");
+        System.out.println("\n\thealth increased by 5 points");
     }
 
     public static  void MPUp(PlayerCharacter player) {
@@ -122,7 +119,7 @@ public class PCStatsControl {
         
         player.setMagicPoints(player.getMagicPoints() + 5);
         player.setLevelPoints(player.getLevelPoints() - 1);
-        System.out.println("health increased by 5 point");
+        System.out.println("\n\thealth increased by 5 point");
     }
     
     public static  void resetPoints(PlayerCharacter player){

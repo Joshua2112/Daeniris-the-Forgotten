@@ -167,7 +167,6 @@ public abstract class View implements ViewInterface{
                     System.out.printf("%-" + tab.getColumnWidth() + "s"
                                 , battleDisplay[j][i]);
                 }
-            
             }
             System.out.print("\n");
         }

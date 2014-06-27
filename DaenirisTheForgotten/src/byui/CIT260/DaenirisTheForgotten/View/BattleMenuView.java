@@ -17,7 +17,7 @@ public class BattleMenuView extends View{
     
 
 
-    public BattleMenuView() {
+    public BattleMenuView() {   
         super("\n\ta - attack"
               +"\n\tm - magic"
               +"\n\td - defend"
