@@ -26,7 +26,7 @@ import java.util.Random;
  */
 public class BattleControl {   
    
-    public static void attackEnemy() {        
+    public static int attackEnemy() {        
         
         Game game = DaenirisTheForgotten.currentGame;
         BattleScene battle = game.getBattle();   
@@ -73,11 +73,11 @@ public class BattleControl {
             }
             
             if(battle.getEnemyCurrentHealth() <= 0){
-                System.out.println("\n\tYou defeated the enemy!"
-                                    +"\n\tYou gained " + battle.getEnemyGold() + " gold"
-                                    +"\n\tand you gained " + battle.getEnemyExp() + " experience points");
+                battle.setEnemyHealth(0);
                 endBattle(battle);
-            }       
+                return 1;
+            }
+        return 0;
     }
 
         
@@ -174,6 +174,10 @@ public class BattleControl {
         player.setPlayerGold(battle.getEnemyGold() + battle.getPlayerGold());
         player.setExperience(battle.getPlayerExp() + battle.getEnemyExp());
         //future add item to inventory.
+ 
+        System.out.println("\n\tYou defeated the enemy!"
+                          +"\n\tYou gained " + battle.getEnemyGold() + " gold"
+                          +"\n\tand you gained " + battle.getEnemyExp() + " experience points");        
         
         if(player.getExperience() >= player.getLevel() * 100){
             System.out.println("\n\tYou gained a level!"
@@ -183,7 +187,7 @@ public class BattleControl {
             DistributeBonusesView levelUp = new DistributeBonusesView();
             levelUp.display();
         }
-        AdventureView.displayMap();
+       
     }
 }
     

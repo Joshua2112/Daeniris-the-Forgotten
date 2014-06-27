@@ -16,15 +16,12 @@ import daeniristheforgotten.DaenirisTheForgotten;
  *
  * @author Joshua
  */
-public class CharacterCreationView extends View {
+public class CharacterCreationView {
 
-    public CharacterCreationView() {
-        super("Create Character");
-    }
-    
-    
-    
-    public void newCharacterCreation() {  
+ 
+    public static void newCharacterCreation() {  
+        
+        System.out.println("Create Character");
         
         Game game = DaenirisTheForgotten.getCurrentGame();
         Actor[][] actor = game.getActor();

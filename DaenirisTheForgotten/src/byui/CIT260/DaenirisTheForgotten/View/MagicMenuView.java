@@ -25,7 +25,7 @@ class MagicMenuView extends View{
     }   
     
     @Override
-    public void doAction(String choice){
+    public int doAction(String choice){
         
          switch (choice){
             case "F":
@@ -52,11 +52,12 @@ class MagicMenuView extends View{
                // SpellControl lightning = new SpellControl();
                 //lightning.castLightning();
             case "Q":
-                return;
+                return 0;
             default:
                 System.out.println("Invalid selection, try again");
                 break;
         }
+         return 0;
                
     }
 }

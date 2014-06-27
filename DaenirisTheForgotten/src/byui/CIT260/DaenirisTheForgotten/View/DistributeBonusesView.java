@@ -32,7 +32,7 @@ public class DistributeBonusesView extends View{
     }
     
     @Override
-    public void doAction(String choice){
+    public int doAction(String choice){
         
         Game game = DaenirisTheForgotten.getCurrentGame();
         Actor[][] actor = game.getActor();
@@ -63,7 +63,7 @@ public class DistributeBonusesView extends View{
                 PCStatsControl.resetPoints(player);
                 break;
             case "Q":
-                return;
+                return 0;
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;
@@ -74,6 +74,8 @@ public class DistributeBonusesView extends View{
                            + " left to distribute");        
         
         System.out.println(player.toString());
+        
+        return 0;
         
     }       
 }

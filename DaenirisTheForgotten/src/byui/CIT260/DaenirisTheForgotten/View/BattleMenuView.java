@@ -13,9 +13,6 @@ import daeniristheforgotten.DaenirisTheForgotten;
 
 public class BattleMenuView extends View{
     
-    Game game = DaenirisTheForgotten.getCurrentGame();
-    
-
 
     public BattleMenuView() {   
         super("\n\ta - attack"
@@ -26,13 +23,15 @@ public class BattleMenuView extends View{
               +"\n\tr - run");
               }
 
-        @Override
-        public void doAction(String choice){
+
+
+    @Override
+        public int doAction(String choice){
          Game game = DaenirisTheForgotten.currentGame;
-                   
+         int kill = 0;          
          switch (choice){
             case "A":               
-                BattleControl.attackEnemy();
+                kill = BattleControl.attackEnemy();
                 BattleControl.enemyAttack();
                 break;
             case "M":
@@ -59,7 +58,8 @@ public class BattleMenuView extends View{
                 System.out.println("\n\tInvalid selection, try again");
                 break;
             }
-               
+            
+            return kill;
         }
     
 }

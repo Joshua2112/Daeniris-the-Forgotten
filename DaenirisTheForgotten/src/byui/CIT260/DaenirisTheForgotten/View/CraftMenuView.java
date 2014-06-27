@@ -24,7 +24,7 @@ public class CraftMenuView extends View{
    
 
         
-    public void doAction(String str){
+    public int doAction(String str){
         
         int column = 0;
         int row = 0;
@@ -39,6 +39,8 @@ public class CraftMenuView extends View{
         
         //System.out.println(crafts[column][row].getCraftName());
         System.out.println(crafts[column][row].toString());
+        
+        return 0;
               
     }
 }

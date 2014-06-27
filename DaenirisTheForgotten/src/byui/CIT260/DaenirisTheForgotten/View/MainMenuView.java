@@ -26,7 +26,7 @@ public class MainMenuView extends View{
 
 
         @Override
-        public void doAction(String choice){       
+        public int doAction(String choice){       
          switch (choice){
             case "N":
                 this.StartNewGame(false);             
@@ -57,11 +57,12 @@ public class MainMenuView extends View{
                 BattleMenuView fight = new BattleMenuView();
                 fight.display();
             case "Q":
-                return;
+                return 0;
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;
             }
+         return 0;
                
         }
 
@@ -70,8 +71,7 @@ public class MainMenuView extends View{
         GameControl.CreateNewGame();
         
         if (!test){
-            CharacterCreationView newCharacter = new CharacterCreationView();
-            newCharacter.newCharacterCreation();
+            CharacterCreationView.newCharacterCreation();
             }
     }
 

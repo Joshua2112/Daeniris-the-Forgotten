@@ -22,7 +22,7 @@ class ShopMenuView extends View{
     
     @Override
     
-    public void doAction(String choice){
+    public int doAction(String choice){
         
          switch (choice){
             case "1":
@@ -32,5 +32,6 @@ class ShopMenuView extends View{
                 ShopControl buyClothCap = new ShopControl();
                 buyClothCap.buyItem();
          }
+         return 0;
     }
 }

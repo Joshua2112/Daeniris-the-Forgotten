@@ -56,7 +56,6 @@ public class Constants {
     public static final int SPELLS = 5;
     public static final int BATTLE = 6;
     public static final int ACT_COL_COUNT = 2;
-    public static final int BATTLE = 6;
 
     
     //Actor Stats Display Constants

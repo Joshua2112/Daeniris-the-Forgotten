@@ -25,7 +25,7 @@ public class SpellMenuView extends View{
     }
     
     @Override
-    public void doAction(String str){
+    public int doAction(String str){
              
         Game game = DaenirisTheForgotten.getCurrentGame();
         Spells[][] spells = game.getSpells();
@@ -48,6 +48,7 @@ public class SpellMenuView extends View{
         else{
             System.out.println("Can only cast in a battle.");
         }
+        return 0;
     }   
 
     private void displayCast(Spells spells) {

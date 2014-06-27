@@ -25,18 +25,19 @@ public abstract class View implements ViewInterface{
         
     @Override
     public void display(){
- 
+        int exit;
         String value;
         do {
             System.out.println(this.promptMessage);
             value = this.getInput();
-            this.doAction(value);
+            exit = this.doAction(value);
 
-        }while (!value.equals("Q"));
+        }while (!value.equals("Q") && exit != 1);
     }
     
     public void display(TabularMenu tabularMenu){
         String value;
+        int exit;
         do {
             displayTabular(tabularMenu);
             
@@ -44,9 +45,9 @@ public abstract class View implements ViewInterface{
             System.out.println(this.promptMessage);
             
             value = this.getInput();
-            this.doAction(value);
+            exit = this.doAction(value);
 
-        }while (!value.equals("Q"));
+        }while (!value.equals("Q") && exit != 1);
     }
 
     /*public void display(String menu){
@@ -95,8 +96,6 @@ public abstract class View implements ViewInterface{
         return input;
         }
     
-    //public void doAction(char choice){}
-    public void doAction(String choice){}
     
     public void displayTabular(TabularMenu tab){
         

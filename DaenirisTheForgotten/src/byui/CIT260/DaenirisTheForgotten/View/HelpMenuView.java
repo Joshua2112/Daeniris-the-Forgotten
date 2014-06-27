@@ -26,9 +26,9 @@ class HelpMenuView extends View{
     }
 
     @Override
-    public void doAction(String choice){
+    public int doAction(String choice){
         
-         switch (choice){
+        switch (choice){
             case "g":
                 System.out.println("\n\tYou will create a hero and go on a quest with them \n\tto protect the innocent people of the land from an ancient evil.");
                 break;
@@ -42,11 +42,12 @@ class HelpMenuView extends View{
                 System.out.println("\n\tHints about the game and deeper gameplay mechanics");
                 break;
             case "q":
-                return;
+                return 0;
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;
         }
+        return 0;
                
     }
     
