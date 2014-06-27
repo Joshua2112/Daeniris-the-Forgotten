@@ -74,13 +74,12 @@ public class AdventureView extends View{
     
     
     
-    public void displayMap(){
+    public static void displayMap(){
 
        Game game = DaenirisTheForgotten.getCurrentGame();
        World world = game.getWorld();
        
        Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
-       System.out.println("\033[1;43mHello World");
        System.out.println("Game World Map");
        System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
        

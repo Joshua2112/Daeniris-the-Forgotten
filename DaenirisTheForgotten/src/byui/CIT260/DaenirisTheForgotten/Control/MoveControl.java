@@ -47,13 +47,15 @@ public class MoveControl {
                 offsetX = curX + i;
                 offsetY = curY + j;
                 
-                if (offsetX > -1 && offsetY > -1 && offsetX < 11 && offsetY < 11){
+                if (offsetX > -1 && offsetY > -1 && offsetX < 10 && offsetY < 10){
                     mapArray[offsetX][offsetY].setDiscovered(true);
                 }
             }
         }
         
-        
-       MoveChanceControl.MoveChance();
+       MoveChanceControl battleView = new MoveChanceControl();
+       battleView.MoveChance();
     }
+    
+    
 }

@@ -15,6 +15,7 @@ public class Game
     private World world;
     private CraftRecipe[][] craftRecipe;
     private Spells[][] spells;
+    private BattleScene battle;
 
     public Inventory[][] getInventory() {
         return inventory;
@@ -56,7 +57,6 @@ public class Game
         this.spells = spells;
     }
     
-
     public Game() {}
 
     public float getGameTime() {
@@ -66,6 +66,16 @@ public class Game
     public void setGameTime(float gameTime) {
         this.gameTime = gameTime;
     }
+
+    public BattleScene getBattle() {
+        return battle;
+    }
+
+    public void setBattle(BattleScene battle) {
+        this.battle = battle;
+    }
+    
+    
 
     @Override
     public String toString() {

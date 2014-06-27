@@ -47,8 +47,12 @@ public class Enemy extends Actor{
                 + "attack= "          + this.getAttack()       + newline
                 + "defense= "         + this.getDefense()      + newline
                 + "magicAttack= "     + this.getMagicAttack()  + newline
-                + "magicDefense= "    + this.getMagicDefense() + newline
-                + "healthPoints= "    + this.getHealthPoints() + newline
+                +                       this.getMagicDefense()
+                + "healthPoints= "    + this.getCurrentHealthPoints() + newline
+                + "/"
+                +                     + this.getMagicPoints() + newline
+                + "magicDefense= "    + this.getCurrentMagicPoints() + newline
+                + "/"                
                 + "magicPoints= "     + this.getMagicPoints()  + newline
                 + "experienceValue= " + experienceValue        + newline
                 + "itemsDropped= "    + itemsDropped           + newline

@@ -36,6 +36,11 @@ public class Constants {
     public static final int CRAFT_WEAPON_COL = 0;
     public static final int CRAFT_ARMOR_COL = 0;
     
+    //Battle Display Constants
+    public static final int BATTLE_ROW_COUNT = 3;
+    public static final int BATTLE_COL_COUNT = 2;
+    public static final int BATTLE_COL_WIDTH = 35;
+    
     //Spell Display Constants
     public static final int SPELL_ROW_COUNT = 3;
     public static final int SPELL_COL_COUNT = 2;
@@ -49,6 +54,7 @@ public class Constants {
     public static final int CRAFTS = 3;
     public static final int ACTOR = 4;
     public static final int SPELLS = 5;
+    public static final int BATTLE = 6;
     public static final int ACT_COL_COUNT = 2;
     
     //Actor Stats Display Constants

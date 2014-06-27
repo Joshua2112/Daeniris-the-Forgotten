@@ -19,6 +19,7 @@ public class PlayerCharacter extends Actor{
     private String gender;
     private int playerGold;
     private int levelPoints;
+    private int experience;
 
     public PlayerCharacter() {
         levelPoints = 5;
@@ -54,6 +55,14 @@ public class PlayerCharacter extends Actor{
 
     public void setLevelPoints(int levelPoints) {
         this.levelPoints = levelPoints;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
     }
     
     

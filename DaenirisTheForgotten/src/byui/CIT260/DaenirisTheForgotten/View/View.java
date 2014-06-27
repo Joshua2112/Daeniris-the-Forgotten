@@ -6,6 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
@@ -34,7 +35,7 @@ public abstract class View implements ViewInterface{
         }while (!value.equals("Q"));
     }
     
-    void display(TabularMenu tabularMenu){
+    public void display(TabularMenu tabularMenu){
         String value;
         do {
             displayTabular(tabularMenu);
@@ -105,6 +106,9 @@ public abstract class View implements ViewInterface{
         Spells[][] spells = game.getSpells();
         CraftRecipe[][] crafts = game.getCraftRecipe();
         Actor[][] actors = game.getActor();
+        BattleScene battle = game.getBattle();
+        
+        String[][] battleDisplay = battle.toArray();
      
         //Display menu title
         System.out.println(" ");
@@ -159,6 +163,11 @@ public abstract class View implements ViewInterface{
                     System.out.printf("%-" + tab.getColumnWidth() + "s"
                                 , spells[j][i].getSpellName());
                 }
+                else if(tab.getType() == 6){
+                    System.out.printf("%-" + tab.getColumnWidth() + "s"
+                                , battleDisplay[j][i]);
+                }
+            
             }
             System.out.print("\n");
         }
