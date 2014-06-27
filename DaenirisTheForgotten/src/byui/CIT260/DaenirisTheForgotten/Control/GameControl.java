@@ -258,6 +258,8 @@ public class GameControl {
         newPlayerCharacter.setMagicPoints(20);
         newPlayerCharacter.setCurrentMagicPoints(20);
         newPlayerCharacter.setPlayerGold(0);
+        newPlayerCharacter.setLevel(1);
+        newPlayerCharacter.setExperiencePoints(0);
         newPlayerCharacter.setLevelPoints(0);
         actors [0][0] = newPlayerCharacter;
         
@@ -274,19 +276,22 @@ public class GameControl {
         newPlayerCharacter1.setMagicPoints(20);
         newPlayerCharacter1.setCurrentMagicPoints(20);
         newPlayerCharacter1.setPlayerGold(0);
+        newPlayerCharacter1.setLevel(1);
+        newPlayerCharacter1.setExperiencePoints(0);
+        newPlayerCharacter1.setLevelPoints(0);
         actors [0][1] = newPlayerCharacter1;
         
         Enemy goblin = new Enemy();
         goblin.setName("Goblin");
-        goblin.setAttack(6);
-        goblin.setDefense(4);
+        goblin.setAttack(5);
+        goblin.setDefense(2);
         goblin.setMagicAttack(0);
         goblin.setMagicDefense(0);
-        goblin.setHealthPoints(20);
-        goblin.setCurrentHealthPoints(20);
+        goblin.setHealthPoints(10);
+        goblin.setCurrentHealthPoints(10);
         goblin.setMagicPoints(0);
         goblin.setCurrentMagicPoints(0);
-        goblin.setExperienceValue(20);
+        goblin.setExperienceValue(15);
         goblin.setGoldValue(23);
         goblin.setItemsDropped("woodenShield, clothCloak");
         actors [1][0] = goblin;

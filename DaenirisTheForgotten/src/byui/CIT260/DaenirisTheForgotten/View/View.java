@@ -159,6 +159,7 @@ public abstract class View implements ViewInterface{
                     System.out.printf("%-" + tab.getColumnWidth() + "s"
                                 , spells[j][i].getSpellName());
                 }
+
             }
             System.out.print("\n");
         }

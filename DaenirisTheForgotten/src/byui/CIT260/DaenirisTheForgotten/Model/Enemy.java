@@ -43,16 +43,16 @@ public class Enemy extends Actor{
     public String toString() {
         String newline = System.getProperty("line.separator");
         return "Character (Enemy):"                            + newline
-                + "name= "            + this.getName()         + newline
-                + "attack= "          + this.getAttack()       + newline
-                + "defense= "         + this.getDefense()      + newline
-                + "magicAttack= "     + this.getMagicAttack()  + newline
-                + "magicDefense= "    + this.getMagicDefense() + newline
-                + "healthPoints= "    + this.getHealthPoints() + newline
-                + "magicPoints= "     + this.getMagicPoints()  + newline
-                + "experienceValue= " + experienceValue        + newline
-                + "itemsDropped= "    + itemsDropped           + newline
-                + "goldValue= "       + goldValue              + newline;
+                + "name = "            + this.getName()         + newline
+                + "attack = "          + this.getAttack()       + newline
+                + "defense = "         + this.getDefense()      + newline
+                + "magicAttack = "     + this.getMagicAttack()  + newline
+                + "magicDefense = "    + this.getMagicDefense() + newline
+                + "healthPoints = "    + this.getHealthPoints() + newline
+                + "magicPoints = "     + this.getMagicPoints()  + newline
+                + "experienceValue = " + experienceValue        + newline
+                + "itemsDropped = "    + itemsDropped           + newline
+                + "goldValue = "       + goldValue              + newline;
     }
     
     

@@ -24,6 +24,7 @@ public class SpellControl {
            if (reducedDefense < 0){
                reducedDefense = 0;
            }
+           
            return reducedDefense;
        }
        
