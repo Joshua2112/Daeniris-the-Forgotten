@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
@@ -40,6 +41,7 @@ public class GameControl {
         game.setActor(createActor());
         game.setCraftRecipe(createCraftRecipe());
         game.setSpells(createSpells());
+        game.setBattle(createBattle());
         
         Actor[][] actor = game.getActor();
     }
@@ -385,6 +387,11 @@ public class GameControl {
         World gameWorld = new World();
         
         return gameWorld;
+    }
+    
+    public static BattleScene createBattle(){
+        BattleScene battle = new BattleScene();
+        return battle;
     }
 
     public static CraftRecipe[][] createCraftRecipe(){

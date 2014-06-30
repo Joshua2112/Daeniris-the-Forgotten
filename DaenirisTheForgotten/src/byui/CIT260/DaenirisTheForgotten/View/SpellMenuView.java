@@ -40,14 +40,6 @@ public class SpellMenuView extends View{
             column = i;
         }
         
-        System.out.println(spells[column][row].toString());
-        
-        if (spells[column][row].getSpellType() == Constants.SPELL_HEALTH){
-            displayCast(spells[column][row]);
-        }
-        else{
-            System.out.println("Can only cast in a battle.");
-        }
         return 0;
     }   
 
