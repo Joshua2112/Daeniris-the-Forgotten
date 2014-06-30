@@ -53,7 +53,6 @@ public class BattleMenuView extends View{
                 break;
             case "R":
                 BattleControl.run1();
-
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;
