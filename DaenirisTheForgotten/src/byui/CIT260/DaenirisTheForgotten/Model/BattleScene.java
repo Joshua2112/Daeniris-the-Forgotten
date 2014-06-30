@@ -24,8 +24,8 @@ public class BattleScene extends Location{
         totalAttack = player.getAttack();
         totalDefense = player.getDefense();
         totalHealth = player.getHealthPoints();
-        currentHealth = player.getHealthPoints();
-        currentMagic = player.getMagicPoints();
+        currentHealth = player.getCurrentHealthPoints();
+        currentMagic = player.getCurrentMagicPoints();
         totalMagic = player.getMagicPoints();
         totalMagicAttack = player.getMagicAttack();
         totalMagicDefense = player.getMagicDefense();

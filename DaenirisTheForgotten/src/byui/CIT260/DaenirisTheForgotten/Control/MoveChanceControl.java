@@ -16,6 +16,7 @@ import byui.CIT260.DaenirisTheForgotten.View.TreasureChestScene;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.io.Serializable;
 import java.util.Random;
+import static javax.management.Query.value;
 
 /**
  *
@@ -40,7 +41,7 @@ public class MoveChanceControl implements Serializable{
             }
         else if(randomInt >= 41 && randomInt <= 45){
             HealingPondScene healingPond = new HealingPondScene();
-            healingPond.giveHealing();  
+            healingPond.display();  
             }
         else{
             return;

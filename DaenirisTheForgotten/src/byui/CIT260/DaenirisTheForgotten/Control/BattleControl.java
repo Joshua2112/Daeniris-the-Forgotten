@@ -9,13 +9,10 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
-import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
-import byui.CIT260.DaenirisTheForgotten.View.AdventureView;
 import byui.CIT260.DaenirisTheForgotten.View.DistributeBonusesView;
 import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
-import byui.CIT260.DaenirisTheForgotten.View.TabularMenu;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
 
@@ -169,8 +166,8 @@ public class BattleControl {
         Actor[][] actors = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         
-        player.setHealthPoints(battle.getCurrentHealth());
-        player.setMagicPoints(battle.getCurrentMagic());
+        player.setCurrentHealthPoints(battle.getCurrentHealth());
+        player.setCurrentMagicPoints(battle.getCurrentMagic());
         player.setPlayerGold(battle.getEnemyGold() + battle.getPlayerGold());
         player.setExperience(battle.getPlayerExp() + battle.getEnemyExp());
         //future add item to inventory.
