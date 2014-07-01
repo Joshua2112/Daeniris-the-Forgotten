@@ -40,6 +40,7 @@ public class GameControl {
         game.setActor(createActor());
         game.setCraftRecipe(createCraftRecipe());
         game.setSpells(createSpells());
+        game.setGear(createGearList());
         
         Actor[][] actor = game.getActor();
     }
