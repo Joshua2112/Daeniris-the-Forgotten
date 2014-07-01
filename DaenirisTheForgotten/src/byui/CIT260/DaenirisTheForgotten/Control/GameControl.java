@@ -87,108 +87,13 @@ public class GameControl {
         greaterPotion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[0][3] = greaterPotion;
         
-
         SingleUseItems pheonixDown = new SingleUseItems();
         pheonixDown.setName("Pheonix Down");
         pheonixDown.setDescription("Revives");
         pheonixDown.setEffects("Blah");
         pheonixDown.setQuantity(0);
         playerInventory[0][4] = pheonixDown;
-
-        //Armor ----------------------------------------------------------
-
-        Gear leatherHelm = new Gear();
-        leatherHelm.setName("Leather Helmet");
-        leatherHelm.setAttackBonus(0);
-        leatherHelm.setDefenseBonus(2);
-        leatherHelm.setMagicAttackBonus(0);
-        leatherHelm.setMagicDefenseBonus(0);
-        leatherHelm.setDescription("A weak helmet made of leather");
-        leatherHelm.setSpecialEffects("None");
-        leatherHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][0] = leatherHelm;
-       
-        Gear ironBreastplate = new Gear();
-        ironBreastplate.setName("Iron Breastplate");
-        ironBreastplate.setAttackBonus(0);
-        ironBreastplate.setDefenseBonus(4);
-        ironBreastplate.setMagicAttackBonus(0);
-        ironBreastplate.setMagicDefenseBonus(0);
-        ironBreastplate.setDescription("An average breastplate made of iron");
-        ironBreastplate.setSpecialEffects("None");
-        ironBreastplate.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][1] = ironBreastplate;
         
-        Gear woodenShield = new Gear();
-        woodenShield.setName("Wooden Shield");
-        woodenShield.setAttackBonus(0);
-        woodenShield.setDefenseBonus(2);
-        woodenShield.setMagicAttackBonus(0);
-        woodenShield.setMagicDefenseBonus(0);
-        woodenShield.setDescription("A weak sheild made of wood");
-        woodenShield.setSpecialEffects("None");
-        woodenShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][2] = woodenShield;
-       
-        Gear clothCloak = new Gear();
-        clothCloak.setName("Cloth Cloak");
-        clothCloak.setAttackBonus(0);
-        clothCloak.setDefenseBonus(1);
-        clothCloak.setMagicAttackBonus(1);
-        clothCloak.setMagicDefenseBonus(3);
-        clothCloak.setDescription("A simple cloak that is easy to move in");
-        clothCloak.setSpecialEffects("None");
-        clothCloak.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][3] = clothCloak;
-        
-
-        
-        //Weapons -----------------------------------------------------------
-        Gear oakStaff = new Gear();
-        oakStaff.setName("Oak Staff");
-        oakStaff.setAttackBonus(1);
-        oakStaff.setDefenseBonus(0);
-        oakStaff.setMagicAttackBonus(2);
-        oakStaff.setMagicDefenseBonus(0);
-        oakStaff.setDescription("An old magic staff made of Oak");
-        oakStaff.setSpecialEffects("None");
-        oakStaff.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[2][0] = oakStaff;
-        
-        Gear steelSword = new Gear();
-        steelSword.setName("Cloth Cap");
-        steelSword.setAttackBonus(5);
-        steelSword.setDefenseBonus(0);
-        steelSword.setMagicAttackBonus(0);
-        steelSword.setMagicDefenseBonus(0);
-        steelSword.setDescription("A sturdy sword made of steel");
-        steelSword.setSpecialEffects("None");
-        steelSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[2][1] = steelSword;
-        
-        Gear fireStave = new Gear();
-        fireStave.setName("Fire Stave");
-        fireStave.setAttackBonus(2);
-        fireStave.setDefenseBonus(0);
-        fireStave.setMagicAttackBonus(5);
-        fireStave.setMagicDefenseBonus(0);
-        fireStave.setDescription("An elaborate staff, brimming with fire magic");
-        fireStave.setSpecialEffects("Increases damage of fire spells");
-        fireStave.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[2][2] = fireStave;
-        
-        Gear ironSword = new Gear();
-        ironSword.setName("Iron Sword");
-        ironSword.setAttackBonus(2);
-        ironSword.setDefenseBonus(0);
-        ironSword.setMagicAttackBonus(0);
-        ironSword.setMagicDefenseBonus(0);
-        ironSword.setDescription("A plain old sword made of iron");
-        ironSword.setSpecialEffects("None");
-        ironSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[2][3] = ironSword;
-        
-        //Raw Materials--------------------------------------------------------
         RawMaterial wood = new RawMaterial();
         wood.setName("Wood");
         wood.setDescription("Wood used to craft items");
@@ -219,7 +124,108 @@ public class GameControl {
         silver.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[3][4] = silver;
         
-              return playerInventory;  
+        
+        return playerInventory;
+    }
+
+        //Armor ----------------------------------------------------------
+        
+        public static Gear[] createGearList() {
+        Gear[] gearList = new Gear[Constants.DEFAULT_INVENTORY_QUANTITY];
+
+        Gear leatherHelm = new Gear();
+        leatherHelm.setName("Leather Helmet");
+        leatherHelm.setAttackBonus(0);
+        leatherHelm.setDefenseBonus(2);
+        leatherHelm.setMagicAttackBonus(0);
+        leatherHelm.setMagicDefenseBonus(0);
+        leatherHelm.setDescription("A weak helmet made of leather");
+        leatherHelm.setSpecialEffects("None");
+        leatherHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        gearList[0] = leatherHelm;
+       
+        Gear ironBreastplate = new Gear();
+        ironBreastplate.setName("Iron Breastplate");
+        ironBreastplate.setAttackBonus(0);
+        ironBreastplate.setDefenseBonus(4);
+        ironBreastplate.setMagicAttackBonus(0);
+        ironBreastplate.setMagicDefenseBonus(0);
+        ironBreastplate.setDescription("An average breastplate made of iron");
+        ironBreastplate.setSpecialEffects("None");
+        ironBreastplate.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        gearList[1] = ironBreastplate;
+        
+        Gear woodenShield = new Gear();
+        woodenShield.setName("Wooden Shield");
+        woodenShield.setAttackBonus(0);
+        woodenShield.setDefenseBonus(2);
+        woodenShield.setMagicAttackBonus(0);
+        woodenShield.setMagicDefenseBonus(0);
+        woodenShield.setDescription("A weak sheild made of wood");
+        woodenShield.setSpecialEffects("None");
+        woodenShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        gearList[2] = woodenShield;
+       
+        Gear clothCloak = new Gear();
+        clothCloak.setName("Cloth Cloak");
+        clothCloak.setAttackBonus(0);
+        clothCloak.setDefenseBonus(1);
+        clothCloak.setMagicAttackBonus(1);
+        clothCloak.setMagicDefenseBonus(3);
+        clothCloak.setDescription("A simple cloak that is easy to move in");
+        clothCloak.setSpecialEffects("None");
+        clothCloak.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        gearList[3] = clothCloak;
+        
+
+        
+        //Weapons -----------------------------------------------------------
+        Gear oakStaff = new Gear();
+        oakStaff.setName("Oak Staff");
+        oakStaff.setAttackBonus(1);
+        oakStaff.setDefenseBonus(0);
+        oakStaff.setMagicAttackBonus(2);
+        oakStaff.setMagicDefenseBonus(0);
+        oakStaff.setDescription("An old magic staff made of Oak");
+        oakStaff.setSpecialEffects("None");
+        oakStaff.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        gearList[4] = oakStaff;
+        
+        Gear steelSword = new Gear();
+        steelSword.setName("Cloth Cap");
+        steelSword.setAttackBonus(5);
+        steelSword.setDefenseBonus(0);
+        steelSword.setMagicAttackBonus(0);
+        steelSword.setMagicDefenseBonus(0);
+        steelSword.setDescription("A sturdy sword made of steel");
+        steelSword.setSpecialEffects("None");
+        steelSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        gearList[5] = steelSword;
+        
+        Gear fireStave = new Gear();
+        fireStave.setName("Fire Stave");
+        fireStave.setAttackBonus(2);
+        fireStave.setDefenseBonus(0);
+        fireStave.setMagicAttackBonus(5);
+        fireStave.setMagicDefenseBonus(0);
+        fireStave.setDescription("An elaborate staff, brimming with fire magic");
+        fireStave.setSpecialEffects("Increases damage of fire spells");
+        fireStave.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        gearList[6] = fireStave;
+        
+        Gear ironSword = new Gear();
+        ironSword.setName("Iron Sword");
+        ironSword.setAttackBonus(2);
+        ironSword.setDefenseBonus(0);
+        ironSword.setMagicAttackBonus(0);
+        ironSword.setMagicDefenseBonus(0);
+        ironSword.setDescription("A plain old sword made of iron");
+        ironSword.setSpecialEffects("None");
+        ironSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        gearList[7] = ironSword;
+        
+        return gearList;
+        
     }
 
 

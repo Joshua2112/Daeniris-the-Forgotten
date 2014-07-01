@@ -16,6 +16,7 @@ public class Game
     private CraftRecipe[][] craftRecipe;
     private Spells[][] spells;
     private BattleScene battle;
+    private Gear[] gear;
 
     public Inventory[][] getInventory() {
         return inventory;
@@ -74,9 +75,15 @@ public class Game
     public void setBattle(BattleScene battle) {
         this.battle = battle;
     }
-    
-    
 
+    public Gear[] getGear() {
+        return gear;
+    }
+
+    public void setGear(Gear[] gear) {
+        this.gear = gear;
+    }
+           
     @Override
     public String toString() {
         return "Game{" + "gameTime=" + gameTime + '}';
@@ -102,10 +109,5 @@ public class Game
             return false;
         }
         return true;
-    }
-    
-    
-    
-    
-  
+    }                  
 }
