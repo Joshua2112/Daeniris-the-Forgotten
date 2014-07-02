@@ -20,6 +20,7 @@ public class WeaponEquipView extends View{
 
         Game game = DaenirisTheForgotten.getCurrentGame();
         Gear[] weapons = game.getWeapons();
+        EquippedGear playerGear = game.getEquippedGear();
 
     public WeaponEquipView() {
         super("\n\tPlease select gear to equip"
@@ -45,11 +46,58 @@ public class WeaponEquipView extends View{
         switch(value){
         
             case "2":
-                EquippedGear.setWeapon(game.weapons[0]);
+                playerGear.setWeapon(weapons[0]);
                 break;
             case "3":
-                EquippedGear.setWeapon(game.weapons[1]);
+                playerGear.setWeapon(weapons[1]);
                 break;
+            case "4":
+                playerGear.setWeapon(weapons[2]);
+                break;
+            case "5":
+                playerGear.setWeapon(weapons[3]);
+                break;
+            case "6":
+                playerGear.setWeapon(weapons[4]);
+                break;
+            case "7":
+                playerGear.setWeapon(weapons[5]);
+                break;
+            case "8":
+                playerGear.setWeapon(weapons[6]);
+                break;
+            case "9":
+                playerGear.setWeapon(weapons[7]);
+                break;
+            case "10":
+                playerGear.setWeapon(weapons[8]);
+                break;
+            case "11":
+                playerGear.setWeapon(weapons[9]);
+                break;
+            case "12":
+                playerGear.setWeapon(weapons[10]);
+                break;
+            case "13":
+                playerGear.setWeapon(weapons[11]);
+                break;
+            case "14":
+                playerGear.setWeapon(weapons[12]);
+                break;
+            case "15":
+                playerGear.setWeapon(weapons[13]);
+                break;
+            case "16":
+                playerGear.setWeapon(weapons[14]);
+                break;
+            case "17":
+                playerGear.setWeapon(weapons[15]);
+                break;
+            case "18":
+                playerGear.setWeapon(weapons[16]);
+                break;
+            case "Q":
+                return 1;
             default:
                 System.out.println("\n\tInvalid selection, try again");
                 break;

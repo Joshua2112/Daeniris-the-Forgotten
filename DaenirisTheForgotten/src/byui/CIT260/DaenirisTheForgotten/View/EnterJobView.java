@@ -6,7 +6,6 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import byui.CIT260.DaenirisTheForgotten.Control.PCJobControl;
 import byui.CIT260.DaenirisTheForgotten.Control.PCStatsControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
