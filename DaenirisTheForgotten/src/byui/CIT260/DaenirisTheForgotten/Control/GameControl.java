@@ -9,6 +9,7 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
+import byui.CIT260.DaenirisTheForgotten.Model.EquippedGear;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
@@ -44,6 +45,7 @@ public class GameControl {
         game.setArmors(createArmorList());
         game.setWeapons(createWeaponList());
         game.setSecondaries(createSecondaryList());
+        game.setEquippedGear(initialGear());
                 
         Actor[][] actor = game.getActor();
     }
@@ -102,31 +104,31 @@ public class GameControl {
         wood.setName("Wood");
         wood.setDescription("Wood used to craft items");
         wood.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][0] = wood;
+        playerInventory[1][0] = wood;
         
         RawMaterial ore = new RawMaterial();
         ore.setName("Ore");
         ore.setDescription("Ore used to craft items");
         ore.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][1] = ore;
+        playerInventory[1][1] = ore;
         
         RawMaterial crystal = new RawMaterial();
         crystal.setName("Crystal");
         crystal.setDescription("Crystal used to craft items");
         crystal.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][2] = crystal;
+        playerInventory[1][2] = crystal;
         
         RawMaterial magicSand = new RawMaterial();
         magicSand.setName("Magic Sand");
         magicSand.setDescription("Magic sand used to craft items");
         magicSand.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][3] = magicSand;
+        playerInventory[1][3] = magicSand;
         
         RawMaterial silver = new RawMaterial();
         silver.setName("Silver");
         silver.setDescription("Valuable metal used to craft items");
         silver.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][4] = silver;
+        playerInventory[1][4] = silver;
         
         
         return playerInventory;
@@ -626,6 +628,11 @@ public class GameControl {
         
         
         return newArray;
+    }
+
+    private static EquippedGear initialGear() {
+        EquippedGear playersGear = new EquippedGear();
+        playersGear.setArmor(armorList[0][0]);
     }
 
 

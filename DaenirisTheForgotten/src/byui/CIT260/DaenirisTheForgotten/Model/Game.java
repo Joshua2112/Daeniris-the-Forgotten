@@ -20,6 +20,7 @@ public class Game
     private Gear[] armors;
     private Gear[] secondaries;
     public Gear[] weapons;
+    public EquippedGear equippedGear;
 
     public Inventory[][] getInventory() {
         return inventory;
@@ -111,9 +112,14 @@ public class Game
         this.weapons = weapons;
     }
 
-    
+    public EquippedGear getEquippedGear() {
+        return equippedGear;
+    }
 
-           
+    public void setEquippedGear(EquippedGear equippedGear) {
+        this.equippedGear = equippedGear;
+    }
+      
     @Override
     public String toString() {
         return "Game{" + "gameTime=" + gameTime + '}';
