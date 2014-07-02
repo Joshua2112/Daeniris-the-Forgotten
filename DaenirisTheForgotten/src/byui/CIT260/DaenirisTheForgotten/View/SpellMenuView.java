@@ -13,6 +13,8 @@ import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,24 +28,19 @@ public class SpellMenuView extends View{
     
     @Override
     public int doAction(String str){
-             
-        Game game = DaenirisTheForgotten.getCurrentGame();
-        Spells[][] spells = game.getSpells();
         
-        //displaySpells();
-        
-        int column = 0;
-        int row = 0;
-        
-        for (int i = 0; i < Constants.SPELL_COL_COUNT; i++){
-            row = GameControl.stringSearch(spells, str, i);
-            column = i;
+        try{
+            System.out.println(SpellControl.getSpell(str).toString());
         }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        displayCast(str);
         
         return 0;
     }   
 
-    private void displayCast(Spells spells) {
+    private void displayCast(String str) {
         
         String value;
         
@@ -53,7 +50,9 @@ public class SpellMenuView extends View{
             value = getInput();
             
             if (value.equals("C")){
-                SpellControl.castSpell(spells);
+                if(SpellControl.castSpell(str, false)){
+                    System.out.println("Can only be cast in a battle");
+                }
                 return;
             }
             

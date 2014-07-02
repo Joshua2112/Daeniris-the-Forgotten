@@ -483,25 +483,27 @@ public class GameControl {
     }
     
     public static int stringSearch(CraftRecipe[][] array, String selection, int col){
-        int location = 0;
+        int row = 0;
         
         for(int i = 0; i < array.length; i++){
             if((array[col][i].getCraftName().compareToIgnoreCase(selection)== 0)){
-                location = i;
+                row = i;
+                return row;
             }
         }
-        return location;
+        return 0;
     }
     
-        public static int stringSearch(Spells[][] array, String selection, int col){
-        int location = 0;
+    public static int stringSearch(Spells[][] array, String selection, int col) {
+        int row = 0;
         
         for(int i = 0; i < array.length; i++){
             if((array[col][i].getSpellName().compareToIgnoreCase(selection)== 0)){
-                location = i;
+                row = i;
+                return row;
             }
         }
-        return location;
+        return 0;
     }
     
     public static String[] inventoryStringConvert(Inventory[][] array, int column){

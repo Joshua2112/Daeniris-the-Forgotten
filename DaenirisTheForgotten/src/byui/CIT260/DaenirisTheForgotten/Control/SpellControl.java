@@ -12,9 +12,9 @@ import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 
-public class SpellControl {
+public class SpellControl extends Exception{
 
-       public int weakenSpell(double specialEffect, int enemyDefense ){
+        public int weakenSpell(double specialEffect, int enemyDefense ){
            
            int reducedDefense;
            
@@ -29,39 +29,70 @@ public class SpellControl {
            }
            
            return reducedDefense;
-       }
-       
-
-       
-    public static boolean checkSpellType(int column, int row){
-        
+        }
+    
+    public static Spells getSpell(String str) throws Exception{
         Game game = DaenirisTheForgotten.getCurrentGame();
-        Spells[][] spells = game.getSpells();        
+        Spells[][] spells = game.getSpells();
+         
+        int column = 0;
+        int row = 0;
         
+        for (int i = 0; i < Constants.SPELL_COL_COUNT; i++){
+            row = GameControl.stringSearch(spells, str, i);
 
-        if (spells[column][row].getSpellType() == Constants.SPELL_HEALTH){
-            return false;
+            if (row != -1){
+                column = i;  
+            }
         }
-        else{
-            System.out.println("Can only cast in a battle.");
-            return false;
-        }
-    }
-    public static void castSpell(Spells spell){
-        Game game = DaenirisTheForgotten.currentGame;
         
-        if (spell.getSpellType() == Constants.SPELL_ATTACK){
+        if (row == -1){
+            Exception ex = new ArithmeticException("Not found");
+            throw ex;
+        }
+            
+        
+        
+        Spells spell = spells[column][row];
+        
+        return spell;
+        
+    }
+   
+    public static boolean castSpell(String str, boolean battle){     
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Spells[][] spells = game.getSpells();
+        
+        //displaySpells();
+        
+        int column = 0;
+        int row = 0;
+        
+        for (int i = 0; i < Constants.SPELL_COL_COUNT; i++){
+            row = GameControl.stringSearch(spells, str, i);
+            column = i;
+        }        
+        
+        if (!battle){
+            System.out.println(spells[column][row].getSpellType());
+            if (spells[column][row].getSpellType() != Constants.SPELL_HEALTH){
+                return false;
+            }
+        }
+        
+        if (spells[column][row].getSpellType() == Constants.SPELL_ATTACK){
             System.out.println("Cast Attack Spell");
         }
-        else if (spell.getSpellType() == Constants.SPELL_HEALTH){
+        else if (spells[column][row].getSpellType() == Constants.SPELL_HEALTH){
             System.out.println("Cast Health Spell");
         }
-        else if (spell.getSpellType() == Constants.SPELL_ATTACK_DEFENSE){
+        else if (spells[column][row].getSpellType() == Constants.SPELL_ATTACK_DEFENSE){
             System.out.println("Cast Defense Attack Spell");
             
         }
-        else if (spell.getSpellType() == Constants.SPELL_MAGIC_DEFENSE){
+        else if (spells[column][row].getSpellType() == Constants.SPELL_MAGIC_DEFENSE){
             System.out.println("Cast Defense Magic Spell");
         }
+        return true;
     }
 }
