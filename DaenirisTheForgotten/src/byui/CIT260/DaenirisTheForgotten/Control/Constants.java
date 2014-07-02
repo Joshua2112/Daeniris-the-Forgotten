@@ -23,7 +23,7 @@ public class Constants {
     //Inventory Display Constants
     public static final int INV_COL_WIDTH = 25;
     public static final int INV_ROW_COUNT = 5;
-    public static final int INV_COL_COUNT = 1;
+    public static final int INV_COL_COUNT = 2;
     public static final int INV_POTION_COL = 0;
     public static final int INV_WEAPON_COL = 1;
     public static final int INV_ARMOR_COL = 2;
