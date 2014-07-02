@@ -631,15 +631,18 @@ public class GameControl {
     }
 
     private static EquippedGear initialGear() {
+        EquippedGear playerGear = new EquippedGear();
         Game game = DaenirisTheForgotten.getCurrentGame();
         Gear[] weapons = game.getWeapons();
         Gear[] armors = game.getArmors();
         Gear[] secondaries = game.getSecondaries();
         Gear[] helms = game.getHelms();
-        EquippedGear playerGear = game.getEquippedGear();
         
         playerGear.setArmor(armors[0]);
         playerGear.setWeapon(weapons[0]);
+        playerGear.setHelmet(helms[0]);
+        playerGear.setLeftHand(secondaries[0]);
+        
         return playerGear;
     }
 

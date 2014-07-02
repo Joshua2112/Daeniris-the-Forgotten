@@ -13,7 +13,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
  */
 public class GearEquipView extends View{
 
-    public GearEquipView(String promptMessage) {
+    public GearEquipView() {
         super("\n\tPlease select type of gear to equip"
                 + "\n\tEnter 'a' for armor"
                 + "\n\tEnter 'w' for weapon"
