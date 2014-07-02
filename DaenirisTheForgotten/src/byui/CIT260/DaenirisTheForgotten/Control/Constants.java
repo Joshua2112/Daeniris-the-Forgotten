@@ -70,4 +70,6 @@ public class Constants {
     public static final int SPELL_HEALTH = 2;
     public static final int SPELL_MAGIC_DEFENSE = 3;
     public static final int SPELL_ATTACK_DEFENSE = 4;
+    
+    public static final int GEAR_LIST_COUNT = 50;
 }

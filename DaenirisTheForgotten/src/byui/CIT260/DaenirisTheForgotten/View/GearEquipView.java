@@ -6,41 +6,48 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import static byui.CIT260.DaenirisTheForgotten.Control.Constants.DEFAULT_INVENTORY_QUANTITY;
-import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.Model.Gear;
-import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
-import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
  *
  * @author Joshua
  */
 public class GearEquipView extends View{
-    
-    Game game = DaenirisTheForgotten.getCurrentGame();
-    Inventory[][] gear = game.getInventory();
-    Gear theGear = ((Gear) gear[2][0]);
 
-    public GearEquipView() {
-        super("\n\tPlease select gear to equip"
-                + "\n\tYou may equip one of each gear type(Weapon, Sheild, Helmet, Armor)");
-        for(int i = 0; i < DEFAULT_INVENTORY_QUANTITY; i++){
-            System.out.println("Name" + theGear[2][i].getName()
-                    + "Description" + theGear[2][i].getDescription()
-                    + "Gear type" + theGear[2][i]
-                    + "Attack Bonus"
-                    + "Defense Bonus"
-                    + "Magic Attack Bonus"
-                    + "Magic Defense Bonus"
-                    + "Other Effects"
-                    + "Quantity" + theGear[2][i].getQuantity());
-        }
+    public GearEquipView(String promptMessage) {
+        super("\n\tPlease select type of gear to equip"
+                + "\n\tEnter 'a' for armor"
+                + "\n\tEnter 'w' for weapon"
+                + "\n\tEnter 'h' for helmet"
+                + "\n\tEnter 's' for shield(or secondary)"
+                + "\n\tEnter 'q' to return to previous menu");
     }
 
     @Override
     public int doAction(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+        switch(value){
+        
+            case "A":
+                ArmorEquipView equipArmor = new ArmorEquipView();
+                equipArmor.display();
+                break;
+            case "W":
+                WeaponEquipView equipWeapon = new WeaponEquipView();
+                equipWeapon.display();
+                break;
+            case "H":
+                HelmetEquipView equipHelmet = new HelmetEquipView();
+                equipHelmet.display();
+                break;
+            case "S":
+                SecondaryEquipView equipSecondary = new SecondaryEquipView();
+                equipSecondary.display();
+                break;
+            case "Q":
+                return 1;
+            default:
+                System.out.println("\n\tInvalid selection, try again");
+                break;
+        }
+        return 0;    
+}
 }

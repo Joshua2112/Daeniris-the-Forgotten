@@ -40,8 +40,11 @@ public class GameControl {
         game.setActor(createActor());
         game.setCraftRecipe(createCraftRecipe());
         game.setSpells(createSpells());
-        game.setGear(createGearList());
-        
+        game.setHelms(createHelmList());
+        game.setArmors(createArmorList());
+        game.setWeapons(createWeaponList());
+        game.setSecondaries(createSecondaryList());
+                
         Actor[][] actor = game.getActor();
     }
 
@@ -128,11 +131,25 @@ public class GameControl {
         
         return playerInventory;
     }
-
-        //Armor ----------------------------------------------------------
         
-        public static Gear[] createGearList() {
-        Gear[] gearList = new Gear[Constants.DEFAULT_INVENTORY_QUANTITY];
+        public static Gear[] createHelmList() {
+        Gear[] helmList = new Gear[Constants.GEAR_LIST_COUNT];
+        
+        Gear blank = new Gear();
+        blank.setName("zz");
+        blank.setAttackBonus(0);
+        blank.setDefenseBonus(0);
+        blank.setDescription("");
+        blank.setMagicAttackBonus(0);
+        blank.setMagicDefenseBonus(0);
+        blank.setSpecialEffects("");
+        blank.setSpecialEffects("");
+        blank.setGearType("helmet");
+        blank.setQuantity(0);
+        
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+            helmList[i] = blank;
+        }
 
         Gear leatherHelm = new Gear();
         leatherHelm.setName("Leather Helmet");
@@ -143,7 +160,30 @@ public class GameControl {
         leatherHelm.setDescription("A weak helmet made of leather");
         leatherHelm.setSpecialEffects("None");
         leatherHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        gearList[0] = leatherHelm;
+        helmList[0] = leatherHelm;
+        
+        return helmList;
+        
+        }
+        
+        public static Gear[] createArmorList() {
+        Gear[] armorList = new Gear[Constants.GEAR_LIST_COUNT];
+        
+        Gear blank = new Gear();
+        blank.setName("zz");
+        blank.setAttackBonus(0);
+        blank.setDefenseBonus(0);
+        blank.setDescription("");
+        blank.setMagicAttackBonus(0);
+        blank.setMagicDefenseBonus(0);
+        blank.setSpecialEffects("");
+        blank.setSpecialEffects("");
+        blank.setGearType("armor");
+        blank.setQuantity(0);
+        
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+            armorList[i] = blank;
+        }
        
         Gear ironBreastplate = new Gear();
         ironBreastplate.setName("Iron Breastplate");
@@ -154,7 +194,41 @@ public class GameControl {
         ironBreastplate.setDescription("An average breastplate made of iron");
         ironBreastplate.setSpecialEffects("None");
         ironBreastplate.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        gearList[1] = ironBreastplate;
+        armorList[0] = ironBreastplate;
+        
+        Gear clothCloak = new Gear();
+        clothCloak.setName("Cloth Cloak");
+        clothCloak.setAttackBonus(0);
+        clothCloak.setDefenseBonus(1);
+        clothCloak.setMagicAttackBonus(1);
+        clothCloak.setMagicDefenseBonus(3);
+        clothCloak.setDescription("A simple cloak that is easy to move in");
+        clothCloak.setSpecialEffects("None");
+        clothCloak.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        armorList[1] = clothCloak;
+        
+        return armorList;
+        
+        }
+        
+        public static Gear[] createSecondaryList() {
+        Gear[] secondaryList = new Gear[Constants.GEAR_LIST_COUNT];
+        
+        Gear blank = new Gear();
+        blank.setName("zz");
+        blank.setAttackBonus(0);
+        blank.setDefenseBonus(0);
+        blank.setDescription("");
+        blank.setMagicAttackBonus(0);
+        blank.setMagicDefenseBonus(0);
+        blank.setSpecialEffects("");
+        blank.setSpecialEffects("");
+        blank.setGearType("secondary");
+        blank.setQuantity(0);
+        
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+            secondaryList[i] = blank;
+        }
         
         Gear woodenShield = new Gear();
         woodenShield.setName("Wooden Shield");
@@ -165,22 +239,30 @@ public class GameControl {
         woodenShield.setDescription("A weak sheild made of wood");
         woodenShield.setSpecialEffects("None");
         woodenShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        gearList[2] = woodenShield;
-       
-        Gear clothCloak = new Gear();
-        clothCloak.setName("Cloth Cloak");
-        clothCloak.setAttackBonus(0);
-        clothCloak.setDefenseBonus(1);
-        clothCloak.setMagicAttackBonus(1);
-        clothCloak.setMagicDefenseBonus(3);
-        clothCloak.setDescription("A simple cloak that is easy to move in");
-        clothCloak.setSpecialEffects("None");
-        clothCloak.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        gearList[3] = clothCloak;
+        secondaryList[0] = woodenShield;
+              
+        return secondaryList;
+        }
         
-
+        public static Gear[] createWeaponList() {
+        Gear[] weaponList = new Gear[Constants.GEAR_LIST_COUNT];
         
-        //Weapons -----------------------------------------------------------
+        Gear blank = new Gear();
+        blank.setName("zz");
+        blank.setAttackBonus(0);
+        blank.setDefenseBonus(0);
+        blank.setDescription("");
+        blank.setMagicAttackBonus(0);
+        blank.setMagicDefenseBonus(0);
+        blank.setSpecialEffects("");
+        blank.setSpecialEffects("");
+        blank.setGearType("secondary");
+        blank.setQuantity(0);
+        
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+            weaponList[i] = blank;
+        }
+        
         Gear oakStaff = new Gear();
         oakStaff.setName("Oak Staff");
         oakStaff.setAttackBonus(1);
@@ -190,7 +272,7 @@ public class GameControl {
         oakStaff.setDescription("An old magic staff made of Oak");
         oakStaff.setSpecialEffects("None");
         oakStaff.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        gearList[4] = oakStaff;
+        weaponList[0] = oakStaff;
         
         Gear steelSword = new Gear();
         steelSword.setName("Cloth Cap");
@@ -201,7 +283,7 @@ public class GameControl {
         steelSword.setDescription("A sturdy sword made of steel");
         steelSword.setSpecialEffects("None");
         steelSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        gearList[5] = steelSword;
+        weaponList[1] = steelSword;
         
         Gear fireStave = new Gear();
         fireStave.setName("Fire Stave");
@@ -212,7 +294,7 @@ public class GameControl {
         fireStave.setDescription("An elaborate staff, brimming with fire magic");
         fireStave.setSpecialEffects("Increases damage of fire spells");
         fireStave.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        gearList[6] = fireStave;
+        weaponList[2] = fireStave;
         
         Gear ironSword = new Gear();
         ironSword.setName("Iron Sword");
@@ -223,9 +305,9 @@ public class GameControl {
         ironSword.setDescription("A plain old sword made of iron");
         ironSword.setSpecialEffects("None");
         ironSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        gearList[7] = ironSword;
+        weaponList[3] = ironSword;
         
-        return gearList;
+        return weaponList;
         
     }
 
