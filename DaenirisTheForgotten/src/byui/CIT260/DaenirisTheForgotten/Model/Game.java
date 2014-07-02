@@ -16,6 +16,11 @@ public class Game
     private CraftRecipe[][] craftRecipe;
     private Spells[][] spells;
     private BattleScene battle;
+    private Gear[] helms;
+    private Gear[] armors;
+    private Gear[] secondaries;
+    public Gear[] weapons;
+    public EquippedGear equippedGear;
 
     public Inventory[][] getInventory() {
         return inventory;
@@ -74,9 +79,47 @@ public class Game
     public void setBattle(BattleScene battle) {
         this.battle = battle;
     }
-    
-    
 
+    public Gear[] getHelms() {
+        return helms;
+    }
+
+    public void setHelms(Gear[] helms) {
+        this.helms = helms;
+    }
+
+    public Gear[] getArmors() {
+        return armors;
+    }
+
+    public void setArmors(Gear[] armors) {
+        this.armors = armors;
+    }
+
+    public Gear[] getSecondaries() {
+        return secondaries;
+    }
+
+    public void setSecondaries(Gear[] secondaries) {
+        this.secondaries = secondaries;
+    }
+
+    public Gear[] getWeapons() {
+        return weapons;
+    }
+
+    public void setWeapons(Gear[] weapons) {
+        this.weapons = weapons;
+    }
+
+    public EquippedGear getEquippedGear() {
+        return equippedGear;
+    }
+
+    public void setEquippedGear(EquippedGear equippedGear) {
+        this.equippedGear = equippedGear;
+    }
+      
     @Override
     public String toString() {
         return "Game{" + "gameTime=" + gameTime + '}';
@@ -102,10 +145,5 @@ public class Game
             return false;
         }
         return true;
-    }
-    
-    
-    
-    
-  
+    }                  
 }

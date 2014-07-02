@@ -37,7 +37,7 @@ public class MoveChanceControl implements Serializable{
             }
         else if(randomInt >= 26 && randomInt <= 40){
             TreasureChestScene treasure = new TreasureChestScene();
-            treasure.giveTreasure();  
+            treasure.display();
             }
         else if(randomInt >= 41 && randomInt <= 45){
             HealingPondScene healingPond = new HealingPondScene();

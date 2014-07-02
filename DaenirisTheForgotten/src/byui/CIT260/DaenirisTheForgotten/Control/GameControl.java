@@ -10,6 +10,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
+import byui.CIT260.DaenirisTheForgotten.Model.EquippedGear;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
@@ -42,7 +43,12 @@ public class GameControl {
         game.setCraftRecipe(createCraftRecipe());
         game.setSpells(createSpells());
         game.setBattle(createBattle());
-        
+        game.setHelms(createHelmList());
+        game.setArmors(createArmorList());
+        game.setWeapons(createWeaponList());
+        game.setSecondaries(createSecondaryList());
+        game.setEquippedGear(initialGear());
+                
         Actor[][] actor = game.getActor();
     }
 
@@ -89,15 +95,65 @@ public class GameControl {
         greaterPotion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[0][3] = greaterPotion;
         
-
         SingleUseItems pheonixDown = new SingleUseItems();
         pheonixDown.setName("Pheonix Down");
         pheonixDown.setDescription("Revives");
         pheonixDown.setEffects("Blah");
         pheonixDown.setQuantity(0);
         playerInventory[0][4] = pheonixDown;
-
-        //Armor ----------------------------------------------------------
+        
+        RawMaterial wood = new RawMaterial();
+        wood.setName("Wood");
+        wood.setDescription("Wood used to craft items");
+        wood.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][0] = wood;
+        
+        RawMaterial ore = new RawMaterial();
+        ore.setName("Ore");
+        ore.setDescription("Ore used to craft items");
+        ore.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][1] = ore;
+        
+        RawMaterial crystal = new RawMaterial();
+        crystal.setName("Crystal");
+        crystal.setDescription("Crystal used to craft items");
+        crystal.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][2] = crystal;
+        
+        RawMaterial magicSand = new RawMaterial();
+        magicSand.setName("Magic Sand");
+        magicSand.setDescription("Magic sand used to craft items");
+        magicSand.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][3] = magicSand;
+        
+        RawMaterial silver = new RawMaterial();
+        silver.setName("Silver");
+        silver.setDescription("Valuable metal used to craft items");
+        silver.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        playerInventory[1][4] = silver;
+        
+        
+        return playerInventory;
+    }
+        
+        public static Gear[] createHelmList() {
+        Gear[] helmList = new Gear[Constants.GEAR_LIST_COUNT];
+        
+        Gear blank = new Gear();
+        blank.setName("zz");
+        blank.setAttackBonus(0);
+        blank.setDefenseBonus(0);
+        blank.setDescription("");
+        blank.setMagicAttackBonus(0);
+        blank.setMagicDefenseBonus(0);
+        blank.setSpecialEffects("");
+        blank.setSpecialEffects("");
+        blank.setGearType("helmet");
+        blank.setQuantity(0);
+        
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+            helmList[i] = blank;
+        }
 
         Gear leatherHelm = new Gear();
         leatherHelm.setName("Leather Helmet");
@@ -108,7 +164,30 @@ public class GameControl {
         leatherHelm.setDescription("A weak helmet made of leather");
         leatherHelm.setSpecialEffects("None");
         leatherHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][0] = leatherHelm;
+        helmList[0] = leatherHelm;
+        
+        return helmList;
+        
+        }
+        
+        public static Gear[] createArmorList() {
+        Gear[] armorList = new Gear[Constants.GEAR_LIST_COUNT];
+        
+        Gear blank = new Gear();
+        blank.setName("zz");
+        blank.setAttackBonus(0);
+        blank.setDefenseBonus(0);
+        blank.setDescription("");
+        blank.setMagicAttackBonus(0);
+        blank.setMagicDefenseBonus(0);
+        blank.setSpecialEffects("");
+        blank.setSpecialEffects("");
+        blank.setGearType("armor");
+        blank.setQuantity(0);
+        
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+            armorList[i] = blank;
+        }
        
         Gear ironBreastplate = new Gear();
         ironBreastplate.setName("Iron Breastplate");
@@ -119,7 +198,41 @@ public class GameControl {
         ironBreastplate.setDescription("An average breastplate made of iron");
         ironBreastplate.setSpecialEffects("None");
         ironBreastplate.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][1] = ironBreastplate;
+        armorList[0] = ironBreastplate;
+        
+        Gear clothCloak = new Gear();
+        clothCloak.setName("Cloth Cloak");
+        clothCloak.setAttackBonus(0);
+        clothCloak.setDefenseBonus(1);
+        clothCloak.setMagicAttackBonus(1);
+        clothCloak.setMagicDefenseBonus(3);
+        clothCloak.setDescription("A simple cloak that is easy to move in");
+        clothCloak.setSpecialEffects("None");
+        clothCloak.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        armorList[1] = clothCloak;
+        
+        return armorList;
+        
+        }
+        
+        public static Gear[] createSecondaryList() {
+        Gear[] secondaryList = new Gear[Constants.GEAR_LIST_COUNT];
+        
+        Gear blank = new Gear();
+        blank.setName("zz");
+        blank.setAttackBonus(0);
+        blank.setDefenseBonus(0);
+        blank.setDescription("");
+        blank.setMagicAttackBonus(0);
+        blank.setMagicDefenseBonus(0);
+        blank.setSpecialEffects("");
+        blank.setSpecialEffects("");
+        blank.setGearType("secondary");
+        blank.setQuantity(0);
+        
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+            secondaryList[i] = blank;
+        }
         
         Gear woodenShield = new Gear();
         woodenShield.setName("Wooden Shield");
@@ -130,22 +243,30 @@ public class GameControl {
         woodenShield.setDescription("A weak sheild made of wood");
         woodenShield.setSpecialEffects("None");
         woodenShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][2] = woodenShield;
-       
-        Gear clothCloak = new Gear();
-        clothCloak.setName("Cloth Cloak");
-        clothCloak.setAttackBonus(0);
-        clothCloak.setDefenseBonus(1);
-        clothCloak.setMagicAttackBonus(1);
-        clothCloak.setMagicDefenseBonus(3);
-        clothCloak.setDescription("A simple cloak that is easy to move in");
-        clothCloak.setSpecialEffects("None");
-        clothCloak.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][3] = clothCloak;
+        secondaryList[0] = woodenShield;
+              
+        return secondaryList;
+        }
         
-
+        public static Gear[] createWeaponList() {
+        Gear[] weaponList = new Gear[Constants.GEAR_LIST_COUNT];
         
-        //Weapons -----------------------------------------------------------
+        Gear blank = new Gear();
+        blank.setName("zz");
+        blank.setAttackBonus(0);
+        blank.setDefenseBonus(0);
+        blank.setDescription("");
+        blank.setMagicAttackBonus(0);
+        blank.setMagicDefenseBonus(0);
+        blank.setSpecialEffects("");
+        blank.setSpecialEffects("");
+        blank.setGearType("secondary");
+        blank.setQuantity(0);
+        
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+            weaponList[i] = blank;
+        }
+        
         Gear oakStaff = new Gear();
         oakStaff.setName("Oak Staff");
         oakStaff.setAttackBonus(1);
@@ -155,7 +276,7 @@ public class GameControl {
         oakStaff.setDescription("An old magic staff made of Oak");
         oakStaff.setSpecialEffects("None");
         oakStaff.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[2][0] = oakStaff;
+        weaponList[0] = oakStaff;
         
         Gear steelSword = new Gear();
         steelSword.setName("Cloth Cap");
@@ -166,7 +287,7 @@ public class GameControl {
         steelSword.setDescription("A sturdy sword made of steel");
         steelSword.setSpecialEffects("None");
         steelSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[2][1] = steelSword;
+        weaponList[1] = steelSword;
         
         Gear fireStave = new Gear();
         fireStave.setName("Fire Stave");
@@ -177,7 +298,7 @@ public class GameControl {
         fireStave.setDescription("An elaborate staff, brimming with fire magic");
         fireStave.setSpecialEffects("Increases damage of fire spells");
         fireStave.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[2][2] = fireStave;
+        weaponList[2] = fireStave;
         
         Gear ironSword = new Gear();
         ironSword.setName("Iron Sword");
@@ -188,40 +309,10 @@ public class GameControl {
         ironSword.setDescription("A plain old sword made of iron");
         ironSword.setSpecialEffects("None");
         ironSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[2][3] = ironSword;
+        weaponList[3] = ironSword;
         
-        //Raw Materials--------------------------------------------------------
-        RawMaterial wood = new RawMaterial();
-        wood.setName("Wood");
-        wood.setDescription("Wood used to craft items");
-        wood.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][0] = wood;
+        return weaponList;
         
-        RawMaterial ore = new RawMaterial();
-        ore.setName("Ore");
-        ore.setDescription("Ore used to craft items");
-        ore.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][1] = ore;
-        
-        RawMaterial crystal = new RawMaterial();
-        crystal.setName("Crystal");
-        crystal.setDescription("Crystal used to craft items");
-        crystal.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][2] = crystal;
-        
-        RawMaterial magicSand = new RawMaterial();
-        magicSand.setName("Magic Sand");
-        magicSand.setDescription("Magic sand used to craft items");
-        magicSand.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][3] = magicSand;
-        
-        RawMaterial silver = new RawMaterial();
-        silver.setName("Silver");
-        silver.setDescription("Valuable metal used to craft items");
-        silver.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[3][4] = silver;
-        
-              return playerInventory;  
     }
 
 
@@ -546,6 +637,22 @@ public class GameControl {
         
         
         return newArray;
+    }
+
+    private static EquippedGear initialGear() {
+        EquippedGear playerGear = new EquippedGear();
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Gear[] weapons = game.getWeapons();
+        Gear[] armors = game.getArmors();
+        Gear[] secondaries = game.getSecondaries();
+        Gear[] helms = game.getHelms();
+        
+        playerGear.setArmor(armors[0]);
+        playerGear.setWeapon(weapons[0]);
+        playerGear.setHelmet(helms[0]);
+        playerGear.setLeftHand(secondaries[0]);
+        
+        return playerGear;
     }
 
 
