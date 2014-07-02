@@ -19,16 +19,17 @@ public class BattleScene extends Location{
         Actor[][] actors = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         Enemy enemy = ((Enemy) actors[1][0]);
+        EquippedGear playerGear = game.getEquippedGear();
         
         playerName = player.getName();
-        totalAttack = player.getAttack();
-        totalDefense = player.getDefense();
+        totalAttack = player.getAttack() + playerGear.getTotalAttackBonus();
+        totalDefense = player.getDefense() + playerGear.getTotalDefenseBonus();
         totalHealth = player.getHealthPoints();
         currentHealth = player.getCurrentHealthPoints();
         currentMagic = player.getCurrentMagicPoints();
         totalMagic = player.getMagicPoints();
-        totalMagicAttack = player.getMagicAttack();
-        totalMagicDefense = player.getMagicDefense();
+        totalMagicAttack = player.getMagicAttack() + playerGear.getTotalMagicAttackBonus();
+        totalMagicDefense = player.getMagicDefense() + playerGear.getTotalMagicDefenseBonus();
         playerGold = player.getPlayerGold();
         playerExp = player.getExperience();
         criticalHitBonus = 0;
