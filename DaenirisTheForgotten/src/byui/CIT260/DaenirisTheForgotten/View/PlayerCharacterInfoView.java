@@ -39,6 +39,7 @@ public class PlayerCharacterInfoView extends View{
                 +"\n\tMagic Attack " + player.getMagicAttack() + "\tTotal Magic Attack " + stats.getTotalMagicAttack()
                 +"\n\tMagic Defense " + player.getMagicDefense() + "\tTotal Magic Defense " + stats.getTotalMagicDefense()
                 +"\n\tExperience Points " + player.getExperience() + "\tTo Next Level " + ((player.getLevel() * 100) - player.getExperience())
+                +"\n\tGold " + player.getPlayerGold()
                 +"\n\tEnter 'q' to Exit");
     }
 

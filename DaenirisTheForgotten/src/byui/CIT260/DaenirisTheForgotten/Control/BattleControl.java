@@ -13,6 +13,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.View.DistributeBonusesView;
 import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
+import byui.CIT260.DaenirisTheForgotten.View.TreasureChestScene;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
 
@@ -180,8 +181,13 @@ public class BattleControl {
         player.setCurrentMagicPoints(battle.getCurrentMagic());
         player.setPlayerGold(battle.getEnemyGold() + battle.getPlayerGold());
         player.setExperience(battle.getPlayerExp() + battle.getEnemyExp());
-        //future add item to inventory.
- 
+        Random treasure = new Random();
+        int treasureChance = treasure.nextInt(100);
+        if(treasureChance >= 50){
+            TreasureChestScene battleTreasure = new TreasureChestScene();
+            battleTreasure.display();
+        }
+            
         System.out.println("\n\tYou defeated the enemy!"
                           +"\n\tYou gained " + battle.getEnemyGold() + " gold"
                           +"\n\tand you gained " + battle.getEnemyExp() + " experience points");        

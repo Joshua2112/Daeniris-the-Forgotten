@@ -366,6 +366,61 @@ public class GameControl {
         woodenShield.setSpecialEffects("None");
         woodenShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         secondaryList[0] = woodenShield;
+        
+        Gear leatherGloves = new Gear();
+        leatherGloves.setName("Leather Gloves");
+        leatherGloves.setAttackBonus(0);
+        leatherGloves.setDefenseBonus(1);
+        leatherGloves.setMagicAttackBonus(0);
+        leatherGloves.setMagicDefenseBonus(1);
+        leatherGloves.setDescription("Simple leather gloves");
+        leatherGloves.setSpecialEffects("None");
+        leatherGloves.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        secondaryList[1] = leatherGloves;
+        
+        Gear ironShield = new Gear();
+        ironShield.setName("Iron Shield");
+        ironShield.setAttackBonus(0);
+        ironShield.setDefenseBonus(4);
+        ironShield.setMagicAttackBonus(0);
+        ironShield.setMagicDefenseBonus(0);
+        ironShield.setDescription("A sturdy shield of iron");
+        ironShield.setSpecialEffects("None");
+        ironShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        secondaryList[2] = ironShield;
+        
+        Gear smallMagicOrb = new Gear();
+        smallMagicOrb.setName("Small Magic Orb");
+        smallMagicOrb.setAttackBonus(0);
+        smallMagicOrb.setDefenseBonus(0);
+        smallMagicOrb.setMagicAttackBonus(2);
+        smallMagicOrb.setMagicDefenseBonus(3);
+        smallMagicOrb.setDescription("A small, clear orb with magic properties");
+        smallMagicOrb.setSpecialEffects("None");
+        smallMagicOrb.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        secondaryList[3] = smallMagicOrb;
+        
+        Gear steelShield = new Gear();
+        steelShield.setName("Steel Shield");
+        steelShield.setAttackBonus(0);
+        steelShield.setDefenseBonus(5);
+        steelShield.setMagicAttackBonus(0);
+        steelShield.setMagicDefenseBonus(0);
+        steelShield.setDescription("A strong sheild made of steel");
+        steelShield.setSpecialEffects("None");
+        steelShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        secondaryList[4] = steelShield;
+        
+        Gear magicRoot = new Gear();
+        magicRoot.setName("Magic Root");
+        magicRoot.setAttackBonus(0);
+        magicRoot.setDefenseBonus(1);
+        magicRoot.setMagicAttackBonus(2);
+        magicRoot.setMagicDefenseBonus(5);
+        magicRoot.setDescription("A root from a Mandragora that has magical properties");
+        magicRoot.setSpecialEffects("None");
+        magicRoot.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        secondaryList[5] = magicRoot;
               
         return secondaryList;
         }
@@ -433,6 +488,28 @@ public class GameControl {
         fireStave.setSpecialEffects("Increases damage of fire spells");
         fireStave.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         weaponList[3] = fireStave;
+        
+        Gear brassKnuckles = new Gear();
+        brassKnuckles.setName("Brass Knuckles");
+        brassKnuckles.setAttackBonus(6);
+        brassKnuckles.setDefenseBonus(-2);
+        brassKnuckles.setMagicAttackBonus(5);
+        brassKnuckles.setMagicDefenseBonus(0);
+        brassKnuckles.setDescription("A powerful close range weapon that leaves you vulnerable");
+        brassKnuckles.setSpecialEffects("none");
+        brassKnuckles.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        weaponList[4] = brassKnuckles;
+        
+        Gear spear = new Gear();
+        spear.setName("Spear");
+        spear.setAttackBonus(5);
+        spear.setDefenseBonus(3);
+        spear.setMagicAttackBonus(0);
+        spear.setMagicDefenseBonus(1);
+        spear.setDescription("A long range weapon, good for defense");
+        spear.setSpecialEffects("none");
+        spear.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        weaponList[5] = spear;
                
         return weaponList;
         
