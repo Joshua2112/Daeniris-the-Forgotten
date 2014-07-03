@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package byui.CIT260.DaenirisTheForgotten.Control;
+package byui.CIT260.DaenirisTheForgotten.Exception;
 
 /**
  *

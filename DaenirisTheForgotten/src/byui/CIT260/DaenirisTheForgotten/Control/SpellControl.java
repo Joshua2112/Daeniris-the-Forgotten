@@ -6,13 +6,22 @@
 
 package byui.CIT260.DaenirisTheForgotten.Control;
 
+import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
+import byui.CIT260.DaenirisTheForgotten.Exception.stringNotFoundException;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.ArrayLocation;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
+import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 
 public class SpellControl{
+
+
 
         public int weakenSpell(double specialEffect, int enemyDefense ){
            
@@ -34,64 +43,62 @@ public class SpellControl{
     public static Spells getSpell(String str) throws stringNotFoundException{
         Game game = DaenirisTheForgotten.getCurrentGame();
         Spells[][] spells = game.getSpells();
-         
+        ArrayLocation arrayLocation = new ArrayLocation();
+        
         int column = 0;
         int row = 0;
-        /*
+        
         for (int i = 0; i < Constants.SPELL_COL_COUNT; i++){
-            row = GameControl.stringSearch(spells, str, i);
-
-            if (row != -1){
-                column = i;  
+            if (!(GameControl.stringSearch(spells, str, arrayLocation))){
+               throw new stringNotFoundException("Selection Not Found");  
             }
         }
-        */
-        if (1 != -1){
-            throw new stringNotFoundException("Selection Not Found");
-        }
-            
-        
-        
-        Spells spell = spells[column][row];
+                
+        Spells spell = spells[arrayLocation.getColumn()][arrayLocation.getRow()];
         
         return spell;
         
     }
    
-    public static boolean castSpell(String str, boolean battle){     
-        Game game = DaenirisTheForgotten.getCurrentGame();
-        Spells[][] spells = game.getSpells();
-        
-        //displaySpells();
-        
-        int column = 0;
-        int row = 0;
-        
-        for (int i = 0; i < Constants.SPELL_COL_COUNT; i++){
-            row = GameControl.stringSearch(spells, str, i);
-            column = i;
-        }        
-        
-        if (!battle){
-            System.out.println(spells[column][row].getSpellType());
-            if (spells[column][row].getSpellType() != Constants.SPELL_HEALTH){
-                return false;
-            }
+    public static void castSpell(Spells spell, boolean battle) throws illegalActionException{     
+
+        if (!battle && spell.getSpellType() != Constants.SPELL_HEALTH){
+                throw new illegalActionException("Can only cast in a battle.");
         }
         
-        if (spells[column][row].getSpellType() == Constants.SPELL_ATTACK){
+        if (spell.getSpellType() == Constants.SPELL_HEALTH){
+            healthSpell(spell, battle);
+        }
+        else if (spell.getSpellType() == Constants.SPELL_MANA ){
             System.out.println("Cast Attack Spell");
         }
-        else if (spells[column][row].getSpellType() == Constants.SPELL_HEALTH){
-            System.out.println("Cast Health Spell");
-        }
-        else if (spells[column][row].getSpellType() == Constants.SPELL_ATTACK_DEFENSE){
+        else if (spell.getSpellType() == Constants.SPELL_ATTACK_DEFENSE){
             System.out.println("Cast Defense Attack Spell");
             
         }
-        else if (spells[column][row].getSpellType() == Constants.SPELL_MAGIC_DEFENSE){
+        else if (spell.getSpellType() == Constants.SPELL_MAGIC_DEFENSE){
             System.out.println("Cast Defense Magic Spell");
         }
-        return true;
+    }
+    
+    private static void healthSpell(Spells spell, boolean battle) {
+        Actor[][] actors = game.getActor();
+        PlayerCharacter playerStats = ((PlayerCharacter) actors[0][0]);
+        BattleScene battleStats = game.getBattle();
+        
+        if (!battle){
+            playerStats.setCurrentHealthPoints(
+                (int) (playerStats.getCurrentHealthPoints() + spell.getSpecialEffects()));
+        }
+        else{
+            battleStats.setCurrentHealth(
+                (int) (battleStats.getCurrentHealth() + spell.getSpecialEffects()));
+        }
+
+        if (playerStats.getCurrentHealthPoints() > playerStats.getHealthPoints()
+        && battleStats.getCurrentHealth() > battleStats.getTotalHealth()){
+            playerStats.setCurrentHealthPoints(playerStats.getHealthPoints());
+            battleStats.setCurrentHealth(battleStats.getTotalHealth());
+        }
     }
 }

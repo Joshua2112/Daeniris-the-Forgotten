@@ -17,10 +17,11 @@ public class Spells implements Serializable{
     
     private String spellName;
     private String description;
+    private String message;
     private int spellType;
     private int attackDamage;
     private int magicCost;
-    private int specialEffects;
+    private double specialEffects;
     private boolean learned;
 
     public Spells() {
@@ -63,7 +64,7 @@ public class Spells implements Serializable{
         return specialEffects;
     }
 
-    public void setSpecialEffects(int specialEffects) {
+    public void setSpecialEffects(double specialEffects) {
         this.specialEffects = specialEffects;
     }
 
@@ -82,6 +83,16 @@ public class Spells implements Serializable{
     public void setLearned(boolean learned) {
         this.learned = learned;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    
 
     
     @Override

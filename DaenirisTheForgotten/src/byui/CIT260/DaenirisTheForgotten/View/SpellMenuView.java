@@ -8,10 +8,14 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Control.SpellControl;
-import byui.CIT260.DaenirisTheForgotten.Control.stringNotFoundException;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
+import byui.CIT260.DaenirisTheForgotten.Exception.stringNotFoundException;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.logging.Level;
@@ -29,19 +33,22 @@ public class SpellMenuView extends View{
     
     @Override
     public int doAction(String str){
-        
+
+
         try{
-            System.out.println(SpellControl.getSpell(str).toString());
-        }catch(stringNotFoundException ex){
-            System.out.println(ex.getMessage());
+            Spells spell = SpellControl.getSpell(str);
+            System.out.println(spell.toString());
+            displayCast(spell);
+
+            }catch(stringNotFoundException ex){
+                System.out.println(ex.getMessage());
         }
-        displayCast(str);
-        
         return 0;
     }   
 
-    private void displayCast(String str) {
-        
+    private void displayCast(Spells spell) {
+        Actor[][] actors = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         String value;
         
         System.out.println("Select 'C' to cast spell or Select 'Q' to quit."); 
@@ -50,8 +57,17 @@ public class SpellMenuView extends View{
             value = getInput();
             
             if (value.equals("C")){
-                if(SpellControl.castSpell(str, false)){
-                    System.out.println("Can only be cast in a battle");
+                try{
+                    SpellControl.castSpell(spell, false);
+                    System.out.println(spell.getMessage());
+                    PlayerCharacterInfoView playerInfo = new PlayerCharacterInfoView();
+                    playerInfo.display();
+                    System.out.println(player.toString());
+                    
+                    
+                }
+                catch(illegalActionException ex){
+                      System.out.println(ex.getMessage());
                 }
                 return;
             }
