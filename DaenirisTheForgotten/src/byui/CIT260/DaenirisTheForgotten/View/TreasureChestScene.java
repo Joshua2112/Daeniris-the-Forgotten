@@ -6,7 +6,6 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
@@ -38,7 +37,7 @@ public class TreasureChestScene extends View{
                 Random randomGenerator = new Random();
                 int random1 = randomGenerator.nextInt(2);
                 int random2 = randomGenerator.nextInt(5);
-                int random3 = randomGenerator.nextInt(4);
+                int random3 = randomGenerator.nextInt(5);
                 if(random3 == 1){
                     inventory[random1][random2].setQuantity(inventory[random1][random2].getQuantity() + 1);
                     System.out.println("\n\tYou found a(n) " + inventory[random1][random2].getName());
