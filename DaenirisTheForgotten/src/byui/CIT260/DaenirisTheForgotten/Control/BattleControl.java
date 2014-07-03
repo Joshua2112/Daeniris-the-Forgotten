@@ -13,6 +13,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.View.DistributeBonusesView;
 import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
+import byui.CIT260.DaenirisTheForgotten.View.TreasureChestScene;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
 
@@ -49,8 +50,13 @@ public class BattleControl {
             if (battle.getTotalAttack() < 0){
                 battle.setTotalAttack(0);           
                 }
-                   
-            damage = battle.getTotalAttack() - battle.getEnemyDefense();
+            
+            if(critical == true){
+                damage = 2 * battle.getTotalAttack() - battle.getEnemyDefense();
+            }
+            else{
+                damage = battle.getTotalAttack() - battle.getEnemyDefense();
+            }
             
             if (damage < 0){
                 damage = 0;
@@ -108,8 +114,13 @@ public class BattleControl {
             if (battle.getEnemyAttack() < 0){
                 battle.setEnemyAttack(0);           
                 }
-                   
-            damage = battle.getEnemyAttack() - battle.getTotalDefense();
+            
+            if(critical == true){
+                damage = 2 * battle.getEnemyAttack() - battle.getTotalDefense();
+            }
+            else{
+                damage = battle.getEnemyAttack() - battle.getTotalDefense();
+            }
             
             if (damage < 0){
                 damage = 0;
@@ -170,17 +181,22 @@ public class BattleControl {
         player.setCurrentMagicPoints(battle.getCurrentMagic());
         player.setPlayerGold(battle.getEnemyGold() + battle.getPlayerGold());
         player.setExperience(battle.getPlayerExp() + battle.getEnemyExp());
-        //future add item to inventory.
- 
+        Random treasure = new Random();
+        int treasureChance = treasure.nextInt(100);
+        if(treasureChance >= 50){
+            TreasureChestScene battleTreasure = new TreasureChestScene();
+            battleTreasure.display();
+        }
+            
         System.out.println("\n\tYou defeated the enemy!"
                           +"\n\tYou gained " + battle.getEnemyGold() + " gold"
                           +"\n\tand you gained " + battle.getEnemyExp() + " experience points");        
         
         if(player.getExperience() >= player.getLevel() * 100){
             System.out.println("\n\tYou gained a level!"
-                              +"\n\tYou have five points to distribute");
+                              +"\n\tYou have three points to distribute");
             player.setLevel(player.getLevel() + 1);
-            player.setLevelPoints(5);
+            player.setLevelPoints(3);
             DistributeBonusesView levelUp = new DistributeBonusesView();
             levelUp.display();
         }

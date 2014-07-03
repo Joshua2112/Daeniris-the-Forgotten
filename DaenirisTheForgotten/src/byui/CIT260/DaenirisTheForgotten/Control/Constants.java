@@ -16,7 +16,8 @@ public class Constants {
     public static final int MAP_MIN_Y = 0;
     
     
-    public static final int DEFAULT_INVENTORY_QUANTITY = 100;
+    public static final int DEFAULT_INVENTORY_QUANTITY = 0;
+    public static final int STARTING_GEAR_QUANTITY = 1;
     public static final int NUMBER_OF_ACTOR_TYPES = 2;
     public static final int NUMBER_OF_ENEMIES = 100;
 
@@ -72,4 +73,5 @@ public class Constants {
     public static final int SPELL_ATTACK_DEFENSE = 4;
     
     public static final int GEAR_LIST_COUNT = 50;
+    public static final int STARTING_GOLD = 100;
 }

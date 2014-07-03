@@ -26,7 +26,24 @@ public class EquippedGear implements Serializable{
     private Gear weapon = new Gear();
     private Gear armor = new Gear();
     private Gear leftHand = new Gear();
-
+    
+    public int getTAB(){   
+    int totalAttackBonus = helmet.getAttackBonus() + weapon.getAttackBonus() + armor.getAttackBonus() + leftHand.getAttackBonus();
+        return totalAttackBonus;
+    }
+    public int getTDB(){
+    int totalDefenseBonus = helmet.getDefenseBonus() + weapon.getDefenseBonus() + armor.getDefenseBonus() + leftHand.getDefenseBonus();
+        return totalDefenseBonus;
+    }
+    public int getTMAB(){
+    int totalMagicAttackBonus = helmet.getMagicAttackBonus() + weapon.getMagicAttackBonus() + armor.getMagicAttackBonus() + leftHand.getMagicAttackBonus();
+        return totalMagicAttackBonus;
+    }
+    public int getTMDB(){       
+    int totalMagicDefenseBonus = helmet.getMagicDefenseBonus() + weapon.getMagicDefenseBonus() + armor.getMagicDefenseBonus() + leftHand.getMagicDefenseBonus();
+        return totalMagicDefenseBonus;
+    }
+    
     public Gear getHelmet() {
         return helmet;
     }
@@ -59,8 +76,6 @@ public class EquippedGear implements Serializable{
         this.weapon = weapon;
     }
     
-    
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -97,8 +112,10 @@ public class EquippedGear implements Serializable{
 
     @Override
     public String toString() {
-        return "EquippedGear{" + "helmet=" + helmet + ", weapon=" + weapon + ", armor=" + armor + ", leftHand=" + leftHand + '}';
+        return "EquippedGear{" + "game=" + game + ", helms=" + helms + ", weapons=" + weapons + ", armors=" + armors + ", secondaries=" + secondaries + ", helmet=" + helmet + ", weapon=" + weapon + ", armor=" + armor + ", leftHand=" + leftHand;
     }
+
+    
     
     
     

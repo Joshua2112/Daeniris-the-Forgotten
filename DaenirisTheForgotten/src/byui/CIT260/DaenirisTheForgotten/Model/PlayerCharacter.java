@@ -59,7 +59,6 @@ public class PlayerCharacter extends Actor{
         this.levelPoints = levelPoints;
     }
 
-
     public int getExperience() {
         return experience;
     }
@@ -67,10 +66,7 @@ public class PlayerCharacter extends Actor{
     public void setExperience(int experience) {
         this.experience = experience;
     }
-    
-    
-    
-
+           
     public int getLevel() {
         return Level;
     }

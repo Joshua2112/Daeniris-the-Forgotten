@@ -19,7 +19,7 @@ import daeniristheforgotten.DaenirisTheForgotten;
 class GameMenuView extends View {
 
     public GameMenuView() {
-        super("\n\tEnter \'i\' interact"
+        super("\n\tEnter \'p\' display character info"
                                   +"\n\tEnter \'m\' display magic"
                                   +"\n\tEnter \'i\' display items"
                                   +"\n\tEnter \'g\' display gear"                                  
@@ -50,6 +50,10 @@ class GameMenuView extends View {
                 break;
             case "B":
                 this.displayActors();
+                break;
+            case "P":
+                PlayerCharacterInfoView viewPC = new PlayerCharacterInfoView();
+                viewPC.display();
                 break;
             case "Q":
                 return 0;
