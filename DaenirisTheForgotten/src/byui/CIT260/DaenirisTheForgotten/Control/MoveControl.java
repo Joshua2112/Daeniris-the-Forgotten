@@ -51,8 +51,7 @@ public class MoveControl {
                     mapArray[offsetX][offsetY].setDiscovered(true);
                 }
             }
-        }
-        
+        }      
        MoveChanceControl battleView = new MoveChanceControl();
        battleView.MoveChance();
     }

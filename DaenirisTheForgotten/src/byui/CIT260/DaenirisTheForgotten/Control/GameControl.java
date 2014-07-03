@@ -7,6 +7,8 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.ArrayLocation;
+import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Enemy;
 import byui.CIT260.DaenirisTheForgotten.Model.EquippedGear;
@@ -46,6 +48,8 @@ public class GameControl {
         game.setWeapons(createWeaponList());
         game.setSecondaries(createSecondaryList());
         game.setEquippedGear(initialGear());
+        game.setBattle(createBattle());
+
                 
         Actor[][] actor = game.getActor();
     }
@@ -558,7 +562,7 @@ public class GameControl {
         
         Enemy goblin = new Enemy();
         goblin.setName("Goblin");
-        goblin.setAttack(8);
+        goblin.setAttack(20);
         goblin.setDefense(5);
         goblin.setMagicAttack(0);
         goblin.setMagicDefense(0);
@@ -642,7 +646,7 @@ public class GameControl {
         Spells fire1 = new Spells();
         fire1.setSpellName("Fire I");
         fire1.setDescription("Inflicts fire damage to enemies");
-        fire1.setSpellType(Constants.SPELL_ATTACK);
+        fire1.setSpellType(Constants.SPELL_HEALTH);
         fire1.setLearned(false);
         fire1.setMagicCost(5);
         fire1.setAttackDamage(15);
@@ -652,7 +656,7 @@ public class GameControl {
         Spells ice1 = new Spells();
         ice1.setSpellName("Ice I");
         ice1.setDescription("Inflicts ice damage to enemies");
-        ice1.setSpellType(Constants.SPELL_ATTACK);
+        ice1.setSpellType(Constants.SPELL_HEALTH);
         ice1.setLearned(false);
         ice1.setMagicCost(5);
         ice1.setAttackDamage(15);
@@ -662,16 +666,27 @@ public class GameControl {
         Spells lighting1 = new Spells();
         lighting1.setSpellName("Lighting I");
         lighting1.setDescription("Inflicts lighting damage to enemies");
-        lighting1.setSpellType(Constants.SPELL_ATTACK);
+        lighting1.setSpellType(Constants.SPELL_HEALTH);
         lighting1.setLearned(false);
         lighting1.setMagicCost(5);
         lighting1.setAttackDamage(15);
         lighting1.setSpecialEffects(15);
         spells[0][2] = lighting1;
         
+        Spells weaken = new Spells();
+        lighting1.setSpellName("Weaken I");
+        lighting1.setDescription("Weakens enemies defence");
+        lighting1.setSpellType(Constants.SPELL_ATTACK_DEFENSE);
+        lighting1.setLearned(false);
+        lighting1.setMagicCost(5);
+        lighting1.setAttackDamage(10);
+        lighting1.setSpecialEffects(.25);
+        spells[0][2] = lighting1;
+        
         Spells heal1 = new Spells();
         heal1.setSpellName("Heal I");
         heal1.setDescription("Heals minor damage to Health");
+        heal1.setMessage("You were healed +15 health points");
         heal1.setSpellType(Constants.SPELL_HEALTH);
         heal1.setLearned(false);
         heal1.setMagicCost(5);
@@ -679,14 +694,14 @@ public class GameControl {
         heal1.setSpecialEffects(15);
         spells[1][0] = heal1;
         
-        Spells cure1 = new Spells();
-        cure1.setSpellName("Defend");
-        cure1.setDescription("Increases Defense");
-        cure1.setSpellType(Constants.SPELL_ATTACK_DEFENSE);
-        cure1.setMagicCost(5);
-        cure1.setAttackDamage(0);
-        cure1.setSpecialEffects(15);
-        spells[1][1] = cure1;
+        Spells defend = new Spells();
+        defend.setSpellName("Defend");
+        defend.setDescription("Increases Defense");
+        defend.setSpellType(Constants.SPELL_ATTACK_DEFENSE);
+        defend.setMagicCost(5);
+        defend.setAttackDamage(0);
+        defend.setSpecialEffects(15);
+        spells[1][1] = defend;
         
         Spells heal2 = new Spells();
         heal2.setSpellName("heal II");
@@ -705,6 +720,11 @@ public class GameControl {
         World gameWorld = new World();
         
         return gameWorld;
+    }
+    
+    public static BattleScene createBattle(){
+        BattleScene battle = new BattleScene();
+        return battle;
     }
 
     public static CraftRecipe[][] createCraftRecipe(){
@@ -796,25 +816,28 @@ public class GameControl {
     }
     
     public static int stringSearch(CraftRecipe[][] array, String selection, int col){
-        int location = 0;
+        int row = 0;
         
         for(int i = 0; i < array.length; i++){
             if((array[col][i].getCraftName().compareToIgnoreCase(selection)== 0)){
-                location = i;
+                row = i;
+                return row;
             }
         }
-        return location;
+        return -1;
     }
     
-        public static int stringSearch(Spells[][] array, String selection, int col){
-        int location = 0;
-        
-        for(int i = 0; i < array.length; i++){
-            if((array[col][i].getSpellName().compareToIgnoreCase(selection)== 0)){
-                location = i;
+    public static boolean stringSearch(Spells[][] array, String selection, ArrayLocation location) {
+
+        for(int i = 0; i < Constants.SPELL_COL_COUNT; i++)
+            for(int j = 0; j < Constants.SPELL_ROW_COUNT; j++){
+                if((array[i][j].getSpellName().compareToIgnoreCase(selection)== 0)){
+                    location.setColumn(i);
+                    location.setRow(j);
+                    return true;
+                }
             }
-        }
-        return location;
+        return false;
     }
     
     public static String[] inventoryStringConvert(Inventory[][] array, int column){

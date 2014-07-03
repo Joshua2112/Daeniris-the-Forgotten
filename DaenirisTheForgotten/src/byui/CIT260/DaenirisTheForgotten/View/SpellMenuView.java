@@ -8,11 +8,18 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Control.SpellControl;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
+import byui.CIT260.DaenirisTheForgotten.Exception.stringNotFoundException;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,33 +33,22 @@ public class SpellMenuView extends View{
     
     @Override
     public int doAction(String str){
-             
-        Game game = DaenirisTheForgotten.getCurrentGame();
-        Spells[][] spells = game.getSpells();
-        
-        //displaySpells();
-        
-        int column = 0;
-        int row = 0;
-        
-        for (int i = 0; i < Constants.SPELL_COL_COUNT; i++){
-            row = GameControl.stringSearch(spells, str, i);
-            column = i;
-        }
-        
-        System.out.println(spells[column][row].toString());
-        
-        if (spells[column][row].getSpellType() == Constants.SPELL_HEALTH){
-            displayCast(spells[column][row]);
-        }
-        else{
-            System.out.println("Can only cast in a battle.");
+
+
+        try{
+            Spells spell = SpellControl.getSpell(str);
+            System.out.println(spell.toString());
+            displayCast(spell);
+
+            }catch(stringNotFoundException ex){
+                System.out.println(ex.getMessage());
         }
         return 0;
     }   
 
-    private void displayCast(Spells spells) {
-        
+    private void displayCast(Spells spell) {
+        Actor[][] actors = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         String value;
         
         System.out.println("Select 'C' to cast spell or Select 'Q' to quit."); 
@@ -61,7 +57,18 @@ public class SpellMenuView extends View{
             value = getInput();
             
             if (value.equals("C")){
-                SpellControl.castSpell(spells);
+                try{
+                    SpellControl.castSpell(spell, false);
+                    System.out.println(spell.getMessage());
+                    PlayerCharacterInfoView playerInfo = new PlayerCharacterInfoView();
+                    playerInfo.display();
+                    System.out.println(player.toString());
+                    
+                    
+                }
+                catch(illegalActionException ex){
+                      System.out.println(ex.getMessage());
+                }
                 return;
             }
             

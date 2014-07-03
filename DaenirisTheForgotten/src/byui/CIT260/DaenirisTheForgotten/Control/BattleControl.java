@@ -8,9 +8,12 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 
 import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.ArrayLocation;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
 import byui.CIT260.DaenirisTheForgotten.View.DistributeBonusesView;
 import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
 import byui.CIT260.DaenirisTheForgotten.View.TreasureChestScene;
@@ -201,6 +204,22 @@ public class BattleControl {
             levelUp.display();
         }
        
+    }
+    
+    public static ArrayLocation enemySelector(){
+        ArrayLocation arrayLocation = new ArrayLocation();
+        
+        World world = game.getWorld();
+        Location[][] location = world.getMap();
+        
+        char symbol = location[world.getxLoc()][world.getyLoc()].getSymbol();
+        
+        switch (symbol){
+            //case: ''
+        }
+        
+        
+        return arrayLocation;
     }
 }
     

@@ -17,7 +17,7 @@ public class Resource extends Location{
     public Resource(){
 
         Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(5);
+        int randomInt = randomGenerator.nextInt(6);
         if (randomInt == 1)
         {
             this.setName("Forrest");
@@ -27,6 +27,14 @@ public class Resource extends Location{
             maxAmount = 4;
         }
         else if (randomInt == 2)
+        {
+            this.setName("Mountains");
+            this.setSymbol('^');
+            this.setDiscovered(false);
+            this.setDescription("You are dwarfed by mountains.");
+            maxAmount = 2;
+        }
+        else if (randomInt == 3)
         {
             this.setName("Mountains");
             this.setSymbol('^');
