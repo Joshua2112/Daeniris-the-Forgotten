@@ -37,7 +37,7 @@ public class SpellControl{
          
         int column = 0;
         int row = 0;
-        
+        /*
         for (int i = 0; i < Constants.SPELL_COL_COUNT; i++){
             row = GameControl.stringSearch(spells, str, i);
 
@@ -45,8 +45,8 @@ public class SpellControl{
                 column = i;  
             }
         }
-        
-        if (row == -1){
+        */
+        if (1 != -1){
             throw new stringNotFoundException("Selection Not Found");
         }
             
