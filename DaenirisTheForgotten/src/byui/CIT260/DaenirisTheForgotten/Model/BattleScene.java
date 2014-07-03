@@ -16,6 +16,7 @@ public class BattleScene extends Location{
     private boolean attackFirst;
 
     public BattleScene() {
+        
         Actor[][] actors = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         Enemy enemy = ((Enemy) actors[1][0]);
