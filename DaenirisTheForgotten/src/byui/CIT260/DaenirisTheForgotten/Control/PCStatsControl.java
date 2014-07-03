@@ -46,7 +46,7 @@ public class PCStatsControl {
             player.setCurrentHealthPoints(50);
             player.setMagicPoints(20);
             player.setCurrentMagicPoints(20);
-            player.setLevelPoints(5);
+            player.setLevelPoints(6);
             
             startingGear.setWeapon(weapons[0]);
             startingGear.setArmor(armors[0]);
@@ -64,11 +64,11 @@ public class PCStatsControl {
             player.setCurrentHealthPoints(30);
             player.setMagicPoints(50);
             player.setCurrentMagicPoints(50);
-            player.setLevelPoints(5);
+            player.setLevelPoints(6);
             
-            startingGear.setWeapon(weapons[0]);
-            startingGear.setArmor(armors[0]);
-            startingGear.setHelmet(helms[0]);
+            startingGear.setWeapon(weapons[2]);
+            startingGear.setArmor(armors[1]);
+            startingGear.setHelmet(helms[1]);
             startingGear.setLeftHand(secondaries[0]);
         }
         else if (choice.compareToIgnoreCase("cleric")== 0){
@@ -82,7 +82,7 @@ public class PCStatsControl {
             player.setCurrentHealthPoints(40);
             player.setMagicPoints(30);
             player.setCurrentMagicPoints(30);
-            player.setLevelPoints(5);
+            player.setLevelPoints(6);
             
             startingGear.setWeapon(weapons[0]);
             startingGear.setArmor(armors[0]);

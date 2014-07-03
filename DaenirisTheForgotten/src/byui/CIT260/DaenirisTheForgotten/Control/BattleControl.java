@@ -49,8 +49,13 @@ public class BattleControl {
             if (battle.getTotalAttack() < 0){
                 battle.setTotalAttack(0);           
                 }
-                   
-            damage = battle.getTotalAttack() - battle.getEnemyDefense();
+            
+            if(critical == true){
+                damage = 2 * battle.getTotalAttack() - battle.getEnemyDefense();
+            }
+            else{
+                damage = battle.getTotalAttack() - battle.getEnemyDefense();
+            }
             
             if (damage < 0){
                 damage = 0;
@@ -108,8 +113,13 @@ public class BattleControl {
             if (battle.getEnemyAttack() < 0){
                 battle.setEnemyAttack(0);           
                 }
-                   
-            damage = battle.getEnemyAttack() - battle.getTotalDefense();
+            
+            if(critical == true){
+                damage = 2 * battle.getEnemyAttack() - battle.getTotalDefense();
+            }
+            else{
+                damage = battle.getEnemyAttack() - battle.getTotalDefense();
+            }
             
             if (damage < 0){
                 damage = 0;
@@ -178,9 +188,9 @@ public class BattleControl {
         
         if(player.getExperience() >= player.getLevel() * 100){
             System.out.println("\n\tYou gained a level!"
-                              +"\n\tYou have five points to distribute");
+                              +"\n\tYou have three points to distribute");
             player.setLevel(player.getLevel() + 1);
-            player.setLevelPoints(5);
+            player.setLevelPoints(3);
             DistributeBonusesView levelUp = new DistributeBonusesView();
             levelUp.display();
         }

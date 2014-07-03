@@ -157,7 +157,7 @@ public class GameControl {
         Gear leatherHelm = new Gear();
         leatherHelm.setName("Leather Helmet");
         leatherHelm.setAttackBonus(0);
-        leatherHelm.setDefenseBonus(2);
+        leatherHelm.setDefenseBonus(1);
         leatherHelm.setMagicAttackBonus(0);
         leatherHelm.setMagicDefenseBonus(0);
         leatherHelm.setDescription("A weak helmet made of leather");
@@ -269,7 +269,7 @@ public class GameControl {
         Gear ironBreastplate = new Gear();
         ironBreastplate.setName("Iron Breastplate");
         ironBreastplate.setAttackBonus(0);
-        ironBreastplate.setDefenseBonus(4);
+        ironBreastplate.setDefenseBonus(3);
         ironBreastplate.setMagicAttackBonus(0);
         ironBreastplate.setMagicDefenseBonus(0);
         ironBreastplate.setDescription("An average breastplate made of iron");
@@ -291,7 +291,7 @@ public class GameControl {
         Gear steelPlate = new Gear();
         steelPlate.setName("Steel Breastplate");
         steelPlate.setAttackBonus(0);
-        steelPlate.setDefenseBonus(7);
+        steelPlate.setDefenseBonus(6);
         steelPlate.setMagicAttackBonus(0);
         steelPlate.setMagicDefenseBonus(0);
         steelPlate.setDescription("Strong armor made of steel");
@@ -499,12 +499,12 @@ public class GameControl {
         
         Enemy goblin = new Enemy();
         goblin.setName("Goblin");
-        goblin.setAttack(5);
-        goblin.setDefense(2);
+        goblin.setAttack(8);
+        goblin.setDefense(5);
         goblin.setMagicAttack(0);
         goblin.setMagicDefense(0);
-        goblin.setHealthPoints(10);
-        goblin.setCurrentHealthPoints(10);
+        goblin.setHealthPoints(15);
+        goblin.setCurrentHealthPoints(15);
         goblin.setMagicPoints(0);
         goblin.setCurrentMagicPoints(0);
         goblin.setExperienceValue(15);
@@ -514,10 +514,10 @@ public class GameControl {
         
         Enemy jelly = new Enemy();
         jelly.setName("Jelly");
-        jelly.setAttack(0);
-        jelly.setDefense(0);
-        jelly.setMagicAttack(2);
-        jelly.setMagicDefense(2);
+        jelly.setAttack(4);
+        jelly.setDefense(3);
+        jelly.setMagicAttack(7);
+        jelly.setMagicDefense(4);
         jelly.setHealthPoints(15);
         jelly.setCurrentHealthPoints(15);
         jelly.setMagicPoints(30);
