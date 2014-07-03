@@ -7,7 +7,9 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.EquippedGear;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
 
@@ -26,6 +28,13 @@ public class PCStatsControl {
     
     public static void setJob(PlayerCharacter player, String choice){
         
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        EquippedGear startingGear = game.getEquippedGear();
+        Gear[] helms = game.getHelms();
+        Gear[] weapons = game.getWeapons();
+        Gear[] armors = game.getArmors();
+        Gear[] secondaries = game.getSecondaries();
+        
         if (choice.compareToIgnoreCase("warrior")== 0){
         
             player.setJob("Warrior");
@@ -34,8 +43,15 @@ public class PCStatsControl {
             player.setMagicAttack(1);
             player.setMagicDefense(2);
             player.setHealthPoints(50);
+            player.setCurrentHealthPoints(50);
             player.setMagicPoints(20);
+            player.setCurrentMagicPoints(20);
             player.setLevelPoints(5);
+            
+            startingGear.setWeapon(weapons[0]);
+            startingGear.setArmor(armors[0]);
+            startingGear.setHelmet(helms[0]);
+            startingGear.setLeftHand(secondaries[0]);
         }
         else if (choice.compareToIgnoreCase("mage")== 0){
         
@@ -45,8 +61,15 @@ public class PCStatsControl {
             player.setMagicAttack(3);
             player.setMagicDefense(3);
             player.setHealthPoints(30);
+            player.setCurrentHealthPoints(30);
             player.setMagicPoints(50);
+            player.setCurrentMagicPoints(50);
             player.setLevelPoints(5);
+            
+            startingGear.setWeapon(weapons[0]);
+            startingGear.setArmor(armors[0]);
+            startingGear.setHelmet(helms[0]);
+            startingGear.setLeftHand(secondaries[0]);
         }
         else if (choice.compareToIgnoreCase("cleric")== 0){
         
@@ -56,8 +79,15 @@ public class PCStatsControl {
             player.setMagicAttack(2);
             player.setMagicDefense(2);
             player.setHealthPoints(40);
+            player.setCurrentHealthPoints(40);
             player.setMagicPoints(30);
+            player.setCurrentMagicPoints(30);
             player.setLevelPoints(5);
+            
+            startingGear.setWeapon(weapons[0]);
+            startingGear.setArmor(armors[0]);
+            startingGear.setHelmet(helms[0]);
+            startingGear.setLeftHand(secondaries[0]);
         }
     }
     
@@ -80,7 +110,7 @@ public class PCStatsControl {
         System.out.println("\n\tattack increased by 1 point");  
     }
 
-    public static  void defenseUp(PlayerCharacter player) {
+    public static void defenseUp(PlayerCharacter player) {
         
         if (!pointsCheck(player)){return;}
         
