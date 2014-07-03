@@ -12,7 +12,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 
-public class SpellControl extends Exception{
+public class SpellControl{
 
         public int weakenSpell(double specialEffect, int enemyDefense ){
            
@@ -31,7 +31,7 @@ public class SpellControl extends Exception{
            return reducedDefense;
         }
     
-    public static Spells getSpell(String str) throws Exception{
+    public static Spells getSpell(String str) throws stringNotFoundException{
         Game game = DaenirisTheForgotten.getCurrentGame();
         Spells[][] spells = game.getSpells();
          
@@ -47,8 +47,7 @@ public class SpellControl extends Exception{
         }
         
         if (row == -1){
-            Exception ex = new ArithmeticException("Not found");
-            throw ex;
+            throw new stringNotFoundException("Selection Not Found");
         }
             
         

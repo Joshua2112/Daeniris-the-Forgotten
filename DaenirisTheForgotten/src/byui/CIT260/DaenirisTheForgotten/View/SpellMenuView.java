@@ -9,6 +9,7 @@ package byui.CIT260.DaenirisTheForgotten.View;
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Control.SpellControl;
+import byui.CIT260.DaenirisTheForgotten.Control.stringNotFoundException;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
@@ -31,8 +32,7 @@ public class SpellMenuView extends View{
         
         try{
             System.out.println(SpellControl.getSpell(str).toString());
-        }
-        catch(Exception ex){
+        }catch(stringNotFoundException ex){
             System.out.println(ex.getMessage());
         }
         displayCast(str);
