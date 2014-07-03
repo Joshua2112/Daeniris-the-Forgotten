@@ -70,6 +70,6 @@ public class TreasureChestScene extends View{
                 System.out.println("\n\tInvalid selection, try again");
             break;
         }
-        return 1;
+        return 0;
     }
 }

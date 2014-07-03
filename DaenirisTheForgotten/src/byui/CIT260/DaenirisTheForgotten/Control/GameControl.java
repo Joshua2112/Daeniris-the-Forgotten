@@ -556,24 +556,6 @@ public class GameControl {
         newPlayerCharacter.setLevelPoints(0);
         actors [0][0] = newPlayerCharacter;
         
-        PlayerCharacter newPlayerCharacter1 = new PlayerCharacter();
-        newPlayerCharacter1.setName("Fred");
-        newPlayerCharacter1.setJob("Mage");
-        newPlayerCharacter1.setAttack(0);
-        newPlayerCharacter1.setDefense(0);
-        newPlayerCharacter1.setGender("Male");
-        newPlayerCharacter1.setMagicAttack(0);
-        newPlayerCharacter1.setMagicDefense(0);
-        newPlayerCharacter1.setHealthPoints(50);
-        newPlayerCharacter1.setCurrentHealthPoints(50);
-        newPlayerCharacter1.setMagicPoints(20);
-        newPlayerCharacter1.setCurrentMagicPoints(20);
-        newPlayerCharacter1.setPlayerGold(Constants.STARTING_GOLD);
-        newPlayerCharacter1.setLevel(1);
-        newPlayerCharacter1.setExperiencePoints(0);
-        newPlayerCharacter1.setLevelPoints(0);
-        actors [0][1] = newPlayerCharacter1;
-        
         Enemy goblin = new Enemy();
         goblin.setName("Goblin");
         goblin.setAttack(8);
@@ -603,6 +585,51 @@ public class GameControl {
         jelly.setGoldValue(27);
         jelly.setItemsDropped("potion, Cloth Cap");
         actors [1][1] = jelly;
+        
+        Enemy hobGoblin = new Enemy();
+        hobGoblin.setName("Hobgoblin");
+        hobGoblin.setAttack(18);
+        hobGoblin.setDefense(8);
+        hobGoblin.setMagicAttack(0);
+        hobGoblin.setMagicDefense(6);
+        hobGoblin.setHealthPoints(30);
+        hobGoblin.setCurrentHealthPoints(30);
+        hobGoblin.setMagicPoints(0);
+        hobGoblin.setCurrentMagicPoints(0);
+        hobGoblin.setExperienceValue(50);
+        hobGoblin.setGoldValue(76);
+        hobGoblin.setItemsDropped("potion, Cloth Cap");
+        actors [1][2] = hobGoblin;
+        
+        Enemy spellCaster = new Enemy();
+        spellCaster.setName("Spell Caster");
+        spellCaster.setAttack(8);
+        spellCaster.setDefense(8);
+        spellCaster.setMagicAttack(15);
+        spellCaster.setMagicDefense(8);
+        spellCaster.setHealthPoints(24);
+        spellCaster.setCurrentHealthPoints(24);
+        spellCaster.setMagicPoints(35);
+        spellCaster.setCurrentMagicPoints(35);
+        spellCaster.setExperienceValue(55);
+        spellCaster.setGoldValue(81);
+        spellCaster.setItemsDropped("potion, Cloth Cap");
+        actors [1][3] = spellCaster;
+        
+        Enemy platedBeast = new Enemy();
+        platedBeast.setName("Plated Beast");
+        platedBeast.setAttack(15);
+        platedBeast.setDefense(18);
+        platedBeast.setMagicAttack(3);
+        platedBeast.setMagicDefense(12);
+        platedBeast.setHealthPoints(14);
+        platedBeast.setCurrentHealthPoints(14);
+        platedBeast.setMagicPoints(20);
+        platedBeast.setCurrentMagicPoints(20);
+        platedBeast.setExperienceValue(86);
+        platedBeast.setGoldValue(103);
+        platedBeast.setItemsDropped("potion, Cloth Cap");
+        actors [1][4] = platedBeast;
 
         return actors;
     }
