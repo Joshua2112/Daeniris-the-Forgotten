@@ -35,8 +35,8 @@ public class World implements Serializable{
        map[4][9] = new Dungeon();
        map[9][5] = new Shop();
        
-        xLoc = 0;
-        yLoc = 0;
+        xLoc = 9;
+        yLoc = 5;
         visable = false;
     }
 

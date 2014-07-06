@@ -6,10 +6,11 @@
 
 package byui.CIT260.DaenirisTheForgotten.Control;
 
+import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
+import byui.CIT260.DaenirisTheForgotten.Exception.MovedOffMapException;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
-import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 
@@ -22,11 +23,16 @@ public class MoveControl {
     
     MoveControl(){}
     
-    public static void move(int x, int y) {
+    public static void move(int x, int y) throws MovedOffMapException{
         Game game = DaenirisTheForgotten.currentGame;
         World world = game.getWorld();
         Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
-          
+        
+        if (world.getxLoc() + x > 9 || world.getxLoc() + x < 0 || 
+                world.getyLoc() + y > 9 || world.getyLoc() + y < 0){
+            throw new MovedOffMapException("Can't move past edge of map");
+        }
+         
         world.setxLoc(world.getxLoc() + x);
         world.setyLoc(world.getyLoc() + y);
         

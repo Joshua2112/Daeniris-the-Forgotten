@@ -17,6 +17,7 @@ public class PlayerCharacter extends Actor{
     
     private String job;
     private String gender;
+    private String age;
     private int playerGold;
     private int levelPoints;
     private int experience;
@@ -83,6 +84,16 @@ public class PlayerCharacter extends Actor{
         this.experience = experiencePoints;
     }
 
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -131,6 +142,7 @@ public class PlayerCharacter extends Actor{
         return "\tPlayer Character" 
                 + "\tname = " + this.getName() + newline
                 + "\tgender = " + gender + newline
+                + "\tage = " + age + newline
                 + "\tjob = " + job + newline
                 + "\tLevel = " + Level + newline 
                 + "\thealth points = " + this.getHealthPoints() + newline
