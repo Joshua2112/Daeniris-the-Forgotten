@@ -5,6 +5,7 @@
  *********************************************************************/
 
 package byui.CIT260.DaenirisTheForgotten.View;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.CraftRecipe;
@@ -35,7 +36,7 @@ public abstract class View implements ViewInterface{
         }while (!value.equals("Q") && exit != 1);
     }
     
-    public void display(TabularMenu tabularMenu){
+    public void display(TabularMenu tabularMenu) throws illegalActionException{
         String value;
         int exit;
         do {

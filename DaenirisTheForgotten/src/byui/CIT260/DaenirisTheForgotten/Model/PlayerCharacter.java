@@ -17,7 +17,7 @@ public class PlayerCharacter extends Actor{
     
     private String job;
     private String gender;
-    private String age;
+    private int age;
     private int playerGold;
     private int levelPoints;
     private int experience;
@@ -84,11 +84,11 @@ public class PlayerCharacter extends Actor{
         this.experience = experiencePoints;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
     
