@@ -17,8 +17,6 @@ import byui.CIT260.DaenirisTheForgotten.Model.World;
 import byui.CIT260.DaenirisTheForgotten.View.BattleMenuView;
 import byui.CIT260.DaenirisTheForgotten.View.DistributeBonusesView;
 import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
-import byui.CIT260.DaenirisTheForgotten.View.SpellMenuView;
-import byui.CIT260.DaenirisTheForgotten.View.TabularMenu;
 import byui.CIT260.DaenirisTheForgotten.View.TreasureChestScene;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
@@ -30,7 +28,9 @@ import java.util.Random;
  */
 public class BattleControl {   
    
-    public static int attackEnemy() {        
+    public static int attackEnemy() {   
+        
+        System.out.println("\n\tYou attacked the enemy");
         
         Game game = DaenirisTheForgotten.currentGame;
         BattleScene battle = game.getBattle();   
@@ -110,6 +110,8 @@ public class BattleControl {
             if(battle.getEnemyCurrentHealth() <= 0){
                 return;
             }
+            
+            System.out.println("\n\tThe enemy attacked you");
            
         boolean hit = false;
         boolean critical = false;
@@ -151,10 +153,10 @@ public class BattleControl {
             if (hit == true){
                 
                 battle.setCurrentHealth(battle.getCurrentHealth() - damage);;
-                System.out.println("You took " + damage + " damage from the enemy");
+                System.out.println("\n\tYou took " + damage + " damage from the enemy");
             }
             else{
-                System.out.println("Enemy attack missed");                
+                System.out.println("\n\tEnemy attack missed");                
             }
         if(battle.getCurrentHealth() <= 0){
             GameOverView gameOver = new GameOverView();
@@ -166,7 +168,7 @@ public class BattleControl {
 
     public static void defend1() {
         BattleScene battle = game.getBattle();
-        System.out.println("Defense increased by " + battle.getTotalDefense() * 0.25 
+        System.out.println("\n\tDefense increased by " + battle.getTotalDefense() * 0.25 
                           + (" points temporarily"));
         
         float totalDefence = battle.getTotalDefense();        
@@ -187,8 +189,17 @@ public class BattleControl {
         System.out.println(battle.toString());
     }
 
-    public static void run1() {
-        System.out.println("run stub called");
+    public static boolean run1() {
+        Random number = new Random();
+        int run = number.nextInt(100);
+        if(run >= 50){
+            System.out.println("\n\tYou successfully ran from the enemy");
+            return true;
+        }
+        else{
+            System.out.println("\n\tYou were unable to run");
+            return false;
+        }
     }
     
     private static void endBattle(BattleScene battle) {
@@ -199,6 +210,9 @@ public class BattleControl {
         player.setCurrentMagicPoints(battle.getCurrentMagic());
         player.setPlayerGold(battle.getEnemyGold() + battle.getPlayerGold());
         player.setExperience(battle.getPlayerExp() + battle.getEnemyExp());
+        System.out.println("\n\tYou defeated the enemy!"
+                          +"\n\tYou gained " + battle.getEnemyGold() + " gold"
+                          +"\n\tand you gained " + battle.getEnemyExp() + " experience points");
         Random treasure = new Random();
         int treasureChance = treasure.nextInt(100);
         if(treasureChance >= 50){
@@ -206,9 +220,7 @@ public class BattleControl {
             battleTreasure.display();
         }
             
-        System.out.println("\n\tYou defeated the enemy!"
-                          +"\n\tYou gained " + battle.getEnemyGold() + " gold"
-                          +"\n\tand you gained " + battle.getEnemyExp() + " experience points");        
+                
         
         if(player.getExperience() >= player.getLevel() * 100){
             System.out.println("\n\tYou gained a level!"

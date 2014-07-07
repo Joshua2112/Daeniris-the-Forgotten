@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 
 public class AdventureView extends View{
-
+    
     public AdventureView() {
         super("\n\tEnter \'i\' interact"
              +"\n\tEnter \'m\' adventure menu"
@@ -29,15 +29,29 @@ public class AdventureView extends View{
              +"\n\tEnter \'a\' travel west"
              +"\n\tEnter \'d\' travel east");
     }
-    
-
-    
+     
     @Override
     public int doAction(String choice){
+        
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        World world = game.getWorld();
+        
+      /*  map[0][5] = new Dungeon();
+       map[5][0] = new Dungeon();
+       map[4][4] = new Dungeon();
+       map[4][9] = new Dungeon();
+       map[9][5] = new Shop();*/
     
         switch (choice){
             case "I":
-                System.out.println("Interact");
+                if(world.getMap()[world.getxLoc()][world.getyLoc()].getSymbol() == 'S'){
+                    ShopMenuView shop = new ShopMenuView();
+                    shop.display();
+                }
+                else if(world.getMap()[world.getxLoc()][world.getyLoc()].getSymbol() == 'D'){
+                    DungeonView dungeon = new DungeonView();
+                    dungeon.display();
+                }
                 break;
             case "M":
                 GameMenuView inGameMenu = new GameMenuView();

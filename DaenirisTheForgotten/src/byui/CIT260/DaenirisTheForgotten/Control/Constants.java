@@ -83,4 +83,5 @@ public class Constants {
     
     public static final int GEAR_LIST_COUNT = 50;
     public static final int STARTING_GOLD = 100;
+    public static final int STARTING_INVENTORY_ITEM_QUANTITY = 1;
 }

@@ -57,7 +57,14 @@ public class BattleMenuView extends View{
             BattleControl.enemyAttack();
             break;
         case "R":
-            BattleControl.run1();
+            boolean run = BattleControl.run1();
+            if(run == true){
+                return 1;
+            }
+            else{
+            BattleControl.enemyAttack();
+            }
+            break;
         default:
             System.out.println("\n\tInvalid selection, try again");
             break;
@@ -68,26 +75,26 @@ public class BattleMenuView extends View{
         
     public static void displayResults(int damage, boolean hit){
         if (hit){
-            System.out.println("You did " + damage + " damage to the enemy");
+            System.out.println("\n\tYou did " + damage + " damage to the enemy");
         }
         else{
-            System.out.println("Your attack missed");
+            System.out.println("\n\tYour attack missed");
         }         
     }
     
     public static void displayResults(Spells spell, int resultValue){
         if (spell.getSpellType() == Constants.SPELL_ATTACK_HEALTH){
-            System.out.println(spell.getMessage() 
+            System.out.println("\n\t" + spell.getMessage() 
                              + resultValue 
                              + " damage to the enemy.");
         }
         else if (spell.getSpellType() == Constants.SPELL_HEAL_HEALTH){
-            System.out.println(spell.getMessage() 
+            System.out.println("\n\t" + spell.getMessage() 
                              + resultValue
                              + " points.");
         }
         else{
-            System.out.println(spell.getMessage() 
+            System.out.println("\n\t" + spell.getMessage() 
                              + resultValue
                              + "%");
         }
