@@ -14,8 +14,11 @@ import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
+import byui.CIT260.DaenirisTheForgotten.View.BattleMenuView;
 import byui.CIT260.DaenirisTheForgotten.View.DistributeBonusesView;
 import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
+import byui.CIT260.DaenirisTheForgotten.View.SpellMenuView;
+import byui.CIT260.DaenirisTheForgotten.View.TabularMenu;
 import byui.CIT260.DaenirisTheForgotten.View.TreasureChestScene;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
@@ -69,13 +72,12 @@ public class BattleControl {
                 damage *= 2;
             }
         }   
-            if (hit == true){
-                
+            if (hit == true){ 
                 battle.setEnemyCurrentHealth(battle.getEnemyCurrentHealth() - damage);
-                System.out.println("You did " + damage + " damage to the enemy");
+                BattleMenuView.displayResults(damage, true);
             }
             else{
-                    System.out.println("Your attack missed");                
+                BattleMenuView.displayResults(damage, false);                
             }
             
             if(battle.getEnemyCurrentHealth() <= 0){
@@ -86,7 +88,20 @@ public class BattleControl {
         return 0;
     }
 
+    public static int magicCast(){
+        Game game = DaenirisTheForgotten.currentGame;
+        BattleScene battle = game.getBattle(); 
         
+        
+        
+        if(battle.getEnemyCurrentHealth() <= 0){
+            battle.setEnemyHealth(0);
+            endBattle(battle);
+            return 1;
+        }        
+        return 0;
+    }
+    
     @SuppressWarnings("empty-statement")
         public static void enemyAttack() {    
             Game game = DaenirisTheForgotten.currentGame;
@@ -164,7 +179,7 @@ public class BattleControl {
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         
         battle.setTotalDefense(player.getDefense());
-}
+    }
 
     public static void examineEnemy() {
         Game game = DaenirisTheForgotten.currentGame;
@@ -203,7 +218,6 @@ public class BattleControl {
             DistributeBonusesView levelUp = new DistributeBonusesView();
             levelUp.display();
         }
-       
     }
     
     public static ArrayLocation enemySelector(){

@@ -36,7 +36,7 @@ public abstract class View implements ViewInterface{
         }while (!value.equals("Q") && exit != 1);
     }
     
-    public void display(TabularMenu tabularMenu) throws illegalActionException{
+    public void display(TabularMenu tabularMenu){
         String value;
         int exit;
         do {

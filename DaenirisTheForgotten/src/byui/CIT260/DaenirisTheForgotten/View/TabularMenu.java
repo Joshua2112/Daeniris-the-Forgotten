@@ -6,6 +6,10 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import daeniristheforgotten.DaenirisTheForgotten;
+
 
 
 /**
@@ -90,5 +94,23 @@ public class TabularMenu {
         this.data = data;
     }
    
-    
+    public static TabularMenu createTabularMenu(){
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        
+        TabularMenu tab = new TabularMenu();
+        tab.setDisplayName("Spell Display");
+        tab.setColumnCount(Constants.SPELL_COL_COUNT);
+        tab.setColumnWidth(Constants.SPELL_COL_WIDTH);
+        tab.setRowCount(Constants.SPELL_ROW_COUNT);
+        tab.setType(Constants.SPELLS);
+        
+        String[] header = new String[Constants.SPELL_COL_COUNT];
+        header[0] = "Black Magic";
+        header[1] = "White Magic";
+        
+        tab.setHeader(header);
+            
+        return tab;
+        
+    }
 }

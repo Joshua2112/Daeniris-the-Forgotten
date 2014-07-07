@@ -17,56 +17,42 @@ import java.util.Scanner;
 /**
  *
  * @author Joshua
- */
-class EnterAgeView{
+ */   
+class EnterAgeView extends View{
     
     Actor[][] actors = game.getActor();
     PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
 
-    private final String AGE_MESSAGE = "Please enter character's age (in numeric format i.e. 33, 18, etc.";
-    
-    public void display() throws illegalActionException{
-        int exit;
-        String value;
-        do {
-            System.out.println(this.AGE_MESSAGE);
-            value = this.getInput();
-            exit = this.doAction(value);
-
-        }while (!value.equals("Q") && exit != 1);
+    public EnterAgeView() {
+        super("Enter age for your character in numeric format (i.e. 33, 18, etc.");
     }
-    
-    public String getInput() {
-        
-        boolean valid = false;
-        String input = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
-            //System.out.println("\n\tPlease choose option");
-            
-            input = keyboard.nextLine();
-            input = input.trim();
-            input = input.toUpperCase();
-            
-            if (input.equals("Q")){
-                return input;
-            }                           
-            else{
-                valid = true;
-            }
-        }
-        return input;
-        }
 
-    public int doAction(String value)throws illegalActionException{
-        try{
-        int age = Integer.parseInt(value);
-        player.setAge(age);
-        }catch(NumberFormatException nf){
-        throw new illegalActionException("\n\tMust be a number");
-        }
-        return 1;
+    @Override
+    public int doAction(String value){
+        int exit = 0;
+
+
+            try{
+                int age = checkAge(value);
+            }catch(illegalActionException ex){
+                System.out.println(ex.getMessage());
+                exit = 0;
             }
+
+        return exit;
     }
+    public static int checkAge(String value)throws illegalActionException{
+        Actor[][] actors = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
+        int age = 0;
+        
+        try{        
+            age = Integer.parseInt(value);
+            player.setAge(age);
+        }catch(NumberFormatException ex){
+            throw new illegalActionException("Must enter a number");
+        }
+               
+        return age;
+    }
+}

@@ -577,7 +577,7 @@ public class GameControl {
         
         Enemy jelly = new Enemy();
         jelly.setName("Jelly");
-        jelly.setAttack(4);
+        jelly.setAttack(18);
         jelly.setDefense(3);
         jelly.setMagicAttack(7);
         jelly.setMagicDefense(4);
@@ -646,7 +646,8 @@ public class GameControl {
         Spells fire1 = new Spells();
         fire1.setSpellName("Fire I");
         fire1.setDescription("Inflicts fire damage to enemies");
-        fire1.setSpellType(Constants.SPELL_HEALTH);
+        fire1.setMessage("The flames inflicted ");
+        fire1.setSpellType(Constants.SPELL_ATTACK_HEALTH);
         fire1.setLearned(false);
         fire1.setMagicCost(5);
         fire1.setAttackDamage(15);
@@ -656,7 +657,8 @@ public class GameControl {
         Spells ice1 = new Spells();
         ice1.setSpellName("Ice I");
         ice1.setDescription("Inflicts ice damage to enemies");
-        ice1.setSpellType(Constants.SPELL_HEALTH);
+        ice1.setMessage("The cold inflicted ");
+        ice1.setSpellType(Constants.SPELL_ATTACK_HEALTH);
         ice1.setLearned(false);
         ice1.setMagicCost(5);
         ice1.setAttackDamage(15);
@@ -666,7 +668,8 @@ public class GameControl {
         Spells lighting1 = new Spells();
         lighting1.setSpellName("Lighting I");
         lighting1.setDescription("Inflicts lighting damage to enemies");
-        lighting1.setSpellType(Constants.SPELL_HEALTH);
+        lighting1.setMessage("The shock inflicts ");
+        lighting1.setSpellType(Constants.SPELL_ATTACK_HEALTH);
         lighting1.setLearned(false);
         lighting1.setMagicCost(5);
         lighting1.setAttackDamage(15);
@@ -674,20 +677,21 @@ public class GameControl {
         spells[0][2] = lighting1;
         
         Spells weaken = new Spells();
-        lighting1.setSpellName("Weaken I");
-        lighting1.setDescription("Weakens enemies defence");
-        lighting1.setSpellType(Constants.SPELL_ATTACK_DEFENSE);
-        lighting1.setLearned(false);
-        lighting1.setMagicCost(5);
-        lighting1.setAttackDamage(10);
-        lighting1.setSpecialEffects(.25);
-        spells[0][2] = lighting1;
+        weaken.setSpellName("Weaken I");
+        weaken.setDescription("Weakens enemies defence");
+        weaken.setMessage("The enemies defence is weakened by a percentage of ");
+        weaken.setSpellType(Constants.SPELL_ATTACK_DEFENSE);
+        weaken.setLearned(false);
+        weaken.setMagicCost(5);
+        weaken.setAttackDamage(10);
+        weaken.setSpecialEffects(25);
+        spells[0][2] = weaken;
         
         Spells heal1 = new Spells();
         heal1.setSpellName("Heal I");
         heal1.setDescription("Heals minor damage to Health");
-        heal1.setMessage("You were healed +15 health points");
-        heal1.setSpellType(Constants.SPELL_HEALTH);
+        heal1.setMessage("Your health was restored by ");
+        heal1.setSpellType(Constants.SPELL_HEAL_HEALTH);
         heal1.setLearned(false);
         heal1.setMagicCost(5);
         heal1.setAttackDamage(0);
@@ -697,7 +701,8 @@ public class GameControl {
         Spells defend = new Spells();
         defend.setSpellName("Defend");
         defend.setDescription("Increases Defense");
-        defend.setSpellType(Constants.SPELL_ATTACK_DEFENSE);
+        defend.setMessage("Your defence is increased by a percentage of ");
+        defend.setSpellType(Constants.SPELL_INCREASE_DEFENCE);
         defend.setMagicCost(5);
         defend.setAttackDamage(0);
         defend.setSpecialEffects(15);
@@ -706,7 +711,8 @@ public class GameControl {
         Spells heal2 = new Spells();
         heal2.setSpellName("heal II");
         heal2.setDescription("Heals heavy damage to health");
-        heal2.setSpellType(Constants.SPELL_HEALTH);
+        heal2.setMessage("Your health was restored by: ");
+        heal2.setSpellType(Constants.SPELL_HEAL_HEALTH);
         heal2.setLearned(false);
         heal2.setMagicCost(5);
         heal2.setAttackDamage(0);
