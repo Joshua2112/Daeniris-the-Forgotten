@@ -7,10 +7,13 @@
 package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
+import byui.CIT260.DaenirisTheForgotten.Exception.MovedOffMapException;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -44,19 +47,19 @@ public class AdventureView extends View{
                 displayMap();
                 break;
             case "W":
-                MoveControl.move(-1, 0);
+                moveIt(-1, 0);
                 displayMap();
                 break;
             case "S":
-                MoveControl.move(1, 0);
+                moveIt(1, 0);
                 displayMap();
                 break;
             case "A":
-                MoveControl.move(0, -1);
+                moveIt(0, -1);
                 displayMap();
                 break;
             case "D":
-                MoveControl.move(0, 1);
+                moveIt(0, 1);
                 displayMap();
                 break;
             case "B":
@@ -71,6 +74,15 @@ public class AdventureView extends View{
         }
         return 0;
                
+    }
+    
+    public static void moveIt(int x, int y){
+        try{MoveControl.move(x, y);
+        
+        } catch (MovedOffMapException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
     }
     
     

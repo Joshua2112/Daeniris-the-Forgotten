@@ -54,7 +54,7 @@ public class WeaponEquipView extends View{
                         + "\n\tTotal Magic Attack = " + stats.getTotalMagicAttack()
                         + "\n\tTotal Magic Defense = " + stats.getTotalMagicDefense());
                 break;
-            case "3":
+        case "3":
                 playerGear.setWeapon(weapons[1]);
                 BattleScene stats1 = new BattleScene();
                 System.out.println("\n\tYou equipped " + weapons[1].getName()
@@ -63,7 +63,7 @@ public class WeaponEquipView extends View{
                         + "\n\tTotal Magic Attack = " + stats1.getTotalMagicAttack()
                         + "\n\tTotal Magic Defense = " + stats1.getTotalMagicDefense());
                 break;
-            case "4":
+        case "4":
                 playerGear.setWeapon(weapons[2]);
                 BattleScene stats2 = new BattleScene();
                 System.out.println("\n\tYou equipped " + weapons[2].getName()
