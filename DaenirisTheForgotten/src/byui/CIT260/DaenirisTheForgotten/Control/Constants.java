@@ -67,10 +67,19 @@ public class Constants {
     public static final int ACTOR_VALUE_COL = 1;
     
     //Spell Types
-    public static final int SPELL_HEALTH = 1;
-    public static final int SPELL_MANA = 2;
-    public static final int SPELL_MAGIC_DEFENSE = 3;
+    public static final int SPELL_HEAL_HEALTH = 1;
+    public static final int SPELL_ATTACK_HEALTH = 2;
+    public static final int SPELL_ATTACK_MAGIC_DEFENSE = 3;
     public static final int SPELL_ATTACK_DEFENSE = 4;
+    public static final int SPELL_INCREASE_MAGIC_DEFENSE = 5;
+    public static final int SPELL_INCREASE_DEFENCE = 6;
+    public static final int SPELL_INCREASE_MANA = 7;
+    public static final int SPELL_INCREASE_HEALTH = 8;
+    public static final int SPELL_REDUCE_HEALTH = 9;
+    public static final int SPELL_REDUCE_MANA = 10;
+    
+    //Spell Variables
+    public static final double SPELL_BONUS_PERCENT = .25;
     
     public static final int GEAR_LIST_COUNT = 50;
     public static final int STARTING_GOLD = 100;

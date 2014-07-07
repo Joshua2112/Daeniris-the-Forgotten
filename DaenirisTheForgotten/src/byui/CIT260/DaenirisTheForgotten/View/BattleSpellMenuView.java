@@ -13,16 +13,14 @@ import byui.CIT260.DaenirisTheForgotten.Exception.stringNotFoundException;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
-import daeniristheforgotten.DaenirisTheForgotten;
-
 
 /**
  *
- * @author Joshua
+ * @author Nathan
  */
-public class SpellMenuView extends View{
-
-    public SpellMenuView() {
+public class BattleSpellMenuView extends View{
+    
+    public BattleSpellMenuView() {
         super("Type name to select");
     }
     
@@ -38,25 +36,25 @@ public class SpellMenuView extends View{
             }catch(stringNotFoundException ex){
                 System.out.println(ex.getMessage());
         }
-        return 0;
+        return 1;
     }   
 
     private void displayCast(Spells spell) {
         Actor[][] actors = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         String value;
-        
+        int effectValue;        
         System.out.println("Select 'C' to cast spell or Select 'Q' to quit."); 
-        
+
         do{ 
             value = getInput();
             
             if (value.equals("C")){
                 try{
-                    SpellControl.castSpell(spell, false);
-                    PlayerCharacterInfoView playerInfo = new PlayerCharacterInfoView();
-                    playerInfo.display();
+                    effectValue = SpellControl.castSpell(spell, true);
+                    BattleMenuView.displayResults(spell, effectValue);
                 }
+                
                 catch(illegalActionException ex){
                       System.out.println(ex.getMessage());
                 }
@@ -65,5 +63,4 @@ public class SpellMenuView extends View{
             
         } while(!value.equals("Q"));
     }
-   
 }

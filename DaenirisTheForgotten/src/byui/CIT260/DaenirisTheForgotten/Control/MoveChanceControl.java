@@ -32,14 +32,14 @@ public class MoveChanceControl implements Serializable{
         int randomInt = randomGenerator.nextInt(100);
         
 
-        if(randomInt > 0 && randomInt < 25){
+        if(randomInt > 0 && randomInt < 31){
             createNewBattle();      
             }
-        else if(randomInt >= 26 && randomInt <= 40){
+        else if(randomInt >= 32 && randomInt <= 33){
             TreasureChestScene treasure = new TreasureChestScene();
             treasure.display();
             }
-        else if(randomInt >= 41 && randomInt <= 45){
+        else if(randomInt >= 34 && randomInt <= 35){
             HealingPondScene healingPond = new HealingPondScene();
             healingPond.display();  
             }

@@ -16,9 +16,18 @@ public class DaenirisTheForgotten {
     public static PlayerCharacter playerCharacter;
     
     public static void main(String[] args){
-        ProgramStart programStart = new ProgramStart();
-        programStart.startProgram();       
+        try{
+            ProgramStart programStart = new ProgramStart();
+            programStart.startProgram();
         }
+        catch (Throwable e){
+            System.out.println("An abnormal error occured."
+                             + "Try running the program again."
+                             + "\nIf the error persist contact support. ");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
 
     public static Game getCurrentGame() {
