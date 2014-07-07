@@ -18,16 +18,48 @@ import java.util.Scanner;
  *
  * @author Joshua
  */
-class EnterAgeView extends View{
+class EnterAgeView{
     
     Actor[][] actors = game.getActor();
     PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
 
-    public EnterAgeView(){
-        super("\n\tPlease enter character's age (in numeric format[i.e. 18, 23, etc.])");
-    }
+    private final String AGE_MESSAGE = "Please enter character's age (in numeric format i.e. 33, 18, etc.";
+    
+    public void display() throws illegalActionException{
+        int exit;
+        String value;
+        do {
+            System.out.println(this.AGE_MESSAGE);
+            value = this.getInput();
+            exit = this.doAction(value);
 
-    @Override
+        }while (!value.equals("Q") && exit != 1);
+    }
+    
+    public String getInput() {
+        
+        boolean valid = false;
+        String input = null;
+        Scanner keyboard = new Scanner(System.in);
+        
+        while(!valid){
+            
+            //System.out.println("\n\tPlease choose option");
+            
+            input = keyboard.nextLine();
+            input = input.trim();
+            input = input.toUpperCase();
+            
+            if (input.equals("Q")){
+                return input;
+            }                           
+            else{
+                valid = true;
+            }
+        }
+        return input;
+        }
+
     public int doAction(String value)throws illegalActionException{
         try{
         int age = Integer.parseInt(value);
