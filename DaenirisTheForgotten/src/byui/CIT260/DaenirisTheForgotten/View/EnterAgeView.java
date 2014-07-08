@@ -9,19 +9,19 @@ package byui.CIT260.DaenirisTheForgotten.View;
 import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
-import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
-import daeniristheforgotten.DaenirisTheForgotten;
-import java.util.Scanner;
 
 /**
  *
  * @author Joshua
- */
+ */   
 class EnterAgeView extends View{
+    
+    Actor[][] actors = game.getActor();
+    PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
 
-    public EnterAgeView(){
-        super("\n\tPlease enter character's age (in numeric format[i.e. 18, 23, etc.])");
+    public EnterAgeView() {
+        super("Enter age for your character in numeric format (i.e. 33, 18, etc.");
     }
 
     @Override

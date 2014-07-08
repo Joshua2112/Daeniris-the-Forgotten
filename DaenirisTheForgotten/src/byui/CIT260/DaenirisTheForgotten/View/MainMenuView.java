@@ -8,7 +8,10 @@ package byui.CIT260.DaenirisTheForgotten.View;
 
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import daeniristheforgotten.DaenirisTheForgotten;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +32,11 @@ public class MainMenuView extends View{
         public int doAction(String choice){       
          switch (choice){
             case "N":
-                this.StartNewGame(false);             
+         try {             
+             this.StartNewGame(false);
+         } catch (illegalActionException ex) {
+             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+         }
                 break;
             case "H":
                 HelpMenuView helpMenu = new HelpMenuView();
@@ -42,7 +49,11 @@ public class MainMenuView extends View{
                 ProgramControl.loadGame(DaenirisTheForgotten.getCurrentGame());
                 break;
             case "T":
-                this.StartNewGame(true);
+         try {
+             this.StartNewGame(true);
+         } catch (illegalActionException ex) {
+             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+         }
                 AdventureView adventureView = new AdventureView();
                 adventureView.display();
                 break;
@@ -53,7 +64,11 @@ public class MainMenuView extends View{
                 ShopMenuView shopping = new ShopMenuView();
                 shopping.display();
             case "B":
-                this.StartNewGame(true);
+         try {
+             this.StartNewGame(true);
+         } catch (illegalActionException ex) {
+             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+         }
                 BattleMenuView fight = new BattleMenuView();
                 fight.display();
             case "Q":
@@ -66,7 +81,7 @@ public class MainMenuView extends View{
                
         }
 
-    private void StartNewGame(Boolean test) {
+    private void StartNewGame(Boolean test) throws illegalActionException {
         
         GameControl.CreateNewGame();
         

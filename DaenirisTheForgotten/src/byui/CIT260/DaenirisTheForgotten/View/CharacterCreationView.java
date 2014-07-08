@@ -6,6 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
@@ -19,7 +20,7 @@ import daeniristheforgotten.DaenirisTheForgotten;
 public class CharacterCreationView {
 
  
-    public static void newCharacterCreation() {  
+    public static void newCharacterCreation() throws illegalActionException {  
         
         System.out.println("Create Character");
         
