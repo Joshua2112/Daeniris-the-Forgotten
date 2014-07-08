@@ -10,7 +10,7 @@ package byui.CIT260.DaenirisTheForgotten.Model;
 public class Game 
 {
     private float gameTime;
-    private Inventory[][] inventory;
+    private Inventory[] inventory;
     private Actor[][] actor;
     private World world;
     private CraftRecipe[][] craftRecipe;
@@ -22,11 +22,11 @@ public class Game
     public Gear[] weapons;
     public EquippedGear equippedGear;
 
-    public Inventory[][] getInventory() {
+    public Inventory[] getInventory() {
         return inventory;
     }
 
-    public void setInventory(Inventory[][] inventory) {
+    public void setInventory(Inventory[] inventory) {
         this.inventory = inventory;
     }
 

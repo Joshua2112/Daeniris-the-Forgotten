@@ -16,7 +16,6 @@ import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
-import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
@@ -54,19 +53,18 @@ public class GameControl {
         Actor[][] actor = game.getActor();
     }
 
-    public static Inventory[][] createInventory() {
-        Inventory[][] playerInventory =
-                    new Inventory[Constants.INV_COL_COUNT][Constants.INV_COL_WIDTH];
+    public static Inventory[] createInventory() {
+        Inventory[] playerInventory =
+                    new Inventory[Constants.GEAR_LIST_COUNT];
         
         SingleUseItems blank = new SingleUseItems();
         blank.setName("");
         blank.setQuantity(0);
         
-        for(int i = 0; i < (Constants.INV_COL_COUNT); i ++){
-            for (int j = 0; j < (Constants.INV_COL_WIDTH); j++){
-                playerInventory[i][j] = blank;
+        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
+                playerInventory[i] = blank;
             }
-        }
+        
         
         // Single Use Items
         SingleUseItems potion = new SingleUseItems();
@@ -74,37 +72,37 @@ public class GameControl {
         potion.setDescription("A healing item");
         potion.setEffects("Heals 20 health points");
         potion.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
-        playerInventory[0][0] = potion;
+        playerInventory[0] = potion;
         
         SingleUseItems antidote = new SingleUseItems();
         antidote.setName("Antidote");
         antidote.setDescription("Heals poison");
         antidote.setEffects("Heals poison");
         antidote.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[0][1] = antidote;
+        playerInventory[1] = antidote;
         
         SingleUseItems ether = new SingleUseItems();
         ether.setName("Ether");
         ether.setDescription("Resores magic");
         ether.setEffects("Restores 20 magic points");
         ether.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
-        playerInventory[0][2] = ether;
+        playerInventory[2] = ether;
         
         SingleUseItems greaterPotion = new SingleUseItems();
         greaterPotion.setName("Greater Potion");
         greaterPotion.setDescription("Restores more health");
         greaterPotion.setEffects("Restores 50 health points");
         greaterPotion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[0][3] = greaterPotion;
+        playerInventory[3] = greaterPotion;
         
         SingleUseItems pheonixDown = new SingleUseItems();
         pheonixDown.setName("Pheonix Down");
         pheonixDown.setDescription("Revives");
         pheonixDown.setEffects("Blah");
         pheonixDown.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[0][4] = pheonixDown;
+        playerInventory[4] = pheonixDown;
         
-        RawMaterial wood = new RawMaterial();
+        /*RawMaterial wood = new RawMaterial();
         wood.setName("Wood");
         wood.setDescription("Wood used to craft items");
         wood.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
@@ -132,7 +130,7 @@ public class GameControl {
         silver.setName("Silver");
         silver.setDescription("Valuable metal used to craft items");
         silver.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
-        playerInventory[1][4] = silver;
+        playerInventory[1][4] = silver;*/
         
         
         return playerInventory;
@@ -769,7 +767,7 @@ public class GameControl {
         return craftRecipe;   
     }
     
-    public static void sort(Inventory[][] array){
+    public static void sort(Inventory[] array){
 
         System.out.println("Array Length" + array[0].length);
         Inventory temp;
@@ -846,7 +844,7 @@ public class GameControl {
         return false;
     }
     
-    public static String[] inventoryStringConvert(Inventory[][] array, int column){
+    public static String[] inventoryStringConvert(Inventory[] array, int column){
         
         int count = 0;
         
