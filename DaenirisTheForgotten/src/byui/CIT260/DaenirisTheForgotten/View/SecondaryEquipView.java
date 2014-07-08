@@ -46,7 +46,7 @@ public class SecondaryEquipView extends View{
             
         case "2":
                 playerGear.setLeftHand(secondaries[0]);
-                BattleScene stats = new BattleScene();
+                BattleScene stats = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[0].getName()
                         + "\n\tTotal Attack = " + stats.getTotalAttack()
                         + "\n\tTotal Defense = " + stats.getTotalDefense()
@@ -55,7 +55,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "3":
                 playerGear.setLeftHand(secondaries[1]);
-                BattleScene stats1 = new BattleScene();
+                BattleScene stats1 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[1].getName()
                         + "\n\tTotal Attack = " + stats1.getTotalAttack()
                         + "\n\tTotal Defense = " + stats1.getTotalDefense()
@@ -64,7 +64,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "4":
                 playerGear.setLeftHand(secondaries[2]);
-                BattleScene stats2 = new BattleScene();
+                BattleScene stats2 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[2].getName()
                         + "\n\tTotal Attack = " + stats2.getTotalAttack()
                         + "\n\tTotal Defense = " + stats2.getTotalDefense()
@@ -73,7 +73,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "5":
                 playerGear.setLeftHand(secondaries[3]);
-                BattleScene stats3 = new BattleScene();
+                BattleScene stats3 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[3].getName()
                         + "\n\tTotal Attack = " + stats3.getTotalAttack()
                         + "\n\tTotal Defense = " + stats3.getTotalDefense()
@@ -82,7 +82,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "6":
                 playerGear.setLeftHand(secondaries[4]);
-                BattleScene stats4 = new BattleScene();
+                BattleScene stats4 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[4].getName()
                         + "\n\tTotal Attack = " + stats4.getTotalAttack()
                         + "\n\tTotal Defense = " + stats4.getTotalDefense()
@@ -91,7 +91,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "7":
                 playerGear.setLeftHand(secondaries[5]);
-                BattleScene stats5 = new BattleScene();
+                BattleScene stats5 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[5].getName()
                         + "\n\tTotal Attack = " + stats5.getTotalAttack()
                         + "\n\tTotal Defense = " + stats5.getTotalDefense()
@@ -100,7 +100,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "8":
                 playerGear.setLeftHand(secondaries[6]);
-                BattleScene stats6 = new BattleScene();
+                BattleScene stats6 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[6].getName()
                         + "\n\tTotal Attack = " + stats6.getTotalAttack()
                         + "\n\tTotal Defense = " + stats6.getTotalDefense()
@@ -109,7 +109,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "9":
                 playerGear.setLeftHand(secondaries[7]);
-                BattleScene stats7 = new BattleScene();
+                BattleScene stats7 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[7].getName()
                         + "\n\tTotal Attack = " + stats7.getTotalAttack()
                         + "\n\tTotal Defense = " + stats7.getTotalDefense()
@@ -118,7 +118,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "10":
                 playerGear.setLeftHand(secondaries[8]);
-                BattleScene stats8 = new BattleScene();
+                BattleScene stats8 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[8].getName()
                         + "\n\tTotal Attack = " + stats8.getTotalAttack()
                         + "\n\tTotal Defense = " + stats8.getTotalDefense()
@@ -127,7 +127,7 @@ public class SecondaryEquipView extends View{
                 break;
             case "11":
                 playerGear.setLeftHand(secondaries[9]);
-                BattleScene stats9 = new BattleScene();
+                BattleScene stats9 = new BattleScene(1);
                 System.out.println("\n\tYou equipped " + secondaries[9].getName()
                         + "\n\tTotal Attack = " + stats9.getTotalAttack()
                         + "\n\tTotal Defense = " + stats9.getTotalDefense()

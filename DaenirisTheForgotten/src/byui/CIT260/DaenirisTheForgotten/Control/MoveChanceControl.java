@@ -7,8 +7,11 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 
+import byui.CIT260.DaenirisTheForgotten.Model.ArrayLocation;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
+import byui.CIT260.DaenirisTheForgotten.Model.World;
 import byui.CIT260.DaenirisTheForgotten.View.BattleMenuView;
 import byui.CIT260.DaenirisTheForgotten.View.HealingPondScene;
 import byui.CIT260.DaenirisTheForgotten.View.TabularMenu;
@@ -73,7 +76,7 @@ public class MoveChanceControl implements Serializable{
     private void createNewBattle(){
         Game game = DaenirisTheForgotten.getCurrentGame();
         
-        BattleScene battleData = new BattleScene();
+        BattleScene battleData = new BattleScene(this.enemyGenerator());
         game.setBattle(battleData);
         
         BattleMenuView battle = new BattleMenuView();
@@ -112,6 +115,31 @@ public class MoveChanceControl implements Serializable{
         //GameControl.stringConvert(game.getInventory(), Constants.INV_POTION_COL);
         //GameControl.sortCrafts(game.getSpells());      
         return tab;
+    }
+    
+    private int enemyGenerator(){
+        Game game = DaenirisTheForgotten.currentGame;
+        World world = game.getWorld();
+        Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
+        char loc = mapArray[world.getxLoc()][world.getyLoc()].getSymbol();
+        int column = 0;
+        
+        
+        switch (loc){
+            case '_':
+                column = 1;
+                break;
+            case 'T':
+                column = 2;
+                break;
+            case '^':
+                column = 3;
+                break;
+            case 'Y':
+                column = 4;
+                break;
+        }
+        return column;
     }
 }   
     

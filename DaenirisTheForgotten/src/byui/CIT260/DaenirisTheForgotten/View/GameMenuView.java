@@ -36,7 +36,6 @@ class GameMenuView extends View {
             case "M":
                 SpellMenuView spellMenuView = new SpellMenuView();
                 spellMenuView.display(TabularMenu.createTabularMenu());
-                
                 break;
             case "I":
                 this.displayInventory();
@@ -78,13 +77,12 @@ class GameMenuView extends View {
         
         String[] header = new String[Constants.INV_COL_COUNT];
         header[0] = "Potions";
-        header[1] = "Armor";
-        header[2] = "Weapon";
-        header[3] = "Resources";
-        
+
         inventoryTab.setHeader(header);
         
         GameControl.sort(game.getInventory());
+        displayTabular(inventoryTab);
+        
     }
 
     private void displayActors() {

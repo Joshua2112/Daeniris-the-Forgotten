@@ -23,7 +23,7 @@ public class PlayerCharacterInfoView extends View{
     Actor[][] actors = game.getActor();
     PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
     EquippedGear playerGear = game.getEquippedGear();
-    BattleScene stats = new BattleScene();
+    BattleScene stats = new BattleScene(1);
 
     public PlayerCharacterInfoView() {
         super("");

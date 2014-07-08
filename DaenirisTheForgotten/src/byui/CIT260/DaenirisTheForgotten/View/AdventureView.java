@@ -14,6 +14,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 
 
 
@@ -92,36 +93,46 @@ public class AdventureView extends View{
        Game game = DaenirisTheForgotten.getCurrentGame();
        World world = game.getWorld();
        
-       Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
+       Location[][] mapArray = game.getWorld().getMap();
        System.out.println("Game World Map");
-       System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");
+        
+        System.out.print(" ");
+        for(int i = 0; i < (Constants.MAP_MAX_Y / 2) + 1; i++){
+            System.out.print("- ");
+        } 
+        System.out.println(" ");
        
-       for(int i = 0; i < 10; i++)
+       for(int i = 0; i < Constants.MAP_MAX_X; i++)
        {
-           for(int j = 0; j < 10; j++)
+           System.out.print("| ");
+           for(int j = 0; j < Constants.MAP_MAX_Y; j++)
            {               
                if (i == world.getxLoc() && j == world.getyLoc()){
-                   System.out.print("\033[0m| ");
+                   //System.out.print("\033[0m| ");
                    System.out.print("\033[1;43m" + mapArray[i][j].getSymbol() + "\033[0m");
-                   System.out.print("\033[0m ");
+                   //System.out.print("\033[0m ");
                }
                else if (mapArray[i][j].isDiscovered()){
-                   System.out.print("\033[0m| ");
+                   //System.out.print("\033[0m| ");
                    System.out.print("\033[0m" + mapArray[i][j].getSymbol());
-                   System.out.print("\033[0m ");
+                   //System.out.print("\033[0m ");
                }
                else{
-                   System.out.print("\033[0m| ");
+                   //System.out.print("\033[0m| ");
                    System.out.print("\033[0m ");
-                   System.out.print("\033[0m ");
+                   //System.out.print("\033[0m ");
                }
 
            }
            
-           System.out.print("|");
-           System.out.println();
-           System.out.println(" - - - - - - - - - - - - - - - - - - - -  ");        
+           System.out.print(" |");
+           System.out.println();       
         }
+       
+        System.out.print(" ");
+        for(int i = 0; i < (Constants.MAP_MAX_Y / 2) + 1; i++){
+            System.out.print("- ");
+        } 
         System.out.println(" ");
         System.out.println(mapArray[world.getxLoc()][world.getyLoc()].getDescription());
     }

@@ -212,7 +212,7 @@ public class SpellControl{
                 battleStats.setEnemyDefense((int) (battleStats.getEnemyDefense() * effectPercent));
                 break;            
             case Constants.SPELL_ATTACK_MAGIC_DEFENSE:
-                battleStats.setEnemyMagicDefense((int) (battleStats.getEnemyDefense() * effectPercent));
+                battleStats.setEnemyMagicDefense((int) (battleStats.getEnemyMagicDefense() * effectPercent));
                 break;
             case Constants.SPELL_REDUCE_HEALTH:
                 battleStats.setCurrentHealth((int) (battleStats.getCurrentHealth() - effectPercent));

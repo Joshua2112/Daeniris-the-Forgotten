@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.Model;
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
+import daeniristheforgotten.DaenirisTheForgotten;
 import java.io.Serializable;
 import java.util.Random;
 /**
@@ -16,21 +17,19 @@ import java.util.Random;
 public class BattleScene extends Location{
     private boolean attackFirst;
 
-    public BattleScene() {
-        
+    public BattleScene(int column) {
+        Game game = DaenirisTheForgotten.currentGame;
         Actor[][] actors = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         EquippedGear playerGear = game.getEquippedGear();
         Random enemyNum = new Random();
         Enemy enemy = new Enemy();
-        if(player.getLevel() <= 5){
-            int RandEnemy = enemyNum.nextInt(2);
-            enemy = ((Enemy) actors[1][RandEnemy]);
-        }
-        else if(player.getLevel() <= 10){
-            int RandEnemy = enemyNum.nextInt(5);
-            enemy = ((Enemy) actors[1][RandEnemy]);
-        }
+
+
+        int RandEnemy = enemyNum.nextInt(3);
+            enemy = ((Enemy) actors[column][RandEnemy]);
+
+
                 
         
         
