@@ -15,7 +15,10 @@ import byui.CIT260.DaenirisTheForgotten.Model.EquippedGear;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import byui.CIT260.DaenirisTheForgotten.Model.RawMaterial;
+import byui.CIT260.DaenirisTheForgotten.Model.Resource;
 import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
@@ -103,6 +106,11 @@ public class GameControl {
         playerInventory[4] = pheonixDown;
         
         /*RawMaterial wood = new RawMaterial();
+=======
+        playerInventory[0][4] = pheonixDown;
+        /*
+        RawMaterial wood = new RawMaterial();
+>>>>>>> origin/master
         wood.setName("Wood");
         wood.setDescription("Wood used to craft items");
         wood.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
@@ -131,7 +139,6 @@ public class GameControl {
         silver.setDescription("Valuable metal used to craft items");
         silver.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         playerInventory[1][4] = silver;*/
-        
         
         return playerInventory;
     }
@@ -588,6 +595,21 @@ public class GameControl {
         jelly.setItemsDropped("potion, Cloth Cap");
         actors [1][1] = jelly;
         
+        Enemy imp = new Enemy();
+        imp.setName("Imp");
+        imp.setAttack(11);
+        imp.setDefense(5);
+        imp.setMagicAttack(7);
+        imp.setMagicDefense(4);
+        imp.setHealthPoints(15);
+        imp.setCurrentHealthPoints(15);
+        imp.setMagicPoints(30);
+        imp.setCurrentMagicPoints(30);
+        imp.setExperienceValue(30);
+        imp.setGoldValue(27);
+        imp.setItemsDropped("potion, Cloth Cap");
+        actors [1][2] = imp;
+        
         Enemy hobGoblin = new Enemy();
         hobGoblin.setName("Hobgoblin");
         hobGoblin.setAttack(18);
@@ -601,7 +623,7 @@ public class GameControl {
         hobGoblin.setExperienceValue(50);
         hobGoblin.setGoldValue(76);
         hobGoblin.setItemsDropped("potion, Cloth Cap");
-        actors [1][2] = hobGoblin;
+        actors [2][0] = hobGoblin;
         
         Enemy spellCaster = new Enemy();
         spellCaster.setName("Spell Caster");
@@ -616,7 +638,7 @@ public class GameControl {
         spellCaster.setExperienceValue(55);
         spellCaster.setGoldValue(81);
         spellCaster.setItemsDropped("potion, Cloth Cap");
-        actors [1][3] = spellCaster;
+        actors [2][1] = spellCaster;
         
         Enemy platedBeast = new Enemy();
         platedBeast.setName("Plated Beast");
@@ -631,8 +653,98 @@ public class GameControl {
         platedBeast.setExperienceValue(86);
         platedBeast.setGoldValue(103);
         platedBeast.setItemsDropped("potion, Cloth Cap");
-        actors [1][4] = platedBeast;
+        actors [2][2] = platedBeast;
+        
+        Enemy hobGoblin2 = new Enemy();
+        hobGoblin.setName("Ugly Hobgoblin");
+        hobGoblin.setAttack(28);
+        hobGoblin.setDefense(18);
+        hobGoblin.setMagicAttack(0);
+        hobGoblin.setMagicDefense(16);
+        hobGoblin.setHealthPoints(40);
+        hobGoblin.setCurrentHealthPoints(40);
+        hobGoblin.setMagicPoints(0);
+        hobGoblin.setCurrentMagicPoints(0);
+        hobGoblin.setExperienceValue(75);
+        hobGoblin.setGoldValue(176);
+        hobGoblin.setItemsDropped("potion, Cloth Cap");
+        actors [3][0] = hobGoblin2;
+       
+        Enemy spellCaster2 = new Enemy();
+        spellCaster.setName("Ugly Spell Caster");
+        spellCaster.setAttack(18);
+        spellCaster.setDefense(18);
+        spellCaster.setMagicAttack(25);
+        spellCaster.setMagicDefense(18);
+        spellCaster.setHealthPoints(34);
+        spellCaster.setCurrentHealthPoints(34);
+        spellCaster.setMagicPoints(45);
+        spellCaster.setCurrentMagicPoints(45);
+        spellCaster.setExperienceValue(85);
+        spellCaster.setGoldValue(115);
+        spellCaster.setItemsDropped("potion, Cloth Cap");
+        actors [3][1] = spellCaster2;
+        
+        Enemy platedBeast2 = new Enemy();
+        platedBeast.setName("Ugly Plated Beast");
+        platedBeast.setAttack(25);
+        platedBeast.setDefense(28);
+        platedBeast.setMagicAttack(13);
+        platedBeast.setMagicDefense(22);
+        platedBeast.setHealthPoints(24);
+        platedBeast.setCurrentHealthPoints(24);
+        platedBeast.setMagicPoints(30);
+        platedBeast.setCurrentMagicPoints(30);
+        platedBeast.setExperienceValue(100);
+        platedBeast.setGoldValue(150);
+        platedBeast.setItemsDropped("potion, Cloth Cap");
+        actors [3][2] = platedBeast2;
 
+        Enemy hobGoblin3 = new Enemy();
+        hobGoblin.setName("Mean Hobgoblin");
+        hobGoblin.setAttack(38);
+        hobGoblin.setDefense(28);
+        hobGoblin.setMagicAttack(0);
+        hobGoblin.setMagicDefense(26);
+        hobGoblin.setHealthPoints(50);
+        hobGoblin.setCurrentHealthPoints(50);
+        hobGoblin.setMagicPoints(0);
+        hobGoblin.setCurrentMagicPoints(0);
+        hobGoblin.setExperienceValue(100);
+        hobGoblin.setGoldValue(276);
+        hobGoblin.setItemsDropped("potion, Cloth Cap");
+        actors [4][0] = hobGoblin3;
+        
+        Enemy spellCaster3 = new Enemy();
+        spellCaster.setName("Mean Spell Caster");
+        spellCaster.setAttack(28);
+        spellCaster.setDefense(28);
+        spellCaster.setMagicAttack(35);
+        spellCaster.setMagicDefense(28);
+        spellCaster.setHealthPoints(44);
+        spellCaster.setCurrentHealthPoints(44);
+        spellCaster.setMagicPoints(55);
+        spellCaster.setCurrentMagicPoints(55);
+        spellCaster.setExperienceValue(185);
+        spellCaster.setGoldValue(215);
+        spellCaster.setItemsDropped("potion, Cloth Cap");
+        actors [4][1] = spellCaster3;
+        
+        Enemy platedBeast3 = new Enemy();
+        platedBeast.setName("Mean Plated Beast");
+        platedBeast.setAttack(35);
+        platedBeast.setDefense(38);
+        platedBeast.setMagicAttack(33);
+        platedBeast.setMagicDefense(32);
+        platedBeast.setHealthPoints(34);
+        platedBeast.setCurrentHealthPoints(34);
+        platedBeast.setMagicPoints(40);
+        platedBeast.setCurrentMagicPoints(40);
+        platedBeast.setExperienceValue(200);
+        platedBeast.setGoldValue(250);
+        platedBeast.setItemsDropped("potion, Cloth Cap");
+        actors [4][2] = platedBeast3;
+        
         return actors;
     }
     
@@ -727,7 +839,7 @@ public class GameControl {
     }
     
     public static BattleScene createBattle(){
-        BattleScene battle = new BattleScene();
+        BattleScene battle = new BattleScene(1);
         return battle;
     }
 
@@ -769,7 +881,6 @@ public class GameControl {
     
     public static void sort(Inventory[] array){
 
-        System.out.println("Array Length" + array[0].length);
         Inventory temp;
         for (Inventory[] array1 : array) {
             for (int i = 0; i < array1.length - 1; i++) {
@@ -902,7 +1013,63 @@ public class GameControl {
         return playerGear;
     }
 
+    public static void createMapLocations(Location[][] map){
+    
+        //Dungeon #1
+        for(int i = 4; i < 11; i++)  
+            for(int j = 16; j < 27; j++){
+            Resource.setForest(map[i][j]);
+        }
+        
+        for(int j = 19; j < 24; j += 4){
+            for(int i = 5; i < 10; i++){
+                Resource.setPlains(map[i][j]);
+            }
+        }
+        
+        for(int j = 5; j < 8; j += 6){
+            for(int i = 20; i < 24; i++){
+                Resource.setPlains(map[5][i]);
+            }
+        }
+        
+        Resource.setPlains(map[9][22]);
+        Resource.setPlains(map[9][21]);
+        Resource.setPlains(map[8][21]);
+        Resource.setPlains(map[10][19]);
+        
+        //Dungeon #2
+        for(int i = 29; i < 36; i++)  
+            for(int j = 45; j < 56; j++){
+            Resource.setForest(map[i][j]);
+        }
 
+        for (int i = 31; i < 34; i++){
+            for(int j = 49; j < 52; j++){
+                Resource.setMountains(map[i][j]);
+            }
+        }
+        
+        //Dungeon #3
+        for(int i = 15; i < 24; i++)  {
+            for(int j = 82; j < 100; j++){
+                Resource.setMountains(map[i][j]);
+            }
+        }
+        
+        for(int i = 17; i < 22; i++){  
+            for(int j = 84; j < 98; j++){
+                Resource.setDarkForest(map[i][j]);
+            }
+        }
+        
+        /*Mountain Range
+        for(int i = 35; i > 20; i--){
+            for(int j = 15; j < 25; j++){
+                Resource.setMountains(map[i][j + 1]);
+            }
+        }*/
+    }
 }
 
 

@@ -10,21 +10,24 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 
 public class Constants {
     
-    public static final int MAP_MAX_X = 9;
+    public static final int MAP_MAX_X = 40;
     public static final int MAP_MIN_X = 0;
-    public static final int MAP_MAX_Y = 9;
+    public static final int MAP_MAX_Y = 100;
     public static final int MAP_MIN_Y = 0;
+    public static final boolean MAP_DISCOVERED = true;
+    public static final int MAP_START_X = 20;
+    public static final int MAP_START_Y = 0;
     
     
-    public static final int DEFAULT_INVENTORY_QUANTITY = 0;
+    public static final int DEFAULT_INVENTORY_QUANTITY = 1;
     public static final int STARTING_GEAR_QUANTITY = 1;
-    public static final int NUMBER_OF_ACTOR_TYPES = 2;
+    public static final int NUMBER_OF_ACTOR_TYPES = 5;
     public static final int NUMBER_OF_ENEMIES = 100;
 
     //Inventory Display Constants
     public static final int INV_COL_WIDTH = 25;
     public static final int INV_ROW_COUNT = 5;
-    public static final int INV_COL_COUNT = 2;
+    public static final int INV_COL_COUNT = 1;
     public static final int INV_POTION_COL = 0;
     public static final int INV_WEAPON_COL = 1;
     public static final int INV_ARMOR_COL = 2;
@@ -62,7 +65,7 @@ public class Constants {
     //Actor Stats Display Constants
     public static final int ACTOR_COL_WIDTH = 25;
     public static final int ACTOR_ROW_COUNT = 5;
-    public static final int ACTOR_COL_COUNT = 4;
+    public static final int ACTOR_COL_COUNT = 5;
     public static final int ACTOR_LABEL_COL = 0;
     public static final int ACTOR_VALUE_COL = 1;
     

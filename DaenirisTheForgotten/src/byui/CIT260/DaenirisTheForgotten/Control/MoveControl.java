@@ -28,8 +28,8 @@ public class MoveControl {
         World world = game.getWorld();
         Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
         
-        if (world.getxLoc() + x > 9 || world.getxLoc() + x < 0 || 
-                world.getyLoc() + y > 9 || world.getyLoc() + y < 0){
+        if (world.getxLoc() + x > 40 || world.getxLoc() + x < 0 || 
+                world.getyLoc() + y > 75 || world.getyLoc() + y < 0){
             throw new MovedOffMapException("Can't move past edge of map");
         }
          
@@ -53,7 +53,7 @@ public class MoveControl {
                 offsetX = curX + i;
                 offsetY = curY + j;
                 
-                if (offsetX > -1 && offsetY > -1 && offsetX < 10 && offsetY < 10){
+                if (offsetX > -1 && offsetY > -1 && offsetX < 40 && offsetY < 75){
                     mapArray[offsetX][offsetY].setDiscovered(true);
                 }
             }

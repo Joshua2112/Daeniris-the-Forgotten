@@ -9,34 +9,36 @@ package byui.CIT260.DaenirisTheForgotten.Model;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
-
-
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 
 public class World implements Serializable{
     
-    private Location[][] map = new Location[10][10];
+    private Location[][] map = new Location[Constants.MAP_MAX_X][Constants.MAP_MAX_Y];
     private int xLoc;
     private int yLoc;
     private boolean visable;
     
     public World()
     {
-       for(int i = 0; i < 10; i++)
+       for(int i = 0; i < Constants.MAP_MAX_X; i++)
        {
-           for(int j = 0; j < 10; j++)
+           for(int j = 0; j < Constants.MAP_MAX_Y; j++)
            {
-                   map[i][j] = new Resource();
+                map[i][j] = new Resource();
            }
        }
        
+       GameControl.createMapLocations(map);
+           
        map[0][5] = new Dungeon();
-       map[5][0] = new Dungeon();
-       map[4][4] = new Dungeon();
-       map[4][9] = new Dungeon();
-       map[9][5] = new Shop();
+       map[7][21] = new Dungeon();
+       map[32][50] = new Dungeon();
+       map[19][90] = new Dungeon();
+       map[Constants.MAP_START_X][Constants.MAP_START_Y] = new Shop();
        
-        xLoc = 9;
-        yLoc = 5;
+        xLoc = Constants.MAP_START_X;
+        yLoc = Constants.MAP_START_Y;
         visable = false;
     }
 
