@@ -106,11 +106,7 @@ public class GameControl {
         playerInventory[4] = pheonixDown;
         
         /*RawMaterial wood = new RawMaterial();
-=======
-        playerInventory[0][4] = pheonixDown;
-        /*
         RawMaterial wood = new RawMaterial();
->>>>>>> origin/master
         wood.setName("Wood");
         wood.setDescription("Wood used to craft items");
         wood.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
