@@ -22,6 +22,8 @@ public class Constants {
     public static final int DEFAULT_INVENTORY_QUANTITY = 0;
     public static final int STARTING_GEAR_QUANTITY = 1;
     public static final int STARTING_ITEM_QUANTITY = 4;
+    public static final boolean SHOP_ITEM = true;
+    public static final boolean RARE_ITEM = false;
     public static final int NUMBER_OF_ACTOR_TYPES = 5;
     public static final int NUMBER_OF_ENEMIES = 100;
 
@@ -87,4 +89,5 @@ public class Constants {
     public static final int GEAR_LIST_COUNT = 50;
     public static final int STARTING_GOLD = 100;
     public static final int STARTING_INVENTORY_ITEM_QUANTITY = 1;
+    
 }

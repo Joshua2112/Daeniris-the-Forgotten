@@ -76,6 +76,7 @@ public class GameControl {
         potion.setEffects("Heals 20 health points");
         potion.setQuantity(Constants.STARTING_ITEM_QUANTITY);
         potion.setCost(10);
+        potion.setItemAvailable(Constants.SHOP_ITEM);
         playerInventory[0] = potion;
         
         SingleUseItems antidote = new SingleUseItems();
@@ -84,6 +85,7 @@ public class GameControl {
         antidote.setEffects("Heals poison");
         antidote.setQuantity(Constants.STARTING_ITEM_QUANTITY);
         antidote.setCost(5);
+        antidote.setItemAvailable(Constants.SHOP_ITEM);
         playerInventory[1] = antidote;
         
         SingleUseItems ether = new SingleUseItems();
@@ -92,6 +94,7 @@ public class GameControl {
         ether.setEffects("Restores 20 magic points");
         ether.setQuantity(Constants.STARTING_ITEM_QUANTITY);
         ether.setCost(20);
+        ether.setItemAvailable(Constants.SHOP_ITEM);
         playerInventory[2] = ether;
         
         SingleUseItems greaterPotion = new SingleUseItems();
@@ -100,6 +103,7 @@ public class GameControl {
         greaterPotion.setEffects("Restores 50 health points");
         greaterPotion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         greaterPotion.setCost(50);
+        greaterPotion.setItemAvailable(Constants.SHOP_ITEM);
         playerInventory[3] = greaterPotion;
         
         SingleUseItems pheonixDown = new SingleUseItems();
@@ -108,6 +112,7 @@ public class GameControl {
         pheonixDown.setEffects("Blah");
         pheonixDown.setQuantity(Constants.STARTING_ITEM_QUANTITY);
         pheonixDown.setCost(100);
+        pheonixDown.setItemAvailable(Constants.SHOP_ITEM);
         playerInventory[4] = pheonixDown;
         
         /*RawMaterial wood = new RawMaterial();
@@ -158,6 +163,8 @@ public class GameControl {
         blank.setSpecialEffects("");
         blank.setSpecialEffects("");
         blank.setGearType("helmet");
+        blank.setCost(0);
+        blank.setItemAvailable(false);
         blank.setQuantity(0);
         
         for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
@@ -174,6 +181,7 @@ public class GameControl {
         leatherHelm.setSpecialEffects("None");
         leatherHelm.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
         leatherHelm.setCost(25);
+        leatherHelm.setItemAvailable(Constants.SHOP_ITEM);
         helmList[0] = leatherHelm;
         
         Gear clothCap = new Gear();
@@ -186,6 +194,7 @@ public class GameControl {
         clothCap.setSpecialEffects("None");
         clothCap.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
         clothCap.setCost(20);
+        clothCap.setItemAvailable(Constants.SHOP_ITEM);
         helmList[1] = clothCap;
         
         Gear ironHelmet = new Gear();
@@ -198,6 +207,7 @@ public class GameControl {
         ironHelmet.setSpecialEffects("None");
         ironHelmet.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         ironHelmet.setCost(50);
+        ironHelmet.setItemAvailable(Constants.SHOP_ITEM);
         helmList[2] = ironHelmet;
         
         Gear magiciansHat = new Gear();
@@ -210,6 +220,7 @@ public class GameControl {
         magiciansHat.setSpecialEffects("None");
         magiciansHat.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         magiciansHat.setCost(75);
+        magiciansHat.setItemAvailable(Constants.SHOP_ITEM);
         helmList[3] = magiciansHat;
         
         Gear hornedHelm = new Gear();
@@ -222,6 +233,7 @@ public class GameControl {
         hornedHelm.setSpecialEffects("None");
         hornedHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         hornedHelm.setCost(80);
+        hornedHelm.setItemAvailable(Constants.SHOP_ITEM);
         helmList[4] = hornedHelm;
         
         Gear steelHelm = new Gear();
@@ -234,6 +246,7 @@ public class GameControl {
         steelHelm.setSpecialEffects("None");
         steelHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         steelHelm.setCost(125);
+        steelHelm.setItemAvailable(Constants.SHOP_ITEM);
         helmList[5] = steelHelm;
         
         Gear legendaryDragonHelm = new Gear();
@@ -246,6 +259,7 @@ public class GameControl {
         legendaryDragonHelm.setSpecialEffects("Resistance to fire");
         legendaryDragonHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         legendaryDragonHelm.setCost(500);
+        legendaryDragonHelm.setItemAvailable(Constants.RARE_ITEM);
         helmList[6] = legendaryDragonHelm;
         
         Gear amnorsHat = new Gear();
@@ -258,6 +272,7 @@ public class GameControl {
         amnorsHat.setSpecialEffects("none");
         amnorsHat.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         amnorsHat.setCost(710);
+        amnorsHat.setItemAvailable(Constants.RARE_ITEM);
         helmList[7] = amnorsHat;
         
         return helmList;
@@ -278,6 +293,8 @@ public class GameControl {
         blank.setSpecialEffects("");
         blank.setSpecialEffects("");
         blank.setGearType("armor");
+        blank.setCost(0);
+        blank.setItemAvailable(false);
         blank.setQuantity(0);
         
         for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
@@ -907,7 +924,7 @@ public class GameControl {
         return craftRecipe;   
     }
     
-    public static void sort(Inventory[] array){
+   /* public static void sort(Inventory[] array){
 
         Inventory temp;
         for (Inventory[] array1 : array) {
@@ -922,7 +939,7 @@ public class GameControl {
                 }
             }  
         }
-    }
+    }*/
     
     public static void sort(Actor[][] array){
         
@@ -988,7 +1005,7 @@ public class GameControl {
         int count = 0;
         
         
-        for(Inventory[] array1 : array){
+        for(Inventory array1 : array){
             if (array != null){
                 count++;
             }
@@ -997,7 +1014,7 @@ public class GameControl {
         String[] newArray = new String[count];
         
         for(int i = 0; i < newArray.length; i++){
-            newArray[i] = array[column][i].getName();
+            newArray[i] = array[i].getName();
         }
         
         

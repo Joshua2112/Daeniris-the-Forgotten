@@ -53,8 +53,18 @@ public class StartProgramFrame extends javax.swing.JFrame {
         );
 
         NewGameStart.setText("Start New Game");
+        NewGameStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewGameStartActionPerformed(evt);
+            }
+        });
 
         QuitGame.setText("Exit to Desktop");
+        QuitGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QuitGameActionPerformed(evt);
+            }
+        });
 
         Help.setText("Help Menu");
 
@@ -103,6 +113,16 @@ public class StartProgramFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void QuitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitGameActionPerformed
+        dispose();
+    }//GEN-LAST:event_QuitGameActionPerformed
+
+    private void NewGameStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewGameStartActionPerformed
+        EnterCharacterName enterCharacterName = new EnterCharacterName();
+        enterCharacterName.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_NewGameStartActionPerformed
 
     /**
      * @param args the command line arguments
