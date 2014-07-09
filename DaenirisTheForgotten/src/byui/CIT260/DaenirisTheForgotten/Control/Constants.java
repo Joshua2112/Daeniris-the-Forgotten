@@ -14,7 +14,7 @@ public class Constants {
     public static final int MAP_MIN_X = 0;
     public static final int MAP_MAX_Y = 100;
     public static final int MAP_MIN_Y = 0;
-    public static final boolean MAP_DISCOVERED = true;
+    public static final boolean MAP_DISCOVERED = false;
     public static final int MAP_START_X = 20;
     public static final int MAP_START_Y = 0;
     
@@ -60,14 +60,13 @@ public class Constants {
     public static final int ACTOR = 4;
     public static final int SPELLS = 5;
     public static final int BATTLE = 6;
-    public static final int ACT_COL_COUNT = 2;
 
     
     //Actor Stats Display Constants
     public static final int ACTOR_COL_WIDTH = 25;
-    public static final int ACTOR_ROW_COUNT = 5;
+    public static final int ACTOR_ROW_COUNT = 3;
     public static final int ACTOR_COL_COUNT = 5;
-    public static final int ACTOR_LABEL_COL = 0;
+    public static final int ACTOR_LABEL_COL = 5;
     public static final int ACTOR_VALUE_COL = 1;
     
     //Spell Types

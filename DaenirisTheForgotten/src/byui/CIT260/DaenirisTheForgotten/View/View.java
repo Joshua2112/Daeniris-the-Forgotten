@@ -73,6 +73,7 @@ public abstract class View implements ViewInterface{
         }while (!exit);
     }    */
     
+    @Override
     public String getInput() {
         
         boolean valid = false;

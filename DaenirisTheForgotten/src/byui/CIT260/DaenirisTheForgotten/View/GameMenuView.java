@@ -91,18 +91,21 @@ class GameMenuView extends View {
         
         TabularMenu actorTab = new TabularMenu();
         actorTab.setDisplayName("Actor Display");
-        actorTab.setColumnCount(Constants.ACT_COL_COUNT);
-        actorTab.setColumnWidth(Constants.INV_COL_WIDTH);
-        actorTab.setRowCount(Constants.INV_ROW_COUNT);
+        actorTab.setColumnCount(Constants.ACTOR_COL_COUNT);
+        actorTab.setColumnWidth(Constants.ACTOR_COL_WIDTH);
+        actorTab.setRowCount(Constants.ACTOR_ROW_COUNT);
         actorTab.setType(Constants.ACTOR);
         
-        String[] header = new String[Constants.ACT_COL_COUNT];
+        String[] header = new String[Constants.ACTOR_COL_COUNT];
         header[0] = "Player Character";
-        header[1] = "Enemies";
-        
+        header[1] = "Plains Enemies";
+        header[2] = "Forest Enemies";
+        header[3] = "Mountain Enemies";
+        header[4] = "Dark Forest Enemies";
+
         actorTab.setHeader(header);
         
-        GameControl.sort(game.getActor());
+        //GameControl.sort(game.getActor());
         displayTabular(actorTab);
     }
     
