@@ -906,12 +906,12 @@ public class GameControl {
         
         return craftRecipe;   
     }
-    
+    /*
     public static void sort(Inventory[] array){
 
         Inventory temp;
         for (Inventory[] array1 : array) {
-            for (int i = 0; i < array1.length - 1; i++) {
+
                 for (int j = i + 1; j < array1.length; j++) {
                     if ((array1[i].getName().compareToIgnoreCase(array1[j].getName())) > 0 
                             && array1[j].getQuantity() > 0) {
@@ -922,7 +922,7 @@ public class GameControl {
                 }
             }  
         }
-    }
+    }*/
     
     public static void sort(Actor[][] array){
         
@@ -988,7 +988,7 @@ public class GameControl {
         int count = 0;
         
         
-        for(Inventory[] array1 : array){
+        for(Inventory array1 : array){
             if (array != null){
                 count++;
             }
@@ -997,7 +997,7 @@ public class GameControl {
         String[] newArray = new String[count];
         
         for(int i = 0; i < newArray.length; i++){
-            newArray[i] = array[column][i].getName();
+            newArray[i] = array[i].getName();
         }
         
         
