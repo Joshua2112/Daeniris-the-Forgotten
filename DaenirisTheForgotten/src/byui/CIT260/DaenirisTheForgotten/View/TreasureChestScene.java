@@ -6,6 +6,7 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
@@ -26,7 +27,7 @@ public class TreasureChestScene extends View{
     @Override
     public int doAction(String value) {
         Game game = DaenirisTheForgotten.getCurrentGame();
-        Inventory[][] inventory = game.getInventory();
+        Inventory[] inventory = game.getInventory();
         Gear[] weapons = game.getWeapons();
         Gear[] armors = game.getArmors();
         Gear[] helms = game.getHelms();
@@ -35,12 +36,13 @@ public class TreasureChestScene extends View{
         switch(value){
             case "O":
                 Random randomGenerator = new Random();
-                int random1 = randomGenerator.nextInt(2);
-                int random2 = randomGenerator.nextInt(5);
+                int random2 = randomGenerator.nextInt(Constants.GEAR_LIST_COUNT);
                 int random3 = randomGenerator.nextInt(5);
                 if(random3 == 1){
-                    inventory[0][random2].setQuantity(inventory[0][random2].getQuantity() + 1);
-                    System.out.println("\n\tYou found a(n) " + inventory[0][random2].getName());
+
+                    inventory[random2].setQuantity(inventory[random2].getQuantity() + 1);
+                    System.out.println("\n\tYou found a(n) " + inventory[random2].getName());
+
                     return 1;
                 }
                 else if(random3 == 2){

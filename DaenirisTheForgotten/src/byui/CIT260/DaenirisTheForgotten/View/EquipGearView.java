@@ -11,9 +11,9 @@ package byui.CIT260.DaenirisTheForgotten.View;
  *
  * @author Joshua
  */
-public class GearEquipView extends View{
+public class EquipGearView extends View{
 
-    public GearEquipView() {
+    public EquipGearView() {
         super("\n\tPlease select type of gear to equip"
                 + "\n\tEnter 'a' for armor"
                 + "\n\tEnter 'w' for weapon"
@@ -31,15 +31,15 @@ public class GearEquipView extends View{
                 equipArmor.display();
                 break;
             case "W":
-                WeaponEquipView equipWeapon = new WeaponEquipView();
+                EquipWeaponView equipWeapon = new EquipWeaponView();
                 equipWeapon.display();
                 break;
             case "H":
-                HelmetEquipView equipHelmet = new HelmetEquipView();
+                EquipHelmetView equipHelmet = new EquipHelmetView();
                 equipHelmet.display();
                 break;
             case "S":
-                SecondaryEquipView equipSecondary = new SecondaryEquipView();
+                EquipSecondaryView equipSecondary = new EquipSecondaryView();
                 equipSecondary.display();
                 break;
             case "Q":

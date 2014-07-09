@@ -17,6 +17,7 @@ public class Inventory implements Serializable{
     
     private String name;
     private String description;
+    private int cost;
     private int quantity;
 
     public Inventory() {
@@ -45,6 +46,16 @@ public class Inventory implements Serializable{
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+    
+    
 
     
     

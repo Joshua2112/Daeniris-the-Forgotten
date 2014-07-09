@@ -46,7 +46,7 @@ public class AdventureView extends View{
         switch (choice){
             case "I":
                 if(world.getMap()[world.getxLoc()][world.getyLoc()].getSymbol() == 'S'){
-                    ShopMenuView shop = new ShopMenuView();
+                    ShopMainView shop = new ShopMainView();
                     shop.display();
                 }
                 else if(world.getMap()[world.getxLoc()][world.getyLoc()].getSymbol() == 'D'){
@@ -78,8 +78,8 @@ public class AdventureView extends View{
                 displayMap();
                 break;
             case "B":
-                BattleMenuView battle = new BattleMenuView();
-                battle.display();
+                ShopMainView shop = new ShopMainView();
+                shop.display();
                 break;
             case "Q":
                 return 0;
