@@ -6,12 +6,14 @@
 
 package byui.CIT260.DaenirisTheForgotten.View;
 
-import byui.CIT260.DaenirisTheForgotten.Control.ProgramControl;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,9 +28,9 @@ public class EnterCharacterName {
     public void EnterPlayerCharactersName() {
         String playersName = this.getPlayerCharactersName();
         player.setName(playersName);
-    }
+        }
 
-    public String getPlayerCharactersName(){
+    public String getPlayerCharactersName() {
         
         boolean valid = false;
         String playerCharactersName = null;

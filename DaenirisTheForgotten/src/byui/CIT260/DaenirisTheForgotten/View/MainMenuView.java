@@ -61,7 +61,7 @@ public class MainMenuView extends View{
                 MagicMenuView magicSpell = new MagicMenuView();
                 magicSpell.display();
             case "R":
-                ShopMenuView shopping = new ShopMenuView();
+                ShopItems shopping = new ShopItems();
                 shopping.display();
             case "B":
          try {

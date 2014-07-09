@@ -17,13 +17,13 @@ import daeniristheforgotten.DaenirisTheForgotten;
  *
  * @author Joshua
  */
-public class WeaponEquipView extends View{
+public class EquipWeaponView extends View{
 
         Game game = DaenirisTheForgotten.getCurrentGame();
         Gear[] weapons = game.getWeapons();
         EquippedGear playerGear = game.getEquippedGear();
 
-    public WeaponEquipView() {
+    public EquipWeaponView() {
         super("\n\tPlease select gear to equip"
                 + "\n\tYou may equip one of each gear type(Weapon, Sheild, Helmet, Armor)");
         for(int i = 0; i < Constants.GEAR_LIST_COUNT; i++){

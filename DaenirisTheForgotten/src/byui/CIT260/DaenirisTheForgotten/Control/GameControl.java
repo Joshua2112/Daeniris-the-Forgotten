@@ -74,21 +74,24 @@ public class GameControl {
         potion.setName("Potion");
         potion.setDescription("A healing item");
         potion.setEffects("Heals 20 health points");
-        potion.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        potion.setQuantity(Constants.STARTING_ITEM_QUANTITY);
+        potion.setCost(10);
         playerInventory[0] = potion;
         
         SingleUseItems antidote = new SingleUseItems();
         antidote.setName("Antidote");
         antidote.setDescription("Heals poison");
         antidote.setEffects("Heals poison");
-        antidote.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        antidote.setQuantity(Constants.STARTING_ITEM_QUANTITY);
+        antidote.setCost(5);
         playerInventory[1] = antidote;
         
         SingleUseItems ether = new SingleUseItems();
         ether.setName("Ether");
         ether.setDescription("Resores magic");
         ether.setEffects("Restores 20 magic points");
-        ether.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        ether.setQuantity(Constants.STARTING_ITEM_QUANTITY);
+        ether.setCost(20);
         playerInventory[2] = ether;
         
         SingleUseItems greaterPotion = new SingleUseItems();
@@ -96,13 +99,15 @@ public class GameControl {
         greaterPotion.setDescription("Restores more health");
         greaterPotion.setEffects("Restores 50 health points");
         greaterPotion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        greaterPotion.setCost(50);
         playerInventory[3] = greaterPotion;
         
         SingleUseItems pheonixDown = new SingleUseItems();
         pheonixDown.setName("Pheonix Down");
         pheonixDown.setDescription("Revives");
         pheonixDown.setEffects("Blah");
-        pheonixDown.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        pheonixDown.setQuantity(Constants.STARTING_ITEM_QUANTITY);
+        pheonixDown.setCost(100);
         playerInventory[4] = pheonixDown;
         
         /*RawMaterial wood = new RawMaterial();
@@ -168,6 +173,7 @@ public class GameControl {
         leatherHelm.setDescription("A weak helmet made of leather");
         leatherHelm.setSpecialEffects("None");
         leatherHelm.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        leatherHelm.setCost(25);
         helmList[0] = leatherHelm;
         
         Gear clothCap = new Gear();
@@ -179,6 +185,7 @@ public class GameControl {
         clothCap.setDescription("A flexible cap of cloth");
         clothCap.setSpecialEffects("None");
         clothCap.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        clothCap.setCost(20);
         helmList[1] = clothCap;
         
         Gear ironHelmet = new Gear();
@@ -190,6 +197,7 @@ public class GameControl {
         ironHelmet.setDescription("A sturdy helmet made of iron");
         ironHelmet.setSpecialEffects("None");
         ironHelmet.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        ironHelmet.setCost(50);
         helmList[2] = ironHelmet;
         
         Gear magiciansHat = new Gear();
@@ -201,6 +209,7 @@ public class GameControl {
         magiciansHat.setDescription("A pointy hat worn by wizards");
         magiciansHat.setSpecialEffects("None");
         magiciansHat.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        magiciansHat.setCost(75);
         helmList[3] = magiciansHat;
         
         Gear hornedHelm = new Gear();
@@ -212,6 +221,7 @@ public class GameControl {
         hornedHelm.setDescription("A helmet with horns on it");
         hornedHelm.setSpecialEffects("None");
         hornedHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        hornedHelm.setCost(80);
         helmList[4] = hornedHelm;
         
         Gear steelHelm = new Gear();
@@ -223,6 +233,7 @@ public class GameControl {
         steelHelm.setDescription("A strong helmet made of steel");
         steelHelm.setSpecialEffects("None");
         steelHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        steelHelm.setCost(125);
         helmList[5] = steelHelm;
         
         Gear legendaryDragonHelm = new Gear();
@@ -234,6 +245,7 @@ public class GameControl {
         legendaryDragonHelm.setDescription("A legendary helmet found in the stomach of a red dragon");
         legendaryDragonHelm.setSpecialEffects("Resistance to fire");
         legendaryDragonHelm.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        legendaryDragonHelm.setCost(500);
         helmList[6] = legendaryDragonHelm;
         
         Gear amnorsHat = new Gear();
@@ -245,6 +257,7 @@ public class GameControl {
         amnorsHat.setDescription("Amnor was a legendary mage, and he infused his hat with great magical power");
         amnorsHat.setSpecialEffects("none");
         amnorsHat.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        amnorsHat.setCost(710);
         helmList[7] = amnorsHat;
         
         return helmList;
@@ -280,6 +293,7 @@ public class GameControl {
         ironBreastplate.setDescription("An average breastplate made of iron");
         ironBreastplate.setSpecialEffects("None");
         ironBreastplate.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        ironBreastplate.setCost(55);
         armorList[0] = ironBreastplate;
         
         Gear clothCloak = new Gear();
@@ -291,6 +305,7 @@ public class GameControl {
         clothCloak.setDescription("A simple cloak that is easy to move in");
         clothCloak.setSpecialEffects("None");
         clothCloak.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        clothCloak.setCost(40);
         armorList[1] = clothCloak;
         
         Gear steelPlate = new Gear();
@@ -302,6 +317,7 @@ public class GameControl {
         steelPlate.setDescription("Strong armor made of steel");
         steelPlate.setSpecialEffects("None");
         steelPlate.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        steelPlate.setCost(150);
         armorList[2] = steelPlate;
         
         Gear wanderersCloak = new Gear();
@@ -313,6 +329,7 @@ public class GameControl {
         wanderersCloak.setDescription("A cloak from a magical wanderer");
         wanderersCloak.setSpecialEffects("None");
         wanderersCloak.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        wanderersCloak.setCost(160);
         armorList[3] = wanderersCloak;
         
         Gear dragonScaleArmor = new Gear();
@@ -324,6 +341,7 @@ public class GameControl {
         dragonScaleArmor.setDescription("Armor made from dragon scales");
         dragonScaleArmor.setSpecialEffects("Fire resistance");
         dragonScaleArmor.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        dragonScaleArmor.setCost(780);
         armorList[4] = dragonScaleArmor;
         
         Gear magicRobe = new Gear();
@@ -335,6 +353,7 @@ public class GameControl {
         magicRobe.setDescription("The robe of choice for mages");
         magicRobe.setSpecialEffects("none");
         magicRobe.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        magicRobe.setCost(420);
         armorList[5] = magicRobe;
         
         return armorList;
@@ -355,6 +374,7 @@ public class GameControl {
         blank.setSpecialEffects("");
         blank.setSpecialEffects("");
         blank.setGearType("secondary");
+        blank.setCost(0);
         blank.setQuantity(0);
         
         for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
@@ -370,6 +390,7 @@ public class GameControl {
         woodenShield.setDescription("A weak sheild made of wood");
         woodenShield.setSpecialEffects("None");
         woodenShield.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        woodenShield.setCost(15);
         secondaryList[0] = woodenShield;
         
         Gear leatherGloves = new Gear();
@@ -381,6 +402,7 @@ public class GameControl {
         leatherGloves.setDescription("Simple leather gloves");
         leatherGloves.setSpecialEffects("None");
         leatherGloves.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        leatherGloves.setCost(20);
         secondaryList[1] = leatherGloves;
         
         Gear ironShield = new Gear();
@@ -392,6 +414,7 @@ public class GameControl {
         ironShield.setDescription("A sturdy shield of iron");
         ironShield.setSpecialEffects("None");
         ironShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        ironShield.setCost(45);
         secondaryList[2] = ironShield;
         
         Gear smallMagicOrb = new Gear();
@@ -403,6 +426,7 @@ public class GameControl {
         smallMagicOrb.setDescription("A small, clear orb with magic properties");
         smallMagicOrb.setSpecialEffects("None");
         smallMagicOrb.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        smallMagicOrb.setCost(55);
         secondaryList[3] = smallMagicOrb;
         
         Gear steelShield = new Gear();
@@ -414,6 +438,7 @@ public class GameControl {
         steelShield.setDescription("A strong sheild made of steel");
         steelShield.setSpecialEffects("None");
         steelShield.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        steelShield.setCost(85);
         secondaryList[4] = steelShield;
         
         Gear magicRoot = new Gear();
@@ -425,6 +450,7 @@ public class GameControl {
         magicRoot.setDescription("A root from a Mandragora that has magical properties");
         magicRoot.setSpecialEffects("None");
         magicRoot.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        magicRoot.setCost(75);
         secondaryList[5] = magicRoot;
               
         return secondaryList;
@@ -459,6 +485,7 @@ public class GameControl {
         ironSword.setDescription("A plain old sword made of iron");
         ironSword.setSpecialEffects("None");
         ironSword.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        ironSword.setCost(30);
         weaponList[0] = ironSword;   
         
         Gear steelSword = new Gear();
@@ -470,6 +497,7 @@ public class GameControl {
         steelSword.setDescription("A sturdy sword made of steel");
         steelSword.setSpecialEffects("None");
         steelSword.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        steelSword.setCost(200);
         weaponList[1] = steelSword;
         
         Gear oakStaff = new Gear();
@@ -481,6 +509,7 @@ public class GameControl {
         oakStaff.setDescription("An old magic staff made of Oak");
         oakStaff.setSpecialEffects("None");
         oakStaff.setQuantity(Constants.STARTING_INVENTORY_ITEM_QUANTITY);
+        oakStaff.setCost(30);
         weaponList[2] = oakStaff;        
         
         Gear fireStave = new Gear();
@@ -492,6 +521,7 @@ public class GameControl {
         fireStave.setDescription("An elaborate staff, brimming with fire magic");
         fireStave.setSpecialEffects("Increases damage of fire spells");
         fireStave.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        fireStave.setCost(145);
         weaponList[3] = fireStave;
         
         Gear brassKnuckles = new Gear();
@@ -503,6 +533,7 @@ public class GameControl {
         brassKnuckles.setDescription("A powerful close range weapon that leaves you vulnerable");
         brassKnuckles.setSpecialEffects("none");
         brassKnuckles.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        brassKnuckles.setCost(300);
         weaponList[4] = brassKnuckles;
         
         Gear spear = new Gear();
@@ -514,6 +545,7 @@ public class GameControl {
         spear.setDescription("A long range weapon, good for defense");
         spear.setSpecialEffects("none");
         spear.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        spear.setCost(400);
         weaponList[5] = spear;
                
         return weaponList;

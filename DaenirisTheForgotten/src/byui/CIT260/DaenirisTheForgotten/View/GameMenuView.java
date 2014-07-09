@@ -41,7 +41,7 @@ class GameMenuView extends View {
                 this.displayInventory();
                 break;
             case "G":
-                GearEquipView equipGear = new GearEquipView();
+                EquipGearView equipGear = new EquipGearView();
                 equipGear.display();
                 break;
             case "C":
