@@ -39,8 +39,10 @@ public class TreasureChestScene extends View{
                 int random2 = randomGenerator.nextInt(Constants.GEAR_LIST_COUNT);
                 int random3 = randomGenerator.nextInt(5);
                 if(random3 == 1){
+
                     inventory[random2].setQuantity(inventory[random2].getQuantity() + 1);
                     System.out.println("\n\tYou found a(n) " + inventory[random2].getName());
+
                     return 1;
                 }
                 else if(random3 == 2){

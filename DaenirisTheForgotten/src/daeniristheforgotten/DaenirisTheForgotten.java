@@ -27,6 +27,7 @@ public class DaenirisTheForgotten {
                         startProgramFrame.setVisible(true);
                     }
                 }
+              
             );
         }
         catch (Throwable e){

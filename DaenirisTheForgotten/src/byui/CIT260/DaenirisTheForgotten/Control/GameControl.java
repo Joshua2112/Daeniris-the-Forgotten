@@ -928,7 +928,7 @@ public class GameControl {
 
         Inventory temp;
         for (Inventory[] array1 : array) {
-            for (int i = 0; i < array1.length - 1; i++) {
+
                 for (int j = i + 1; j < array1.length; j++) {
                     if ((array1[i].getName().compareToIgnoreCase(array1[j].getName())) > 0 
                             && array1[j].getQuantity() > 0) {

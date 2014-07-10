@@ -80,7 +80,8 @@ class GameMenuView extends View {
 
         inventoryTab.setHeader(header);
         
-      //  GameControl.sort(game.getInventory());
+
+        //GameControl.sort(game.getInventory());
         displayTabular(inventoryTab);
         
     }

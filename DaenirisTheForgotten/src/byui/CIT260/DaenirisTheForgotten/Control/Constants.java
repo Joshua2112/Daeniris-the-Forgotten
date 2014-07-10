@@ -16,7 +16,7 @@ public class Constants {
     public static final int MAP_MIN_Y = 0;
     public static final boolean MAP_DISCOVERED = false;
     public static final int MAP_START_X = 20;
-    public static final int MAP_START_Y = 0;
+    public static final int MAP_START_Y = 99;
     
     
     public static final int DEFAULT_INVENTORY_QUANTITY = 0;
@@ -88,6 +88,5 @@ public class Constants {
     
     public static final int GEAR_LIST_COUNT = 50;
     public static final int STARTING_GOLD = 100;
-    public static final int STARTING_INVENTORY_ITEM_QUANTITY = 1;
-    
+    public static final int STARTING_INVENTORY_ITEM_QUANTITY = 0;
 }
