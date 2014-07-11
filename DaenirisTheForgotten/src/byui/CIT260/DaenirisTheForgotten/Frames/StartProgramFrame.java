@@ -55,6 +55,11 @@ public class StartProgramFrame extends javax.swing.JFrame {
         NewGameStart.setText("Start New Game");
 
         QuitGame.setText("Exit to Desktop");
+        QuitGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QuitGameActionPerformed(evt);
+            }
+        });
 
         Help.setText("Help Menu");
 
@@ -103,6 +108,10 @@ public class StartProgramFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void QuitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitGameActionPerformed
+        dispose();
+    }//GEN-LAST:event_QuitGameActionPerformed
 
     /**
      * @param args the command line arguments

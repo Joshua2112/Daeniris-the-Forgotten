@@ -98,7 +98,7 @@ public class GameControl {
         greaterPotion.setName("Greater Potion");
         greaterPotion.setDescription("Restores more health");
         greaterPotion.setEffects("Restores 50 health points");
-        greaterPotion.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
+        greaterPotion.setQuantity(0);
         greaterPotion.setCost(50);
         playerInventory[3] = greaterPotion;
         
@@ -906,23 +906,22 @@ public class GameControl {
         
         return craftRecipe;   
     }
-    /*
+    
     public static void sort(Inventory[] array){
 
         Inventory temp;
-        for (Inventory[] array1 : array) {
 
-                for (int j = i + 1; j < array1.length; j++) {
-                    if ((array1[i].getName().compareToIgnoreCase(array1[j].getName())) > 0 
-                            && array1[j].getQuantity() > 0) {
-                        temp = array1[i];
-                        array1[i] = array1[j];
-                        array1[j] = temp;
-                    }
+        for (int i = 0; i < array.length - 1; i++) {    
+            for (int j = i + 1; j < array.length; j++) {
+                if ((array[i].getName().compareToIgnoreCase(array[j].getName())) > 0 
+                        && array[j].getQuantity() > 0) {
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                 }
-            }  
-        }
-    }*/
+            }
+        }   
+    }
     
     public static void sort(Actor[][] array){
         

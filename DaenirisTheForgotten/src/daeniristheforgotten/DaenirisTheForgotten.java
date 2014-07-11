@@ -18,9 +18,9 @@ public class DaenirisTheForgotten {
     
     public static void main(String[] args){
         try{
-            //ProgramStart programStart = new ProgramStart();
-            //programStart.startProgram();
-            
+            ProgramStart programStart = new ProgramStart();
+            programStart.startProgram();
+            /*
             java.awt.EventQueue.invokeLater(
                     new Runnable() {
                         public void run() {
@@ -28,7 +28,7 @@ public class DaenirisTheForgotten {
                             startProgramFrame.setVisible(true);
                         }
                     }
-            );
+            );*/
         }
         catch (Throwable e){
             System.out.println("An abnormal error occured."
