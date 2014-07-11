@@ -19,6 +19,7 @@ public class Inventory implements Serializable{
     private String description;
     private int cost;
     private int quantity;
+    private boolean itemAvailable;
 
     public Inventory() {
     }
@@ -54,10 +55,14 @@ public class Inventory implements Serializable{
     public void setCost(int cost) {
         this.cost = cost;
     }
-    
-    
 
-    
+    public boolean isItemAvailable() {
+        return itemAvailable;
+    }
+
+    public void setItemAvailable(boolean itemAvailable) {
+        this.itemAvailable = itemAvailable;
+    }
     
     @Override
     public String toString() {

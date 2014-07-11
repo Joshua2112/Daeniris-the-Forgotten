@@ -61,7 +61,9 @@
                   <Component id="QuitGame" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Help" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="517" max="32767" attributes="0"/>
+                  <EmptySpace pref="454" max="32767" attributes="0"/>
+                  <Component id="test" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -75,6 +77,7 @@
                       <Component id="NewGameStart" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="QuitGame" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Help" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="test" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -106,6 +109,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Start New Game"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewGameStartActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="QuitGame">
           <Properties>
@@ -119,6 +125,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Help Menu"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="test">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Test"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="testActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

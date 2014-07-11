@@ -52,7 +52,7 @@ public class BattleScene extends Location{
         enemyHealth = enemy.getHealthPoints();
         enemyCurrentHealth = enemy.getHealthPoints();
         enemyMagic = enemy.getMagicPoints();
-        enemyCurrentMagic = enemy.getMagicPoints();
+        enemyCurrentMagic = enemy.getCurrentMagicPoints();
         enemyMagicAttack = enemy.getMagicAttack();
         enemyMagicDefense = enemy.getMagicDefense();
         enemyGold = enemy.getGoldValue();

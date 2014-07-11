@@ -33,6 +33,7 @@ public class StartProgramFrame extends javax.swing.JFrame {
         NewGameStart = new javax.swing.JButton();
         QuitGame = new javax.swing.JButton();
         Help = new javax.swing.JButton();
+        test = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +54,11 @@ public class StartProgramFrame extends javax.swing.JFrame {
         );
 
         NewGameStart.setText("Start New Game");
+        NewGameStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewGameStartActionPerformed(evt);
+            }
+        });
 
         QuitGame.setText("Exit to Desktop");
         QuitGame.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +68,13 @@ public class StartProgramFrame extends javax.swing.JFrame {
         });
 
         Help.setText("Help Menu");
+
+        test.setText("Test");
+        test.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,7 +87,9 @@ public class StartProgramFrame extends javax.swing.JFrame {
                 .addComponent(QuitGame)
                 .addGap(18, 18, 18)
                 .addComponent(Help)
-                .addContainerGap(517, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
+                .addComponent(test)
+                .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -85,7 +100,8 @@ public class StartProgramFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NewGameStart)
                     .addComponent(QuitGame)
-                    .addComponent(Help))
+                    .addComponent(Help)
+                    .addComponent(test))
                 .addContainerGap())
         );
 
@@ -112,6 +128,18 @@ public class StartProgramFrame extends javax.swing.JFrame {
     private void QuitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitGameActionPerformed
         dispose();
     }//GEN-LAST:event_QuitGameActionPerformed
+
+
+    private void NewGameStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewGameStartActionPerformed
+        EnterCharacterName enterCharacterName = new EnterCharacterName();
+        enterCharacterName.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_NewGameStartActionPerformed
+
+    private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_testActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -154,5 +182,6 @@ public class StartProgramFrame extends javax.swing.JFrame {
     private javax.swing.JButton QuitGame;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton test;
     // End of variables declaration//GEN-END:variables
 }
