@@ -32,7 +32,8 @@ public class BattleMenuView extends View{
      Game game = DaenirisTheForgotten.currentGame;
      int kill = 0;          
      switch (choice){
-        case "A":               
+        case "A": 
+            System.out.println("\n\tYou attacked the enemy");
             kill = BattleControl.attackEnemy();
             BattleControl.enemyAttack();
             break;
@@ -44,7 +45,7 @@ public class BattleMenuView extends View{
             kill = BattleControl.magicCast();
             break;
         case "D":
-            BattleControl.defend1();
+            System.out.println("\n\tYour defense increased by " + BattleControl.defend1() + " temporarily");
             BattleControl.enemyAttack();
             BattleControl.defend2();
            break;
@@ -57,8 +58,8 @@ public class BattleMenuView extends View{
             BattleControl.enemyAttack();
             break;
         case "R":
-            boolean run = BattleControl.run1();
-            if(run == true){
+            String run = BattleControl.run1();
+            if(run == "\n\tYou successfully ran from the enemy"){
                 return 1;
             }
             else{

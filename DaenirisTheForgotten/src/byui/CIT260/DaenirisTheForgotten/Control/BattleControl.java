@@ -30,7 +30,7 @@ public class BattleControl {
    
     public static int attackEnemy() {   
         
-        System.out.println("\n\tYou attacked the enemy");
+        
         
         Game game = DaenirisTheForgotten.currentGame;
         BattleScene battle = game.getBattle();   
@@ -57,11 +57,14 @@ public class BattleControl {
                 battle.setTotalAttack(0);           
                 }
             
+            Random randomDamage = new Random();
+            int extraDamage = randomDamage.nextInt(10);
+            
             if(critical == true){
-                damage = 2 * battle.getTotalAttack() - battle.getEnemyDefense();
+                damage = 2 * (battle.getTotalAttack() + extraDamage) - battle.getEnemyDefense();
             }
             else{
-                damage = battle.getTotalAttack() - battle.getEnemyDefense();
+                damage = battle.getTotalAttack() + extraDamage - battle.getEnemyDefense();
             }
             
             if (damage < 0){
@@ -102,77 +105,116 @@ public class BattleControl {
         return 0;
     }
     
-    @SuppressWarnings("empty-statement")
-        public static void enemyAttack() {    
+        public static String enemyAttack() {   
+            String fightMessage = " ";
             Game game = DaenirisTheForgotten.currentGame;
             BattleScene battle = game.getBattle(); 
             
             if(battle.getEnemyCurrentHealth() <= 0){
-                return;
+                return fightMessage;
             }
             
-            System.out.println("\n\tThe enemy attacked you");
-           
-        boolean hit = false;
-        boolean critical = false;
-        int damage = 0;
-        
-        Random number = new Random();
-        int connect = number.nextInt(30) + battle.getEnemyAttack() - battle.getTotalDefense();
-        if (connect > 14){
-            hit = true;
-            
-            Random critRand = new Random();
-            int crit = critRand.nextInt(100) + battle.getEnemyCritBonus();
-                if (crit > 94){
-                critical = true;
-                }
-                else{
-                critical = false;
-                }
-           
-            if (battle.getEnemyAttack() < 0){
-                battle.setEnemyAttack(0);           
-                }
-            
-            if(critical == true){
-                damage = 2 * battle.getEnemyAttack() - battle.getTotalDefense();
-            }
-            else{
-                damage = battle.getEnemyAttack() - battle.getTotalDefense();
-            }
-            
-            if (damage < 0){
-                damage = 0;
-                }
-	
-            if (critical == true){
-                damage *= 2;
-            }   
-        } 
-            if (hit == true){
+            if(battle.isMagicAt()){
+                                
+                Random randomDamage = new Random();
+                int extraDamage = randomDamage.nextInt(10);
                 
-                battle.setCurrentHealth(battle.getCurrentHealth() - damage);;
-                System.out.println("\n\tYou took " + damage + " damage from the enemy");
-            }
+                    if(battle.getEnemyMagicAttack() < 0){
+                        battle.setEnemyMagicAttack(0);
+                    }
+                
+                    if(battle.getSpellDamage() < 0){
+                        battle.setSpellDamage(0);
+                    }
+                
+                int damage = battle.getEnemyMagicAttack() + battle.getSpellDamage() + extraDamage 
+                        - battle.getTotalMagicDefense();
+                
+                    if(damage < 0){
+                        damage = 0;
+                    }
+                
+                battle.setCurrentHealth(battle.getCurrentHealth() - damage);
+                battle.setEnemyCurrentMagic(battle.getEnemyCurrentMagic() - battle.getEnemySpellCost());
+                
+                fightMessage = "\n\tEnemy used " + battle.getSpellName()
+                                +"\n\tYou took " + damage + " damage";
+                
+                if(battle.getCurrentHealth() <= 0){
+                GameOverView gameOver = new GameOverView();
+                gameOver.endGame();
+                
+                return fightMessage;
+                                
+            }   
+            else {
+            
+            boolean hit = false;
+            boolean critical = false;
+            damage = 0;
+        
+            Random number = new Random();
+            int connect = number.nextInt(30) + battle.getEnemyAttack() - battle.getTotalDefense();
+            if (connect > 14){
+                hit = true;
+            
+                Random critRand = new Random();
+                int crit = critRand.nextInt(100) + battle.getEnemyCritBonus();
+                    if (crit > 94){
+                    critical = true;
+                    }
+                    else{
+                    critical = false;
+                    }
+           
+                if (battle.getEnemyAttack() < 0){
+                   battle.setEnemyAttack(0);           
+                   }
+            
+                extraDamage = randomDamage.nextInt(10);
+            
+                if(critical == true){
+                    damage = 2 * battle.getEnemyAttack() + extraDamage - battle.getTotalDefense();
+                    }
+                else{
+                    damage = battle.getEnemyAttack() + extraDamage - battle.getTotalDefense();
+                    }
+            
+                if (damage < 0){
+                    damage = 0;
+                    }
+	
+                if (critical == true){
+                    damage *= 2;
+                }
+                    
+                battle.setCurrentHealth(battle.getCurrentHealth() - damage);
+                fightMessage = "\n\tThe enemy attacked you"
+                                +"\n\tYou took " + damage + " damage from the enemy";
+                
+                if(battle.getCurrentHealth() <= 0){
+                    GameOverView gameOver = new GameOverView();
+                    gameOver.endGame();
+                }
+                
+                return fightMessage;
+                }   
             else{
-                System.out.println("\n\tEnemy attack missed");                
+                fightMessage = "\n\tEnemy attack missed";                
             }
-        if(battle.getCurrentHealth() <= 0){
-            GameOverView gameOver = new GameOverView();
-            gameOver.endGame();
+            }
         }
-    }
+        return " ";
+        }
 
     
 
-    public static void defend1() {
+    public static float defend1() {
         BattleScene battle = game.getBattle();
-        System.out.println("\n\tDefense increased by " + battle.getTotalDefense() * 0.25 
-                          + (" points temporarily"));
-        
-        float totalDefence = battle.getTotalDefense();        
-        battle.setTotalDefense((int)(totalDefence * 1.25));        
+        float totalDefense = battle.getTotalDefense();        
+        battle.setTotalDefense((int)(totalDefense * 1.25));
+        float tempDef = battle.getTotalDefense();
+        return tempDef;
     }
     
     public static void defend2(){
@@ -189,17 +231,17 @@ public class BattleControl {
         System.out.println(battle.toString());
     }
 
-    public static boolean run1() {
+    public static String run1() {
+        String runMessage;
         Random number = new Random();
         int run = number.nextInt(100);
         if(run >= 50){
-            System.out.println("\n\tYou successfully ran from the enemy");
-            return true;
+            runMessage = "\n\tYou successfully ran from the enemy";
         }
         else{
-            System.out.println("\n\tYou were unable to run");
-            return false;
+            runMessage = "\n\tYou were unable to run";
         }
+        return runMessage;
     }
     
     private static void endBattle(BattleScene battle) {

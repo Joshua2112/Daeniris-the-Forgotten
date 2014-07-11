@@ -8,7 +8,6 @@ package byui.CIT260.DaenirisTheForgotten.Model;
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import daeniristheforgotten.DaenirisTheForgotten;
-import java.io.Serializable;
 import java.util.Random;
 /**
  *
@@ -58,6 +57,9 @@ public class BattleScene extends Location{
         enemyGold = enemy.getGoldValue();
         enemyExp = enemy.getExperienceValue();
         enemyItemDrop = enemy.getItemsDropped();
+        magicAt = enemy.isMagicAttacker();
+        spellName = enemy.getSpellUsed();
+        spellDamage = enemy.getSpellUseDamage();
         enemyCritBonus = 0;
     }
         
@@ -87,6 +89,10 @@ public class BattleScene extends Location{
         private int enemyGold;
         private int enemyExp;
         private String enemyItemDrop;
+        private String spellName;
+        private boolean magicAt;
+        private int spellDamage;
+        private int enemySpellCost;
 
 
     public String getPlayerName() {
@@ -296,6 +302,40 @@ public class BattleScene extends Location{
     public void setEnemyItemDrop(String enemyItemDrop) {
         this.enemyItemDrop = enemyItemDrop;
     }
+
+    public String getSpellName() {
+        return spellName;
+    }
+
+    public void setSpellName(String spellName) {
+        this.spellName = spellName;
+    }
+
+    public boolean isMagicAt() {
+        return magicAt;
+    }
+
+    public void setMagicAt(boolean magicAt) {
+        this.magicAt = magicAt;
+    }
+
+    public int getSpellDamage() {
+        return spellDamage;
+    }
+
+    public void setSpellDamage(int spellDamage) {
+        this.spellDamage = spellDamage;
+    }
+
+    public int getEnemySpellCost() {
+        return enemySpellCost;
+    }
+
+    public void setEnemySpellCost(int enemySpellCost) {
+        this.enemySpellCost = enemySpellCost;
+    }
+    
+    
 
     public String[][] toArray() {
 
