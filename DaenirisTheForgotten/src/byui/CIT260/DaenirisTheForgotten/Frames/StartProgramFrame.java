@@ -6,6 +6,8 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+
 /**
  *
  * @author Joshua
@@ -119,8 +121,9 @@ public class StartProgramFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_QuitGameActionPerformed
 
     private void NewGameStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewGameStartActionPerformed
-        EnterCharacterName enterCharacterName = new EnterCharacterName();
+        EnterPlayerCharacterName enterCharacterName = new EnterPlayerCharacterName();
         enterCharacterName.setVisible(true);
+        GameControl.CreateNewGame();
         this.dispose();
     }//GEN-LAST:event_NewGameStartActionPerformed
 

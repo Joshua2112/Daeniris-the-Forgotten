@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -28,8 +28,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="enterNameText" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="nameReception" min="-2" pref="192" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="grabName" min="-2" pref="180" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="acceptName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
                   </Group>
@@ -45,8 +45,8 @@
               <Component id="enterNameText" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameReception" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="acceptName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="grabName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -70,12 +70,15 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="nameReception">
-    </Component>
     <Component class="javax.swing.JButton" name="acceptName">
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="acceptNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="grabName">
     </Component>
   </SubComponents>
 </Form>
