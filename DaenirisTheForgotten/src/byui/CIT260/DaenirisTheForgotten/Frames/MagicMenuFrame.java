@@ -6,8 +6,14 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+import byui.CIT260.DaenirisTheForgotten.Control.SpellControl;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
+import byui.CIT260.DaenirisTheForgotten.Exception.stringNotFoundException;
+import byui.CIT260.DaenirisTheForgotten.Model.ArrayLocation;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
+import byui.CIT260.DaenirisTheForgotten.View.PlayerCharacterInfoView;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
@@ -15,13 +21,13 @@ import daeniristheforgotten.DaenirisTheForgotten;
  * @author Nathan
  */
 public class MagicMenuFrame extends javax.swing.JFrame {
-
+    Game game = DaenirisTheForgotten.getCurrentGame();
+    Spells[][] spells = game.getSpells();
     /**
      * Creates new form MagicMenuFrame
      */
     public MagicMenuFrame() {
-        Game game = DaenirisTheForgotten.getCurrentGame();
-        Spells[][] spells = game.getSpells();
+        
         
         initComponents();
         
@@ -50,7 +56,7 @@ public class MagicMenuFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         castSpell = new javax.swing.JButton();
         exitMenu = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        spellDisplayPanel = new javax.swing.JPanel();
         spellDescription = new javax.swing.JLabel();
         spellName = new javax.swing.JLabel();
         spellEffect = new javax.swing.JLabel();
@@ -69,8 +75,15 @@ public class MagicMenuFrame extends javax.swing.JFrame {
                 "White Magic", "Black Magic"
             }
         ));
+        magicTable.setColumnSelectionAllowed(true);
         magicTable.setRowHeight(50);
+        magicTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                magicTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(magicTable);
+        magicTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Magic Menu");
@@ -112,7 +125,7 @@ public class MagicMenuFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        spellDisplayPanel.setBackground(new java.awt.Color(204, 204, 204));
 
         spellDescription.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         spellDescription.setText(" ");
@@ -126,32 +139,32 @@ public class MagicMenuFrame extends javax.swing.JFrame {
         manaCost.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         manaCost.setText(" ");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout spellDisplayPanelLayout = new javax.swing.GroupLayout(spellDisplayPanel);
+        spellDisplayPanel.setLayout(spellDisplayPanelLayout);
+        spellDisplayPanelLayout.setHorizontalGroup(
+            spellDisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(spellDisplayPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(spellDisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(spellDisplayPanelLayout.createSequentialGroup()
                         .addComponent(manaCost, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(87, 87, 87)
                         .addComponent(spellEffect, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(spellDisplayPanelLayout.createSequentialGroup()
                         .addComponent(spellName, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(spellDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        spellDisplayPanelLayout.setVerticalGroup(
+            spellDisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(spellDisplayPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(spellDisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spellName)
                     .addComponent(spellDescription))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(spellDisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spellEffect)
                     .addComponent(manaCost))
                 .addGap(19, 19, 19))
@@ -175,7 +188,7 @@ public class MagicMenuFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(spellDisplayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -193,7 +206,7 @@ public class MagicMenuFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(spellDisplayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -201,13 +214,54 @@ public class MagicMenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void castSpellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castSpellActionPerformed
-        // TODO add your handling code here:
+        Spells spell;        
+        int row = this.magicTable.getSelectedRow();
+        int column = this.magicTable.getSelectedColumn();
+        String selection = (String) this.magicTable.getValueAt(row, column);
+        
+        spell = getSpell(selection);
+        
+        try{
+            SpellControl.castSpell(spell, false);
+            PlayerCharacterInfoView playerInfo = new PlayerCharacterInfoView();
+            playerInfo.display();
+        }
+        catch(illegalActionException ex){
+              System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_castSpellActionPerformed
 
     private void exitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuActionPerformed
         this.dispose();
     }//GEN-LAST:event_exitMenuActionPerformed
 
+    private void magicTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_magicTableMouseClicked
+        
+        Spells spell = null;
+        
+        int row = this.magicTable.getSelectedRow();
+        int column = this.magicTable.getSelectedColumn();
+        String selection = (String) this.magicTable.getValueAt(row, column);
+        
+        spell = getSpell(selection);
+        
+        this.spellName.setText(spell.getSpellName());
+        this.spellDescription.setText(spell.getDescription());
+        this.spellEffect.setText("Spell Effect: " + spell.getSpecialEffects());
+        this.manaCost.setText("Mana Cost: " + spell.getMagicCost());
+    }//GEN-LAST:event_magicTableMouseClicked
+    
+    private Spells getSpell(String selection){
+        Spells spell = null;
+        try{
+            spell = SpellControl.getSpell(selection);
+            System.out.println(spell.toString());
+            }catch(stringNotFoundException ex){
+                System.out.println(ex.getMessage());
+        }
+        return spell;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -249,11 +303,11 @@ public class MagicMenuFrame extends javax.swing.JFrame {
     private javax.swing.JButton exitMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable magicTable;
     private javax.swing.JLabel manaCost;
     private javax.swing.JLabel spellDescription;
+    private javax.swing.JPanel spellDisplayPanel;
     private javax.swing.JLabel spellEffect;
     private javax.swing.JLabel spellName;
     // End of variables declaration//GEN-END:variables
