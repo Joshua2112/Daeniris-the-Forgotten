@@ -21,6 +21,10 @@ public class Enemy extends Actor{
      private int experienceValue;
      private String itemsDropped;
      private int goldValue;
+     private boolean magicAttacker;
+     private String spellUsed;
+     private int spellUseDamage;
+     private int spellCost;
 
 
     public int getExperienceValue() {
@@ -38,6 +42,40 @@ public class Enemy extends Actor{
     public void setItemsDropped(String itemsDropped) {
         this.itemsDropped = itemsDropped;
     }
+
+    public boolean isMagicAttacker() {
+        return magicAttacker;
+    }
+
+    public void setMagicAttacker(boolean magicAttacker) {
+        this.magicAttacker = magicAttacker;
+    }
+
+    public String getSpellUsed() {
+        return spellUsed;
+    }
+
+    public void setSpellUsed(String spellUsed) {
+        this.spellUsed = spellUsed;
+    }
+
+    public int getSpellUseDamage() {
+        return spellUseDamage;
+    }
+
+    public void setSpellUseDamage(int spellUseDamage) {
+        this.spellUseDamage = spellUseDamage;
+    }
+
+    public int getSpellCost() {
+        return spellCost;
+    }
+
+    public void setSpellCost(int spellCost) {
+        this.spellCost = spellCost;
+    }
+    
+    
 
     @Override
     public String toString() {

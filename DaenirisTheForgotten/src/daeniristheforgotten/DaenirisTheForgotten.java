@@ -22,7 +22,6 @@ public class DaenirisTheForgotten {
             //ProgramStart programStart = new ProgramStart();
             //programStart.startProgram();
 
-
             java.awt.EventQueue.invokeLater(
                 new Runnable(){
                     public void run(){

@@ -13,6 +13,7 @@ import byui.CIT260.DaenirisTheForgotten.View.MainMenuView;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
  * @author Joshua
@@ -132,16 +133,16 @@ public class StartProgramFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void QuitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitGameActionPerformed
+    private void QuitGameActionPerformed(java.awt.event.ActionEvent evt) {                                         
         dispose();
-    }//GEN-LAST:event_QuitGameActionPerformed
+    }                                        
 
 
-    private void NewGameStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewGameStartActionPerformed
+    private void NewGameStartActionPerformed(java.awt.event.ActionEvent evt) {                                             
         EnterCharacterName enterCharacterName = new EnterCharacterName();
         enterCharacterName.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_NewGameStartActionPerformed
+    }                                            
 
     private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
          try {
@@ -162,6 +163,17 @@ public class StartProgramFrame extends javax.swing.JFrame {
             CharacterCreationView.newCharacterCreation();
             }
     }
+
+    private void QuitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitGameActionPerformed
+        dispose();
+    }//GEN-LAST:event_QuitGameActionPerformed
+
+    private void NewGameStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewGameStartActionPerformed
+        EnterPlayerCharacterName enterCharacterName = new EnterPlayerCharacterName();
+        enterCharacterName.setVisible(true);
+        GameControl.CreateNewGame();
+        this.dispose();
+    }//GEN-LAST:event_NewGameStartActionPerformed
 
     /**
      * @param args the command line arguments
