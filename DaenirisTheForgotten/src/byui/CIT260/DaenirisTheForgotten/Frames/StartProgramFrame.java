@@ -37,29 +37,17 @@ public class StartProgramFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         NewGameStart = new javax.swing.JButton();
         QuitGame = new javax.swing.JButton();
         Help = new javax.swing.JButton();
         test = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        introText = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 0));
         jPanel1.setForeground(new java.awt.Color(255, 255, 0));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 457, Short.MAX_VALUE)
-        );
 
         NewGameStart.setText("Start New Game");
         NewGameStart.addActionListener(new java.awt.event.ActionListener() {
@@ -84,27 +72,36 @@ public class StartProgramFrame extends javax.swing.JFrame {
             }
         });
 
+        introText.setBackground(new java.awt.Color(255, 255, 204));
+        introText.setColumns(20);
+        introText.setRows(5);
+        introText.setText("\nWelcome to Daeniris the Forgotten\n\nThis will be the start of a great\nadventure.  Your hero will become\na champion of the people.  You\nwill need to use your smarts to\nsave the people, and the people\n     will ever be grateful.\n\n       Good luck to you");
+        jScrollPane1.setViewportView(introText);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(NewGameStart)
-                .addGap(18, 18, 18)
-                .addComponent(QuitGame)
-                .addGap(18, 18, 18)
-                .addComponent(Help)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(NewGameStart)
+                        .addGap(18, 18, 18)
+                        .addComponent(QuitGame)
+                        .addGap(18, 18, 18)
+                        .addComponent(Help)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(test)
-                .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NewGameStart)
                     .addComponent(QuitGame)
@@ -214,8 +211,9 @@ public class StartProgramFrame extends javax.swing.JFrame {
     private javax.swing.JButton Help;
     private javax.swing.JButton NewGameStart;
     private javax.swing.JButton QuitGame;
+    private javax.swing.JTextArea introText;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton test;
     // End of variables declaration//GEN-END:variables
 }
