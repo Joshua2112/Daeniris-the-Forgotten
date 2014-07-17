@@ -132,7 +132,7 @@ public class StartProgramFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/*
     private void QuitGameActionPerformed(java.awt.event.ActionEvent evt) {                                         
         dispose();
     }                                        
@@ -143,18 +143,7 @@ public class StartProgramFrame extends javax.swing.JFrame {
         enterCharacterName.setVisible(true);
         this.dispose();
     }                                            
-
-    private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
-         try {
-             this.StartNewGame(true);
-         } catch (illegalActionException ex) {
-             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        AdventureMenuFrame adventureMenu = new AdventureMenuFrame();
-        adventureMenu.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_testActionPerformed
-    
+    */
     private void StartNewGame(Boolean test) throws illegalActionException {
         
         GameControl.CreateNewGame();
@@ -162,6 +151,9 @@ public class StartProgramFrame extends javax.swing.JFrame {
         if (!test){
             CharacterCreationView.newCharacterCreation();
             }
+        
+        AdventureMenuFrame adventureMenu = new AdventureMenuFrame();
+        adventureMenu.setVisible(true);
     }
 
     private void QuitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitGameActionPerformed
@@ -174,6 +166,14 @@ public class StartProgramFrame extends javax.swing.JFrame {
         GameControl.CreateNewGame();
         this.dispose();
     }//GEN-LAST:event_NewGameStartActionPerformed
+
+    private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
+        try {
+             this.StartNewGame(true);
+         } catch (illegalActionException ex) {
+             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }//GEN-LAST:event_testActionPerformed
 
     /**
      * @param args the command line arguments
