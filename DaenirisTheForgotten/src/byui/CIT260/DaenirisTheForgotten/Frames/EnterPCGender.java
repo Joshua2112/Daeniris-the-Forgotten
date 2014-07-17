@@ -6,11 +6,22 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.PCStatsControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
+
 /**
  *
  * @author Joshua
  */
 public class EnterPCGender extends javax.swing.JFrame {
+    
+    Game game = DaenirisTheForgotten.getCurrentGame();
+        Actor[][] actor = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
+        String choice;
 
     /**
      * Creates new form EnterPCGender
@@ -28,31 +39,88 @@ public class EnterPCGender extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        genderLabel = new javax.swing.JLabel();
+        maleButton = new javax.swing.JButton();
+        femaleButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 255, 0));
 
-        jLabel1.setText("Enter Gender View");
+        jPanel1.setBackground(new java.awt.Color(0, 255, 0));
+
+        genderLabel.setBackground(new java.awt.Color(255, 255, 204));
+        genderLabel.setText("Please choose a gender for your character");
+
+        maleButton.setText("Male");
+        maleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleButtonActionPerformed(evt);
+            }
+        });
+
+        femaleButton.setText("Female");
+        femaleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femaleButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(genderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 28, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(maleButton)
+                .addGap(18, 18, 18)
+                .addComponent(femaleButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(genderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(maleButton)
+                    .addComponent(femaleButton))
+                .addGap(0, 32, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void maleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleButtonActionPerformed
+        choice = "MALE";
+        PCStatsControl.setGender(player, choice);
+        EnterPCJob enterPCJob = new EnterPCJob();
+        enterPCJob.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_maleButtonActionPerformed
+
+    private void femaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleButtonActionPerformed
+        choice = "FEMALE";
+        PCStatsControl.setGender(player, choice);
+        EnterPCJob enterPCJob = new EnterPCJob();
+        enterPCJob.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_femaleButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -90,6 +158,9 @@ public class EnterPCGender extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton femaleButton;
+    private javax.swing.JLabel genderLabel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton maleButton;
     // End of variables declaration//GEN-END:variables
 }

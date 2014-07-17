@@ -28,7 +28,7 @@ import java.util.Random;
  */
 public class BattleControl {   
    
-    public static int attackEnemy() {   
+    public static String attackEnemy() {   
         
         
         
@@ -38,6 +38,7 @@ public class BattleControl {
         boolean hit = false;
         boolean critical = false;
         int damage = 0;
+        String battleMessage = " ";
         
         Random number = new Random();
         int connect = number.nextInt(30) + battle.getTotalHealth() - battle.getEnemyDefense();
@@ -70,25 +71,20 @@ public class BattleControl {
             if (damage < 0){
                 damage = 0;
             }
-	
-            if (critical == true){
-                damage *= 2;
-            }
-        }   
-            if (hit == true){ 
-                battle.setEnemyCurrentHealth(battle.getEnemyCurrentHealth() - damage);
-                BattleMenuView.displayResults(damage, true);
-            }
-            else{
-                BattleMenuView.displayResults(damage, false);                
-            }
+            
+            battle.setEnemyCurrentHealth(battle.getEnemyCurrentHealth() - damage);
+            
+        }
+        else{
+            battleMessage = "Your attack missed";
+        }
             
             if(battle.getEnemyCurrentHealth() <= 0){
-                battle.setEnemyHealth(0);
-                endBattle(battle);
-                return 1;
+                battle.setEnemyCurrentHealth(0);
+                battleMessage = endBattle(battle);
+                return battleMessage;
             }
-        return 0;
+        return battleMessage;
     }
 
     public static int magicCast(){
@@ -244,7 +240,7 @@ public class BattleControl {
         return runMessage;
     }
     
-    private static void endBattle(BattleScene battle) {
+    private static String endBattle(BattleScene battle) {
         Actor[][] actors = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         
@@ -252,19 +248,21 @@ public class BattleControl {
         player.setCurrentMagicPoints(battle.getCurrentMagic());
         player.setPlayerGold(battle.getEnemyGold() + battle.getPlayerGold());
         player.setExperience(battle.getPlayerExp() + battle.getEnemyExp());
-        System.out.println("\n\tYou defeated the enemy!"
+        String message = "\n\tYou defeated the enemy!"
                           +"\n\tYou gained " + battle.getEnemyGold() + " gold"
-                          +"\n\tand you gained " + battle.getEnemyExp() + " experience points");
+                          +"\n\tand you gained " + battle.getEnemyExp() + " experience points";
         Random treasure = new Random();
         int treasureChance = treasure.nextInt(100);
         if(treasureChance >= 50){
             TreasureChestScene battleTreasure = new TreasureChestScene();
             battleTreasure.display();
         }
+        return message;
+    }
             
                 
         
-        if(player.getExperience() >= player.getLevel() * 100){
+       /* if(player.getExperience() >= player.getLevel() * 100){
             System.out.println("\n\tYou gained a level!"
                               +"\n\tYou have three points to distribute");
             player.setLevel(player.getLevel() + 1);
@@ -272,7 +270,7 @@ public class BattleControl {
             DistributeBonusesView levelUp = new DistributeBonusesView();
             levelUp.display();
         }
-    }
+    }*/
     
     public static ArrayLocation enemySelector(){
         ArrayLocation arrayLocation = new ArrayLocation();
