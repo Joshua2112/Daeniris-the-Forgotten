@@ -139,21 +139,20 @@ public class PlayerCharacter extends Actor{
     @Override
     public String toString() {
         String newline = System.getProperty("line.separator");
-        return "\tPlayer Character" 
-                + "\tname = " + this.getName() + newline
-                + "\tgender = " + gender + newline
-                + "\tage = " + age + newline
-                + "\tjob = " + job + newline
-                + "\tLevel = " + Level + newline 
-                + "\thealth points = " + this.getHealthPoints() + newline
-                + "\tmagic points = " + this.getMagicPoints() + newline
-                + "\tattack = " + this.getAttack() + newline
-                + "\tdefense = " + this.getDefense() + newline
-                + "\tmagic attack = " + this.getMagicAttack() + newline
-                + "\tmagic defense = " + this.getMagicDefense() + newline
-                + "\tplayer Gold = " + playerGold + newline
-                + "\texperience Points = " + experience
-                + "\tlevel Points = " + levelPoints + newline;
+        return    "name = " + this.getName() + newline
+                + "gender = " + gender + newline
+                + "age = " + age + newline
+                + "job = " + job + newline
+                + "Level = " + Level + newline 
+                + "health points = " + this.getHealthPoints() + newline
+                + "magic points = " + this.getMagicPoints() + newline
+                + "attack = " + this.getAttack() + newline
+                + "defense = " + this.getDefense() + newline
+                + "magic attack = " + this.getMagicAttack() + newline
+                + "magic defense = " + this.getMagicDefense() + newline
+                + "player Gold = " + playerGold + newline
+                + "experience Points = " + experience
+                + "level Points = " + levelPoints + newline;
     }
 
 }

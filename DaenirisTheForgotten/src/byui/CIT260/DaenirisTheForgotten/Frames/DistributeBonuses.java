@@ -26,6 +26,7 @@ public class DistributeBonuses extends javax.swing.JFrame {
      */
     public DistributeBonuses() {
         initComponents();
+        this.playerStats.setText(player.toString());
     }
 
     /**
@@ -37,6 +38,7 @@ public class DistributeBonuses extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        playerInfo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         bonusesDisplay = new javax.swing.JLabel();
         attackUp = new javax.swing.JButton();
@@ -47,6 +49,8 @@ public class DistributeBonuses extends javax.swing.JFrame {
         mPUp = new javax.swing.JButton();
         resetPointsButton = new javax.swing.JButton();
         finishedButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        playerStats = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,52 +114,61 @@ public class DistributeBonuses extends javax.swing.JFrame {
             }
         });
 
+        playerStats.setColumns(20);
+        playerStats.setRows(5);
+        jScrollPane1.setViewportView(playerStats);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(bonusesDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 144, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mAttackUp)
-                            .addComponent(mDefenseUp)
                             .addComponent(hPUp)
                             .addComponent(mPUp)
+                            .addComponent(mAttackUp)
+                            .addComponent(mDefenseUp)
                             .addComponent(attackUp)
                             .addComponent(defenseUp))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(resetPointsButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(finishedButton)
-                        .addGap(26, 26, 26))))
+                        .addGap(20, 20, 20))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(bonusesDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(attackUp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(defenseUp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mAttackUp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mDefenseUp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hPUp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mPUp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(attackUp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(defenseUp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mAttackUp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mDefenseUp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hPUp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mPUp)
+                        .addGap(0, 74, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resetPointsButton)
                     .addComponent(finishedButton))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,30 +187,37 @@ public class DistributeBonuses extends javax.swing.JFrame {
 
     private void attackUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackUpActionPerformed
         PCStatsControl.attackUp(player);
+        this.playerStats.setText(player.toString());
     }//GEN-LAST:event_attackUpActionPerformed
 
     private void defenseUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defenseUpActionPerformed
         PCStatsControl.defenseUp(player);
+        this.playerStats.setText(player.toString());
     }//GEN-LAST:event_defenseUpActionPerformed
 
     private void mAttackUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAttackUpActionPerformed
                 PCStatsControl.mAttackUp(player);
+                this.playerStats.setText(player.toString());
     }//GEN-LAST:event_mAttackUpActionPerformed
 
     private void mDefenseUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mDefenseUpActionPerformed
                 PCStatsControl.mDefenseUp(player);
+                this.playerStats.setText(player.toString());
     }//GEN-LAST:event_mDefenseUpActionPerformed
 
     private void hPUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hPUpActionPerformed
                 PCStatsControl.HPUp(player);
+                this.playerStats.setText(player.toString());
     }//GEN-LAST:event_hPUpActionPerformed
 
     private void mPUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mPUpActionPerformed
                 PCStatsControl.MPUp(player);
+                this.playerStats.setText(player.toString());
     }//GEN-LAST:event_mPUpActionPerformed
 
     private void resetPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPointsButtonActionPerformed
                 PCStatsControl.resetPoints(player);
+                this.playerStats.setText(player.toString());
     }//GEN-LAST:event_resetPointsButtonActionPerformed
 
     private void finishedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedButtonActionPerformed
@@ -248,9 +268,12 @@ public class DistributeBonuses extends javax.swing.JFrame {
     private javax.swing.JButton finishedButton;
     private javax.swing.JButton hPUp;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton mAttackUp;
     private javax.swing.JButton mDefenseUp;
     private javax.swing.JButton mPUp;
+    private javax.swing.JLabel playerInfo;
+    private javax.swing.JTextArea playerStats;
     private javax.swing.JButton resetPointsButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,9 +10,9 @@ package byui.CIT260.DaenirisTheForgotten.View;
  *
  * @author Joshua
  */
-class UseItemMenuView {
+public class UseItemMenuView {
 
-    void displayItemMenu() {
+    public void displayItemMenu() {
         System.out.println("use item stub called");
     }
     

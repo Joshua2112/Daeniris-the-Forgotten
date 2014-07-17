@@ -34,7 +34,7 @@ public class BattleMenuView extends View{
      switch (choice){
         case "A": 
             System.out.println("\n\tYou attacked the enemy");
-            kill = BattleControl.attackEnemy();
+            BattleControl.attackEnemy();
             BattleControl.enemyAttack();
             break;
         case "M":
