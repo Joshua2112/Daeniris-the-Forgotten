@@ -49,7 +49,7 @@ public class GameControl {
         game.setArmors(createArmorList());
         game.setWeapons(createWeaponList());
         game.setSecondaries(createSecondaryList());
-        //game.setEquippedGear(initialGear());
+        game.setEquippedGear(initialGear());
         game.setBattle(createBattle());
 
                 

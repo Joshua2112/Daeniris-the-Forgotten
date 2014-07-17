@@ -6,6 +6,13 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
+import byui.CIT260.DaenirisTheForgotten.View.CharacterCreationView;
+import byui.CIT260.DaenirisTheForgotten.View.MainMenuView;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Joshua
@@ -137,9 +144,24 @@ public class StartProgramFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_NewGameStartActionPerformed
 
     private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
-        // TODO add your handling code here:
+         try {
+             this.StartNewGame(true);
+         } catch (illegalActionException ex) {
+             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        AdventureMenuFrame adventureMenu = new AdventureMenuFrame();
+        adventureMenu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_testActionPerformed
-
+    
+    private void StartNewGame(Boolean test) throws illegalActionException {
+        
+        GameControl.CreateNewGame();
+        
+        if (!test){
+            CharacterCreationView.newCharacterCreation();
+            }
+    }
 
     /**
      * @param args the command line arguments

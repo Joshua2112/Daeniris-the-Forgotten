@@ -74,7 +74,7 @@ public class AdventureView extends View{
                 displayMap();
                 break;
             case "D":
-                moveIt(0, 1);
+
                 displayMap();
                 break;
             case "B":

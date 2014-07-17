@@ -61,7 +61,7 @@ public class MoveControl {
             }
         }      
        MoveChanceControl battleView = new MoveChanceControl();
-       battleView.MoveChance();
+       //battleView.MoveChance();
     }
     
     
