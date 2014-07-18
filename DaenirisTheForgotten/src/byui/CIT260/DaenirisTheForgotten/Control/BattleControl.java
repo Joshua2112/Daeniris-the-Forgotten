@@ -14,8 +14,6 @@ import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
-import byui.CIT260.DaenirisTheForgotten.View.BattleMenuView;
-import byui.CIT260.DaenirisTheForgotten.View.DistributeBonusesView;
 import byui.CIT260.DaenirisTheForgotten.View.GameOverView;
 import byui.CIT260.DaenirisTheForgotten.View.TreasureChestScene;
 import daeniristheforgotten.DaenirisTheForgotten;
@@ -27,77 +25,82 @@ import java.util.Random;
  * @author Joshua
  */
 public class BattleControl {   
-   
-    public static String attackEnemy() {   
-        
-        
+    
+    public static boolean hit() {
         
         Game game = DaenirisTheForgotten.currentGame;
-        BattleScene battle = game.getBattle();   
-        
+        BattleScene battle = game.getBattle();
         boolean hit = false;
-        boolean critical = false;
-        int damage = 0;
-        String battleMessage = " ";
         
         Random number = new Random();
         int connect = number.nextInt(30) + battle.getTotalHealth() - battle.getEnemyDefense();
         if (connect > 14){
             hit = true;
+        }
             
-            Random critRand = new Random();
-            int crit = critRand.nextInt(100) + battle.getCriticalHitBonus();
-                if (crit > 90){
-                critical = true;
-                }
-                else{
-                critical = false;
-                }
-           
-            if (battle.getTotalAttack() < 0){
-                battle.setTotalAttack(0);           
-                }
+        return hit;   
+    }
+   
+    public static String attackEnemy() {   
+        
+        Game game = DaenirisTheForgotten.currentGame;
+        BattleScene battle = game.getBattle();   
+        
+        boolean critical = false;
+        int damage = 0;
+        String battleMessage = " ";
             
-            Random randomDamage = new Random();
-            int extraDamage = randomDamage.nextInt(10);
-            
-            if(critical == true){
-                damage = 2 * (battle.getTotalAttack() + extraDamage) - battle.getEnemyDefense();
+        Random critRand = new Random();
+        int crit = critRand.nextInt(100) + battle.getCriticalHitBonus();
+            if (crit > 90){
+            critical = true;
             }
             else{
-                damage = battle.getTotalAttack() + extraDamage - battle.getEnemyDefense();
+            critical = false;
+            }
+           
+        if (battle.getTotalAttack() < 0){
+            battle.setTotalAttack(0);           
             }
             
-            if (damage < 0){
-                damage = 0;
-            }
+        Random randomDamage = new Random();
+        int extraDamage = randomDamage.nextInt(10);
             
-            battle.setEnemyCurrentHealth(battle.getEnemyCurrentHealth() - damage);
-            
+        if(critical == true){
+            damage = 2 * (battle.getTotalAttack() + extraDamage) - battle.getEnemyDefense();
         }
         else{
-            battleMessage = "Your attack missed";
+            damage = battle.getTotalAttack() + extraDamage - battle.getEnemyDefense();
         }
             
-            if(battle.getEnemyCurrentHealth() <= 0){
-                battle.setEnemyCurrentHealth(0);
-                battleMessage = endBattle(battle);
-                return battleMessage;
-            }
+        if (damage < 0){
+            damage = 0;
+        }
+        
+        battle.setEnemyCurrentHealth(battle.getEnemyCurrentHealth() - damage);
+        if(battle.getEnemyCurrentHealth() <= 0){
+            battle.setEnemyCurrentHealth(0);
+            
+            battleMessage = "You attacked the enemy"
+                            +"\nYou did " + damage + " to the enemy";
+            
+    }
         return battleMessage;
+    }     
+    
+    public static boolean checkEnemyDeath() {
+        Game game = DaenirisTheForgotten.currentGame;
+        BattleScene battle = game.getBattle();
+        boolean dead = false;
+        if(battle.getEnemyCurrentHealth() == 0){
+            dead = true;
+        }
+        return dead;
     }
 
     public static int magicCast(){
         Game game = DaenirisTheForgotten.currentGame;
         BattleScene battle = game.getBattle(); 
-        
-        
-        
-        if(battle.getEnemyCurrentHealth() <= 0){
-            battle.setEnemyHealth(0);
-            endBattle(battle);
-            return 1;
-        }        
         return 0;
     }
     
@@ -240,9 +243,11 @@ public class BattleControl {
         return runMessage;
     }
     
-    private static String endBattle(BattleScene battle) {
+    public static String endBattle() {
+        Game game = DaenirisTheForgotten.currentGame;
         Actor[][] actors = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
+        BattleScene battle = game.getBattle();
         
         player.setCurrentHealthPoints(battle.getCurrentHealth());
         player.setCurrentMagicPoints(battle.getCurrentMagic());
@@ -251,13 +256,16 @@ public class BattleControl {
         String message = "\n\tYou defeated the enemy!"
                           +"\n\tYou gained " + battle.getEnemyGold() + " gold"
                           +"\n\tand you gained " + battle.getEnemyExp() + " experience points";
+        return message;
+    }
+    public boolean treasureRoll(){
+        boolean treasureChest = false;
         Random treasure = new Random();
         int treasureChance = treasure.nextInt(100);
         if(treasureChance >= 50){
-            TreasureChestScene battleTreasure = new TreasureChestScene();
-            battleTreasure.display();
+            treasureChest = true;
         }
-        return message;
+        return treasureChest;
     }
             
                 
@@ -287,6 +295,10 @@ public class BattleControl {
         
         return arrayLocation;
     }
+
+    
+
+    
 }
     
 

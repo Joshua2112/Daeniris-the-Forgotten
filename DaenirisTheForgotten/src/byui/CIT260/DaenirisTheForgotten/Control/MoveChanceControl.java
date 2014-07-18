@@ -7,7 +7,6 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 
-import byui.CIT260.DaenirisTheForgotten.Model.ArrayLocation;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;

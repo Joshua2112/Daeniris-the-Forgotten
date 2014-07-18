@@ -94,7 +94,10 @@ public class BattleScene extends Location{
         private int spellDamage;
         private int enemySpellCost;
 
+    public BattleScene() {
 
+    }
+    
     public String getPlayerName() {
         return playerName;
     }
