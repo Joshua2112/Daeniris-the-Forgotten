@@ -27,7 +27,6 @@ public class BattleFrame extends javax.swing.JFrame {
     public BattleFrame() {
         initComponents();
         Game game = DaenirisTheForgotten.currentGame;
-        MoveChanceControl.createNewBattle();
         BattleScene data = game.getBattle();
         this.playerInfo.setText("Name " + data.getName()
                                 +"\nHealth " + data.getCurrentHealth() + "/" + data.getTotalHealth()
