@@ -119,4 +119,5 @@ public class Resource extends Location{
         location.setDiscovered(Constants.MAP_DISCOVERED);
         location.setDescription("Grassy plains span before you.");
     }
+    
 }

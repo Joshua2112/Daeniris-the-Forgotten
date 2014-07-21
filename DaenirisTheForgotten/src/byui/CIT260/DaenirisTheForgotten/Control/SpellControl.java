@@ -118,7 +118,7 @@ public class SpellControl{
             }
             //Deduct mana from character.
             playerStats.setCurrentMagicPoints(
-                playerStats.getCurrentHealthPoints() - spell.getMagicCost());
+                playerStats.getCurrentMagicPoints() - spell.getMagicCost());
         }
         //if in a battle
         else{

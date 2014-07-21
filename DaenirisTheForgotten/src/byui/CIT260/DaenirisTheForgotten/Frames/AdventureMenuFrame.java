@@ -6,10 +6,13 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
 import byui.CIT260.DaenirisTheForgotten.Exception.MovedOffMapException;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
 import static byui.CIT260.DaenirisTheForgotten.View.AdventureView.moveIt;
@@ -17,6 +20,7 @@ import byui.CIT260.DaenirisTheForgotten.View.PlayerCharacterInfoView;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -25,13 +29,15 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @author Nathan
  */
 public class AdventureMenuFrame extends javax.swing.JFrame {
-
+    Game game = DaenirisTheForgotten.getCurrentGame();
+    World world = game.getWorld();
+    Actor[][] actors = game.getActor();
+    PlayerCharacter playerStats = ((PlayerCharacter) actors[0][0]);
     /**
      * Creates new form AdventureMenuFrame
      */
     public AdventureMenuFrame() {
-        Game game = DaenirisTheForgotten.getCurrentGame();
-        World world = game.getWorld();
+        
         
         Location[][] mapArray = game.getWorld().getMap();
         
@@ -51,11 +57,49 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
             }               
         }
         
-        //this.playerName.setText();
+        populateCharacterData();
+        
         
     }
+
+    public JLabel getLevel() {
+        return level;
+    }
+
+    public void setLevel(JLabel level) {
+        this.level = level;
+    }
     
-    public static void moveIt(int x, int y){
+    
+    
+    public void populateCharacterData(){
+        this.playerName.setText(playerStats.getName());
+        this.playerClass.setText(playerStats.getJob());
+        this.playerGender.setText(playerStats.getGender());
+        this.level.setText(Integer.toString(playerStats.getLevel()));
+        this.healtPoints.setText("Health: "
+                                + Integer.toString(playerStats.getCurrentHealthPoints())
+                                + " / "
+                                + Integer.toString(playerStats.getHealthPoints()));
+        this.manaPoints.setText("Mana: " 
+                                + Integer.toString(playerStats.getCurrentMagicPoints())
+                                + " / "
+                                + Integer.toString(playerStats.getMagicPoints()));
+        this.attack.setText("Attack: " + Integer.toString(playerStats.getAttack()));
+        this.defense.setText("Defense: " + Integer.toString(playerStats.getDefense()));
+        this.magicDefense.setText("Magic Defense: " 
+                                  + Integer.toString(playerStats.getMagicDefense()));
+        this.magicAttack.setText("Magic Attack: " 
+                                  + Integer.toString(playerStats.getMagicAttack()));
+        this.Experience.setText("EXP: " 
+                                + Integer.toString(playerStats.getExperience()) 
+                                + " / " 
+                                + ((playerStats.getLevel() * 100) - playerStats.getExperience())
+                                ); 
+        this.gold.setText("Gold: " + Integer.toString(playerStats.getPlayerGold()));
+    }
+    
+    public void moveIt(int x, int y){
         try{MoveControl.move(x, y);
         
         } catch (MovedOffMapException ex) {
@@ -92,7 +136,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         healtPoints = new javax.swing.JLabel();
         level = new javax.swing.JLabel();
         playerClass = new javax.swing.JLabel();
-        playerName2 = new javax.swing.JLabel();
+        playerGender = new javax.swing.JLabel();
         playerName = new javax.swing.JLabel();
         manaPoints = new javax.swing.JLabel();
         attack = new javax.swing.JLabel();
@@ -104,6 +148,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         mapTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -237,8 +282,8 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         playerClass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         playerClass.setText("player Class");
 
-        playerName2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        playerName2.setText("player gender");
+        playerGender.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        playerGender.setText("player gender");
 
         playerName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         playerName.setText("PlayerName");
@@ -276,7 +321,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(level, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(playerClass, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(playerName2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(playerGender, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(healtPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,7 +358,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(playerClass, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(playerName2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(playerGender, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -392,15 +437,28 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(mapTable);
         mapTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -437,7 +495,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void magicMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_magicMenuActionPerformed
-        MagicMenuFrame magicMenu = new MagicMenuFrame();
+        MagicMenuFrame magicMenu = new MagicMenuFrame(this);
         magicMenu.setVisible(true);
     }//GEN-LAST:event_magicMenuActionPerformed
 
@@ -479,6 +537,10 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         moveIt(1, 0);
         this.mapTable.repaint();
     }//GEN-LAST:event_moveSouthActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.populateCharacterData();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
     /**
@@ -527,6 +589,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     private javax.swing.JLabel healtPoints;
     private javax.swing.JButton interact;
     private javax.swing.JButton itemsMenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -543,7 +606,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     private javax.swing.JButton moveSouth;
     private javax.swing.JButton moveWest;
     private javax.swing.JLabel playerClass;
+    private javax.swing.JLabel playerGender;
     private javax.swing.JLabel playerName;
-    private javax.swing.JLabel playerName2;
     // End of variables declaration//GEN-END:variables
 }

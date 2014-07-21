@@ -601,7 +601,7 @@ public class GameControl {
         newPlayerCharacter.setMagicAttack(4);
         newPlayerCharacter.setMagicDefense(3);
         newPlayerCharacter.setHealthPoints(50);
-        newPlayerCharacter.setCurrentHealthPoints(50);
+        newPlayerCharacter.setCurrentHealthPoints(20);
         newPlayerCharacter.setMagicPoints(20);
         newPlayerCharacter.setCurrentMagicPoints(20);
         newPlayerCharacter.setPlayerGold(Constants.STARTING_GOLD);

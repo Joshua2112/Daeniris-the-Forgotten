@@ -31,11 +31,22 @@ public class World implements Serializable{
        
        GameControl.createMapLocations(map);
            
-       map[0][5] = new Dungeon();
+       //map[0][5] = new Dungeon();
+       
        map[7][21] = new Dungeon();
+       map[7][21].setSymbol('D');
+       map[7][21].setDiscovered(Constants.MAP_DISCOVERED);
+       
        map[32][50] = new Dungeon();
+       map[32][50].setSymbol('d');
+       map[32][50].setDiscovered(Constants.MAP_DISCOVERED);
+       
        map[19][90] = new Dungeon();
+       map[19][90].setSymbol('X');
+       map[19][90].setDiscovered(Constants.MAP_DISCOVERED);
+       
        map[Constants.MAP_START_X][Constants.MAP_START_Y] = new Shop();
+       
        
         xLoc = Constants.MAP_START_X;
         yLoc = Constants.MAP_START_Y;

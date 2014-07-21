@@ -60,8 +60,23 @@ import javax.swing.table.DefaultTableCellRenderer;
                      && mapArray[row][column].isDiscovered()){
                 setIcon(new ImageIcon("C:/Users/Nathan/Desktop/mount.jpg"));   
             }
+            else if (mapArray[row][column].getSymbol() == 'D'
+                     && mapArray[row][column].isDiscovered()){
+                setIcon(new ImageIcon("../../Images/dungeon1"));   
+            }
+            else if (mapArray[row][column].getSymbol() == 'd'
+                     && mapArray[row][column].isDiscovered()){
+                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/dungeon2.jpg"));   
+            }
+            else if (mapArray[row][column].getSymbol() == 'X'
+                     && mapArray[row][column].isDiscovered()){
+                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/dungeon3.jpg"));   
+            }
+            else if (mapArray[row][column].getSymbol() == 'S'){
+                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/shop.jpg"));   
+            }
             else{
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/warrior.jpg"));
+                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/blank.jpg"));
             }
             return cellComponent; 
         }

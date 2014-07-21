@@ -14,7 +14,7 @@ public class Constants {
     public static final int MAP_MIN_X = 0;
     public static final int MAP_MAX_Y = 100;
     public static final int MAP_MIN_Y = 0;
-    public static final boolean MAP_DISCOVERED = true;
+    public static final boolean MAP_DISCOVERED = false;
     public static final int MAP_START_X = 20;
     public static final int MAP_START_Y = 0;
     
