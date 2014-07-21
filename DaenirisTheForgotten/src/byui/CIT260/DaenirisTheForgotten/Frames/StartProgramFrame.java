@@ -192,12 +192,12 @@ public class StartProgramFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_testActionPerformed
 
     private void battleTestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battleTestButtonActionPerformed
-        BattleFrame fight = new BattleFrame();
         try {
              this.StartNewGame(true);
          } catch (illegalActionException ex) {
              Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
          }
+        BattleFrame fight = new BattleFrame();
         fight.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_battleTestButtonActionPerformed

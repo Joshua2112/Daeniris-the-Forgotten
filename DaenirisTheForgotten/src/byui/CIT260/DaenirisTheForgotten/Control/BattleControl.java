@@ -80,11 +80,10 @@ public class BattleControl {
         battle.setEnemyCurrentHealth(battle.getEnemyCurrentHealth() - damage);
         if(battle.getEnemyCurrentHealth() <= 0){
             battle.setEnemyCurrentHealth(0);
+        }
             
-            battleMessage = "You attacked the enemy"
-                            +"\nYou did " + damage + " to the enemy";
-            
-    }
+        battleMessage = "You attacked the enemy"
+                        +"\nYou did " + damage + " to the enemy";
         return battleMessage;
     }     
     
@@ -136,13 +135,9 @@ public class BattleControl {
                 battle.setCurrentHealth(battle.getCurrentHealth() - damage);
                 battle.setEnemyCurrentMagic(battle.getEnemyCurrentMagic() - battle.getEnemySpellCost());
                 
-                fightMessage = "\n\tEnemy used " + battle.getSpellName()
-                                +"\n\tYou took " + damage + " damage";
-                
-                if(battle.getCurrentHealth() <= 0){
-                GameOverView gameOver = new GameOverView();
-                gameOver.endGame();
-                
+                fightMessage = "Enemy used " + battle.getSpellName()
+                                +"\nYou took " + damage + " damage";
+                                
                 return fightMessage;
                                 
             }   
@@ -150,7 +145,7 @@ public class BattleControl {
             
             boolean hit = false;
             boolean critical = false;
-            damage = 0;
+            int damage = 0;
         
             Random number = new Random();
             int connect = number.nextInt(30) + battle.getEnemyAttack() - battle.getTotalDefense();
@@ -170,7 +165,8 @@ public class BattleControl {
                    battle.setEnemyAttack(0);           
                    }
             
-                extraDamage = randomDamage.nextInt(10);
+                Random randomDamage = new Random();
+                int extraDamage = randomDamage.nextInt(10);
             
                 if(critical == true){
                     damage = 2 * battle.getEnemyAttack() + extraDamage - battle.getTotalDefense();
@@ -188,26 +184,29 @@ public class BattleControl {
                 }
                     
                 battle.setCurrentHealth(battle.getCurrentHealth() - damage);
-                fightMessage = "\n\tThe enemy attacked you"
-                                +"\n\tYou took " + damage + " damage from the enemy";
-                
-                if(battle.getCurrentHealth() <= 0){
-                    GameOverView gameOver = new GameOverView();
-                    gameOver.endGame();
-                }
+                fightMessage = "The enemy attacked you"
+                                +"\nYou took " + damage + " damage";
                 
                 return fightMessage;
                 }   
             else{
-                fightMessage = "\n\tEnemy attack missed";                
+                fightMessage = "Enemy attack missed";
+                return fightMessage;
             }
             }
         }
-        return " ";
+        
+        public static boolean playerDead(){
+        Game game = DaenirisTheForgotten.currentGame;
+        BattleScene battle = game.getBattle();   
+        if(battle.getCurrentHealth() <= 0){
+                    return true;
+                }
+        else{
+            return false;
         }
-
-    
-
+        }
+        
     public static float defend1() {
         BattleScene battle = game.getBattle();
         float totalDefense = battle.getTotalDefense();        
@@ -235,10 +234,10 @@ public class BattleControl {
         Random number = new Random();
         int run = number.nextInt(100);
         if(run >= 50){
-            runMessage = "\n\tYou successfully ran from the enemy";
+            runMessage = "You successfully ran from the enemy";
         }
         else{
-            runMessage = "\n\tYou were unable to run";
+            runMessage = "You were unable to run";
         }
         return runMessage;
     }
@@ -267,8 +266,6 @@ public class BattleControl {
         }
         return treasureChest;
     }
-            
-                
         
        /* if(player.getExperience() >= player.getLevel() * 100){
             System.out.println("\n\tYou gained a level!"

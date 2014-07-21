@@ -72,15 +72,15 @@ public class MoveChanceControl implements Serializable{
         
     }
     
-    private void createNewBattle(){
+    public static void createNewBattle(){
         Game game = DaenirisTheForgotten.getCurrentGame();
         
-        BattleScene battleData = new BattleScene(this.enemyGenerator());
+        BattleScene battleData = new BattleScene(1);//this.enemyGenerator());
         game.setBattle(battleData);
         
-        BattleMenuView battle = new BattleMenuView();
-        TabularMenu tab = MoveChanceControl.battleTabularMenu(battleData);
-        battle.display(tab);
+       // BattleMenuView battle = new BattleMenuView();
+        //TabularMenu tab = MoveChanceControl.battleTabularMenu(battleData);
+        //battle.display(tab);
     }
     
     private static TabularMenu battleTabularMenu(BattleScene battle){

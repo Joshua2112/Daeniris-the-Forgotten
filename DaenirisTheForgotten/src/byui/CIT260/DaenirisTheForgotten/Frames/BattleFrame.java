@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
 import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
+import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.View.BattleSpellMenuView;
@@ -26,7 +27,8 @@ public class BattleFrame extends javax.swing.JFrame {
     public BattleFrame() {
         initComponents();
         Game game = DaenirisTheForgotten.currentGame;
-        BattleScene data = new BattleScene();
+        MoveChanceControl.createNewBattle();
+        BattleScene data = game.getBattle();
         this.playerInfo.setText("Name " + data.getName()
                                 +"\nHealth " + data.getCurrentHealth() + "/" + data.getTotalHealth()
                                 +"\nMagic " + data.getCurrentMagic() + "/" + data.getTotalMagic());
@@ -57,6 +59,8 @@ public class BattleFrame extends javax.swing.JFrame {
         battleText = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         enemyInfo = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        enemyBattleText = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,48 +113,58 @@ public class BattleFrame extends javax.swing.JFrame {
         enemyInfo.setRows(5);
         jScrollPane3.setViewportView(enemyInfo);
 
+        enemyBattleText.setColumns(20);
+        enemyBattleText.setRows(5);
+        jScrollPane4.setViewportView(enemyBattleText);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(itemButton)
-                            .addComponent(runButton)
-                            .addComponent(attackButton)
-                            .addComponent(defendButton)
-                            .addComponent(magicButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(itemButton)
+                    .addComponent(runButton)
+                    .addComponent(attackButton)
+                    .addComponent(defendButton)
+                    .addComponent(magicButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(attackButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(defendButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(magicButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(itemButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(runButton))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(attackButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(defendButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(magicButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(itemButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(runButton))
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane4))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -177,19 +191,24 @@ public class BattleFrame extends javax.swing.JFrame {
         Game game = DaenirisTheForgotten.currentGame;
         BattleScene data = game.getBattle();
         if(BattleControl.hit()){
-            String message = BattleControl.attackEnemy();
-            this.battleText.setText(message);
+            this.battleText.setText(BattleControl.attackEnemy());
+            
         }
         else{
             this.battleText.setText("Your attack missed the enemy");
         }
+        
         if(BattleControl.checkEnemyDeath()){
             BattleWonFrame battleWon = new BattleWonFrame();
             battleWon.setVisible(true);
         }
         
-        
-        BattleControl.enemyAttack();
+        this.enemyBattleText.setText(BattleControl.enemyAttack());
+        if(BattleControl.playerDead()){
+            GameOver gameOver = new GameOver();
+            gameOver.setVisible(true);
+            this.dispose();
+        }
         this.playerInfo.setText("Name " + data.getName()
                                 +"\nHealth " + data.getCurrentHealth() + "/" + data.getTotalHealth()
                                 +"\nMagic " + data.getCurrentMagic() + "/" + data.getTotalMagic());
@@ -200,28 +219,40 @@ public class BattleFrame extends javax.swing.JFrame {
 
     private void defendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defendButtonActionPerformed
         this.battleText.setText("\n\tYour defense increased by " + BattleControl.defend1() + " temporarily");
-        BattleControl.enemyAttack();
+        this.enemyBattleText.setText(BattleControl.enemyAttack());
         BattleControl.defend2();
     }//GEN-LAST:event_defendButtonActionPerformed
 
     private void magicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_magicButtonActionPerformed
-        BattleSpellMenuView spell = new BattleSpellMenuView();
-        spell.display(TabularMenu.createTabularMenu());
-        BattleControl.enemyAttack();
-        int kill = BattleControl.magicCast();
+        MagicMenuFrame spell = new MagicMenuFrame();
+        spell.setVisible(true);
+        if(BattleControl.checkEnemyDeath()){
+            BattleWonFrame battleWon = new BattleWonFrame();
+            battleWon.setVisible(true);
+        }
+        this.enemyBattleText.setText(BattleControl.enemyAttack());
     }//GEN-LAST:event_magicButtonActionPerformed
 
     private void itemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemButtonActionPerformed
-        UseItemMenuView useItem = new UseItemMenuView();
-        useItem.displayItemMenu();
+        ItemsMenuFrame useItem = new ItemsMenuFrame();
+        useItem.setVisible(true);
+        if(BattleControl.checkEnemyDeath()){
+            BattleWonFrame battleWon = new BattleWonFrame();
+            battleWon.setVisible(true);
+        }
+        this.enemyBattleText.setText(BattleControl.enemyAttack());
     }//GEN-LAST:event_itemButtonActionPerformed
 
     private void runButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runButtonActionPerformed
         String run = BattleControl.run1();
-            if(run == "\n\tYou successfully ran from the enemy"){
+            if(run == "You successfully ran from the enemy"){
+            SuccessfulRunFrame ran = new SuccessfulRunFrame();
+            ran.setVisible(true);
+            this.dispose();
             }
             else{
-            BattleControl.enemyAttack();
+            this.battleText.setText("You were unable to run from the enemy");
+            this.enemyBattleText.setText(BattleControl.enemyAttack());
             }
     }//GEN-LAST:event_runButtonActionPerformed
 
@@ -264,12 +295,14 @@ public class BattleFrame extends javax.swing.JFrame {
     private javax.swing.JButton attackButton;
     private javax.swing.JTextArea battleText;
     private javax.swing.JButton defendButton;
+    private javax.swing.JTextArea enemyBattleText;
     private javax.swing.JTextArea enemyInfo;
     private javax.swing.JButton itemButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton magicButton;
     private javax.swing.JTextArea playerInfo;
     private javax.swing.JButton runButton;
