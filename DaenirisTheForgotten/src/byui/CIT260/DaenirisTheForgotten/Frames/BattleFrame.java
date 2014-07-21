@@ -201,6 +201,7 @@ public class BattleFrame extends javax.swing.JFrame {
         if(BattleControl.checkEnemyDeath()){
             BattleWonFrame battleWon = new BattleWonFrame();
             battleWon.setVisible(true);
+            this.dispose();
         }
         
         this.enemyBattleText.setText(BattleControl.enemyAttack());
@@ -220,6 +221,11 @@ public class BattleFrame extends javax.swing.JFrame {
     private void defendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defendButtonActionPerformed
         this.battleText.setText("\n\tYour defense increased by " + BattleControl.defend1() + " temporarily");
         this.enemyBattleText.setText(BattleControl.enemyAttack());
+        if(BattleControl.playerDead()){
+            GameOver gameOver = new GameOver();
+            gameOver.setVisible(true);
+            this.dispose();
+        }
         BattleControl.defend2();
     }//GEN-LAST:event_defendButtonActionPerformed
 
@@ -229,6 +235,7 @@ public class BattleFrame extends javax.swing.JFrame {
         if(BattleControl.checkEnemyDeath()){
             BattleWonFrame battleWon = new BattleWonFrame();
             battleWon.setVisible(true);
+            this.dispose();
         }
         this.enemyBattleText.setText(BattleControl.enemyAttack());
     }//GEN-LAST:event_magicButtonActionPerformed
@@ -239,6 +246,7 @@ public class BattleFrame extends javax.swing.JFrame {
         if(BattleControl.checkEnemyDeath()){
             BattleWonFrame battleWon = new BattleWonFrame();
             battleWon.setVisible(true);
+            this.dispose();
         }
         this.enemyBattleText.setText(BattleControl.enemyAttack());
     }//GEN-LAST:event_itemButtonActionPerformed

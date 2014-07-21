@@ -115,7 +115,16 @@ public class BattleWonFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_seeResultsActionPerformed
 
     private void treasureRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_treasureRollActionPerformed
-        // TODO add your handling code here:
+        if(BattleControl.treasureRoll()){
+            TreasureFrame treasure = new TreasureFrame();
+            treasure.setVisible(true);
+            this.dispose();
+        }
+        else{
+            NoTreasure none = new NoTreasure();
+            none.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_treasureRollActionPerformed
 
     /**

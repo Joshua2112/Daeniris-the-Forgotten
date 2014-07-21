@@ -257,7 +257,7 @@ public class BattleControl {
                           +"\n\tand you gained " + battle.getEnemyExp() + " experience points";
         return message;
     }
-    public boolean treasureRoll(){
+    public static boolean treasureRoll(){
         boolean treasureChest = false;
         Random treasure = new Random();
         int treasureChance = treasure.nextInt(100);
