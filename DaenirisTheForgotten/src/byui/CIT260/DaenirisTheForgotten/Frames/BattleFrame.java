@@ -7,12 +7,8 @@
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
 import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
-import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.View.BattleSpellMenuView;
-import byui.CIT260.DaenirisTheForgotten.View.TabularMenu;
-import byui.CIT260.DaenirisTheForgotten.View.UseItemMenuView;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
