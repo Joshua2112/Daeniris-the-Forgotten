@@ -537,7 +537,9 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bestiaryMenuActionPerformed
 
     private void mainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuActionPerformed
-        // TODO add your handling code here:
+        StartProgramFrame programStart = new StartProgramFrame();
+        programStart.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_mainMenuActionPerformed
 
     private void moveEastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveEastActionPerformed

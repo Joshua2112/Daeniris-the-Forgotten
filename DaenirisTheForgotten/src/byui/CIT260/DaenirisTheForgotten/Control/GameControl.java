@@ -792,32 +792,17 @@ public class GameControl {
         spellCaster3.setItemsDropped("potion, Cloth Cap");
         actors [4][1] = spellCaster3;
         
-        Enemy platedBeast3 = new Enemy();
-        platedBeast3.setName("Mean Plated Beast");
-        platedBeast3.setAttack(35);
-        platedBeast3.setDefense(38);
-        platedBeast3.setMagicAttack(33);
-        platedBeast3.setMagicDefense(32);
-        platedBeast3.setHealthPoints(34);
-        platedBeast3.setCurrentHealthPoints(34);
-        platedBeast3.setMagicPoints(40);
-        platedBeast3.setCurrentMagicPoints(40);
-        platedBeast3.setExperienceValue(200);
-        platedBeast3.setGoldValue(250);
-        platedBeast3.setItemsDropped("potion, Cloth Cap");
-        actors [4][2] = platedBeast3;
-        
         Enemy dungeon1 = new Enemy();
-        dungeon1.setName("Boss 1");
-        dungeon1.setAttack(30);
-        dungeon1.setDefense(28);
+        dungeon1.setName("Red Dragon");
+        dungeon1.setAttack(20);
+        dungeon1.setDefense(15);
         dungeon1.setMagicAttack(0);
-        dungeon1.setMagicDefense(26);
+        dungeon1.setMagicDefense(12);
         dungeon1.setHealthPoints(100);
         dungeon1.setCurrentHealthPoints(100);
         dungeon1.setMagicPoints(0);
         dungeon1.setCurrentMagicPoints(0);
-        dungeon1.setExperienceValue(100);
+        dungeon1.setExperienceValue(150);
         dungeon1.setGoldValue(276);
         dungeon1.setItemsDropped("potion, Cloth Cap");
         actors [5][0] = dungeon1;
