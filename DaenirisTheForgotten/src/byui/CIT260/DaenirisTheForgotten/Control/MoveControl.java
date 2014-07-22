@@ -23,10 +23,11 @@ public class MoveControl {
     
     MoveControl(){}
     
-    public static void move(int x, int y) throws MovedOffMapException{
+    public static int move(int x, int y) throws MovedOffMapException{
         Game game = DaenirisTheForgotten.currentGame;
         World world = game.getWorld();
         Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
+        double sightValue = 2;
         
         if (world.getxLoc() + x > Constants.MAP_MAX_X -1 || world.getxLoc() + x < 0 || 
                 world.getyLoc() + y > Constants.MAP_MAX_Y- 1 || world.getyLoc() + y < 0){
@@ -36,20 +37,30 @@ public class MoveControl {
         world.setxLoc(world.getxLoc() + x);
         world.setyLoc(world.getyLoc() + y);
         
-
+        revealMap(sightValue);
         
-        //System.out.println("xloc: " + world.getxLoc());
-        //System.out.println("yloc: " + world.getyLoc());
-        
+        MoveChanceControl battleView = new MoveChanceControl();
+        int option = battleView.MoveChance();
+        return option;
+    }
+    
+    public static void revealMap(double sightValue){
+        Game game = DaenirisTheForgotten.currentGame;
+        World world = game.getWorld();
+        Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
         int curX = world.getxLoc();
         int curY = world.getyLoc();
         int offsetX;
-        int offsetY;
-                
+        int offsetY;     
         
-        for (int i = -1; i < 2; i++){
-            for(int j = -1; j < 2; j++){
-               
+        if (sightValue > 2){
+            curX -= ((int) (sightValue / 2))-1;
+            curY -= ((int) (sightValue / 2))-1;
+        }
+
+        for (int i = -1; i < sightValue; i++){
+            for(int j = -1; j < sightValue; j++){
+                
                 offsetX = curX + i;
                 offsetY = curY + j;
                 
@@ -59,10 +70,6 @@ public class MoveControl {
                     mapArray[offsetX][offsetY].setDiscovered(true);
                 }
             }
-        }      
-       MoveChanceControl battleView = new MoveChanceControl();
-       //battleView.MoveChance();
+        }
     }
-    
-    
 }

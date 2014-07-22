@@ -14,24 +14,28 @@ import java.util.Random;
  * @author Nathan
  */
 public class BattleScene extends Location{
+    Game game = DaenirisTheForgotten.currentGame;
+    Actor[][] actors = game.getActor();
+    PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
+    EquippedGear playerGear = game.getEquippedGear();
+    Random enemyNum = new Random();
+    Enemy enemy = new Enemy();
     private boolean attackFirst;
-
+    
+    public BattleScene(int column, int row){
+        enemy = ((Enemy) actors[column][row]);
+        populateBattleData(); 
+    }
+    
     public BattleScene(int column) {
-        Game game = DaenirisTheForgotten.currentGame;
-        Actor[][] actors = game.getActor();
-        PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
-        EquippedGear playerGear = game.getEquippedGear();
-        Random enemyNum = new Random();
-        Enemy enemy = new Enemy();
-
-
         int RandEnemy = enemyNum.nextInt(3);
-            enemy = ((Enemy) actors[column][RandEnemy]);
-
-
-                
+        enemy = ((Enemy) actors[column][RandEnemy]);
         
-        
+        populateBattleData();
+            
+    }
+    
+    private void populateBattleData(){
         playerName = player.getName();
         totalAttack = player.getAttack() + playerGear.getTAB();
         totalDefense = player.getDefense() + playerGear.getTDB();
@@ -61,6 +65,7 @@ public class BattleScene extends Location{
         spellName = enemy.getSpellUsed();
         spellDamage = enemy.getSpellUseDamage();
         enemyCritBonus = 0;
+        pheonix = false;
     }
         
         private String playerName;
@@ -93,6 +98,7 @@ public class BattleScene extends Location{
         private boolean magicAt;
         private int spellDamage;
         private int enemySpellCost;
+        private boolean pheonix;
 
     public BattleScene() {
 
@@ -337,6 +343,15 @@ public class BattleScene extends Location{
     public void setEnemySpellCost(int enemySpellCost) {
         this.enemySpellCost = enemySpellCost;
     }
+
+    public boolean isPheonix() {
+        return pheonix;
+    }
+
+    public void setPheonix(boolean pheonix) {
+        this.pheonix = pheonix;
+    }
+    
     
     
 

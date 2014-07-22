@@ -6,7 +6,9 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
 import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
+import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
 import byui.CIT260.DaenirisTheForgotten.Exception.MovedOffMapException;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
@@ -62,16 +64,14 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         
     }
 
-    public JLabel getLevel() {
-        return level;
+    public JTable getMapTable() {
+        return mapTable;
     }
 
-    public void setLevel(JLabel level) {
-        this.level = level;
+    public void setMapTable(JTable mapTable) {
+        this.mapTable = mapTable;
     }
-    
-    
-    
+
     public void populateCharacterData(){
         this.playerName.setText(playerStats.getName());
         this.playerClass.setText(playerStats.getJob());
@@ -100,12 +100,30 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     }
     
     public void moveIt(int x, int y){
-        try{MoveControl.move(x, y);
+        
+        int option = 0;
+        try{
+            option = MoveControl.move(x, y);
         
         } catch (MovedOffMapException ex) {
             System.out.println(ex.getMessage());
         }
         
+        switch (option){
+            case 1:
+                BattleControl.createNewBattle();
+                BattleFrame battle = new BattleFrame(this);
+                battle.setVisible(true);
+                break;
+            case 2:
+                TreasureFrame treasure = new TreasureFrame();
+                treasure.setVisible(true);
+                break;
+            case 3:
+                HealingPondFrame healingPond = new HealingPondFrame();
+                healingPond.setVisible(true); 
+                break;
+        }
     }
     
     public void buildCharInfo(){
@@ -153,7 +171,11 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         interact.setText("Interact");
-        interact.setEnabled(false);
+        interact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                interactActionPerformed(evt);
+            }
+        });
 
         magicMenu.setText("Magic");
         magicMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -495,12 +517,12 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void magicMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_magicMenuActionPerformed
-        MagicMenuFrame magicMenu = new MagicMenuFrame(this);
+        MagicMenuFrame magicMenu = new MagicMenuFrame(this, false);
         magicMenu.setVisible(true);
     }//GEN-LAST:event_magicMenuActionPerformed
 
     private void itemsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsMenuActionPerformed
-        ItemsMenuFrame itemsMenu = new ItemsMenuFrame();
+        ItemsMenuFrame itemsMenu = new ItemsMenuFrame(this, false);
         itemsMenu.setVisible(true);
     }//GEN-LAST:event_itemsMenuActionPerformed
 
@@ -541,6 +563,12 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.populateCharacterData();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void interactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interactActionPerformed
+        boolean interact = BattleControl.createNewBattle(world);
+        BattleFrame battle = new BattleFrame(this);
+        battle.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_interactActionPerformed
 
     
     /**

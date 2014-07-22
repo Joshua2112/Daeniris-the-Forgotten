@@ -13,14 +13,24 @@ import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
  * @author Joshua
  */
 public class BattleWonFrame extends javax.swing.JFrame {
+    AdventureMenuFrame adventureMenuFrame = null;
 
-    /**
-     * Creates new form BattleWonFrame
-     */
+    public BattleWonFrame(AdventureMenuFrame adventureMenuFrame) {
+        this();
+        this.adventureMenuFrame = adventureMenuFrame;
+    }
+    
     public BattleWonFrame() {
         initComponents();
+        this.battleWonDisplay.setText(BattleControl.endBattle());
+        
+        if (BattleControl.levelUpCheck()){    
+            DistributeBonuses bonus = new DistributeBonuses();
+            bonus.setVisible(true);
+        }
+        
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,10 +121,11 @@ public class BattleWonFrame extends javax.swing.JFrame {
 
     private void seeResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeResultsActionPerformed
         
-        this.battleWonDisplay.setText(BattleControl.endBattle());
+        
     }//GEN-LAST:event_seeResultsActionPerformed
 
     private void treasureRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_treasureRollActionPerformed
+                              
         if(BattleControl.treasureRoll()){
             TreasureFrame treasure = new TreasureFrame();
             treasure.setVisible(true);
@@ -125,6 +136,8 @@ public class BattleWonFrame extends javax.swing.JFrame {
             none.setVisible(true);
             this.dispose();
         }
+        
+        this.adventureMenuFrame.populateCharacterData();
     }//GEN-LAST:event_treasureRollActionPerformed
 
     /**

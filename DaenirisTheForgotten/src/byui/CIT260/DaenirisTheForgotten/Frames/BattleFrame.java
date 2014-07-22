@@ -7,23 +7,32 @@
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
 import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
+import byui.CIT260.DaenirisTheForgotten.Control.SpellControl;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
  *
  * @author Joshua
  */
-public class BattleFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BattleFrame
-     */
+
+public class BattleFrame extends javax.swing.JFrame {
+    Game game = DaenirisTheForgotten.currentGame;
+    AdventureMenuFrame adventureMenuFrame = null;
+    BattleScene data = game.getBattle();
+    
+    public BattleFrame(AdventureMenuFrame adventureMenuFrame){
+        this();
+        this.adventureMenuFrame = adventureMenuFrame;
+    }
+
+
     public BattleFrame() {
         initComponents();
-        Game game = DaenirisTheForgotten.currentGame;
-        BattleScene data = game.getBattle();
         this.playerInfo.setText("Name " + data.getName()
                                 +"\nHealth " + data.getCurrentHealth() + "/" + data.getTotalHealth()
                                 +"\nMagic " + data.getCurrentMagic() + "/" + data.getTotalMagic());
@@ -183,66 +192,34 @@ public class BattleFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void attackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackButtonActionPerformed
-        Game game = DaenirisTheForgotten.currentGame;
-        BattleScene data = game.getBattle();
+
         if(BattleControl.hit()){
-            this.battleText.setText(BattleControl.attackEnemy());
-            
+            this.battleText.setText(BattleControl.attackEnemy());   
         }
         else{
             this.battleText.setText("Your attack missed the enemy");
         }
         
-        if(BattleControl.checkEnemyDeath()){
-            BattleWonFrame battleWon = new BattleWonFrame();
-            battleWon.setVisible(true);
-            this.dispose();
-        }
-        
-        this.enemyBattleText.setText(BattleControl.enemyAttack());
-        if(BattleControl.playerDead()){
-            GameOver gameOver = new GameOver();
-            gameOver.setVisible(true);
-            this.dispose();
-        }
-        this.playerInfo.setText("Name " + data.getName()
-                                +"\nHealth " + data.getCurrentHealth() + "/" + data.getTotalHealth()
-                                +"\nMagic " + data.getCurrentMagic() + "/" + data.getTotalMagic());
-        this.enemyInfo.setText("Name " + data.getEnemyName()
-                                +"\nHealth " + data.getEnemyCurrentHealth() + "/" + data.getEnemyHealth()
-                                +"\nMagic " + data.getEnemyCurrentMagic() + "/" + data.getEnemyMagic());
+        endTurn();
     }//GEN-LAST:event_attackButtonActionPerformed
 
     private void defendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defendButtonActionPerformed
         this.battleText.setText("\n\tYour defense increased by " + BattleControl.defend1() + " temporarily");
         this.enemyBattleText.setText(BattleControl.enemyAttack());
-        if(BattleControl.playerDead()){
-            GameOver gameOver = new GameOver();
-            gameOver.setVisible(true);
-            this.dispose();
-        }
+        
+        endTurn();
+        
         BattleControl.defend2();
     }//GEN-LAST:event_defendButtonActionPerformed
 
     private void magicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_magicButtonActionPerformed
-        MagicMenuFrame spell = new MagicMenuFrame();
+        MagicMenuFrame spell = new MagicMenuFrame(this, true);
         spell.setVisible(true);
-        if(BattleControl.checkEnemyDeath()){
-            BattleWonFrame battleWon = new BattleWonFrame();
-            battleWon.setVisible(true);
-            this.dispose();
-        }
-        this.enemyBattleText.setText(BattleControl.enemyAttack());
     }//GEN-LAST:event_magicButtonActionPerformed
 
     private void itemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemButtonActionPerformed
-        ItemsMenuFrame useItem = new ItemsMenuFrame();
-        useItem.setVisible(true);
-        if(BattleControl.checkEnemyDeath()){
-            BattleWonFrame battleWon = new BattleWonFrame();
-            battleWon.setVisible(true);
-            this.dispose();
-        }
+        ItemsMenuFrame itemsMenu = new ItemsMenuFrame(this, true);
+        itemsMenu.setVisible(true);
         this.enemyBattleText.setText(BattleControl.enemyAttack());
     }//GEN-LAST:event_itemButtonActionPerformed
 
@@ -258,7 +235,54 @@ public class BattleFrame extends javax.swing.JFrame {
             this.enemyBattleText.setText(BattleControl.enemyAttack());
             }
     }//GEN-LAST:event_runButtonActionPerformed
-
+    
+    public void endTurn(){
+        if(BattleControl.checkEnemyDeath()){
+            BattleWonFrame battleWon = new BattleWonFrame(this.adventureMenuFrame);
+            battleWon.setVisible(true);
+            this.dispose();
+        }
+        
+        this.enemyBattleText.setText(BattleControl.enemyAttack());
+        if(BattleControl.playerDead()){
+            if(data.isPheonix()){
+                SpellControl.pheonix();
+                data.setPheonix(false);
+            }
+            else{
+                GameOver gameOver = new GameOver();
+                gameOver.setVisible(true);
+                this.dispose();
+            }
+            
+        }
+        this.playerInfo.setText("Name " + data.getName()
+                                +"\nHealth " + data.getCurrentHealth() + "/" + data.getTotalHealth()
+                                +"\nMagic " + data.getCurrentMagic() + "/" + data.getTotalMagic());
+        this.enemyInfo.setText("Name " + data.getEnemyName()
+                                +"\nHealth " + data.getEnemyCurrentHealth() + "/" + data.getEnemyHealth()
+                                +"\nMagic " + data.getEnemyCurrentMagic() + "/" + data.getEnemyMagic());
+    }
+    
+    public void magicResults(Spells spell){
+        
+        if (spell.getSpellType() == Constants.SPELL_ATTACK_HEALTH){
+            this.battleText.setText("\n" + spell.getMessage() + "\n"
+                             + spell.getSpecialEffects()
+                             + " damage to the enemy.");
+        }
+        else if (spell.getSpellType() == Constants.SPELL_HEAL_HEALTH){
+            this.battleText.setText("\n" + spell.getMessage() + "\n"
+                             + spell.getSpecialEffects()
+                             + " points.");
+        }
+        else{
+            this.battleText.setText("\n" + spell.getMessage() + "\n"
+                             + spell.getSpecialEffects()
+                             + "%");
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

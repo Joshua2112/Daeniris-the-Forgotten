@@ -61,64 +61,76 @@ public class GameControl {
         Actor[][] actor = game.getActor();
     }
 
-    public static Inventory[] createInventory() {
-        Inventory[] playerInventory =
-                    new Inventory[Constants.GEAR_LIST_COUNT];
+    public static Spells[] createInventory() {
+        Spells[] playerInventory =
+                    new Spells[Constants.GEAR_LIST_COUNT];
         
         SingleUseItems blank = new SingleUseItems();
         blank.setName("");
         blank.setQuantity(0);
         
-        for(int i = 0; i < (Constants.GEAR_LIST_COUNT); i ++){
-                playerInventory[i] = blank;
-            }
         
         
         // Single Use Items
-        SingleUseItems potion = new SingleUseItems();
-        potion.setName("Potion");
-        potion.setDescription("A healing item");
-        potion.setEffects("Heals 20 health points");
+        Spells potion = new Spells();
+        potion.setSpellName("Potion");
+        potion.setDescription("Heals 20 health points");
+        potion.setMessage("Your health was restored by 20");
+        potion.setSpellType(Constants.POTION_RESTORE_HEALTH);
+        potion.setSpecialEffects(20);
         potion.setQuantity(Constants.STARTING_ITEM_QUANTITY);
         potion.setCost(10);
-        potion.setItemAvailable(Constants.SHOP_ITEM);
         playerInventory[0] = potion;
         
-        SingleUseItems antidote = new SingleUseItems();
-        antidote.setName("Antidote");
-        antidote.setDescription("Heals poison");
-        antidote.setEffects("Heals poison");
-        antidote.setQuantity(Constants.STARTING_ITEM_QUANTITY);
-        antidote.setCost(5);
-        antidote.setItemAvailable(Constants.SHOP_ITEM);
-        playerInventory[1] = antidote;
+        Spells greaterPotion = new Spells();
+        greaterPotion.setSpellName("Greater Potion");
+        greaterPotion.setDescription("Restore Health by 40");
+        greaterPotion.setMessage("Your health was restored by");
+        greaterPotion.setSpellType(Constants.POTION_RESTORE_HEALTH);
+        greaterPotion.setSpecialEffects(40);
+        greaterPotion.setQuantity(Constants.STARTING_ITEM_QUANTITY);
+        greaterPotion.setCost(20);
+        playerInventory[1] = greaterPotion;
         
-        SingleUseItems ether = new SingleUseItems();
-        ether.setName("Ether");
-        ether.setDescription("Resores magic");
-        ether.setEffects("Restores 20 magic points");
+        Spells antidote = new Spells();
+        antidote.setSpellName("Antidote");
+        antidote.setDescription("Heals poison");
+        antidote.setMessage("You were cured");
+        antidote.setSpellType(Constants.POTION_ANTIDOTE);
+        antidote.setSpecialEffects(15);
+        antidote.setQuantity(Constants.STARTING_ITEM_QUANTITY);
+        antidote.setCost(10);
+        playerInventory[2] = antidote;
+                
+        Spells ether = new Spells();
+        ether.setSpellName("Ether");
+        ether.setDescription("Restore mana by 20");
+        ether.setMessage("Your mana was restored by");
+        ether.setSpellType(Constants.POTION_RESTORE_MANA);
+        ether.setSpecialEffects(15);
         ether.setQuantity(Constants.STARTING_ITEM_QUANTITY);
         ether.setCost(20);
-        ether.setItemAvailable(Constants.SHOP_ITEM);
-        playerInventory[2] = ether;
+        playerInventory[3] = ether;
         
-        SingleUseItems greaterPotion = new SingleUseItems();
-        greaterPotion.setName("Greater Potion");
-        greaterPotion.setDescription("Restores more health");
-        greaterPotion.setEffects("Restores 50 health points");
-        greaterPotion.setQuantity(0);
-        greaterPotion.setCost(50);
-        greaterPotion.setItemAvailable(Constants.SHOP_ITEM);
-        playerInventory[3] = greaterPotion;
-        
-        SingleUseItems pheonixDown = new SingleUseItems();
-        pheonixDown.setName("Pheonix Down");
-        pheonixDown.setDescription("Revives");
-        pheonixDown.setEffects("Blah");
+        Spells greaterEther = new Spells();
+        greaterEther.setSpellName("Greater Ether");
+        greaterEther.setDescription("Restore mana by 40");
+        greaterEther.setMessage("Your mana was restored by");
+        greaterEther.setSpellType(Constants.POTION_RESTORE_MANA);
+        greaterEther.setSpecialEffects(15);
+        greaterEther.setQuantity(Constants.STARTING_ITEM_QUANTITY);
+        greaterEther.setCost(20);
+        playerInventory[4] = greaterEther;
+
+        Spells pheonixDown = new Spells();
+        pheonixDown.setSpellName("Pheonix Down");
+        pheonixDown.setDescription("Restore mana by 40");
+        pheonixDown.setMessage("You will be fully restored upon your death.");
+        pheonixDown.setSpellType(Constants.POTION_PHEONIX);
+        pheonixDown.setSpecialEffects(100);
         pheonixDown.setQuantity(Constants.STARTING_ITEM_QUANTITY);
-        pheonixDown.setCost(100);
-        pheonixDown.setItemAvailable(Constants.SHOP_ITEM);
-        playerInventory[4] = pheonixDown;
+        pheonixDown.setCost(20);
+        playerInventory[5] = pheonixDown;
         
         /*RawMaterial wood = new RawMaterial();
         RawMaterial wood = new RawMaterial();
@@ -253,7 +265,7 @@ public class GameControl {
         steelHelm.setCost(125);
         steelHelm.setItemAvailable(Constants.SHOP_ITEM);
         helmList[5] = steelHelm;
-        
+        /*
         Gear legendaryDragonHelm = new Gear();
         legendaryDragonHelm.setName("Legendary Helmet of the Dragon");
         legendaryDragonHelm.setAttackBonus(5);
@@ -278,7 +290,7 @@ public class GameControl {
         amnorsHat.setQuantity(Constants.DEFAULT_INVENTORY_QUANTITY);
         amnorsHat.setCost(710);
         amnorsHat.setItemAvailable(Constants.RARE_ITEM);
-        helmList[7] = amnorsHat;
+        helmList[7] = amnorsHat;*/
         
         return helmList;
         
@@ -576,7 +588,7 @@ public class GameControl {
 
 //Actors --------------------------------------------------------
     public static Actor[][] createActor() {
-        Actor[][] actors = new Actor[Constants.NUMBER_OF_ACTOR_TYPES][Constants.NUMBER_OF_ENEMIES];
+        Actor[][] actors = new Actor[Constants.ACTOR_COL_COUNT][Constants.ACTOR_ROW_COUNT];
         
         PlayerCharacter blank = new PlayerCharacter();
         blank.setName("zz");
@@ -605,10 +617,10 @@ public class GameControl {
         newPlayerCharacter.setGender("Male");
         newPlayerCharacter.setMagicAttack(4);
         newPlayerCharacter.setMagicDefense(3);
-        newPlayerCharacter.setHealthPoints(50);
-        newPlayerCharacter.setCurrentHealthPoints(20);
-        newPlayerCharacter.setMagicPoints(20);
-        newPlayerCharacter.setCurrentMagicPoints(20);
+        newPlayerCharacter.setHealthPoints(35);
+        newPlayerCharacter.setCurrentHealthPoints(35);
+        newPlayerCharacter.setMagicPoints(25);
+        newPlayerCharacter.setCurrentMagicPoints(25);
         newPlayerCharacter.setPlayerGold(Constants.STARTING_GOLD);
         newPlayerCharacter.setLevel(1);
         newPlayerCharacter.setExperiencePoints(0);
@@ -795,6 +807,51 @@ public class GameControl {
         platedBeast3.setItemsDropped("potion, Cloth Cap");
         actors [4][2] = platedBeast3;
         
+        Enemy dungeon1 = new Enemy();
+        dungeon1.setName("Boss 1");
+        dungeon1.setAttack(30);
+        dungeon1.setDefense(28);
+        dungeon1.setMagicAttack(0);
+        dungeon1.setMagicDefense(26);
+        dungeon1.setHealthPoints(100);
+        dungeon1.setCurrentHealthPoints(100);
+        dungeon1.setMagicPoints(0);
+        dungeon1.setCurrentMagicPoints(0);
+        dungeon1.setExperienceValue(100);
+        dungeon1.setGoldValue(276);
+        dungeon1.setItemsDropped("potion, Cloth Cap");
+        actors [5][0] = dungeon1;
+        
+        Enemy dungeon2 = new Enemy();
+        dungeon2.setName("Boss 2");
+        dungeon2.setAttack(28);
+        dungeon2.setDefense(28);
+        dungeon2.setMagicAttack(35);
+        dungeon2.setMagicDefense(28);
+        dungeon2.setHealthPoints(44);
+        dungeon2.setCurrentHealthPoints(500);
+        dungeon2.setMagicPoints(500);
+        dungeon2.setCurrentMagicPoints(55);
+        dungeon2.setExperienceValue(185);
+        dungeon2.setGoldValue(215);
+        dungeon2.setItemsDropped("potion, Cloth Cap");
+        actors [5][1] = dungeon2;
+        
+        Enemy dungeon3 = new Enemy();
+        dungeon3.setName("Boss 3");
+        dungeon3.setAttack(35);
+        dungeon3.setDefense(38);
+        dungeon3.setMagicAttack(33);
+        dungeon3.setMagicDefense(32);
+        dungeon3.setHealthPoints(1000);
+        dungeon3.setCurrentHealthPoints(1000);
+        dungeon3.setMagicPoints(40);
+        dungeon3.setCurrentMagicPoints(40);
+        dungeon3.setExperienceValue(200);
+        dungeon3.setGoldValue(250);
+        dungeon3.setItemsDropped("potion, Cloth Cap");
+        actors [5][2] = dungeon3;
+        
         return actors;
     }
     
@@ -812,6 +869,7 @@ public class GameControl {
         fire1.setMagicCost(5);
         fire1.setAttackDamage(15);
         fire1.setSpecialEffects(15);
+        fire1.setQuantity(-1);
         spells[0][0] = fire1;
         
         Spells ice1 = new Spells();
@@ -823,6 +881,7 @@ public class GameControl {
         ice1.setMagicCost(5);
         ice1.setAttackDamage(15);
         ice1.setSpecialEffects(15);
+        ice1.setQuantity(-1);
         spells[0][1] = ice1;
         
         Spells lighting1 = new Spells();
@@ -834,7 +893,32 @@ public class GameControl {
         lighting1.setMagicCost(5);
         lighting1.setAttackDamage(15);
         lighting1.setSpecialEffects(15);
+        lighting1.setQuantity(-1);
         spells[0][2] = lighting1;
+        
+        Spells fire2 = new Spells();
+        fire2.setSpellName("Fire 2");
+        fire2.setDescription("Inflicts extreme fire damage to enemies");
+        fire2.setMessage("The flames inflicted ");
+        fire2.setSpellType(Constants.SPELL_ATTACK_HEALTH);
+        fire2.setLearned(false);
+        fire2.setMagicCost(10);
+        fire2.setAttackDamage(30);
+        fire2.setSpecialEffects(30);
+        fire2.setQuantity(-1);
+        spells[0][3] = fire2;
+        
+        Spells ice2 = new Spells();
+        ice2.setSpellName("Ice II");
+        ice2.setDescription("Inflicts extreme ice damage to enemies");
+        ice2.setMessage("The cold inflicted ");
+        ice2.setSpellType(Constants.SPELL_ATTACK_HEALTH);
+        ice2.setLearned(false);
+        ice2.setMagicCost(10);
+        ice2.setAttackDamage(30);
+        ice2.setSpecialEffects(30);
+        ice2.setQuantity(-1);
+        spells[0][4] = ice2;
         
         Spells weaken = new Spells();
         weaken.setSpellName("Weaken I");
@@ -845,6 +929,7 @@ public class GameControl {
         weaken.setMagicCost(5);
         weaken.setAttackDamage(10);
         weaken.setSpecialEffects(25);
+        weaken.setQuantity(-1);
         spells[0][2] = weaken;
         
         Spells heal1 = new Spells();
@@ -856,6 +941,7 @@ public class GameControl {
         heal1.setMagicCost(5);
         heal1.setAttackDamage(0);
         heal1.setSpecialEffects(15);
+        heal1.setQuantity(-1);
         spells[1][0] = heal1;
         
         Spells defend = new Spells();
@@ -866,6 +952,7 @@ public class GameControl {
         defend.setMagicCost(5);
         defend.setAttackDamage(0);
         defend.setSpecialEffects(15);
+        defend.setQuantity(-1);
         spells[1][1] = defend;
         
         Spells heal2 = new Spells();
@@ -874,10 +961,35 @@ public class GameControl {
         heal2.setMessage("Your health was restored by: ");
         heal2.setSpellType(Constants.SPELL_HEAL_HEALTH);
         heal2.setLearned(false);
-        heal2.setMagicCost(5);
+        heal2.setMagicCost(10);
         heal2.setAttackDamage(0);
         heal2.setSpecialEffects(30);
+        heal2.setQuantity(-1);
         spells[1][2] = heal2;
+        
+        Spells sight1 = new Spells();
+        sight1.setSpellName("Sight I");
+        sight1.setDescription("Increase vision in current position x2");
+        sight1.setMessage("");
+        sight1.setSpellType(Constants.SPELL_SIGHT);
+        sight1.setLearned(false);
+        sight1.setMagicCost(5);
+        sight1.setAttackDamage(0);
+        sight1.setSpecialEffects(6);
+        sight1.setQuantity(-1);
+        spells[1][3] = sight1;
+        
+        Spells sight2 = new Spells();
+        sight2.setSpellName("Sight II");
+        sight2.setDescription("Increase vision in current position x3");
+        sight2.setMessage("");
+        sight2.setSpellType(Constants.SPELL_SIGHT);
+        sight2.setLearned(false);
+        sight2.setMagicCost(5);
+        sight2.setAttackDamage(0);
+        sight2.setSpecialEffects(10);
+        sight2.setQuantity(-1);
+        spells[1][4] = sight2;
            
         return spells;
     }
@@ -1008,6 +1120,17 @@ public class GameControl {
         return false;
     }
     
+    public static boolean stringSearch(Spells[] array, String selection, ArrayLocation location) {
+
+        for(int i = 0; i < Constants.GEAR_LIST_COUNT; i++)
+                if((array[i].getSpellName().compareToIgnoreCase(selection)== 0)){
+                    location.setColumn(0);
+                    location.setRow(i);
+                    return true;
+            }
+        return false;
+    }
+    
     public static String[] inventoryStringConvert(Inventory[] array, int column){
         
         int count = 0;
@@ -1112,7 +1235,13 @@ public class GameControl {
         
         for(int i = 17; i < 22; i++){  
             for(int j = 84; j < 98; j++){
-                Resource.setDarkForest(map[i][j]);
+                Resource.setPlains(map[i][j]);
+            }
+        }
+        
+        for(int i = 15; i < 25; i++){  
+            for(int j = 0; j < 10; j++){
+                Resource.setPlains(map[i][j]);
             }
         }
         

@@ -25,6 +25,67 @@ import java.util.Random;
  * @author Joshua
  */
 public class BattleControl {   
+    public static void createNewBattle(){
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        
+        BattleScene battleData = new BattleScene(enemyGenerator());
+        game.setBattle(battleData);
+                
+       // BattleMenuView battle = new BattleMenuView();
+        //TabularMenu tab = MoveChanceControl.battleTabularMenu(battleData);
+        //battle.display(tab);
+    }
+    
+    public static boolean createNewBattle(World world){
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        BattleScene battleData = null;
+        
+        if(world.getxLoc() == 7 && world.getyLoc() == 21){
+            battleData = new BattleScene(5, 0);
+        }
+        else if(world.getxLoc() == 32 && world.getyLoc() == 50){
+            battleData = new BattleScene(5, 1);
+        }
+        else if(world.getxLoc() == 19 && world.getyLoc() == 90){
+            battleData = new BattleScene(5, 2);            
+        }
+        else if(world.getxLoc() == Constants.MAP_START_X 
+                && world.getyLoc() == Constants.MAP_START_Y){
+                        
+        }
+        else{
+            return false;
+        }
+        
+        game.setBattle(battleData);
+        
+        return true;
+    }
+    
+    private static int enemyGenerator(){
+        Game game = DaenirisTheForgotten.currentGame;
+        World world = game.getWorld();
+        Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
+        char loc = mapArray[world.getxLoc()][world.getyLoc()].getSymbol();
+        int column = 0;
+        
+        
+        switch (loc){
+            case '_':
+                column = 1;
+                break;
+            case 'T':
+                column = 2;
+                break;
+            case '^':
+                column = 3;
+                break;
+            case 'Y':
+                column = 4;
+                break;
+        }
+        return column;
+    }
     
     public static boolean hit() {
         
@@ -247,16 +308,50 @@ public class BattleControl {
         Actor[][] actors = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
         BattleScene battle = game.getBattle();
+        String message;
         
         player.setCurrentHealthPoints(battle.getCurrentHealth());
         player.setCurrentMagicPoints(battle.getCurrentMagic());
         player.setPlayerGold(battle.getEnemyGold() + battle.getPlayerGold());
         player.setExperience(battle.getPlayerExp() + battle.getEnemyExp());
-        String message = "\n\tYou defeated the enemy!"
+        
+        if(player.getExperience() >= player.getLevel() * 100){
+
+            message =     "\n\tYou defeated the enemy!"
+                        + "\n\tYou gained " + battle.getEnemyGold() + " gold"
+                        + "\n\tand you gained " + battle.getEnemyExp() + " experience points"
+                        + " "
+                        + "\n\tYou leveled up to level "
+                        + player.getLevel() + " !!!"
+                        + "\n\tYou have three points to distribute";
+        }
+        else{
+            message = "\n\tYou defeated the enemy!"
                           +"\n\tYou gained " + battle.getEnemyGold() + " gold"
                           +"\n\tand you gained " + battle.getEnemyExp() + " experience points";
+        }
+        
         return message;
     }
+    
+    public static boolean levelUpCheck(){
+        Game game = DaenirisTheForgotten.currentGame;
+        Actor[][] actors = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
+        BattleScene battle = game.getBattle();
+        boolean levelUp = false;
+    
+        if(player.getExperience() >= player.getLevel() * 100){
+            player.setLevel(player.getLevel() + 1);
+            player.setLevelPoints(3);
+            levelUp = true;            
+        }   
+            //DistributeBonusesView levelUp = new DistributeBonusesView();
+            //levelUp.display();
+        
+        return levelUp;
+    }
+        
     public static boolean treasureRoll(){
         boolean treasureChest = false;
         Random treasure = new Random();

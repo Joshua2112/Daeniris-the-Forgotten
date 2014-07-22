@@ -13,7 +13,7 @@ import java.net.URL;
 public class Game 
 {
     private float gameTime;
-    private Inventory[] inventory;
+    private Spells[] inventory;
     private Actor[][] actor;
     private World world;
     private CraftRecipe[][] craftRecipe;
@@ -26,11 +26,11 @@ public class Game
     public EquippedGear equippedGear;
     public URL[] picURL;
 
-    public Inventory[] getInventory() {
+    public Spells[] getInventory() {
         return inventory;
     }
 
-    public void setInventory(Inventory[] inventory) {
+    public void setInventory(Spells[] inventory) {
         this.inventory = inventory;
     }
 

@@ -165,6 +165,7 @@ public class StartProgramFrame extends javax.swing.JFrame {
          } catch (illegalActionException ex) {
              Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
          }
+        this.dispose();
     }//GEN-LAST:event_testActionPerformed
 
     /**

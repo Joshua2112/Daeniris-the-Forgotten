@@ -49,7 +49,7 @@ public class Constants {
     public static final int BATTLE_COL_WIDTH = 35;
     
     //Spell Display Constants
-    public static final int SPELL_ROW_COUNT = 3;
+    public static final int SPELL_ROW_COUNT = 5;
     public static final int SPELL_COL_COUNT = 2;
     public static final int SPELL_COL_WIDTH = 25;
     public static final int SPELL_BLACK_COL = 0;
@@ -67,7 +67,7 @@ public class Constants {
     //Actor Stats Display Constants
     public static final int ACTOR_COL_WIDTH = 25;
     public static final int ACTOR_ROW_COUNT = 3;
-    public static final int ACTOR_COL_COUNT = 5;
+    public static final int ACTOR_COL_COUNT = 6;
     public static final int ACTOR_LABEL_COL = 5;
     public static final int ACTOR_VALUE_COL = 1;
     
@@ -82,11 +82,17 @@ public class Constants {
     public static final int SPELL_INCREASE_HEALTH = 8;
     public static final int SPELL_REDUCE_HEALTH = 9;
     public static final int SPELL_REDUCE_MANA = 10;
+    public static final int SPELL_SIGHT = 11;
+    public static final int POTION_RESTORE_HEALTH = 12;
+    public static final int POTION_RESTORE_MANA = 13;
+    public static final int POTION_ANTIDOTE = 14;
+    public static final int POTION_PHEONIX = 15;
+    
     
     //Spell Variables
     public static final double SPELL_BONUS_PERCENT = .25;
     
-    public static final int GEAR_LIST_COUNT = 50;
+    public static final int GEAR_LIST_COUNT = 6;
     public static final int STARTING_GOLD = 100;
     public static final int STARTING_INVENTORY_ITEM_QUANTITY = 0;
     

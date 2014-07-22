@@ -10,6 +10,7 @@ import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
 
@@ -27,7 +28,7 @@ public class TreasureChestScene extends View{
     @Override
     public int doAction(String value) {
         Game game = DaenirisTheForgotten.getCurrentGame();
-        Inventory[] inventory = game.getInventory();
+        Spells[] inventory = game.getInventory();
         Gear[] weapons = game.getWeapons();
         Gear[] armors = game.getArmors();
         Gear[] helms = game.getHelms();
@@ -41,7 +42,7 @@ public class TreasureChestScene extends View{
                 if(random3 == 1){
 
                     inventory[random2].setQuantity(inventory[random2].getQuantity() + 1);
-                    System.out.println("\n\tYou found a(n) " + inventory[random2].getName());
+                    System.out.println("\n\tYou found a(n) " + inventory[random2].getSpellName());
 
                     return 1;
                 }

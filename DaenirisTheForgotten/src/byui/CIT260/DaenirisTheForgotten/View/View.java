@@ -103,7 +103,7 @@ public abstract class View implements ViewInterface{
         
         Game game = DaenirisTheForgotten.getCurrentGame();
         
-        Inventory[] inventory = game.getInventory();
+        Spells[] inventory = game.getInventory();
         Spells[][] spells = game.getSpells();
         CraftRecipe[][] crafts = game.getCraftRecipe();
         Actor[][] actors = game.getActor();
@@ -143,7 +143,7 @@ public abstract class View implements ViewInterface{
                     }
                     else{
                         System.out.printf( "%-" + tab.getColumnWidth() + "s"
-                                , inventory[i].getName() 
+                                , inventory[i].getSpellName() 
                                   + "(" + inventory[i].getQuantity() + ")");
                     }
                 }

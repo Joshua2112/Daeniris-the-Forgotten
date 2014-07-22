@@ -11,6 +11,7 @@ import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
@@ -20,7 +21,7 @@ import daeniristheforgotten.DaenirisTheForgotten;
 class ShopItems extends View{
     
     Game game = DaenirisTheForgotten.getCurrentGame();
-    Inventory[] items = game.getInventory();
+    Spells[] items = game.getInventory();
     
     public ShopItems(){
         super("\n\tPlease choose a helmet to purchase"
@@ -28,7 +29,7 @@ class ShopItems extends View{
         for(int i = 0; i < items.length; i++)
             if(items[i].getQuantity() > 0)
         System.out.println("\n\tEnter " + (i + 2) + " for this item"
-                + "\n\tName " + items[i].getName()
+                + "\n\tName " + items[i].getSpellName()
                             +"\n\tDescription " + items[i].getDescription()
                             +"\n\tNumber in your possesion " + items[i].getQuantity()
                             +"\n\tCost " + items[i].getCost());

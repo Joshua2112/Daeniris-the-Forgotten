@@ -6,43 +6,58 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
 import byui.CIT260.DaenirisTheForgotten.Control.SpellControl;
 import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import byui.CIT260.DaenirisTheForgotten.Exception.stringNotFoundException;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.ArrayLocation;
+import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
 import byui.CIT260.DaenirisTheForgotten.View.PlayerCharacterInfoView;
 import daeniristheforgotten.DaenirisTheForgotten;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author Nathan
  */
+
+
 public class MagicMenuFrame extends javax.swing.JFrame {
     Game game = DaenirisTheForgotten.getCurrentGame();
     Spells[][] spells = game.getSpells();
     AdventureMenuFrame adventureMenuFrame = null;
+    BattleFrame battleFrame = null;
+    private boolean battle;
     
-    public MagicMenuFrame(AdventureMenuFrame adventureMenuFrame){
+    public MagicMenuFrame(AdventureMenuFrame adventureMenuFrame, Boolean battle){
         this();
         this.adventureMenuFrame = adventureMenuFrame;
+        this.battle = battle;
+    }
+    
+    public MagicMenuFrame(BattleFrame battleFrame, Boolean battle){
+        this();
+        this.battleFrame = battleFrame;
+        this.battle = battle;
     }
     
     public MagicMenuFrame() {
-        
-        
         initComponents();
+        
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         int rowCount = this.magicTable.getRowCount();
         int columnCount = this.magicTable.getColumnCount();
         
-        for (int i = 0; i < rowCount; i++){
-            for (int j = 0; j < columnCount; j++){
+        for (int i = 0; i < Constants.SPELL_ROW_COUNT; i++){
+            for (int j = 0; j < Constants.SPELL_COL_COUNT; j++){
                 this.magicTable.getModel().setValueAt(spells[j][i].getSpellName(), i, j);
             }               
         }
@@ -77,6 +92,8 @@ public class MagicMenuFrame extends javax.swing.JFrame {
 
         magicTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
+                {null, null},
                 {null, null},
                 {null, null},
                 {null, null}
@@ -239,29 +256,75 @@ public class MagicMenuFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private void castSpellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castSpellActionPerformed
-        
-        
-        Spells spell;        
+
+        Spells spell;       
         int row = this.magicTable.getSelectedRow();
         int column = this.magicTable.getSelectedColumn();
-        String selection = (String) this.magicTable.getValueAt(row, column);
         
+        String selection = (String) this.magicTable.getValueAt(row, column);
         spell = getSpell(selection);
+        spell = castSpell(spell, battle);
+        
+
+        
+        if (!battle){
+                this.populatePlayerStats();
+                this.adventureMenuFrame.populateCharacterData();
+                this.adventureMenuFrame.getMapTable().repaint();
+            }
+            else{
+                
+                battleFrame.magicResults(spell);
+                battleFrame.endTurn();
+                this.dispose();
+        }
+        
+        if (spell.getSpellType() == Constants.SPELL_SIGHT){
+            this.dispose();
+        }
+        
+        
+    }//GEN-LAST:event_castSpellActionPerformed
+    
+    public static Spells getSpell(String selection){
+        Spells spell = null;
+        try{
+            spell = SpellControl.getSpell(selection);
+            System.out.println(spell.toString());
+            }catch(stringNotFoundException ex){
+                System.out.println(ex.getMessage());
+        }
+        
+        return spell;
+    }
+    
+    public static Spells getSpell(String selection, boolean item){
+        Spells spell = null;
+        try{
+            spell = SpellControl.getSpell(selection, item);
+            System.out.println(spell.toString());
+            }catch(stringNotFoundException ex){
+                System.out.println(ex.getMessage());
+        }
+        return spell;
+    }
+    
+    public static Spells castSpell(Spells spell, boolean battle){
+        double effect;
         
         try{
-            SpellControl.castSpell(spell, false);
+            effect = SpellControl.castSpell(spell, battle);           
         }
         catch(illegalActionException ex){
-              System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         
-        populatePlayerStats();
-        this.adventureMenuFrame.populateCharacterData();
-         
-    }//GEN-LAST:event_castSpellActionPerformed
-
+        return spell;
+    }
+    
     private void populatePlayerStats(){
         Actor[][] actors = game.getActor();
         PlayerCharacter playerStats = ((PlayerCharacter) actors[0][0]);
@@ -297,16 +360,7 @@ public class MagicMenuFrame extends javax.swing.JFrame {
         this.manaCost.setText("Mana Cost: " + spell.getMagicCost());
     }//GEN-LAST:event_magicTableMouseClicked
     
-    private Spells getSpell(String selection){
-        Spells spell = null;
-        try{
-            spell = SpellControl.getSpell(selection);
-            System.out.println(spell.toString());
-            }catch(stringNotFoundException ex){
-                System.out.println(ex.getMessage());
-        }
-        return spell;
-    }
+
     
     /**
      * @param args the command line arguments

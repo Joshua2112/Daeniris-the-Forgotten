@@ -10,6 +10,7 @@ import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.Random;
 
@@ -125,7 +126,7 @@ public class TreasureFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Game game = DaenirisTheForgotten.getCurrentGame();
-        Inventory[] inventory = game.getInventory();
+        Spells[] inventory = game.getInventory();
         Gear[] weapons = game.getWeapons();
         Gear[] armors = game.getArmors();
         Gear[] helms = game.getHelms();
@@ -137,7 +138,7 @@ public class TreasureFrame extends javax.swing.JFrame {
                 
                 if(random3 == 1){
                     inventory[random2].setQuantity(inventory[random2].getQuantity() + 1);
-                    this.insideTheBox.setText("You found a(n) " + inventory[random2].getName());
+                    this.insideTheBox.setText("You found a(n) " + inventory[random2].getSpellName());
                 }
                 else if(random3 == 2){
                     weapons[random2].setQuantity(weapons[random2].getQuantity() + 1);

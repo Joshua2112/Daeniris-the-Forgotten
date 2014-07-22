@@ -31,27 +31,23 @@ public class MoveChanceControl implements Serializable{
 
     public MoveChanceControl() {}
         
-    public void MoveChance(){
+    public int MoveChance(){
     
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(100);
         
-
-        if(randomInt > 0 && randomInt < 31){
-            createNewBattle();
+        if(randomInt > 0 && randomInt < 15){
+            return 1;
             }
-        else if(randomInt >= 32 && randomInt <= 33){
-            TreasureFrame treasure = new TreasureFrame();
-            treasure.setVisible(true);
+        else if(randomInt >= 16 && randomInt <= 18){
+            return 2;
             }
-        else if(randomInt >= 34 && randomInt <= 35){
-            HealingPondFrame healingPond = new HealingPondFrame();
-            healingPond.setVisible(true);  
+        else if(randomInt >= 19 && randomInt <= 20){
+            return 3;  
             }
         else{
-            return;
-            }
-        
+            return 4;
+        }     
     }
     private TabularMenu createTabularMenu(){
         Game game = DaenirisTheForgotten.getCurrentGame();
@@ -75,19 +71,7 @@ public class MoveChanceControl implements Serializable{
         
     }
     
-    public void createNewBattle(){
-        Game game = DaenirisTheForgotten.getCurrentGame();
-        
-        BattleScene battleData = new BattleScene(this.enemyGenerator());
-        game.setBattle(battleData);
-        
-        BattleFrame fight = new BattleFrame();
-        fight.setVisible(true); 
-        
-       // BattleMenuView battle = new BattleMenuView();
-        //TabularMenu tab = MoveChanceControl.battleTabularMenu(battleData);
-        //battle.display(tab);
-    }
+
     
     private static TabularMenu battleTabularMenu(BattleScene battle){
         Game game = DaenirisTheForgotten.getCurrentGame();
@@ -122,29 +106,6 @@ public class MoveChanceControl implements Serializable{
         return tab;
     }
     
-    private int enemyGenerator(){
-        Game game = DaenirisTheForgotten.currentGame;
-        World world = game.getWorld();
-        Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
-        char loc = mapArray[world.getxLoc()][world.getyLoc()].getSymbol();
-        int column = 0;
-        
-        
-        switch (loc){
-            case '_':
-                column = 1;
-                break;
-            case 'T':
-                column = 2;
-                break;
-            case '^':
-                column = 3;
-                break;
-            case 'Y':
-                column = 4;
-                break;
-        }
-        return column;
-    }
+    
 }   
     

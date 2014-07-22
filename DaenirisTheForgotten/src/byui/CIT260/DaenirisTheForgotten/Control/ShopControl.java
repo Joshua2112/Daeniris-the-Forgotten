@@ -12,6 +12,7 @@ import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Gear;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
 import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
@@ -25,7 +26,7 @@ public class ShopControl {
     Gear[] helms = game.getHelms();
     Gear[] armors = game.getArmors();
     Gear[] secondaries = game.getSecondaries();
-    Inventory[] items = game.getInventory();
+    Spells[] items = game.getInventory();
     Actor[][] actors = game.getActor();
     PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
 
@@ -37,7 +38,7 @@ public class ShopControl {
         if (items[choice].getCost() < player.getPlayerGold()){
             player.setPlayerGold(player.getPlayerGold() - items[choice].getCost());
             items[choice].setQuantity(items[choice].getQuantity() + 1);
-            System.out.println("\n\tYou purchased a " + items[choice].getName());
+            System.out.println("\n\tYou purchased a " + items[choice].getSpellName());
         }
         else{
             throw new illegalActionException("\n\tNot enough gold");

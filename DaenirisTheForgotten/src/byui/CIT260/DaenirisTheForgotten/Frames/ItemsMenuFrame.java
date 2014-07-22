@@ -6,8 +6,12 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
+import static byui.CIT260.DaenirisTheForgotten.Frames.MagicMenuFrame.castSpell;
+import static byui.CIT260.DaenirisTheForgotten.Frames.MagicMenuFrame.getSpell;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Inventory;
+import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
@@ -16,10 +20,24 @@ import daeniristheforgotten.DaenirisTheForgotten;
  */
 public class ItemsMenuFrame extends javax.swing.JFrame {
     Game game = DaenirisTheForgotten.getCurrentGame();
-    Inventory[] inventory = game.getInventory();
-    /**
-     * Creates new form MagicMenuFrame
-     */
+    AdventureMenuFrame adventureMenuFrame = null;
+    BattleFrame battleFrame = null;
+    private boolean battle;
+    Spells[] inventory = game.getInventory();
+
+    
+    public ItemsMenuFrame(AdventureMenuFrame adventureMenuFrame, boolean battle){
+        this();
+        this.adventureMenuFrame = adventureMenuFrame;
+        this.battle = battle;
+    }
+    
+    public ItemsMenuFrame(BattleFrame battleFrame, Boolean battle){
+        this();
+        this.battleFrame = battleFrame;
+        this.battle = battle;
+    }
+    
     public ItemsMenuFrame() {
         initComponents();
         
@@ -27,7 +45,9 @@ public class ItemsMenuFrame extends javax.swing.JFrame {
         int columnCount = this.itemTable.getColumnCount();
         
         for (int i = 0; i < rowCount; i++){
-                this.itemTable.getModel().setValueAt(inventory[i].getName(), i, 0);             
+                this.itemTable.getModel().setValueAt(inventory[i].getSpellName(), i, 0);
+                this.itemTable.getModel().setValueAt(inventory[i].getQuantity(), i, 1);
+                
         }
     }
 
@@ -51,8 +71,10 @@ public class ItemsMenuFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        itemTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -140,9 +162,9 @@ public class ItemsMenuFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -154,7 +176,30 @@ public class ItemsMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuActionPerformed
 
     private void useItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useItemActionPerformed
-        // TODO add your handling code here:
+        Spells spell;       
+        int row = this.itemTable.getSelectedRow();
+        int column = this.itemTable.getSelectedColumn();
+        
+        String selection = (String) this.itemTable.getValueAt(row, column);
+        System.out.println("TEST " + selection);
+        spell = MagicMenuFrame.getSpell(selection, true);
+        
+        spell = MagicMenuFrame.castSpell(spell, battle);
+        
+        if (!battle){
+                this.populatePlayerStats();
+                this.adventureMenuFrame.populateCharacterData();
+                this.adventureMenuFrame.getMapTable().repaint();
+            }
+            else{
+                
+                battleFrame.magicResults(spell);
+                battleFrame.endTurn();
+                this.dispose();
+        }
+        
+            this.dispose();
+
     }//GEN-LAST:event_useItemActionPerformed
 
     /**
@@ -202,4 +247,8 @@ public class ItemsMenuFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton useItem;
     // End of variables declaration//GEN-END:variables
+
+    private void populatePlayerStats() {
+        
+    }
 }
