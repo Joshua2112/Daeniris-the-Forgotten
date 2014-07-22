@@ -1,5 +1,8 @@
 package byui.CIT260.DaenirisTheForgotten.Model;
 
+import java.awt.image.BufferedImage;
+import java.net.URL;
+
 
 /*********************************************************************
  * Game Class
@@ -21,6 +24,7 @@ public class Game
     private Gear[] secondaries;
     public Gear[] weapons;
     public EquippedGear equippedGear;
+    public URL[] picURL;
 
     public Inventory[] getInventory() {
         return inventory;
@@ -119,6 +123,16 @@ public class Game
     public void setEquippedGear(EquippedGear equippedGear) {
         this.equippedGear = equippedGear;
     }
+
+    public URL[] getPicURL() {
+        return picURL;
+    }
+
+    public void setPicURL(URL[] picURL) {
+        this.picURL = picURL;
+    }
+    
+    
       
     @Override
     public String toString() {

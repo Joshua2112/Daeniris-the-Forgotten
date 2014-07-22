@@ -6,12 +6,17 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -33,6 +38,7 @@ import javax.swing.table.DefaultTableCellRenderer;
         {
             Game game = DaenirisTheForgotten.getCurrentGame();
             World world = game.getWorld();
+            URL[] imageURL = game.getPicURL();
        
             Location[][] mapArray = game.getWorld().getMap();
             
@@ -42,44 +48,49 @@ import javax.swing.table.DefaultTableCellRenderer;
                     table, value, isSelected, hasFocus, row, column);
        
             if(world.getxLoc() == row && world.getyLoc() == column){
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/warrior.jpg"));
+                setIcon(new ImageIcon(imageURL[Constants.WARRIOR]));
             }
             else if (mapArray[row][column].getSymbol() == 'T'
                      && mapArray[row][column].isDiscovered()){
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/tree.jpg"));   
+                setIcon(new ImageIcon(imageURL[Constants.FOREST]));   
             }
             else if (mapArray[row][column].getSymbol() == '_'
                      && mapArray[row][column].isDiscovered()){
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/plains.jpg"));   
+                setIcon(new ImageIcon(imageURL[Constants.PLAINS]));   
             }
             else if (mapArray[row][column].getSymbol() == 'Y'
                      && mapArray[row][column].isDiscovered()){
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/dark.jpg"));   
+                setIcon(new ImageIcon(imageURL[Constants.DARKFOREST]));   
             }
             else if (mapArray[row][column].getSymbol() == '^'
                      && mapArray[row][column].isDiscovered()){
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/mount.jpg"));   
+                setIcon(new ImageIcon(imageURL[Constants.MOUNT]));   
             }
             else if (mapArray[row][column].getSymbol() == 'D'
                      && mapArray[row][column].isDiscovered()){
-                setIcon(new ImageIcon("../../Images/dungeon1"));   
+                setIcon(new ImageIcon(imageURL[Constants.DUNGEON1]));   
             }
             else if (mapArray[row][column].getSymbol() == 'd'
                      && mapArray[row][column].isDiscovered()){
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/dungeon2.jpg"));   
+                setIcon(new ImageIcon(imageURL[Constants.DUNGEON2]));   
             }
             else if (mapArray[row][column].getSymbol() == 'X'
                      && mapArray[row][column].isDiscovered()){
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/dungeon3.jpg"));   
+                setIcon(new ImageIcon(imageURL[Constants.DUNGEON3]));   
             }
             else if (mapArray[row][column].getSymbol() == 'S'){
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/shop.jpg"));   
+                setIcon(new ImageIcon(imageURL[Constants.SHOP]));   
             }
             else{
-                setIcon(new ImageIcon("C:/Users/Nathan/Desktop/blank.jpg"));
+                setIcon(new ImageIcon(imageURL[Constants.BLANK]));
             }
             return cellComponent; 
         }
+        
+       private String getImage(Object value, String string){
+           String str = null;
+           return str;
+       }
     }
 
                 //cellComponent.setBackground(Color.WHITE);

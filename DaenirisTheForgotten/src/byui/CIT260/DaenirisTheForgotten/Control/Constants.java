@@ -89,4 +89,30 @@ public class Constants {
     public static final int GEAR_LIST_COUNT = 50;
     public static final int STARTING_GOLD = 100;
     public static final int STARTING_INVENTORY_ITEM_QUANTITY = 0;
+    
+    //Image Data
+    public static final String IMAGEWARRIOR = "/byui/CIT260/DaenirisTheForgotten/Images/warrior.jpg";
+    public static final String IMAGETREE = "/byui/CIT260/DaenirisTheForgotten/Images/tree.jpg";
+    public static final String IMAGEPLAINS = "/byui/CIT260/DaenirisTheForgotten/Images/plains.jpg";
+    public static final String IMAGEDARK = "/byui/CIT260/DaenirisTheForgotten/Images/dark.jpg";
+    public static final String IMAGEMOUNT = "/byui/CIT260/DaenirisTheForgotten/Images/mount.jpg";
+    public static final String IMAGEDUNGEON1 = "/byui/CIT260/DaenirisTheForgotten/Images/dungeon1.jpg";
+    public static final String IMAGEDUNGEON2 = "/byui/CIT260/DaenirisTheForgotten/Images/dungeon2.jpg";
+    public static final String IMAGEDUNGEON3 = "/byui/CIT260/DaenirisTheForgotten/Images/dungeon3.jpg";
+    public static final String IMAGESHOP = "/byui/CIT260/DaenirisTheForgotten/Images/shop.jpg";
+    public static final String IMAGEBLANK = "/byui/CIT260/DaenirisTheForgotten/Images/blank.jpg";
+    
+    public static final int IMAGECOUNT = 10;
+    
+    public static final int WARRIOR = 0;
+    public static final int FOREST = 1;
+    public static final int PLAINS = 2;
+    public static final int DARKFOREST = 3;
+    public static final int MOUNT = 4;
+    public static final int DUNGEON1 = 5;
+    public static final int DUNGEON2 = 6;
+    public static final int DUNGEON3 = 7;
+    public static final int SHOP = 8;
+    public static final int BLANK = 9;
+    
 }

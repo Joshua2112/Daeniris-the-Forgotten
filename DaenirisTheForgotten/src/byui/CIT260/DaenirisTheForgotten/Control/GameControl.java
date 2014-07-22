@@ -23,6 +23,10 @@ import byui.CIT260.DaenirisTheForgotten.Model.SingleUseItems;
 import byui.CIT260.DaenirisTheForgotten.Model.Spells;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
 import daeniristheforgotten.DaenirisTheForgotten;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -51,6 +55,7 @@ public class GameControl {
         game.setSecondaries(createSecondaryList());
         game.setEquippedGear(initialGear());
         game.setBattle(createBattle());
+        game.setPicURL(getImage());
 
                 
         Actor[][] actor = game.getActor();
@@ -1117,6 +1122,32 @@ public class GameControl {
                 Resource.setMountains(map[i][j + 1]);
             }
         }*/
+    }
+    
+    private static URL[] getImage() {
+        Inventory value = new Inventory();
+        
+        String[] path = new String[]{
+            Constants.IMAGEWARRIOR,
+            Constants.IMAGETREE,
+            Constants.IMAGEPLAINS,
+            Constants.IMAGEDARK,
+            Constants.IMAGEMOUNT,
+            Constants.IMAGEDUNGEON1,
+            Constants.IMAGEDUNGEON2,
+            Constants.IMAGEDUNGEON3,
+            Constants.IMAGESHOP,
+            Constants.IMAGEBLANK
+        };
+        
+        BufferedImage image = null;
+        URL[] url = new URL[10];
+        
+       for(int i = 0; i < 10; i++){
+            url[i] = value.getClass().getResource(path[i]);
+                //image = ImageIO.read(url);
+       }
+       return url;
     }
 }
 
