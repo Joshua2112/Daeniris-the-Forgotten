@@ -44,7 +44,6 @@ public class BattleWonFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         battleWonDisplay = new javax.swing.JTextArea();
         battleWonLabel = new javax.swing.JLabel();
-        seeResults = new javax.swing.JButton();
         treasureRoll = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,13 +55,6 @@ public class BattleWonFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(battleWonDisplay);
 
         battleWonLabel.setText("You won the battle!");
-
-        seeResults.setText("See the Results");
-        seeResults.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seeResultsActionPerformed(evt);
-            }
-        });
 
         treasureRoll.setText("Search for Treasure");
         treasureRoll.addActionListener(new java.awt.event.ActionListener() {
@@ -81,14 +73,14 @@ public class BattleWonFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(battleWonLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(seeResults)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                        .addComponent(treasureRoll)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(138, 138, 138)
+                                .addComponent(battleWonLabel))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(129, 129, 129)
+                                .addComponent(treasureRoll)))
+                        .addGap(0, 132, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -98,11 +90,9 @@ public class BattleWonFrame extends javax.swing.JFrame {
                 .addComponent(battleWonLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(seeResults)
-                    .addComponent(treasureRoll))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(treasureRoll)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -118,11 +108,6 @@ public class BattleWonFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void seeResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeResultsActionPerformed
-        
-        
-    }//GEN-LAST:event_seeResultsActionPerformed
 
     private void treasureRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_treasureRollActionPerformed
                               
@@ -180,7 +165,6 @@ public class BattleWonFrame extends javax.swing.JFrame {
     private javax.swing.JLabel battleWonLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton seeResults;
     private javax.swing.JButton treasureRoll;
     // End of variables declaration//GEN-END:variables
 }
