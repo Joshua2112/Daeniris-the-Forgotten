@@ -25,7 +25,7 @@ public class BattleWonFrame extends javax.swing.JFrame {
         this.battleWonDisplay.setText(BattleControl.endBattle());
         
         if (BattleControl.levelUpCheck()){    
-            DistributeBonuses bonus = new DistributeBonuses();
+            DistributeBonuses bonus = new DistributeBonuses(this.adventureMenuFrame);
             bonus.setVisible(true);
         }
         

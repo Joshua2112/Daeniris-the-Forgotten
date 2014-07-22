@@ -618,7 +618,7 @@ public class GameControl {
         newPlayerCharacter.setMagicAttack(4);
         newPlayerCharacter.setMagicDefense(3);
         newPlayerCharacter.setHealthPoints(35);
-        newPlayerCharacter.setCurrentHealthPoints(35);
+        newPlayerCharacter.setCurrentHealthPoints(20);
         newPlayerCharacter.setMagicPoints(25);
         newPlayerCharacter.setCurrentMagicPoints(25);
         newPlayerCharacter.setPlayerGold(Constants.STARTING_GOLD);
@@ -629,7 +629,7 @@ public class GameControl {
         
         Enemy goblin = new Enemy();
         goblin.setName("Goblin");
-        goblin.setAttack(20);
+        goblin.setAttack(8);
         goblin.setDefense(5);
         goblin.setMagicAttack(0);
         goblin.setMagicDefense(0);

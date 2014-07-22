@@ -50,7 +50,6 @@ public class MagicMenuFrame extends javax.swing.JFrame {
     
     public MagicMenuFrame() {
         initComponents();
-        
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         int rowCount = this.magicTable.getRowCount();

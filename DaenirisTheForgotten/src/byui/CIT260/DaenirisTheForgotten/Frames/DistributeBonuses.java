@@ -20,10 +20,16 @@ public class DistributeBonuses extends javax.swing.JFrame {
         Game game = DaenirisTheForgotten.getCurrentGame();
         Actor[][] actor = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
+        AdventureMenuFrame adventureMenuFrame;
 
     /**
      * Creates new form DistributeBonuses
      */
+    public DistributeBonuses(AdventureMenuFrame adventureMenuFrame) {
+        this();
+        this.adventureMenuFrame = adventureMenuFrame;
+    }    
+        
     public DistributeBonuses() {
         initComponents();
         this.playerStats.setText(player.toString());
@@ -221,8 +227,12 @@ public class DistributeBonuses extends javax.swing.JFrame {
     }//GEN-LAST:event_resetPointsButtonActionPerformed
 
     private void finishedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedButtonActionPerformed
-        AdventureMenuFrame amFrame = new AdventureMenuFrame();
-        amFrame.setVisible(true);
+        
+        if (this.adventureMenuFrame.isActive()){
+            AdventureMenuFrame adventureMenu = new AdventureMenuFrame();
+            adventureMenu.setVisible(true);
+        }
+        
         this.dispose();
     }//GEN-LAST:event_finishedButtonActionPerformed
 
