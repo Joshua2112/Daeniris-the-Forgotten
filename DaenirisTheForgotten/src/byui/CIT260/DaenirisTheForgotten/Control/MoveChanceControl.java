@@ -7,6 +7,9 @@
 package byui.CIT260.DaenirisTheForgotten.Control;
 
 
+import byui.CIT260.DaenirisTheForgotten.Frames.BattleFrame;
+import byui.CIT260.DaenirisTheForgotten.Frames.HealingPondFrame;
+import byui.CIT260.DaenirisTheForgotten.Frames.TreasureFrame;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
@@ -35,15 +38,15 @@ public class MoveChanceControl implements Serializable{
         
 
         if(randomInt > 0 && randomInt < 31){
-            createNewBattle();      
+            createNewBattle();
             }
         else if(randomInt >= 32 && randomInt <= 33){
-            TreasureChestScene treasure = new TreasureChestScene();
-            treasure.display();
+            TreasureFrame treasure = new TreasureFrame();
+            treasure.setVisible(true);
             }
         else if(randomInt >= 34 && randomInt <= 35){
-            HealingPondScene healingPond = new HealingPondScene();
-            healingPond.display();  
+            HealingPondFrame healingPond = new HealingPondFrame();
+            healingPond.setVisible(true);  
             }
         else{
             return;
@@ -72,11 +75,14 @@ public class MoveChanceControl implements Serializable{
         
     }
     
-    public static void createNewBattle(){
+    public void createNewBattle(){
         Game game = DaenirisTheForgotten.getCurrentGame();
         
-        BattleScene battleData = new BattleScene(1);//this.enemyGenerator());
+        BattleScene battleData = new BattleScene(this.enemyGenerator());
         game.setBattle(battleData);
+        
+        BattleFrame fight = new BattleFrame();
+        fight.setVisible(true); 
         
        // BattleMenuView battle = new BattleMenuView();
         //TabularMenu tab = MoveChanceControl.battleTabularMenu(battleData);

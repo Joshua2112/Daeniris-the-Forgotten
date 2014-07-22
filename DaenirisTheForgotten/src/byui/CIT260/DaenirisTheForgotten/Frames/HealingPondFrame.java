@@ -6,18 +6,21 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
-import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
+import byui.CIT260.DaenirisTheForgotten.Model.Actor;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.PlayerCharacter;
+import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
  *
  * @author Joshua
  */
-public class BattleWonFrame extends javax.swing.JFrame {
+public class HealingPondFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form BattleWonFrame
+     * Creates new form HealingPondFrame
      */
-    public BattleWonFrame() {
+    public HealingPondFrame() {
         initComponents();
     }
 
@@ -31,33 +34,27 @@ public class BattleWonFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        battleWonDisplay = new javax.swing.JTextArea();
-        battleWonLabel = new javax.swing.JLabel();
-        seeResults = new javax.swing.JButton();
-        treasureRoll = new javax.swing.JButton();
+        healingPondLabel = new javax.swing.JLabel();
+        drink = new javax.swing.JButton();
+        done = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
-        battleWonDisplay.setColumns(20);
-        battleWonDisplay.setRows(5);
-        jScrollPane1.setViewportView(battleWonDisplay);
+        healingPondLabel.setText("You come across a healing pond");
 
-        battleWonLabel.setText("You won the battle!");
-
-        seeResults.setText("See the Results");
-        seeResults.addActionListener(new java.awt.event.ActionListener() {
+        drink.setText("Drink from the pond");
+        drink.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seeResultsActionPerformed(evt);
+                drinkActionPerformed(evt);
             }
         });
 
-        treasureRoll.setText("Search for Treasure");
-        treasureRoll.addActionListener(new java.awt.event.ActionListener() {
+        done.setText("Done");
+        done.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                treasureRollActionPerformed(evt);
+                doneActionPerformed(evt);
             }
         });
 
@@ -66,33 +63,25 @@ public class BattleWonFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(battleWonLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(seeResults)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                        .addComponent(treasureRoll)))
-                .addContainerGap())
+                        .addComponent(drink)
+                        .addGap(18, 18, 18)
+                        .addComponent(done))
+                    .addComponent(healingPondLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(battleWonLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(healingPondLabel)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(seeResults)
-                    .addComponent(treasureRoll))
-                .addContainerGap(43, Short.MAX_VALUE))
+                    .addComponent(done)
+                    .addComponent(drink))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,23 +98,18 @@ public class BattleWonFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void seeResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeResultsActionPerformed
-        
-        this.battleWonDisplay.setText(BattleControl.endBattle());
-    }//GEN-LAST:event_seeResultsActionPerformed
+    private void drinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinkActionPerformed
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Actor[][] actors = game.getActor();
+        PlayerCharacter player = ((PlayerCharacter) actors[0][0]);
+        player.setCurrentHealthPoints(player.getHealthPoints());
+        player.setCurrentMagicPoints(player.getMagicPoints());
+        this.healingPondLabel.setText("Health and Magic restored");
+    }//GEN-LAST:event_drinkActionPerformed
 
-    private void treasureRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_treasureRollActionPerformed
-        if(BattleControl.treasureRoll()){
-            TreasureFrame treasure = new TreasureFrame();
-            treasure.setVisible(true);
-            this.dispose();
-        }
-        else{
-            NoTreasure none = new NoTreasure();
-            none.setVisible(true);
-            this.dispose();
-        }
-    }//GEN-LAST:event_treasureRollActionPerformed
+    private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_doneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,30 +128,28 @@ public class BattleWonFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BattleWonFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HealingPondFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BattleWonFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HealingPondFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BattleWonFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HealingPondFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BattleWonFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HealingPondFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BattleWonFrame().setVisible(true);
+                new HealingPondFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea battleWonDisplay;
-    private javax.swing.JLabel battleWonLabel;
+    private javax.swing.JButton done;
+    private javax.swing.JButton drink;
+    private javax.swing.JLabel healingPondLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton seeResults;
-    private javax.swing.JButton treasureRoll;
     // End of variables declaration//GEN-END:variables
 }

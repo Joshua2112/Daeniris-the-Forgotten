@@ -7,6 +7,7 @@
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
 import byui.CIT260.DaenirisTheForgotten.Control.GameControl;
+import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import byui.CIT260.DaenirisTheForgotten.View.CharacterCreationView;
 import byui.CIT260.DaenirisTheForgotten.View.MainMenuView;
@@ -43,7 +44,6 @@ public class StartProgramFrame extends javax.swing.JFrame {
         test = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         introText = new javax.swing.JTextArea();
-        battleTestButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,13 +79,6 @@ public class StartProgramFrame extends javax.swing.JFrame {
         introText.setText("\nWelcome to Daeniris the Forgotten\n\nThis will be the start of a great\nadventure.  Your hero will become\na champion of the people.  You\nwill need to use your smarts to\nsave the people, and the people\n     will ever be grateful.\n\n       Good luck to you");
         jScrollPane1.setViewportView(introText);
 
-        battleTestButton.setText("fight");
-        battleTestButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                battleTestButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -101,26 +94,15 @@ public class StartProgramFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(Help)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(test)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(battleTestButton))))
+                .addComponent(test)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(battleTestButton)
-                        .addGap(114, 114, 114)))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NewGameStart)
                     .addComponent(QuitGame)
@@ -133,17 +115,11 @@ public class StartProgramFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -191,17 +167,6 @@ public class StartProgramFrame extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_testActionPerformed
 
-    private void battleTestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battleTestButtonActionPerformed
-        try {
-             this.StartNewGame(true);
-         } catch (illegalActionException ex) {
-             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        BattleFrame fight = new BattleFrame();
-        fight.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_battleTestButtonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -241,7 +206,6 @@ public class StartProgramFrame extends javax.swing.JFrame {
     private javax.swing.JButton Help;
     private javax.swing.JButton NewGameStart;
     private javax.swing.JButton QuitGame;
-    private javax.swing.JButton battleTestButton;
     private javax.swing.JTextArea introText;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

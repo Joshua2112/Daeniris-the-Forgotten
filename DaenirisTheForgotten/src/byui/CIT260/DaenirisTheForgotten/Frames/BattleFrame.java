@@ -7,12 +7,8 @@
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
 import byui.CIT260.DaenirisTheForgotten.Control.BattleControl;
-import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
-import byui.CIT260.DaenirisTheForgotten.View.BattleSpellMenuView;
-import byui.CIT260.DaenirisTheForgotten.View.TabularMenu;
-import byui.CIT260.DaenirisTheForgotten.View.UseItemMenuView;
 import daeniristheforgotten.DaenirisTheForgotten;
 
 /**
@@ -27,7 +23,6 @@ public class BattleFrame extends javax.swing.JFrame {
     public BattleFrame() {
         initComponents();
         Game game = DaenirisTheForgotten.currentGame;
-        MoveChanceControl.createNewBattle();
         BattleScene data = game.getBattle();
         this.playerInfo.setText("Name " + data.getName()
                                 +"\nHealth " + data.getCurrentHealth() + "/" + data.getTotalHealth()
@@ -201,6 +196,7 @@ public class BattleFrame extends javax.swing.JFrame {
         if(BattleControl.checkEnemyDeath()){
             BattleWonFrame battleWon = new BattleWonFrame();
             battleWon.setVisible(true);
+            this.dispose();
         }
         
         this.enemyBattleText.setText(BattleControl.enemyAttack());
@@ -220,6 +216,11 @@ public class BattleFrame extends javax.swing.JFrame {
     private void defendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defendButtonActionPerformed
         this.battleText.setText("\n\tYour defense increased by " + BattleControl.defend1() + " temporarily");
         this.enemyBattleText.setText(BattleControl.enemyAttack());
+        if(BattleControl.playerDead()){
+            GameOver gameOver = new GameOver();
+            gameOver.setVisible(true);
+            this.dispose();
+        }
         BattleControl.defend2();
     }//GEN-LAST:event_defendButtonActionPerformed
 
@@ -229,6 +230,7 @@ public class BattleFrame extends javax.swing.JFrame {
         if(BattleControl.checkEnemyDeath()){
             BattleWonFrame battleWon = new BattleWonFrame();
             battleWon.setVisible(true);
+            this.dispose();
         }
         this.enemyBattleText.setText(BattleControl.enemyAttack());
     }//GEN-LAST:event_magicButtonActionPerformed
@@ -239,6 +241,7 @@ public class BattleFrame extends javax.swing.JFrame {
         if(BattleControl.checkEnemyDeath()){
             BattleWonFrame battleWon = new BattleWonFrame();
             battleWon.setVisible(true);
+            this.dispose();
         }
         this.enemyBattleText.setText(BattleControl.enemyAttack());
     }//GEN-LAST:event_itemButtonActionPerformed
