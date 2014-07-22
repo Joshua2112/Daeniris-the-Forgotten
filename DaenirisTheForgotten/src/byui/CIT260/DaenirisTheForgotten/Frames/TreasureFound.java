@@ -35,6 +35,8 @@ public class TreasureFound extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+
         insideTheBox.setText("You found a(n)");
 
         jButton1.setText("OK");
