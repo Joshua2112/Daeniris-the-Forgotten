@@ -66,6 +66,7 @@ public class BattleScene extends Location{
         spellDamage = enemy.getSpellUseDamage();
         enemyCritBonus = 0;
         pheonix = false;
+        inBattle = false;
     }
         
         private String playerName;
@@ -99,6 +100,7 @@ public class BattleScene extends Location{
         private int spellDamage;
         private int enemySpellCost;
         private boolean pheonix;
+        private boolean inBattle;
 
     public BattleScene() {
 
@@ -351,6 +353,16 @@ public class BattleScene extends Location{
     public void setPheonix(boolean pheonix) {
         this.pheonix = pheonix;
     }
+
+    public boolean isInBattle() {
+        return inBattle;
+    }
+
+    public void setInBattle(boolean inBattle) {
+        this.inBattle = inBattle;
+    }
+    
+    
     
     
     

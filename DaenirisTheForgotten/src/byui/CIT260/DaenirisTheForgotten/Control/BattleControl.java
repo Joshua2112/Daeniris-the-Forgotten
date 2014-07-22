@@ -58,6 +58,7 @@ public class BattleControl {
         }
         
         game.setBattle(battleData);
+        battleData.setInBattle(true);
         
         return true;
     }
