@@ -39,7 +39,6 @@ public class TreasureFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         treasureLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         insideTheBox = new javax.swing.JLabel();
 
@@ -56,13 +55,6 @@ public class TreasureFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Done");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         insideTheBox.setText("See what's inside");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -72,23 +64,17 @@ public class TreasureFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addGap(123, 123, 123)
+                        .addComponent(treasureLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(treasureLabel))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(255, 255, 255)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(insideTheBox)))
-                        .addGap(0, 132, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(148, 148, 148)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(insideTheBox)))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,15 +85,13 @@ public class TreasureFrame extends javax.swing.JFrame {
                         .addComponent(treasureLabel)
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 40, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(insideTheBox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jLabel1)
-                .addGap(61, 61, 61)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,12 +109,15 @@ public class TreasureFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
         Game game = DaenirisTheForgotten.getCurrentGame();
         Spells[] inventory = game.getInventory();
         Gear[] weapons = game.getWeapons();
         Gear[] armors = game.getArmors();
         Gear[] helms = game.getHelms();
         Gear[] secondaries = game.getSecondaries();
+        String boxMessage = null;
         
         Random randomGenerator = new Random();
                 int random2 = randomGenerator.nextInt(Constants.GEAR_LIST_COUNT);
@@ -138,29 +125,29 @@ public class TreasureFrame extends javax.swing.JFrame {
                 
                 if(random3 == 1){
                     inventory[random2].setQuantity(inventory[random2].getQuantity() + 1);
-                    this.insideTheBox.setText("You found a(n) " + inventory[random2].getSpellName());
+                    boxMessage = "You found a(n) " + inventory[random2].getSpellName();
                 }
                 else if(random3 == 2){
                     weapons[random2].setQuantity(weapons[random2].getQuantity() + 1);
-                    this.insideTheBox.setText("You found a(n) " + weapons[random2].getName());
+                    boxMessage = "You found a(n) " + weapons[random2].getName();
                 }
                 else if(random3 == 3){
                     armors[random2].setQuantity(armors[random2].getQuantity() + 1);
-                    this.insideTheBox.setText("You found a(n) " + armors[random2].getName());
+                    boxMessage = "You found a(n) " + armors[random2].getName();
                 }
                 else if(random3 == 4){
                     helms[random2].setQuantity(helms[random2].getQuantity() + 1);
-                    this.insideTheBox.setText("You found a(n) " + helms[random2].getName());
+                    boxMessage = "You found a(n) " + helms[random2].getName();
                 }
                 else if(random3 == 5){
                     secondaries[random2].setQuantity(secondaries[random2].getQuantity() + 1);
-                    this.insideTheBox.setText("You found a(n) " + secondaries[random2].getName());
+                    boxMessage = "You found a(n) " + secondaries[random2].getName();
                 }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+                
+        TreasureFound tFound = new TreasureFound(boxMessage);
+        tFound.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,7 +187,6 @@ public class TreasureFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel insideTheBox;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel treasureLabel;
