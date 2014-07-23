@@ -6,6 +6,14 @@
 
 package byui.CIT260.DaenirisTheForgotten.Frames;
 
+import byui.CIT260.DaenirisTheForgotten.Control.Constants;
+import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
+import byui.CIT260.DaenirisTheForgotten.Model.EquippedGear;
+import byui.CIT260.DaenirisTheForgotten.Model.Game;
+import byui.CIT260.DaenirisTheForgotten.Model.Gear;
+import daeniristheforgotten.DaenirisTheForgotten;
+import javax.swing.WindowConstants;
+
 /**
  *
  * @author Nathan
@@ -17,6 +25,25 @@ public class GearMenuFrame extends javax.swing.JFrame {
      */
     public GearMenuFrame() {
         initComponents();
+        
+    Game game = DaenirisTheForgotten.getCurrentGame();
+    AdventureMenuFrame adventureMenuFrame = null;
+    Gear[] armors = game.getArmors();
+    Gear[] helms = game.getHelms();
+    Gear[] weapons = game.getWeapons();
+    Gear[] secondaries = game.getSecondaries();
+        
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        
+        int rowCount = this.gearTable.getRowCount();
+        int columnCount = this.gearTable.getColumnCount();
+        
+        for (int i = 0; i < Constants.GEAR_LIST_COUNT; i++){
+                this.gearTable.getModel().setValueAt(weapons[i].getName(), i, 0);
+                this.gearTable.getModel().setValueAt(armors[i].getName(), i, 1);
+                this.gearTable.getModel().setValueAt(helms[i].getName(), i, 2);
+                this.gearTable.getModel().setValueAt(secondaries[i].getName(), i, 3);
+    }
     }
 
     /**
@@ -29,14 +56,22 @@ public class GearMenuFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        gearTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         equipGear = new javax.swing.JButton();
         exitMenu = new javax.swing.JButton();
+        gearName = new javax.swing.JLabel();
+        gearDescription = new javax.swing.JLabel();
+        gearAttack = new javax.swing.JLabel();
+        gearDefense = new javax.swing.JLabel();
+        gearMAttack = new javax.swing.JLabel();
+        gearMDefense = new javax.swing.JLabel();
+        gearQuantity = new javax.swing.JLabel();
+        gearValue = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        gearTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,8 +88,15 @@ public class GearMenuFrame extends javax.swing.JFrame {
                 "Weapons", "Helmet", "Primary Armor", "Secondary Armor"
             }
         ));
-        jTable1.setRowHeight(50);
-        jScrollPane1.setViewportView(jTable1);
+        gearTable.setColumnSelectionAllowed(true);
+        gearTable.setRowHeight(50);
+        gearTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gearTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(gearTable);
+        gearTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Gear Menu");
@@ -73,6 +115,22 @@ public class GearMenuFrame extends javax.swing.JFrame {
             }
         });
 
+        gearName.setText("name");
+
+        gearDescription.setText("description");
+
+        gearAttack.setText("attack");
+
+        gearDefense.setText("defense");
+
+        gearMAttack.setText("magic attack");
+
+        gearMDefense.setText("magic defense");
+
+        gearQuantity.setText("quantity");
+
+        gearValue.setText("value");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,8 +144,26 @@ public class GearMenuFrame extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(equipGear, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(equipGear, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(exitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(gearName)
+                                    .addComponent(gearDescription))
+                                .addGap(135, 135, 135)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(gearAttack)
+                                    .addComponent(gearDefense))
+                                .addGap(82, 82, 82)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(gearMAttack)
+                                    .addComponent(gearMDefense))
+                                .addGap(109, 109, 109)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(gearValue)
+                                    .addComponent(gearQuantity))))))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,22 +174,108 @@ public class GearMenuFrame extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(equipGear, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(equipGear, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gearName)
+                            .addComponent(gearAttack)
+                            .addComponent(gearMAttack)
+                            .addComponent(gearQuantity))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gearDescription)
+                            .addComponent(gearDefense)
+                            .addComponent(gearMDefense)
+                            .addComponent(gearValue))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(exitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void equipGearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipGearActionPerformed
-        // TODO add your handling code here:
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Gear[] armors = game.getArmors();
+        Gear[] helms = game.getHelms();
+        Gear[] weapons = game.getWeapons();
+        Gear[] secondaries = game.getSecondaries();
+        EquippedGear playerGear = game.getEquippedGear();
+        
+        int column = this.gearTable.getSelectedColumn();
+        int row = this.gearTable.getSelectedRow();
+        Gear gear = null;
+        String message = null;
+        
+        if(column == 0){
+            playerGear.setWeapon(weapons[row]);
+            gear = weapons[row];
+        }
+        else if(column == 1){
+            playerGear.setArmor(armors[row]);
+            gear = armors[row];
+        }
+        else if(column == 2){
+            playerGear.setHelmet(helms[row]);
+            gear = helms[row];
+        }
+        else if(column == 3){
+            playerGear.setLeftHand(secondaries[row]);
+            gear = secondaries[row];
+        }
+        
+        BattleScene stats = new BattleScene(1);
+        
+        message = "You equipped " + gear.getName()
+                    + "\nTotal Attack : " + stats.getTotalAttack()
+                    + "\nTotal Defense : " + stats.getTotalDefense()
+                    + "\nTotal Magic Attack : " + stats.getTotalMagicAttack()
+                    + "\nTotal Magic Defense : " + stats.getTotalMagicDefense();
+        
+        GearEquippedFrame gearEquipped = new GearEquippedFrame(message);
+        gearEquipped.setVisible(true);
+        
     }//GEN-LAST:event_equipGearActionPerformed
 
     private void exitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuActionPerformed
         this.dispose();
     }//GEN-LAST:event_exitMenuActionPerformed
+
+    private void gearTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gearTableMouseClicked
+        Game game = DaenirisTheForgotten.getCurrentGame();
+        Gear[] armors = game.getArmors();
+        Gear[] helms = game.getHelms();
+        Gear[] weapons = game.getWeapons();
+        Gear[] secondaries = game.getSecondaries();
+        
+        int column = this.gearTable.getSelectedColumn();
+        int row = this.gearTable.getSelectedRow();
+        Gear gear = null;
+        
+        if(column == 0){
+            gear = weapons[row];
+        }
+        else if(column == 1){
+            gear = armors[row];
+        }
+        else if(column == 2){
+            gear = helms[row];
+        }
+        else if(column == 3){
+            gear = secondaries[row];
+        }
+        
+        this.gearName.setText(gear.getName());
+        this.gearDescription.setText(gear.getDescription());
+        this.gearAttack.setText("Attack: " + gear.getAttackBonus());
+        this.gearDefense.setText("Defense: " + gear.getDefenseBonus());
+        this.gearMAttack.setText("Magic Attack: " + gear.getMagicAttackBonus());
+        this.gearMDefense.setText("Magic Defense: " + gear.getMagicDefenseBonus());
+        this.gearQuantity.setText("Quantity: " + gear.getQuantity());
+        this.gearValue.setText("Value: " + gear.getCost());
+    }//GEN-LAST:event_gearTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -153,8 +315,17 @@ public class GearMenuFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton equipGear;
     private javax.swing.JButton exitMenu;
+    private javax.swing.JLabel gearAttack;
+    private javax.swing.JLabel gearDefense;
+    private javax.swing.JLabel gearDescription;
+    private javax.swing.JLabel gearMAttack;
+    private javax.swing.JLabel gearMDefense;
+    private javax.swing.JLabel gearName;
+    private javax.swing.JLabel gearQuantity;
+    private javax.swing.JTable gearTable;
+    private javax.swing.JLabel gearValue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
 }

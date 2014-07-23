@@ -527,8 +527,8 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_itemsMenuActionPerformed
 
     private void gearMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gearMenuActionPerformed
-        GearMenuFrame gameMenu = new GearMenuFrame();
-        gameMenu.setVisible(true);
+        GearMenuFrame gearMenu = new GearMenuFrame();
+        gearMenu.setVisible(true);
     }//GEN-LAST:event_gearMenuActionPerformed
 
     private void bestiaryMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bestiaryMenuActionPerformed

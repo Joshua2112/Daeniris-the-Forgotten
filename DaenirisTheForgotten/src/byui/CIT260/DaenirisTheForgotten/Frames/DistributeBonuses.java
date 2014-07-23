@@ -228,10 +228,13 @@ public class DistributeBonuses extends javax.swing.JFrame {
 
     private void finishedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedButtonActionPerformed
         
-        if (this.adventureMenuFrame.isActive()){
+        /*if (this.adventureMenuFrame.isActive()){
             AdventureMenuFrame adventureMenu = new AdventureMenuFrame();
             adventureMenu.setVisible(true);
-        }
+        }*/
+        
+        AdventureMenuFrame adventureMenu = new AdventureMenuFrame();
+        adventureMenu.setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_finishedButtonActionPerformed
