@@ -167,6 +167,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         mapTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        shopButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -466,13 +467,22 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
             }
         });
 
+        shopButton.setText("Shop");
+        shopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shopButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jButton1)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(shopButton)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -480,6 +490,8 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(shopButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -569,8 +581,14 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     private void interactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interactActionPerformed
         boolean interact = BattleControl.createNewBattle(world);
         BattleFrame battle = new BattleFrame(this);
-        battle.setVisible(true);// TODO add your handling code here:
+        battle.setVisible(true);
+        
     }//GEN-LAST:event_interactActionPerformed
+
+    private void shopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopButtonActionPerformed
+        ShopHub shop = new ShopHub();
+        shop.setVisible(true);
+    }//GEN-LAST:event_shopButtonActionPerformed
 
     
     /**
@@ -638,5 +656,6 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     private javax.swing.JLabel playerClass;
     private javax.swing.JLabel playerGender;
     private javax.swing.JLabel playerName;
+    private javax.swing.JButton shopButton;
     // End of variables declaration//GEN-END:variables
 }

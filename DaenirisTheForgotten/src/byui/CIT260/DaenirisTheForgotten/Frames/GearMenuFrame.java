@@ -79,13 +79,10 @@ public class GearMenuFrame extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Weapons", "Helmet", "Primary Armor", "Secondary Armor"
+                "Weapons", "Armor", "Helmet", "Left Hand"
             }
         ));
         gearTable.setColumnSelectionAllowed(true);
@@ -138,59 +135,62 @@ public class GearMenuFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(354, 354, 354)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(equipGear, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(exitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(equipGear, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(exitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(gearName)
-                                    .addComponent(gearDescription))
-                                .addGap(135, 135, 135)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(gearAttack)
-                                    .addComponent(gearDefense))
-                                .addGap(82, 82, 82)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(gearMAttack)
-                                    .addComponent(gearMDefense))
-                                .addGap(109, 109, 109)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(gearValue)
-                                    .addComponent(gearQuantity))))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                                .addGap(4, 4, 4)
+                                .addComponent(gearName))
+                            .addComponent(gearQuantity)
+                            .addComponent(gearAttack))
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gearValue)
+                            .addComponent(gearDescription)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(gearDefense)
+                                .addGap(64, 64, 64)
+                                .addComponent(gearMAttack)
+                                .addGap(44, 44, 44)
+                                .addComponent(gearMDefense))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(358, 358, 358)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(equipGear, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(equipGear, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(exitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(gearName)
-                            .addComponent(gearAttack)
-                            .addComponent(gearMAttack)
-                            .addComponent(gearQuantity))
+                            .addComponent(gearDescription))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(gearDescription)
+                            .addComponent(gearAttack)
                             .addComponent(gearDefense)
-                            .addComponent(gearMDefense)
-                            .addComponent(gearValue))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                            .addComponent(gearMAttack)
+                            .addComponent(gearMDefense))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gearQuantity)
+                            .addComponent(gearValue)))))
         );
 
         pack();
@@ -210,29 +210,70 @@ public class GearMenuFrame extends javax.swing.JFrame {
         String message = null;
         
         if(column == 0){
+            if(weapons[row].getQuantity() > 0){
             playerGear.setWeapon(weapons[row]);
             gear = weapons[row];
-        }
-        else if(column == 1){
-            playerGear.setArmor(armors[row]);
-            gear = armors[row];
-        }
-        else if(column == 2){
-            playerGear.setHelmet(helms[row]);
-            gear = helms[row];
-        }
-        else if(column == 3){
-            playerGear.setLeftHand(secondaries[row]);
-            gear = secondaries[row];
-        }
+            BattleScene stats = new BattleScene(1);
         
-        BattleScene stats = new BattleScene(1);
-        
-        message = "You equipped " + gear.getName()
+            message = "You equipped " + gear.getName()
                     + "\nTotal Attack : " + stats.getTotalAttack()
                     + "\nTotal Defense : " + stats.getTotalDefense()
                     + "\nTotal Magic Attack : " + stats.getTotalMagicAttack()
                     + "\nTotal Magic Defense : " + stats.getTotalMagicDefense();
+            }
+            else{
+                message = "You don't have any of that gear";
+            }
+        }
+        else if(column == 1){
+            if(weapons[row].getQuantity() > 0){
+            playerGear.setArmor(armors[row]);
+            gear = armors[row];
+            BattleScene stats = new BattleScene(1);
+        
+            message = "You equipped " + gear.getName()
+                    + "\nTotal Attack : " + stats.getTotalAttack()
+                    + "\nTotal Defense : " + stats.getTotalDefense()
+                    + "\nTotal Magic Attack : " + stats.getTotalMagicAttack()
+                    + "\nTotal Magic Defense : " + stats.getTotalMagicDefense();
+            }
+            else{
+                message = "You don't have any of that gear";
+            }
+        }
+        else if(column == 2){
+            if(weapons[row].getQuantity() > 0){
+            playerGear.setHelmet(helms[row]);
+            gear = helms[row];
+            BattleScene stats = new BattleScene(1);
+        
+            message = "You equipped " + gear.getName()
+                    + "\nTotal Attack : " + stats.getTotalAttack()
+                    + "\nTotal Defense : " + stats.getTotalDefense()
+                    + "\nTotal Magic Attack : " + stats.getTotalMagicAttack()
+                    + "\nTotal Magic Defense : " + stats.getTotalMagicDefense();
+            }
+            else{
+                message = "You don't have any of that gear";
+            }
+        }
+        else if(column == 3){
+            if(weapons[row].getQuantity() > 0){
+            playerGear.setLeftHand(secondaries[row]);
+            gear = secondaries[row];
+            BattleScene stats = new BattleScene(1);
+        
+            message = "You equipped " + gear.getName()
+                    + "\nTotal Attack : " + stats.getTotalAttack()
+                    + "\nTotal Defense : " + stats.getTotalDefense()
+                    + "\nTotal Magic Attack : " + stats.getTotalMagicAttack()
+                    + "\nTotal Magic Defense : " + stats.getTotalMagicDefense();
+            }
+            else{
+                message = "You don't have any of that gear";
+            }
+            
+        }
         
         GearEquippedFrame gearEquipped = new GearEquippedFrame(message);
         gearEquipped.setVisible(true);

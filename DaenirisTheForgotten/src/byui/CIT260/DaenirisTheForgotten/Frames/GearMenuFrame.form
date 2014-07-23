@@ -25,76 +25,80 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="354" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="829" max="-2" attributes="0"/>
+                          <Component id="equipGear" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                          <Component id="exitMenu" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="equipGear" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <Component id="exitMenu" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="gearName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="gearDescription" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="gearAttack" min="-2" max="-2" attributes="0"/>
-                                  <Component id="gearDefense" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="gearMAttack" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="gearMDefense" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="gearValue" min="-2" max="-2" attributes="0"/>
-                                  <Component id="gearQuantity" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="gearName" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="gearQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="gearAttack" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="gearValue" min="-2" max="-2" attributes="0"/>
+                          <Component id="gearDescription" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="gearDefense" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="gearMAttack" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="gearMDefense" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="358" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="829" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="43" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="528" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="389" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="equipGear" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="equipGear" min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="exitMenu" min="-2" pref="37" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="gearName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="gearAttack" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="gearMAttack" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="gearQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="gearDescription" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="gearDescription" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="gearAttack" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="gearDefense" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="gearMAttack" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="gearMDefense" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="gearQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="gearValue" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="exitMenu" min="-2" pref="37" max="-2" attributes="0"/>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -110,11 +114,11 @@
         <Component class="javax.swing.JTable" name="gearTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="10">
+              <Table columnCount="4" rowCount="7">
                 <Column editable="true" title="Weapons" type="java.lang.Object"/>
+                <Column editable="true" title="Armor" type="java.lang.Object"/>
                 <Column editable="true" title="Helmet" type="java.lang.Object"/>
-                <Column editable="true" title="Primary Armor" type="java.lang.Object"/>
-                <Column editable="true" title="Secondary Armor" type="java.lang.Object"/>
+                <Column editable="true" title="Left Hand" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
