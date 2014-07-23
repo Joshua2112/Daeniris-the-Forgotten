@@ -175,7 +175,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         mapTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        shopButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -468,10 +468,10 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(mapTable);
         mapTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        shopButton.setText("Shop");
+        shopButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                shopButtonActionPerformed(evt);
             }
         });
 
@@ -480,15 +480,15 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jButton1)
+                .addGap(27, 27, 27)
+                .addComponent(shopButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jButton1)
+                .addContainerGap()
+                .addComponent(shopButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -536,8 +536,8 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_itemsMenuActionPerformed
 
     private void gearMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gearMenuActionPerformed
-        GearMenuFrame gameMenu = new GearMenuFrame();
-        gameMenu.setVisible(true);
+        GearMenuFrame gearMenu = new GearMenuFrame();
+        gearMenu.setVisible(true);
     }//GEN-LAST:event_gearMenuActionPerformed
 
     private void bestiaryMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bestiaryMenuActionPerformed
@@ -571,15 +571,17 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         this.mapTable.repaint();
     }//GEN-LAST:event_moveSouthActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.populateCharacterData();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void interactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interactActionPerformed
         boolean interact = BattleControl.createNewBattle(world);
         BattleFrame battle = new BattleFrame(this);
-        battle.setVisible(true);// TODO add your handling code here:
+        battle.setVisible(true);
+        
     }//GEN-LAST:event_interactActionPerformed
+
+    private void shopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopButtonActionPerformed
+        ShopHub shop = new ShopHub();
+        shop.setVisible(true);
+    }//GEN-LAST:event_shopButtonActionPerformed
 
     
     /**
@@ -628,7 +630,6 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     private javax.swing.JLabel healtPoints;
     private javax.swing.JButton interact;
     private javax.swing.JButton itemsMenu;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -647,5 +648,6 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
     private javax.swing.JLabel playerClass;
     private javax.swing.JLabel playerGender;
     private javax.swing.JLabel playerName;
+    private javax.swing.JButton shopButton;
     // End of variables declaration//GEN-END:variables
 }

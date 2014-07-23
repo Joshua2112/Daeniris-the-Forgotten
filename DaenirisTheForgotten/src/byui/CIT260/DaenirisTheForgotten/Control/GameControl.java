@@ -1116,6 +1116,17 @@ public class GameControl {
         return false;
     }
     
+    public static int stringSearch(Gear[] array, String selection) {
+
+        int number = 0;
+        
+        for(int i = 0; i < Constants.GEAR_LIST_COUNT; i++)
+                if((array[i].getName().compareToIgnoreCase(selection)== 0)){
+                    number = i;
+            }
+        return number;
+    }
+    
     public static String[] inventoryStringConvert(Inventory[] array, int column){
         
         int count = 0;
@@ -1263,6 +1274,8 @@ public class GameControl {
        }
        return url;
     }
+
+
 }
 
 

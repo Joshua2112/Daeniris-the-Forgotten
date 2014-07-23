@@ -233,6 +233,7 @@ public class DistributeBonuses extends javax.swing.JFrame {
 
     private void finishedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedButtonActionPerformed
         
+
         if (!newGame){
             this.dispose();
             return;
