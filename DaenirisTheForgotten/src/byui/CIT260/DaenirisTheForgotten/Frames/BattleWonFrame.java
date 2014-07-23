@@ -24,7 +24,11 @@ public class BattleWonFrame extends javax.swing.JFrame {
     
     public BattleWonFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
         this.battleWonDisplay.setText(BattleControl.endBattle());
+        
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,23 +109,22 @@ public class BattleWonFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void treasureRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_treasureRollActionPerformed
-                
-        if (BattleControl.levelUpCheck()){    
-            DistributeBonuses bonus = new DistributeBonuses(this.adventureMenuFrame);
-            bonus.setVisible(true);
-        }
+        
         
         if(BattleControl.treasureRoll()){
-            TreasureFrame treasure = new TreasureFrame();
+            TreasureFrame treasure = new TreasureFrame(this.adventureMenuFrame);
             treasure.setVisible(true);
             this.dispose();
         }
         else{
-            NoTreasure none = new NoTreasure();
+            NoTreasure none = new NoTreasure(this.adventureMenuFrame);
             none.setVisible(true);
             this.dispose();
         }
-        
+        if (BattleControl.levelUpCheck()){    
+            DistributeBonuses bonus = new DistributeBonuses(this.adventureMenuFrame);
+            bonus.setVisible(true);
+        }
         this.adventureMenuFrame.populateCharacterData();
 
         

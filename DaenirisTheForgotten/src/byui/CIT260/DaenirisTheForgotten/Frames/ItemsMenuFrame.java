@@ -40,6 +40,7 @@ public class ItemsMenuFrame extends javax.swing.JFrame {
     
     public ItemsMenuFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
         
         int rowCount = this.itemTable.getRowCount();
         int columnCount = this.itemTable.getColumnCount();

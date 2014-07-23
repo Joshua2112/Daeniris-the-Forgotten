@@ -22,6 +22,7 @@ public class EnterPlayerCharacterName extends javax.swing.JFrame {
      */
     public EnterPlayerCharacterName() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -26,6 +26,7 @@ public class StartProgramFrame extends javax.swing.JFrame {
      */
     public StartProgramFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

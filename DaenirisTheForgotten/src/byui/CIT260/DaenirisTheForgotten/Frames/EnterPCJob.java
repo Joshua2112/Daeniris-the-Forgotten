@@ -23,6 +23,7 @@ public class EnterPCJob extends javax.swing.JFrame {
      */
     public EnterPCJob() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

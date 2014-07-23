@@ -11,12 +11,18 @@ package byui.CIT260.DaenirisTheForgotten.Frames;
  * @author Joshua
  */
 public class NoTreasure extends javax.swing.JFrame {
-
+    AdventureMenuFrame adventureMenu;
     /**
      * Creates new form NoTreasure
      */
+    public NoTreasure(AdventureMenuFrame adventureMenu){
+        this();
+        this.adventureMenu = adventureMenu;
+    }
+    
     public NoTreasure() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -82,6 +88,8 @@ public class NoTreasure extends javax.swing.JFrame {
 
     private void noTreasureOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noTreasureOKActionPerformed
         this.dispose();
+        this.adventureMenu.setVisible(true);
+        
     }//GEN-LAST:event_noTreasureOKActionPerformed
 
     /**

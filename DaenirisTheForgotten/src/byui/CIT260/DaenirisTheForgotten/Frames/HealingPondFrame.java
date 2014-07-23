@@ -16,12 +16,18 @@ import daeniristheforgotten.DaenirisTheForgotten;
  * @author Joshua
  */
 public class HealingPondFrame extends javax.swing.JFrame {
-
+    AdventureMenuFrame adventureMenu;
     /**
      * Creates new form HealingPondFrame
      */
+    public HealingPondFrame(AdventureMenuFrame adventureMenu){
+        this();
+        this.adventureMenu = adventureMenu;
+    }
+    
     public HealingPondFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -109,6 +115,7 @@ public class HealingPondFrame extends javax.swing.JFrame {
 
     private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
         this.dispose();
+        this.adventureMenu.setVisible(true);
     }//GEN-LAST:event_doneActionPerformed
 
     /**

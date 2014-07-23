@@ -19,12 +19,18 @@ import java.util.Random;
  * @author Joshua
  */
 public class TreasureFrame extends javax.swing.JFrame {
-
+    AdventureMenuFrame adventureMenu;
     /**
      * Creates new form TreasureFrame
      */
+    public TreasureFrame(AdventureMenuFrame adventureMenu) {
+        this();
+        this.adventureMenu = adventureMenu;
+    }
+    
     public TreasureFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -144,7 +150,7 @@ public class TreasureFrame extends javax.swing.JFrame {
                     boxMessage = "You found a(n) " + secondaries[random2].getName();
                 }
                 
-        TreasureFound tFound = new TreasureFound(boxMessage);
+        TreasureFound tFound = new TreasureFound(boxMessage, this.adventureMenu);
         tFound.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

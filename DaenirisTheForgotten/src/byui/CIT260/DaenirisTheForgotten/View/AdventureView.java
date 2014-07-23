@@ -15,6 +15,7 @@ import daeniristheforgotten.DaenirisTheForgotten;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import byui.CIT260.DaenirisTheForgotten.Control.Constants;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 
 
 
@@ -62,15 +63,27 @@ public class AdventureView extends View{
                 displayMap();
                 break;
             case "W":
-                moveIt(-1, 0);
+        try {
+            moveIt(-1, 0);
+        } catch (illegalActionException ex) {
+            Logger.getLogger(AdventureView.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 displayMap();
                 break;
             case "S":
-                moveIt(1, 0);
+        try {
+            moveIt(1, 0);
+        } catch (illegalActionException ex) {
+            Logger.getLogger(AdventureView.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 displayMap();
                 break;
             case "A":
-                moveIt(0, -1);
+        try {
+            moveIt(0, -1);
+        } catch (illegalActionException ex) {
+            Logger.getLogger(AdventureView.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 displayMap();
                 break;
             case "D":
@@ -91,7 +104,7 @@ public class AdventureView extends View{
                
     }
     
-    public static void moveIt(int x, int y){
+    public static void moveIt(int x, int y) throws illegalActionException {
         try{MoveControl.move(x, y);
         
         } catch (MovedOffMapException ex) {

@@ -11,12 +11,19 @@ package byui.CIT260.DaenirisTheForgotten.Frames;
  * @author Joshua
  */
 public class TreasureFound extends javax.swing.JFrame {
-
+    AdventureMenuFrame adventureMenu;
     /**
      * Creates new form TreasureFound
      */
+    public TreasureFound(String boxMessage, AdventureMenuFrame adventureMenu){
+        this(boxMessage);
+        this.adventureMenu = adventureMenu;
+    }
+    
     public TreasureFound(String boxMessage) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
         this.insideTheBox.setText(boxMessage);
     }
 
@@ -83,6 +90,7 @@ public class TreasureFound extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
+        this.adventureMenu.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

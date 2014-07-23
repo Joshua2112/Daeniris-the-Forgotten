@@ -17,6 +17,7 @@ public class GameOver extends javax.swing.JFrame {
      */
     public GameOver() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

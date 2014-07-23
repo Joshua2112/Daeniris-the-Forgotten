@@ -285,6 +285,10 @@ public class SpellControl{
         //reduce health by spell effect total value
         battleStats.setEnemyCurrentHealth(battleStats.getEnemyCurrentHealth() - effectValue);
         
+        if (battleStats.getEnemyCurrentHealth() < 0){
+            battleStats.setEnemyCurrentHealth(0);
+        }
+        
         //reduce mana by spell cost
         reduceBattleMana(spell, battleStats);
         

@@ -33,6 +33,8 @@ public class BattleFrame extends javax.swing.JFrame {
 
     public BattleFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
         this.playerInfo.setText("Name " + data.getName()
                                 +"\nHealth " + data.getCurrentHealth() + "/" + data.getTotalHealth()
                                 +"\nMagic " + data.getCurrentMagic() + "/" + data.getTotalMagic());

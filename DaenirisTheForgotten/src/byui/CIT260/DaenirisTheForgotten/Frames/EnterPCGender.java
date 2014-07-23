@@ -28,6 +28,7 @@ public class EnterPCGender extends javax.swing.JFrame {
      */
     public EnterPCGender() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

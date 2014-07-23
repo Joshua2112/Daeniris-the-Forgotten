@@ -8,6 +8,8 @@ package byui.CIT260.DaenirisTheForgotten.Control;
 
 import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import byui.CIT260.DaenirisTheForgotten.Exception.MovedOffMapException;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
+import byui.CIT260.DaenirisTheForgotten.Model.BattleScene;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
 import byui.CIT260.DaenirisTheForgotten.Model.World;
@@ -26,8 +28,10 @@ public class MoveControl {
     public static int move(int x, int y) throws MovedOffMapException{
         Game game = DaenirisTheForgotten.currentGame;
         World world = game.getWorld();
+        BattleScene battle = game.getBattle();
         Location[][] mapArray = DaenirisTheForgotten.getCurrentGame().getWorld().getMap();
         double sightValue = 2;
+        
         
         if (world.getxLoc() + x > Constants.MAP_MAX_X -1 || world.getxLoc() + x < 0 || 
                 world.getyLoc() + y > Constants.MAP_MAX_Y- 1 || world.getyLoc() + y < 0){

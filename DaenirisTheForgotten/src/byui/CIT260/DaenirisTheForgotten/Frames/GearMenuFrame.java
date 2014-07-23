@@ -17,6 +17,7 @@ public class GearMenuFrame extends javax.swing.JFrame {
      */
     public GearMenuFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

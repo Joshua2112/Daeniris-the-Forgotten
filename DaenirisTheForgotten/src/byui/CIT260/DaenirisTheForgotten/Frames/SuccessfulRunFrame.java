@@ -17,6 +17,7 @@ public class SuccessfulRunFrame extends javax.swing.JFrame {
      */
     public SuccessfulRunFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

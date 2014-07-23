@@ -17,6 +17,7 @@ public class BestiaryMenuFrame extends javax.swing.JFrame {
      */
     public BestiaryMenuFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

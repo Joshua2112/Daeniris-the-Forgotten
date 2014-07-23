@@ -30,6 +30,8 @@ public class BattleControl {
         
         BattleScene battleData = new BattleScene(enemyGenerator());
         game.setBattle(battleData);
+        battleData.setInBattle(true);
+        
                 
        // BattleMenuView battle = new BattleMenuView();
         //TabularMenu tab = MoveChanceControl.battleTabularMenu(battleData);

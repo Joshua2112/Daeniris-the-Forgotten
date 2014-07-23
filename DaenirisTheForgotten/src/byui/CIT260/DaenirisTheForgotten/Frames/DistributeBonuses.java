@@ -21,17 +21,22 @@ public class DistributeBonuses extends javax.swing.JFrame {
         Actor[][] actor = game.getActor();
         PlayerCharacter player = ((PlayerCharacter) actor[0][0]);
         AdventureMenuFrame adventureMenuFrame;
+        boolean newGame = true;
 
     /**
      * Creates new form DistributeBonuses
+     * @param adventureMenuFrame
      */
-    public DistributeBonuses(AdventureMenuFrame adventureMenuFrame) {
+
+    public DistributeBonuses(AdventureMenuFrame adventureMenu){
         this();
-        this.adventureMenuFrame = adventureMenuFrame;
-    }    
-        
+        this.adventureMenuFrame = adventureMenu;
+        this.newGame = false;
+    }
     public DistributeBonuses() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
         this.playerStats.setText(player.toString());
     }
 
@@ -228,10 +233,14 @@ public class DistributeBonuses extends javax.swing.JFrame {
 
     private void finishedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedButtonActionPerformed
         
-        if (this.adventureMenuFrame.isActive()){
-            AdventureMenuFrame adventureMenu = new AdventureMenuFrame();
-            adventureMenu.setVisible(true);
+        if (!newGame){
+            this.dispose();
+            return;
         }
+        
+        AdventureMenuFrame adventureMenu = new AdventureMenuFrame();
+        adventureMenu.setVisible(true);
+        
         
         this.dispose();
     }//GEN-LAST:event_finishedButtonActionPerformed

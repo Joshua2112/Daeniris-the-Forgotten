@@ -17,6 +17,7 @@ public class EnterCharacterName extends javax.swing.JFrame {
      */
     public EnterCharacterName() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

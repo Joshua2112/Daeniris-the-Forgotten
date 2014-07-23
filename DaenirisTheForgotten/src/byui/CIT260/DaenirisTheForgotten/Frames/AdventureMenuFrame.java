@@ -11,6 +11,7 @@ import static byui.CIT260.DaenirisTheForgotten.Control.GameControl.game;
 import byui.CIT260.DaenirisTheForgotten.Control.MoveChanceControl;
 import byui.CIT260.DaenirisTheForgotten.Control.MoveControl;
 import byui.CIT260.DaenirisTheForgotten.Exception.MovedOffMapException;
+import byui.CIT260.DaenirisTheForgotten.Exception.illegalActionException;
 import byui.CIT260.DaenirisTheForgotten.Model.Actor;
 import byui.CIT260.DaenirisTheForgotten.Model.Game;
 import byui.CIT260.DaenirisTheForgotten.Model.Location;
@@ -22,7 +23,11 @@ import byui.CIT260.DaenirisTheForgotten.View.PlayerCharacterInfoView;
 import daeniristheforgotten.DaenirisTheForgotten;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -39,7 +44,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
      * Creates new form AdventureMenuFrame
      */
     public AdventureMenuFrame() {
-        
+        //this.setLocationRelativeTo(null);
         
         Location[][] mapArray = game.getWorld().getMap();
         
@@ -106,22 +111,26 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
             option = MoveControl.move(x, y);
         
         } catch (MovedOffMapException ex) {
-            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
+
         
         switch (option){
             case 1:
                 BattleControl.createNewBattle();
                 BattleFrame battle = new BattleFrame(this);
                 battle.setVisible(true);
+                this.setVisible(false);
                 break;
             case 2:
-                TreasureFrame treasure = new TreasureFrame();
+                TreasureFrame treasure = new TreasureFrame(this);
                 treasure.setVisible(true);
+                this.setVisible(false);
                 break;
             case 3:
-                HealingPondFrame healingPond = new HealingPondFrame();
+                HealingPondFrame healingPond = new HealingPondFrame(this);
                 healingPond.setVisible(true); 
+                this.setVisible(false);
                 break;
         }
     }
@@ -301,10 +310,10 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
         level.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         level.setText("level");
 
-        playerClass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        playerClass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         playerClass.setText("player Class");
 
-        playerGender.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        playerGender.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         playerGender.setText("player gender");
 
         playerName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -339,9 +348,9 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(playerName, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(level, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(playerName, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(level, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(playerClass, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(playerGender, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
@@ -360,7 +369,7 @@ public class AdventureMenuFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Experience, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(gold, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(917, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
